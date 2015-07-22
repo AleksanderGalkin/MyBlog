@@ -17,6 +17,8 @@ namespace MyBlog.DomenModels
         public int RegistrationId { get; set; }
         public Registration Registration { get; set;}
         bool IsNotificarionAllowed { get; set;}
+        [MaxLength(6)]
+        [MinLength(4)]
         string Sex { get; set;}
         
     }
