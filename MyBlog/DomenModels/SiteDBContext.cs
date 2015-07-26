@@ -10,7 +10,15 @@ namespace MyBlog.DomenModels
     {
         public SiteDBContext()
             : base("SiteDBConnection")
-        {}
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SiteDBContext, MyBlog.Migrations.Configuration>("SiteDBConnection"));
+        }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("dbo");
+        }
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<User> Users { get; set; }
     }
