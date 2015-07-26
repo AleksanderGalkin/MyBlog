@@ -3,19 +3,16 @@
   <Class Name="MyBlog.DomenModels.Registration">
     <Position X="3.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAoAAAAAAIAAAIAEBAAAAgAAAAQAAAQA=</HashCode>
+      <HashCode>AAADAAAAAAAAAoAAAAAAIAAAIAEBAAAAgAAAAQAAAQA=</HashCode>
       <FileName>DomenModels\Registration.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyBlog.DomenModels.User">
-    <Position X="0.75" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAABIAAAAAABAAAAAAAAAAAAAAAAQAEAAA=</HashCode>
       <FileName>DomenModels\User.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Registration" />
-    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -8,14 +8,13 @@ using System.Web;
 namespace MyBlog.DomenModels
 {
     public class User
-    {
-        [Key]
+    {   [Key]
         [ForeignKey("Registration")]
-        public int Id { get; set; }
+        public int RegistrationId { get; set; }
+        public virtual Registration Registration { get; set; }
+
         public string FullName { get; set;}
         public string Mail { get; set;}
-        public int RegistrationId { get; set; }
-        public Registration Registration { get; set;}
         bool IsNotificarionAllowed { get; set;}
         [MaxLength(6)]
         [MinLength(4)]
