@@ -96,12 +96,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyBlog\MyBlog.csproj">
-      <Project>{4120FF14-A214-4561-A47B-4386EE8D0A09}</Project>
-      <Name>MyBlog</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
