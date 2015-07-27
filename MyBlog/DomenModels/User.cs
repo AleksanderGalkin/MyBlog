@@ -12,14 +12,15 @@ namespace MyBlog.DomenModels
         [Key]
         [ForeignKey("Registration")]
         public int Id { get; set; }
-        public string FullName { get; set;}
-        public string Mail { get; set;}
-        public int RegistrationId { get; set; }
         public Registration Registration { get; set;}
-        bool IsNotificarionAllowed { get; set;}
+        public bool IsNotificarionAllowed { get; set;}
         [MaxLength(6)]
         [MinLength(4)]
-        string Sex { get; set;}
-        
+        [Required]
+        public string Sex { get; set;}
+
+        [Timestamp]
+        public Byte[] RowVer { get; set; }
+
     }
 }

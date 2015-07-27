@@ -184,6 +184,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507270517193_create.cs" />
+    <Compile Include="Migrations\201507270517193_create.Designer.cs">
+      <DependentUpon>201507270517193_create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -194,10 +199,6 @@
     <Content Include="App_Data\aspnet-MyBlog-20150720092511.mdf" />
     <Content Include="App_Data\aspnet-MyBlog-20150720092511_log.ldf">
       <DependentUpon>aspnet-MyBlog-20150720092511.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SiteDB.mdf" />
-    <Content Include="App_Data\SiteDB_log.ldf">
-      <DependentUpon>SiteDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -256,13 +257,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507270517193_create.resx">
+      <DependentUpon>201507270517193_create.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

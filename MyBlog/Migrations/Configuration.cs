@@ -9,7 +9,7 @@ namespace MyBlog.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MyBlog.DomenModels.SiteDBContext context)

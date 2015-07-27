@@ -98,6 +98,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog\MyBlog.csproj">
+      <Project>{ce6ee6e1-c71e-4e0e-a6d4-f7bbd0e3dc1d}</Project>
+      <Name>MyBlog</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
