@@ -5,14 +5,14 @@ namespace MyBlog.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MyBlog.DomenModels.SiteDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MyBlog.DomainModels.SiteDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MyBlog.DomenModels.SiteDBContext context)
+        protected override void Seed(MyBlog.DomainModels.SiteDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

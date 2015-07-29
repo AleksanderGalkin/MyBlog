@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace MyBlog.DomenModels
+namespace MyBlog.DomainModels
 {
     public class User
     {

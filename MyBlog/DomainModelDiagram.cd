@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="MyBlog.DomenModels.Registration">
+  <Class Name="MyBlog.DomainModels.Registration">
     <Position X="3.75" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAAEoAAAAAAIAAAIAABAAAAgAAAAQAAAQA=</HashCode>
-      <FileName>DomenModels\Registration.cs</FileName>
+      <FileName>DomainModels\Registration.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyBlog.DomenModels.User">
+  <Class Name="MyBlog.DomainModels.User">
     <Position X="0.75" Y="0.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAFAAAAAAABAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>DomenModels\User.cs</FileName>
+      <FileName>DomainModels\User.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Registration" />

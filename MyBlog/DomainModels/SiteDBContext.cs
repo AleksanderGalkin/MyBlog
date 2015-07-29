@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MyBlog.DomenModels
+namespace MyBlog.DomainModels
 {
     public class SiteDBContext:DbContext
     {

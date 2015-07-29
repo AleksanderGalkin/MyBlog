@@ -28,7 +28,6 @@ namespace MyBlog.CrossConserns.Exceptions
         }
         public override void OnException(MethodExecutionArgs args)
         {
-            // Console.WriteLine("Exception occured in {0}.{1}", _className, _methodName);
             System.Diagnostics.Debug.WriteLine("SomeText");
             args.FlowBehavior = FlowBehavior.RethrowException;
         }

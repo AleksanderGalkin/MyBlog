@@ -1,5 +1,5 @@
 ﻿using MyBlog.CrossConserns.Exceptions;
-using MyBlog.DomenModels;
+using MyBlog.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +11,30 @@ namespace MyBlog.Controllers
     
     public class HomeController : Controller
     {
+        SiteDBContext db = new SiteDBContext();
         [ExceptionCatcherAttribute]
         public ActionResult Index()
         {
-            var q= 10 -10;
-            var s = 10 / q;
-            SiteDBContext db = new SiteDBContext();
-            var r = from a in db.Users
-                    select a;
-            return View();
+            
+            IEnumerable<Registration> model = db.Registrations.Select(x=>x);
+            return View(model);
         }
 
+        public ActionResult Create()
+        {
+            Registration model = new DomainModels.Registration();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Create(Registration Model)
+        {
+            db.Registrations.Add(Model);
+            try { db.SaveChanges();}
+            catch(Exception e)
+            { }
+            
+            return RedirectToAction("Index");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
