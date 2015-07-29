@@ -9,7 +9,7 @@ namespace MyBlog.DomenModels
     public class SiteDBContext:DbContext
     {
         public SiteDBContext()
-            : base("SiteDBConnection")
+            : base("SiteDBConnection_")
         {}
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<User> Users { get; set; }
