@@ -23,6 +23,7 @@ namespace MyBlog.Controllers
         public ActionResult Create()
         {
             Registration model = new DomainModels.Registration();
+            model.DateOfMailSended = DateTime.Now;
             return View(model);
         }
         [HttpPost]

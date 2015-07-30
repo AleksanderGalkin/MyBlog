@@ -20,6 +20,7 @@ namespace MyBlog.DomainModels
         public bool IsMailSended { get; set; }
         //[Range(typeof(DateTime),"2015-07-25", "2015-08-25",ErrorMessage = "Date of mail sendig shuld be in range...")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = @"{0:dd\/MM\/yyyy}", ApplyFormatInEditMode =true)] //@"{0:dd\/MM\/yyyy}"
         public DateTime DateOfMailSended { get; set; }
         public bool IsDeliveryError { get; set; }
         public bool IsUserBack { get; set; }
