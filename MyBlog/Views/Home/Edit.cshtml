@@ -35,8 +35,10 @@
             @Html.LabelFor(model => model.IsMailSended, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsMailSended)
-                    @Html.ValidationMessageFor(model => model.IsMailSended, "", new { @class = "text-danger" })
+                    <label>
+                        @Html.EditorFor(model => model.IsMailSended)
+                        @Html.ValidationMessageFor(model => model.IsMailSended, "", new { @class = "text-danger" })
+                    </label>
                 </div>
             </div>
         </div>
@@ -53,8 +55,10 @@
             @Html.LabelFor(model => model.IsDeliveryError, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsDeliveryError)
-                    @Html.ValidationMessageFor(model => model.IsDeliveryError, "", new { @class = "text-danger" })
+                    <label>
+                        @Html.EditorFor(model => model.IsDeliveryError)
+                        @Html.ValidationMessageFor(model => model.IsDeliveryError, "", new { @class = "text-danger" })
+                    </label>
                 </div>
             </div>
         </div>
@@ -63,8 +67,10 @@
             @Html.LabelFor(model => model.IsUserBack, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsUserBack)
-                    @Html.ValidationMessageFor(model => model.IsUserBack, "", new { @class = "text-danger" })
+                    <label>
+                        @Html.EditorFor(model => model.IsUserBack)
+                        @Html.ValidationMessageFor(model => model.IsUserBack, "", new { @class = "text-danger" })
+                    </label>
                 </div>
             </div>
         </div>
@@ -73,8 +79,10 @@
             @Html.LabelFor(model => model.IsUserChangePassword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsUserChangePassword)
-                    @Html.ValidationMessageFor(model => model.IsUserChangePassword, "", new { @class = "text-danger" })
+                    <label>
+                        @Html.EditorFor(model => model.IsUserChangePassword)
+                        @Html.ValidationMessageFor(model => model.IsUserChangePassword, "", new { @class = "text-danger" })
+                    </label>
                 </div>
             </div>
         </div>
@@ -83,8 +91,10 @@
             @Html.LabelFor(model => model.IsUserConfirmRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsUserConfirmRegistration)
-                    @Html.ValidationMessageFor(model => model.IsUserConfirmRegistration, "", new { @class = "text-danger" })
+                    <label>
+                        @Html.EditorFor(model => model.IsUserConfirmRegistration)
+                        @Html.ValidationMessageFor(model => model.IsUserConfirmRegistration, "", new { @class = "text-danger" })
+                    </label>
                 </div>
             </div>
         </div>

@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Set margin for datails lists */
+
+
+dl.details >dt,dd{
+    padding-top: 1%;
+}
