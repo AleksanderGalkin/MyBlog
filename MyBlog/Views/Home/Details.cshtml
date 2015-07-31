@@ -1,0 +1,82 @@
+﻿@model MyBlog.DomainModels.Registration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Registration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMailSended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMailSended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfMailSended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfMailSended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeliveryError)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeliveryError)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUserBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUserBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUserChangePassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUserChangePassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUserConfirmRegistration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUserConfirmRegistration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

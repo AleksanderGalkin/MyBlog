@@ -16,7 +16,7 @@ namespace MyBlog.DomainModels
         public bool IsNotificarionAllowed { get; set;}
         [MaxLength(6)]
         [MinLength(4)]
-        [Required]
+     
         public string Sex { get; set;}
 
         [Timestamp]
