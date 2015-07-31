@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="CrossConserns\Exceptions\ExceptionCatcherAttribute.cs" />
     <Compile Include="DomainModels\Registration.cs" />
@@ -326,6 +327,7 @@
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\default\landing-index.js" />
     <Content Include="Scripts\default\home-edit.js" />
     <Content Include="Scripts\default\home-create.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -444,6 +446,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Landing\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

@@ -30,6 +30,9 @@ namespace MyBlog
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datepicker.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/landing").Include(
+                      "~/Content/landing.css"));
         }
     }
 }
