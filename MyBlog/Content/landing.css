@@ -13,19 +13,10 @@ footer {
 
 
 #content{
-    min-height: 330px;
-	background-image: url(../Content/images/landing/content.png);
     margin-bottom: 0px;
-    background-position: center 40%;
-    background-image: url(../Content/images/landing/content.png);
-	background-size: cover;
     background-color: #39404B;
 }
-        @media (max-width: 433px) {
-            #content {
-                min-height: 160px;
-            }
-        }
+
 
 .inputbox {
     color: #b2b2b2;
@@ -35,6 +26,11 @@ footer {
     .inputbox.tbUser{background:   #2D333C url(../Content/images/landing/tb_user.png) 10px no-repeat;}
 	.inputbox.tbMail{background:   #2D333C url(../Content/images/landing/tb_mail.png) 10px no-repeat;}
 	.inputbox.tbKey{background:    #2D333C url(../Content/images/landing/tb_key.png) 10px no-repeat;}
+
+
+.form-control {
+    border: 1px solid #464C57;
+}
 
 .button {
 			outline: none;
@@ -82,7 +78,7 @@ footer {
 						label.cbLabelOut{ 
 							width: 15px;
 							height: 15px;
-							-webkit-appearance: push-button;
+							-webkit-appearance: none;
 							-moz-appearance: button; 
 							display: inline-block;
 							cursor: pointer;
@@ -93,9 +89,9 @@ footer {
 							text-align: center;
 						}
 						label.cbLabelIn{ 
-							width: 7px;
-							height: 7px;
-							-webkit-appearance: push-button;
+							width: 6px;
+							height: 6px;
+							-webkit-appearance: none;
 							-moz-appearance: button; 
 							display: block;
 							cursor: pointer;
@@ -104,15 +100,7 @@ footer {
 							margin: 4px;
 
 						}
-						label.cbLabelText{ 
-							display: inline-block;
-							color: #8f8f8f;
-							cursor: pointer;
-							line-height:0.9;
-							text-align: center;
-							vertical-align: center;
 
-						}
 						/* Toggled State */
 						input[type=checkbox]:checked  + label.cbLabelOut   label.cbLabelIn{
 						   background-color: #FF84BC;
@@ -157,6 +145,14 @@ footer {
 								-o-transform: rotate(90deg); /* Äëÿ Opera */
 								transform: rotate(90);
 								position:relative;
-                                top: -8em;;
+                                top: -8em;
 							}
 				}
+
+
+.carouselImges img {
+    width:100%;
+    background-position: center 40%;
+	background-size: cover;
+}
+

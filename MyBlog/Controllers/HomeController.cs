@@ -22,6 +22,7 @@ namespace MyBlog.Controllers
         }
 
         // GET: /Movies/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

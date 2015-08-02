@@ -17,82 +17,110 @@
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/landing")
 
-    @* <link rel="stylesheet" href="css/styles.css" type="text/css">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--	<script type = 'text/javascript' src = 'file://///ogk-s-appmine01/mdb/tcss/jq-1.9.1/jquery-1.9.1.js'> </script> -->
-    <script type='text/javascript' src='http://yastatic.net/jquery/2.1.3/jquery.min.js'> </script>
-
-    <script type='text/javascript' src='./js/slideshow.js'></script>*@
-
-
 </head>
 <body>
     <header class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <a href="#" ><img class="center-block" src=@Url.Content("~/Content/images/landing/Logo.png") alt="Whitesquare logo"></a>
+                <a href="#" ><img class="center-block" src=@Url.Content("~/Content/images/landing/Logo.png") alt="GalkinLab logo"></a>
             </div>
         </div>
 
     </header>
     <div id="wrapper" class="container">
-        <div class='row'> 
-            <div id='content' class="col-md-10 col-md-offset-1 panel">
-                <!-- slides -->
-                <div class="slide" id="slide-1" data-image=@Url.Content("~/Content/images/landing/image1.jpg")></div>
-                <div class="slide" id="slide-2" data-image=@Url.Content("~/Content/images/landing/image2.jpg")></div>
-                <div class="slide" id="slide-3" data-image=@Url.Content("~/Content/images/landing/image3.jpg")></div>
-            </div>
-        </div>
-        <div class="row">
-            <div id='contentShadow' class="col-md-10 col-md-offset-1">
-                <img class="img-responsive"   src=@Url.Content("~/Content/images/landing/contentShadow.png")>
-            </div>
-        </div>
-        <div id='account' class="row">
-            <div id='account_registration' class="col-md-4 col-md-offset-1">
-                <p class='h3'>Регистрация</p>
-                <p class="small">Это не отнимет много Вашего времени</p>
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label for="tbUser" class="col-md-3 control-label">Имя</label>
-                        <input type="text" id="tbUser" class='form-control col-md-9 inputbox tbUser' placeholder='Полное имя'>
-                        <label for="tbMail" class="col-md-3 control-label">E-mail</label>
-                        <input type='email' id="tbMail" class='form-control col-md-9 inputbox tbMail' placeholder='Электронный почтовый ящик'>
-                    </div>
-                    <div class="form-group">
-                        
-                        <div class='checkboxArea checkbox-inline'>
-                        
-                                <input type='checkbox' id='cb1'>
-                                <label for='cb1' class='cbLabelOut'>
-                                    <label for='cb1' class='cbLabelIn'></label>
-                                </label>
-                                <label for='cb1' class='label'>Уведомлять о новинках?</label>
-                                <label for='cb1' class='label '>Обещаем не злоупотреблять:)</label>
-                        
+        <div class='row'>
+                <div id='content' class="col-md-10 col-md-offset-1 panel">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner ">
+                            <div class="item active carouselImges">
+                                <img class=" img-responsive center-block " src=@Url.Content("~/Content/images/landing/Content.png")
+                                     style="background-image:url(../Content/images/landing/image1.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Карьер Восточный АО "Полюс"
+                                </div>
+                            </div>
+                            <div class="item  carouselImges">
+                                <img class=" img-responsive  center-block" src=@Url.Content("~/Content/images/landing/Content.png")
+                                     style="background-image:url(../Content/images/landing/image2.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Большие глаза
+                                </div>
+                            </div>
+                            <div class="item carouselImges">
+                                <img class=" img-responsive  center-block" src=@Url.Content("~/Content/images/landing/Content.png")
+                                     style="background-image:url(../Content/images/landing/image3.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Здесь все..
+                                </div>
+                            </div>
                         </div>
-                      
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
                     </div>
-                    <input type='submit' class='btn btn-default button' value='Регистрация'>
-                </form>
                 </div>
-                <div id='vertical_line' class="col-md-2 col-sm-12 ">
-                    @*<img id='content_image' class="img-responsive center-block text-center" src=@Url.Content("~/Content/images/landing/vertical-line.png")>*@
-                    <img id='content_image' class="img-responsive center-block text-center " src=@Url.Content("~/Content/images/landing/vertical-line.png")>
-                    @*<div id='content_image' class="center-block text-center"></div>*@
+            </div>
+            <div class="row">
+                <div id='contentShadow' class="col-md-10 col-md-offset-1">
+                    <img class="img-responsive"   src=@Url.Content("~/Content/images/landing/contentShadow.png")>
                 </div>
-                <div id='account_login' class="col-md-4 ">
-                    <p class='h3'>Логин</p>
-                    <p class="small">Помогите нам вспомнить Вас</p>
-                    
-                        <form  class="form-horizontal" role="form">
+            </div>
+       
+
+                <div id='account' class="row">
+                    <div id='account_registration' class="col-md-4 col-md-offset-1">
+                        <p class='h3'>Регистрация</p>
+                        <p class="small">Это не отнимет много Вашего времени</p>
+                        <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label for="tbUser2"  class="col-md-3 control-label">Имя</label>
+                                <label for="tbUser" class="col-md-3 control-label">Имя</label>
+                                <input type="text" id="tbUser" class='form-control col-md-9 inputbox tbUser' placeholder='Полное имя'>
+                                <label for="tbMail" class="col-md-3 control-label">E-mail</label>
+                                <input type='email' id="tbMail" class='form-control col-md-9 inputbox tbMail' placeholder='Электронный почтовый ящик'>
+                            </div>
+                            <div class="form-group">
+
+                                <div class='checkboxArea checkbox-inline'>
+
+                                    <input type='checkbox' id='cb1'>
+                                    <label for='cb1' class='cbLabelOut'>
+                                        <label for='cb1' class='cbLabelIn'></label>
+                                    </label>
+                                    <label for='cb1' class='label'>Уведомлять о новинках?</label>
+                                    <label for='cb1' class='label '>Обещаем не злоупотреблять:)</label>
+
+                                </div>
+
+                            </div>
+                            <input type='submit' class='btn btn-default button' value='Регистрация'>
+                        </form>
+                    </div>
+                    <div id='vertical_line' class="col-md-2 col-sm-12 ">
+                        <img id='content_image' class="img-responsive center-block text-center " src=@Url.Content("~/Content/images/landing/vertical-line.png")>
+                    </div>
+                    <div id='account_login' class="col-md-4 ">
+                        <p class='h3'>Логин</p>
+                        <p class="small">Помогите нам вспомнить Вас</p>
+
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="tbUser2" class="col-md-3 control-label">Имя</label>
                                 <input type='text' id="tbUser2" class='form-control col-md-9 inputbox tbUser' placeholder='ivan.ivanov@mail.ru'>
                                 <label for="tbKey" class="col-md-3 control-label">E-mail</label>
                                 <input type='password' id="tbKey" class='form-control col-md-9 inputbox tbKey' placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'>
@@ -106,21 +134,21 @@
                                     <label for='cb2' class='label'>Запомнить пароль</label>
                                     <label for='cb2' class='label '><a href='#'>Забыли пароль?</a></label>
                                 </div>
-                             </div>
-                             <input type='submit' class='btn btn-default button' value='Войти'>
+                            </div>
+                            <input type='submit' class='btn btn-default button' value='Войти'>
 
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <footer  class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <a href="#"><img class="center-block" src=@Url.Content("~/Content/images/landing/footer-logo.png") alt="Whitesquare logo"></a>
+            <footer class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <a href="#"><img class="center-block" src=@Url.Content("~/Content/images/landing/footer-logo.png") alt="Whitesquare logo"></a>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
 </body>
 </html>
 
