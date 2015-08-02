@@ -11,8 +11,9 @@ footer {
     margin-top: 5% ;
 }
 
+
 #content{
-	height: 330px;
+    min-height: 330px;
 	background-image: url(../Content/images/landing/content.png);
     margin-bottom: 0px;
     background-position: center 40%;
@@ -20,6 +21,12 @@ footer {
 	background-size: cover;
     background-color: #39404B;
 }
+        @media (max-width: 433px) {
+            #content {
+                min-height: 160px;
+            }
+        }
+
 .inputbox {
     color: #b2b2b2;
     padding-left: 15%; 
@@ -124,13 +131,12 @@ footer {
 		margin: 0 0;
 		vertical-align: top;
 		text-align: center;
+        
 }
 				@media (min-width: 992px) {
 						#vertical_line{
-								max-height: 100%;
-								display: inline-block;
 						}
-							#vertical_line img {
+							#vertical_line #content_image {
 								-moz-transform: rotate(0deg); /* Äëÿ Firefox */
 								-ms-transform: rotate(0deg); /* Äëÿ IE */
 								-webkit-transform: rotate(0deg); /* Äëÿ Safari, Chrome, iOS */
@@ -142,18 +148,15 @@ footer {
 				@media (max-width: 992px) {
 
 						#vertical_line{
-
-								display: inline-block;
+                                max-height : 5em;
 						}
-							#vertical_line img {
+							#vertical_line #content_image {
 								-moz-transform: rotate(90deg); /* Äëÿ Firefox */
 								-ms-transform: rotate(90deg); /* Äëÿ IE */
 								-webkit-transform: rotate(90deg); /* Äëÿ Safari, Chrome, iOS */
 								-o-transform: rotate(90deg); /* Äëÿ Opera */
 								transform: rotate(90);
-								
-                                min-height:100%;
-								max-width: 50%;
-								
+								position:relative;
+                                top: -8em;;
 							}
 				}
