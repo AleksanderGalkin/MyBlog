@@ -94,6 +94,18 @@
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PostSharp, Version=4.1.20.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PostSharp.4.1.20\lib\net35-client\PostSharp.dll</HintPath>
@@ -155,6 +167,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -181,30 +197,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AbstractController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="CrossConserns\Exceptions\ExceptionCatcherAttribute.cs" />
-    <Compile Include="DomainModels\Registration.cs" />
     <Compile Include="DomainModels\SiteDBContext.cs" />
-    <Compile Include="DomainModels\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507270517193_create.cs" />
-    <Compile Include="Migrations\201507270517193_create.Designer.cs">
-      <DependentUpon>201507270517193_create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507290813593_2.cs" />
-    <Compile Include="Migrations\201507290813593_2.Designer.cs">
-      <DependentUpon>201507290813593_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507310511537_3.cs" />
-    <Compile Include="Migrations\201507310511537_3.Designer.cs">
-      <DependentUpon>201507310511537_3.cs</DependentUpon>
+    <Compile Include="Infrustructure\DependencyResolver.cs" />
+    <Compile Include="Infrustructure\IDbContext.cs" />
+    <Compile Include="Infrustructure\InjectDependency.cs" />
+    <Compile Include="Infrustructure\IUnitOfWork.cs" />
+    <Compile Include="Infrustructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201508030227366_create.cs" />
+    <Compile Include="Migrations\201508030227366_create.Designer.cs">
+      <DependentUpon>201508030227366_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -212,12 +225,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\LandingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-MyBlog-20150720092511.mdf" />
-    <Content Include="App_Data\aspnet-MyBlog-20150720092511_log.ldf">
-      <DependentUpon>aspnet-MyBlog-20150720092511.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -449,7 +459,6 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Landing\Index.cshtml" />
-    <Content Include="Views\Landing\Index - old version.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -458,19 +467,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507270517193_create.resx">
-      <DependentUpon>201507270517193_create.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507290813593_2.resx">
-      <DependentUpon>201507290813593_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507310511537_3.resx">
-      <DependentUpon>201507310511537_3.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\images\landing\" />
     <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508030227366_create.resx">
+      <DependentUpon>201508030227366_create.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,6 @@
 ﻿using MyBlog.CrossConserns.Exceptions;
-using MyBlog.DomainModels;
+
+using MyBlog.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace MyBlog.Controllers
     
     public class HomeController : Controller
     {
-        SiteDBContext db = new SiteDBContext();
+        ApplicationDbContext  db = new ApplicationDbContext();
         [ExceptionCatcherAttribute]
         public ActionResult Index()
         {
             
-            IEnumerable<Registration> model = db.Registrations.Select(x=>x);
-            return View(model);
+          //  IEnumerable<ApplicationUser> model = db.Users;
+            return View();
         }
 
         // GET: /Movies/Details/5
@@ -29,7 +30,7 @@ namespace MyBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration movie = db.Registrations.Find(id);
+            ApplicationUser movie = db.Users.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -39,17 +40,17 @@ namespace MyBlog.Controllers
 
         public ActionResult Create()
         {
-            Registration model = new DomainModels.Registration();
-            model.DateOfMailSended = DateTime.Now;
+            ApplicationUser model = new ApplicationUser();
+           // model.DateOfMailSended = DateTime.Now;
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Fullname,Mail,IsMailSended,DateOfMailSended,IsDeliveryError,IsUserBack,IsUserChangePassword,IsUserConfirmRegistration")] Registration Model)
+        public ActionResult Create([Bind(Include = "Id,Fullname,Mail,IsMailSended,DateOfMailSended,IsDeliveryError,IsUserBack,IsUserChangePassword,IsUserConfirmRegistration")] ApplicationUser Model)
         {
             if (ModelState.IsValid)
             {
-                db.Registrations.Add(Model);
+                db.Users.Add(Model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -63,7 +64,7 @@ namespace MyBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration model = db.Registrations.Find(id);
+            ApplicationUser model = db.Users.Find(id);
             if (model == null)
             {
                 return HttpNotFound();
@@ -72,7 +73,7 @@ namespace MyBlog.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit ([Bind(Include = "Id,Fullname,Mail,IsMailSended,DateOfMailSended,IsDeliveryError,IsUserBack,IsUserChangePassword,IsUserConfirmRegistration,RowVer")]Registration model)
+        public ActionResult Edit ([Bind(Include = "Id,Fullname,Mail,IsMailSended,DateOfMailSended,IsDeliveryError,IsUserBack,IsUserChangePassword,IsUserConfirmRegistration,RowVer")]ApplicationUser model)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +90,7 @@ namespace MyBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration model = db.Registrations.Find(id);
+            ApplicationUser model = db.Users.Find(id);
             if(model == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
@@ -106,12 +107,12 @@ namespace MyBlog.Controllers
             { 
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration model = db.Registrations.Find(id);
+            ApplicationUser model = db.Users.Find(id);
             if(model == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
-            db.Registrations.Remove(model);
+            db.Users.Remove(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

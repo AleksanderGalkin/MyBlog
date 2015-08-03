@@ -4,14 +4,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MyBlog.DomainModels
-{
-    public class SiteDBContext:DbContext
-    {
-        public SiteDBContext()
-            : base("SiteDBConnection_")
-        {}
-        public DbSet<Registration> Registrations { get; set; }
-        public DbSet<User> Users { get; set; }
-    }
-}
+//namespace MyBlog.DomainModels
+//{
+//    public class SiteDBContext:DbContext
+//    {
+//        public SiteDBContext()
+//            : base("SiteDBConnection")
+//        {}
+//        public DbSet<Registration> Registrations { get; set; }
+//        public DbSet<ApplicationUser> Users { get; set; }
+//    }
+//}
