@@ -38,23 +38,27 @@ namespace MyBlog.Controllers.Tests
             
         }
         [TestMethod()]
-        public void IndexTest()
+        public void Index()
         {
             LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
             ViewResult result = controller.Index() as ViewResult;
             Assert.IsNotNull(result);
+            Assert.AreEqual("Index",result.ViewName);
         }
 
 
         [TestMethod()]
-        public void CreateTest()
+        public void CreatePost_FailureEmail()
         {
             LandingViewModel vm = new LandingViewModel();
-            vm.Email = "user.name@domen.ru";
+            vm.Email = "user.namedomenru";
             vm.Password = "123456Sd";
             LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
-            ActionResult result = controller.Create(vm) as RedirectResult;
-            
+            ViewResult result = controller.Create(vm) as ViewResult;
+            Assert.AreEqual(result.ViewName,"Index");
+            Assert.IsInstanceOfType(result.Model,typeof(LandingViewModel));
+            Assert.AreEqual((result.Model as LandingViewModel).Email, vm.Email);
+            Assert.AreEqual((result.Model as LandingViewModel).Password, vm.Password);
         }
 
 

@@ -16,23 +16,21 @@ namespace MyBlog.Controllers
         // GET: Landing
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         // POST: Landing/Create
         [HttpPost]
         public ActionResult Create (LandingViewModel Model) //(FormCollection collection)
         {
-            try
+
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            else
+                return View(Model);
         }
 
 
