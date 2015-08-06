@@ -19,6 +19,7 @@ namespace MyBlog.Controllers.Tests
     public class LandingControllerTests
     {
         IKernel ninjectKernel = new StandardKernel();
+        Mock<IDbContext> mockIDbContext;
         Mock<IDbSet<ApplicationUser>> mockSet;
         [TestInitialize]
         public void Init()
@@ -30,14 +31,8 @@ namespace MyBlog.Controllers.Tests
             IQueryable<ApplicationUser> qdata  = data.AsQueryable();
             mockSet = new Mock<IDbSet<ApplicationUser>>();
             setDataForIDbSet(qdata);
-            mockSet.Setup(s => s.Add(It.IsAny<ApplicationUser>())).Callback(() => {
-                data.Add(new ApplicationUser());
-                setDataForIDbSet(qdata);
-            });
-
-            var mockIDbContext = new Mock<IDbContext>();
+            mockIDbContext = new Mock<IDbContext>();
             mockIDbContext.Setup(s => s.Users).Returns(mockSet.Object);
-          //  mockIDbContext.Setup(s => s.SaveChanges()).Callback(() => { mockIDbContext.Object.Users.Add(new ApplicationUser()); });
             ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("DbContext", mockIDbContext.Object);
             
         }
@@ -78,12 +73,9 @@ namespace MyBlog.Controllers.Tests
         public void CreatePost_Valid()
         {
             LandingViewModel vm = new LandingViewModel();
-            vm.Email = "name@domen.ru";
-            vm.Password = "1212";
             LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
             RedirectToRouteResult result = controller.Create(vm) as RedirectToRouteResult;
             mockSet.Verify(x => x.Add(It.IsAny<ApplicationUser>()));
-            var s = mockSet.Object;
             Assert.AreEqual(result.RouteValues["action"], "Index");
         }
 
