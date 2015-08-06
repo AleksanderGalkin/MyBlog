@@ -23,14 +23,14 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult Create (LandingViewModel Model) //(FormCollection collection)
         {
-
             if (ModelState.IsValid)
             {
-
+                ApplicationUser user = new ApplicationUser();
+                user.Email = Model.Email;
+                _unitOfWork.db.Users.Add(user);
                 return RedirectToAction("Index");
             }
-            else
-                return View(Model);
+            return View("Index",Model);
         }
 
 

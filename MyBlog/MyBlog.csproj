@@ -212,7 +212,6 @@
     </Compile>
     <Compile Include="Infrustructure\DependencyResolver.cs" />
     <Compile Include="Infrustructure\IDbContext.cs" />
-    <Compile Include="Infrustructure\InjectDependency.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201508030227366_create.cs" />

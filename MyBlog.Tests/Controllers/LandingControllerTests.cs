@@ -19,23 +19,35 @@ namespace MyBlog.Controllers.Tests
     public class LandingControllerTests
     {
         IKernel ninjectKernel = new StandardKernel();
+        Mock<IDbSet<ApplicationUser>> mockSet;
         [TestInitialize]
         public void Init()
         {
-            var data = new List<ApplicationUser>
+            List<ApplicationUser> data = new List<ApplicationUser>
             {
                 new ApplicationUser ()
-            }.AsQueryable();
-            var mockSet = new Mock<IDbSet<ApplicationUser>>();
-            mockSet.Setup(s => s.Provider).Returns(data.Provider);
-            mockSet.Setup(s => s.Expression).Returns(data.Expression);
-            mockSet.Setup(s => s.ElementType).Returns(data.ElementType);
-            mockSet.Setup(s => s.GetEnumerator()).Returns(data.GetEnumerator());
+            };
+            IQueryable<ApplicationUser> qdata  = data.AsQueryable();
+            mockSet = new Mock<IDbSet<ApplicationUser>>();
+            setDataForIDbSet(qdata);
+            mockSet.Setup(s => s.Add(It.IsAny<ApplicationUser>())).Callback(() => {
+                data.Add(new ApplicationUser());
+                setDataForIDbSet(qdata);
+            });
 
             var mockIDbContext = new Mock<IDbContext>();
             mockIDbContext.Setup(s => s.Users).Returns(mockSet.Object);
+          //  mockIDbContext.Setup(s => s.SaveChanges()).Callback(() => { mockIDbContext.Object.Users.Add(new ApplicationUser()); });
             ninjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("DbContext", mockIDbContext.Object);
             
+        }
+
+        private void setDataForIDbSet (IQueryable<ApplicationUser> qdata)
+        {
+            mockSet.Setup(s => s.Provider).Returns(qdata.Provider);
+            mockSet.Setup(s => s.Expression).Returns(qdata.Expression);
+            mockSet.Setup(s => s.ElementType).Returns(qdata.ElementType);
+            mockSet.Setup(s => s.GetEnumerator()).Returns(qdata.GetEnumerator());
         }
         [TestMethod()]
         public void Index()
@@ -48,12 +60,13 @@ namespace MyBlog.Controllers.Tests
 
 
         [TestMethod()]
-        public void CreatePost_FailureEmail()
+        public void CreatePost_NotValidModel()
         {
             LandingViewModel vm = new LandingViewModel();
-            vm.Email = "user.namedomenru";
-            vm.Password = "123456Sd";
+            vm.Email = "name@domen";
+            vm.Password = "1212";
             LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
+            controller.ModelState.AddModelError("test","Test Model Error");
             ViewResult result = controller.Create(vm) as ViewResult;
             Assert.AreEqual(result.ViewName,"Index");
             Assert.IsInstanceOfType(result.Model,typeof(LandingViewModel));
@@ -61,6 +74,18 @@ namespace MyBlog.Controllers.Tests
             Assert.AreEqual((result.Model as LandingViewModel).Password, vm.Password);
         }
 
+        [TestMethod()]
+        public void CreatePost_Valid()
+        {
+            LandingViewModel vm = new LandingViewModel();
+            vm.Email = "name@domen.ru";
+            vm.Password = "1212";
+            LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
+            RedirectToRouteResult result = controller.Create(vm) as RedirectToRouteResult;
+            mockSet.Verify(x => x.Add(It.IsAny<ApplicationUser>()));
+            var s = mockSet.Object;
+            Assert.AreEqual(result.RouteValues["action"], "Index");
+        }
 
     }
 }
