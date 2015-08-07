@@ -8,8 +8,9 @@ namespace MyBlog.ViewModels
 {
     public class LandingViewModel
     {
-        [Display(Name ="Имя")]
+        [Display(Name ="Полное имя")]
         [Required]
+        [StringLength(100,MinimumLength =4, ErrorMessage = "Длина имени должна быть от 4 до 100 символов")]
         public string FullName { get; set; }
         [Display(Name ="E-Mail")]
         [DataType(DataType.EmailAddress)]

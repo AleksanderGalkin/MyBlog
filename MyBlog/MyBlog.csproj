@@ -213,6 +213,7 @@
     <Compile Include="Infrustructure\DependencyResolver.cs" />
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
+    <Compile Include="Infrustructure\MyDefaultModelBinder.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201508030227366_create.cs" />
     <Compile Include="Migrations\201508030227366_create.Designer.cs">
@@ -224,6 +225,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\LandingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -419,7 +422,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -458,6 +463,7 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Landing\Index.cshtml" />
+    <Content Include="Views\Landing\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
