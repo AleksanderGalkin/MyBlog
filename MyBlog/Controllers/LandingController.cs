@@ -16,37 +16,34 @@ namespace MyBlog.Controllers
         // GET: Landing
         public ActionResult Index()
         {
-            return View("Index");
+            Tuple<LandingRegisterViewModel, LandingLoginViewModel> result =
+             new Tuple<LandingRegisterViewModel, LandingLoginViewModel>(new LandingRegisterViewModel(), new LandingLoginViewModel());
+            return View("Index", result);
         }
-        [HttpPost]
-        public ActionResult Index(LandingViewModel Model)
-        {
-            if (ModelState.IsValid) { }
-            return RedirectToAction("Index");
-        }
-
         // POST: Landing/Register
         [HttpPost]
-        public ActionResult Register(Tuple<MyBlog.ViewModels.RegisterViewModel, MyBlog.ViewModels.LoginViewModel> Model) //(FormCollection collection)
+        public ActionResult Register(LandingRegisterViewModel Model) //(FormCollection collection)
         {
             if (ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser();
-                user.Email = Model.Item1.Email;
+                user.Email = Model.EmailReg;
                 _unitOfWork.db.Users.Add(user);
                 return RedirectToAction("Index");
             }
-            return View("Index",Model);
+            Tuple < LandingRegisterViewModel, LandingLoginViewModel > result =
+              new Tuple<LandingRegisterViewModel, LandingLoginViewModel>(Model,new LandingLoginViewModel()) ;
+            return View("Index", result);
         }
 
         // POST: Landing/Login
         [HttpPost]
-        public ActionResult Login(Tuple<MyBlog.ViewModels.RegisterViewModel, MyBlog.ViewModels.LoginViewModel> Model) //(FormCollection collection)
+        public ActionResult Login( LandingLoginViewModel Model) //(FormCollection collection)
         {
             if ( ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser();
-                user.Email = Model.Item1.Email;
+                user.Email = Model.EmailLog;
                 _unitOfWork.db.Users.Add(user);
                 return RedirectToAction("Index");
             }

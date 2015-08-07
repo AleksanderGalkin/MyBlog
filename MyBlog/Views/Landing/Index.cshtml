@@ -1,4 +1,4 @@
-﻿@model  Tuple<MyBlog.ViewModels.RegisterViewModel, MyBlog.ViewModels.LoginViewModel>
+﻿@model  Tuple<MyBlog.ViewModels.LandingRegisterViewModel, MyBlog.ViewModels.LandingLoginViewModel>
 @{
     Layout = null;
 }
@@ -85,84 +85,13 @@
 
                 <div id='account' class="row">
                     <div id='account_registration' class="col-md-4 col-md-offset-1">
-                        <p class='h3'>Регистрация</p>
-                        <p class="small">Это не отнимет много Вашего времени</p>
-                        @using (Html.BeginForm("Register","Landing"))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @*<form class="form-horizontal" role="form">*@
-                            <div class="form-group">
-                                @*<label for="FullName" class="col-md-3 control-label">Имя</label>*@
-                                @Html.LabelFor(model => model.Item1.FullName, htmlAttributes: new { @class = "control-label col-md-4" })
-                                @Html.EditorFor(model => model.Item1.FullName, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbUser", placeholder = "Полное имя" } })
-                                <div class="row">
-                                    @Html.ValidationMessageFor(model => model.Item1.FullName, "", new { @class = "text-danger col-md-12" })
-                                </div>
-                                @*<input type="text" id="tbUser" class='form-control col-md-9 inputbox tbUser' placeholder='Полное имя'>*@
-                                @Html.LabelFor(model => model.Item1.Email, htmlAttributes: new { @class = "control-label col-md-4" })
-                                @Html.EditorFor(model => model.Item1.Email, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbMail", placeholder = "Электронный почтовый ящик" } })
-                                <div class="row">
-                                    @Html.ValidationMessageFor(model => model.Item1.Email, "", new { @class = "text-danger col-md-12" })
-                                </div>
-                                @*<input type='email' id="tbMail" class='form-control col-md-9 inputbox tbMail' placeholder='Электронный почтовый ящик'>*@
-                            </div>
-                            <div class="form-group">
-
-                                <div class='checkboxArea checkbox-inline'>
-                                    <input type='checkbox' id='cb1'>
-                                    <label for='cb1' class='cbLabelOut'>
-                                        <label for='cb1' class='cbLabelIn'></label>
-                                    </label>
-                                    <label for='cb1' class='label'>Уведомлять о новинках?</label>
-                                    <label for='cb1' class='label '>Обещаем не злоупотреблять:)</label>
-
-                                </div>
-
-                            </div>
-                            <input type='submit' class='btn btn-default button' value='Регистрация'>
-                        @*</form>*@
-                        }
+                        @Html.Partial("Register", Model.Item1)  
                     </div>
                     <div id='vertical_line' class="col-md-2 col-sm-12 ">
                         <img id='content_image' class="img-responsive center-block text-center " src=@Url.Content("~/Content/images/landing/vertical-line.png")>
                     </div>
                     <div id='account_login' class="col-md-4 ">
-                        <p class='h3'>Логин</p>
-                        <p class="small">Помогите нам вспомнить Вас</p>
-                        @using (Html.BeginForm("Login", "Landing"))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @*<form class="form-horizontal" role="form">*@
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Item2.Email, htmlAttributes: new { @class = "control-label col-md-4" })
-                                @Html.EditorFor(model => model.Item2.Email, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbMail", placeholder = "ivan.ivanov@mail.ru" } })
-                                <div class="row">
-                                    @Html.ValidationMessageFor(model => model.Item2.Email, "", new { @class = "text-danger col-md-12" })
-                                </div>
-                                @*<input type='text' id="tbUser2" class='form-control col-md-9 inputbox tbUser' placeholder='ivan.ivanov@mail.ru'>*@
-                                @Html.LabelFor(model => model.Item2.Password, htmlAttributes: new { @class = "control-label col-md-4" })
-                                @Html.EditorFor(model => model.Item2.Password, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbKey", placeholder = "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" } })
-                                <div class="row">
-                                    @Html.ValidationMessageFor(model => model.Item2.Password, "", new { @class = "text-danger col-md-12" })
-                                </div>
-                                @*<input type='password' id="tbKey" class='form-control col-md-9 inputbox tbKey' placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;'>*@
-                            </div>
-                            <div class="form-group">
-                                <div class='checkboxArea checkbox-inline'>
-                                    <input type='checkbox' id='cb2'>
-                                    <label for='cb2' class='cbLabelOut'>
-                                        <label for='cb2' class='cbLabelIn'></label>
-                                    </label>
-                                    <label for='cb2' class='label'>Запомнить пароль</label>
-                                    <label for='cb2' class='label '><a href='#'>Забыли пароль?</a></label>
-                                </div>
-                            </div>
-                            <input type='submit' class='btn btn-default button' value='Войти'>
-
-                        }
-
+                         @Html.Partial("Login", Model.Item2)  
                     </div>
                 </div>
             </div>

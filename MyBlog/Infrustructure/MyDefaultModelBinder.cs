@@ -11,8 +11,8 @@ namespace MyBlog.Infrustructure
     {
         protected override object CreateModel(ControllerContext controllerContext, System.Web.Mvc.ModelBindingContext bindingContext, Type modelType)
         {
-            if (modelType == typeof(Tuple<RegisterViewModel, LoginViewModel>))
-                return new Tuple<RegisterViewModel, LoginViewModel>(new RegisterViewModel(), new LoginViewModel());
+            if (modelType == typeof(Tuple<LandingRegisterViewModel, LandingLoginViewModel>))
+                return new Tuple<LandingRegisterViewModel, LandingLoginViewModel>(new LandingRegisterViewModel(), new LandingLoginViewModel());
             return base.CreateModel(controllerContext, bindingContext, modelType);
         }
     }
