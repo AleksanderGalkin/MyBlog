@@ -17,7 +17,7 @@ namespace MyBlog
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ModelBinders.Binders.DefaultBinder = new MyDefaultModelBinder();
+           // ModelBinders.Binders.DefaultBinder = new MyDefaultModelBinder();
         }
     }
 }

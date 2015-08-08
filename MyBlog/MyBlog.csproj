@@ -227,7 +227,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\LandingLoginViewModel.cs" />
     <Compile Include="ViewModels\LandingRegisterViewModel.cs" />
-    <Compile Include="ViewModels\LandingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -463,7 +462,6 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Landing\Index.cshtml" />
-    <Content Include="Views\Landing\Index - Copy.cshtml" />
     <Content Include="Views\Landing\Register.cshtml" />
     <Content Include="Views\Landing\Login.cshtml" />
   </ItemGroup>

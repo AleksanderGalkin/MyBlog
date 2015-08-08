@@ -14,7 +14,7 @@
         </div>
 
         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
-        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbKey", placeholder = "&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" } })
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new {@class = "form-control col-md-9 inputbox tbKey", placeholder = "•••••••••••••••••" } }) @*"&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"*@
         <div class="row">
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger col-md-12" })
         </div>

@@ -15,7 +15,7 @@
         </div>
 
         @Html.LabelFor(model => model.EmailReg, htmlAttributes: new { @class = "control-label col-md-4" })
-        @Html.EditorFor(model => model.EmailReg, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbMail", placeholder = "Электронный почтовый ящик" } })
+        @Html.EditorFor(model => model.EmailReg, new { htmlAttributes = new { @class = "form-control col-md-9 inputbox tbMail", placeholder = "ivan.ivanov@mail.ru" } })
         <div class="row">
             @Html.ValidationMessageFor(model => model.EmailReg, "", new { @class = "text-danger col-md-12" })
         </div>
