@@ -24,12 +24,13 @@
                             <div class="form-group">
 
                                 <div class='checkboxArea checkbox-inline'>
-                                    <input type='checkbox' id='cb1'>
-                                    <label for='cb1' class='cbLabelOut'>
-                                        <label for='cb1' class='cbLabelIn'></label>
+                                    @Html.EditorFor(model=>model.NotifyMe)
+                                    @*<input type='checkbox' id='cb1'>*@
+                                    <label for='NotifyMe' class='cbLabelOut'>
+                                        <label for='NotifyMe' class='cbLabelIn'></label>
                                     </label>
-                                    <label for='cb1' class='label'>Уведомлять о новинках?</label>
-                                    <label for='cb1' class='label '>Обещаем не злоупотреблять:)</label>
+                                    <label for='NotifyMe' class='label'>Уведомлять о новинках?</label>
+                                    <label for='NotifyMe' class='label '>Обещаем не злоупотреблять:)</label>
 
                                 </div>
 

@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Microsoft.AspNet.Identity;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace MyBlog.Infrustructure
         {
             kernel.Bind<IDbContext>().To<Models.ApplicationDbContext>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            //kernel.Bind<IUserStore<ApplicationUser>>().To<UserManager<ApplicationUser>>();
+            //kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+
         }
     }
 

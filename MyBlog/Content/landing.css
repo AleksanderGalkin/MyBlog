@@ -102,7 +102,7 @@ footer {
 						}
 
 						/* Toggled State */
-						input[type=checkbox]:checked  + label.cbLabelOut   label.cbLabelIn{
+						input[type=checkbox]:checked  + input[type=hidden] + label.cbLabelOut   label.cbLabelIn{
 						   background-color: #FF84BC;
 						}
 
