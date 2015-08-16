@@ -1,4 +1,4 @@
-﻿@model MyBlog.DomainModels.Registration
+﻿@model MyBlog.ViewModels.LoginVm
 
 @{
     ViewBag.Title = "Details";
@@ -11,72 +11,17 @@
     <hr />
     <dl class="dl-horizontal details">
         <dt>
-            @Html.DisplayNameFor(model => model.FullName)
+            @Html.DisplayNameFor(model => model.EmailLog)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FullName)
+            @Html.DisplayFor(model => model.EmailLog)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsMailSended)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsMailSended)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfMailSended)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfMailSended)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDeliveryError)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDeliveryError)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsUserBack)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsUserBack)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsUserChangePassword)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsUserChangePassword)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsUserConfirmRegistration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsUserConfirmRegistration)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmailLog }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

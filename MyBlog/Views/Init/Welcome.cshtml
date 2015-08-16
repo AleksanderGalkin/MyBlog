@@ -1,0 +1,117 @@
+﻿@model  Tuple<MyBlog.ViewModels.RegisterVm, MyBlog.ViewModels.LoginVm>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>My landing</title>
+   
+    
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/landing")
+
+</head>
+<body>
+    <header class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <a href="#" ><img class="center-block" src=@Url.Content("~/Content/images/init/Logo.png") alt="GalkinLab logo"></a>
+            </div>
+        </div>
+
+    </header>
+    <div id="wrapper" class="container">
+        <div class='row'>
+                <div id='content' class="col-md-10 col-md-offset-1 panel">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner ">
+                            <div class="item active carouselImges">
+                                <img class=" img-responsive center-block " src=@Url.Content("~/Content/images/init/Content.png")
+                                     style="background-image:url(../Content/images/init/image1.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Карьер Восточный АО "Полюс"
+                                </div>
+                            </div>
+                            <div class="item  carouselImges">
+                                <img class=" img-responsive  center-block" src=@Url.Content("~/Content/images/init/Content.png")
+                                     style="background-image:url(../Content/images/init/image2.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Большие глаза
+                                </div>
+                            </div>
+                            <div class="item carouselImges">
+                                <img class=" img-responsive  center-block" src=@Url.Content("~/Content/images/init/Content.png")
+                                     style="background-image:url(../Content/images/init/image3.jpg)"
+                                     alt="">
+                                <div class="carousel-caption">
+                                    Здесь все..
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id='contentShadow' class="col-md-10 col-md-offset-1">
+                    <img class="img-responsive"   src=@Url.Content("~/Content/images/init/contentShadow.png")>
+                </div>
+            </div>
+       
+
+                <div id='account' class="row">
+                    <div id='account_registration' class="col-md-4 col-md-offset-1">
+                        @Html.Partial("Register", Model.Item1)  
+                    </div>
+                    <div id='vertical_line' class="col-md-2 col-sm-12 ">
+                        <img id='content_image' class="img-responsive center-block text-center " src=@Url.Content("~/Content/images/init/vertical-line.png")>
+                    </div>
+                    <div id='account_login' class="col-md-4 ">
+                         @Html.Partial("Login", Model.Item2)  
+                    </div>
+                </div>
+            </div>
+            <footer class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <a href="#"><img class="center-block" src=@Url.Content("~/Content/images/landing/footer-logo.png") alt="Galkin Lab"></a>
+                    </div>
+                </div>
+            </footer>
+</body>
+</html>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/default/landing-index.js")
+
+    
+
+
+

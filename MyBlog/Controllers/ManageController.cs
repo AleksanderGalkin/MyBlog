@@ -320,6 +320,17 @@ namespace MyBlog.Controllers
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
 
+        public ActionResult LayoutManage()
+        {
+            return View();
+        }
+
+        public ActionResult Test ()
+        {
+            return View();
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)

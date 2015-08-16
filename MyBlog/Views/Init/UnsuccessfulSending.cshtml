@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Неудачная попытка отправить письмо с кодом подтверждения";
+}
+
+<br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h2>К сожалению не удалось зарегистрировать Вас, @ViewBag.UserName</h2>
+                    </div>
+                    <div class="panel panel-body">
+                        <p class="lead">Не удалось отправить код подтверждения на Ваш электронный почтовый ящик @ViewBag.Email</p>
+                        <p>Несмотря на это,  даже без подтверждения регистрации Вы можете зайти на наш сай, а позже попробовать зарегистрироваться еще раз.</p>
+                        <p>Причина по которой не удалось отправить письмо:</p>
+                        <blockquote>
+                            @ViewBag.UnsuccessfulError
+                        </blockquote>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+
