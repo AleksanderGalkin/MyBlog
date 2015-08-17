@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MyBlog.ViewModels
 {
-    public class LandingLoginViewModel
+    public class LoginVm
     {
         [Display(Name ="E-mail")]
         [DataType(DataType.EmailAddress)]

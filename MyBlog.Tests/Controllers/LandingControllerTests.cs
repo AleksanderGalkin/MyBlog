@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace MyBlog.Controllers.Tests
@@ -47,35 +48,40 @@ namespace MyBlog.Controllers.Tests
         [TestMethod()]
         public void Index()
         {
-            LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
-            ViewResult result = controller.Index() as ViewResult;
+            InitController controller = new InitController(ninjectKernel.Get<IUnitOfWork>());
+            ViewResult result = controller.Welcome() as ViewResult;
             Assert.IsNotNull(result);
             Assert.AreEqual("Index",result.ViewName);
         }
 
 
         [TestMethod()]
-        public void CreatePost_NotValidModel()
+        public void RegisterPost_NotValidModel()
         {
-            LandingViewModel vm = new LandingViewModel();
-            vm.Email = "name@domen";
-            vm.Password = "1212";
-            LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
+            RegisterVm vm = new RegisterVm();
+            vm.FullName = "Joe Doe";
+            vm.EmailReg = "Joe.Doe@unknown.no";
+            InitController controller = new InitController(ninjectKernel.Get<IUnitOfWork>());
             controller.ModelState.AddModelError("test","Test Model Error");
-            ViewResult result = controller.Create(vm) as ViewResult;
+            Task<ActionResult> taskResult = controller.Register(vm) as Task<ActionResult>;
+            ViewResult result = taskResult.Result as ViewResult;
             Assert.AreEqual(result.ViewName,"Index");
-            Assert.IsInstanceOfType(result.Model,typeof(LandingViewModel));
-            Assert.AreEqual((result.Model as LandingViewModel).Email, vm.Email);
-            Assert.AreEqual((result.Model as LandingViewModel).Password, vm.Password);
+            Assert.IsInstanceOfType(result.Model,typeof(Tuple<RegisterVm, LoginVm>));
+            Assert.AreEqual((result.Model as Tuple<RegisterVm, LoginVm>).Item1.FullName, vm.FullName);
+            Assert.AreEqual((result.Model as Tuple<RegisterVm, LoginVm>).Item1.EmailReg, vm.EmailReg);
         }
 
         [TestMethod()]
-        public void CreatePost_Valid()
+        public void RegisterPost_Valid()
         {
-            LandingViewModel vm = new LandingViewModel();
-            LandingController controller = new LandingController(ninjectKernel.Get<IUnitOfWork>());
-            RedirectToRouteResult result = controller.Create(vm) as RedirectToRouteResult;
-            mockSet.Verify(x => x.Add(It.IsAny<ApplicationUser>()));
+            RegisterVm vm = new RegisterVm();
+            vm.FullName = "Joe Doe";
+            vm.EmailReg = "Joe.Doe@unknown.no";
+        //    Mock < UserManager < IdentityUser >> = new Mock<ApplicationUserManager>();
+            InitController controller = new InitController(ninjectKernel.Get<IUnitOfWork>());
+            Task<ActionResult> taskResult = controller.Register(vm) as Task<ActionResult>;
+            //mockSet.Verify(x => x.Add(It.IsAny<ApplicationUser>()));
+            RedirectToRouteResult result = taskResult.Result as RedirectToRouteResult;
             Assert.AreEqual(result.RouteValues["action"], "Index");
         }
 

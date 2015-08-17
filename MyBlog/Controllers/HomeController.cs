@@ -1,6 +1,7 @@
 ﻿using MyBlog.CrossConserns.Exceptions;
 
 using MyBlog.Models;
+using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +19,27 @@ namespace MyBlog.Controllers
         public ActionResult Index()
         {
             
-          //  IEnumerable<ApplicationUser> model = db.Users;
-            return View();
+            IEnumerable<LoginVm> model = new List<LoginVm> { new LoginVm { EmailLog = "a@a" }
+                                                                                          , new LoginVm { EmailLog = "b@b" }};
+                                                                                      
+           // user
+            return View(model);
         }
 
         // GET: /Movies/Details/5
         [Authorize]
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationUser movie = db.Users.Find(id);
-            if (movie == null)
+            LoginVm user = new LoginVm { EmailLog = "a@a" };
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(movie);
+            return View(user);
         }
 
         public ActionResult Create()

@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using MyBlog.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace MyBlog
 {
@@ -19,7 +21,20 @@ namespace MyBlog
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            SmtpClient client = new SmtpClient();
+            client.Host = "127.0.0.1";
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("GalkinLab@test.com","test");
+            client.EnableSsl = false;
+
+            var mail = new MailMessage("GalkinLab@test.com", message.Destination);
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+            mail.IsBodyHtml = true;
+            return client.SendMailAsync(mail);
+ 
         }
     }
 

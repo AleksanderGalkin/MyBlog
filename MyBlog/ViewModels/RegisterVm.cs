@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MyBlog.ViewModels
 {
-    public class LandingRegisterViewModel
+    public class RegisterVm
     {
         [Display(Name ="Полное имя")]
         [Required]
