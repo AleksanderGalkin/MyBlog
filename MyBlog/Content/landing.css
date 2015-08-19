@@ -23,9 +23,9 @@ footer {
     padding-left: 15%; 
 }
 
-    .inputbox.tbUser{background:   #2D333C url(../Content/images/landing/tb_user.png) 10px no-repeat;}
-	.inputbox.tbMail{background:   #2D333C url(../Content/images/landing/tb_mail.png) 10px no-repeat;}
-	.inputbox.tbKey{background:    #2D333C url(../Content/images/landing/tb_key.png) 10px no-repeat;}
+    .inputbox.tbUser{background:   #2D333C url(../Content/images/init/tb_user.png) 10px no-repeat;}
+	.inputbox.tbMail{background:   #2D333C url(../Content/images/init/tb_mail.png) 10px no-repeat;}
+	.inputbox.tbKey{background:    #2D333C url(../Content/images/init/tb_key.png) 10px no-repeat;}
 
 
 .form-control {

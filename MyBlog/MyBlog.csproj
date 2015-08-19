@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201508150416333_1.Designer.cs">
       <DependentUpon>201508150416333_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508190648245_3.cs" />
+    <Compile Include="Migrations\201508190648245_3.Designer.cs">
+      <DependentUpon>201508190648245_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -353,6 +357,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-i18n-min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -474,8 +479,9 @@
     <Content Include="Views\Init\emailConfirmation.cshtml" />
     <Content Include="Views\Init\ConfirmEmailAndChangePassword.cshtml" />
     <Content Include="Views\Shared\AntiForgeryTokenException.cshtml" />
-    <Content Include="Views\Manage\Test.cshtml" />
-    <Content Include="Views\Manage\LayoutManage.cshtml" />
+    <Content Include="Views\Shared\LayoutManage.cshtml" />
+    <Content Include="Views\Manage\Details.cshtml" />
+    <Content Include="Views\Manage\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508150416333_1.resx">
       <DependentUpon>201508150416333_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508190648245_3.resx">
+      <DependentUpon>201508190648245_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

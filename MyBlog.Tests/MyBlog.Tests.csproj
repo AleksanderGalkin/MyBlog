@@ -100,8 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LandingControllerTests.cs" />
+    <Compile Include="Controllers\ManageAccountControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

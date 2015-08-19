@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyBlog.Models;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MyBlog.Controllers
 {
@@ -73,6 +75,61 @@ namespace MyBlog.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        // GET: Edit
+        public async Task<ActionResult> Edit()
+        {
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+            AccountInfoVm modelVm = new AccountInfoVm()
+            {
+                Username = user.UserName
+                ,
+                FullName = user.FullName
+                ,
+                Email = user.Email
+                ,
+                PhoneNumber = user.PhoneNumber
+                ,
+                BirthDate = DateTime.TryParse((user.Claims.Where(x => x.ClaimType == ClaimTypes.DateOfBirth).Select(x => x.ClaimValue).SingleOrDefault())
+                ,Sex = user.Claims.Where(x => x.ClaimType == ClaimTypes.Gender).Select(x => x.ClaimValue).SingleOrDefault()
+            };
+            return View("Edit", modelVm);
+        }
+
+        // POST: Edit
+        [HttpPost]
+        public async Task<ActionResult> Edit(AccountInfoVm Model)
+        {
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+            user.UserName = Model.Username;
+            user.FullName = Model.FullName;
+            user.Email = Model.Email;
+            user.PhoneNumber = Model.PhoneNumber;
+            IdentityUserClaim GenderClaim = user.Claims.Where(x => x.ClaimType == ClaimTypes.Gender).FirstOrDefault();
+            if (GenderClaim !=null)
+            {
+                GenderClaim.ClaimValue = Model.Sex;
+            }
+            else
+            {
+                user.Claims.Add(new IdentityUserClaim() { ClaimType = ClaimTypes.Gender, ClaimValue = Model.Sex });
+            }
+            IdentityUserClaim BirthDateClaim = user.Claims.Where(x => x.ClaimType == ClaimTypes.DateOfBirth).FirstOrDefault();
+            if (BirthDateClaim != null)
+            {
+                BirthDateClaim.ClaimValue = Model.BirthDate.ToString("{dd/MM/yyyy}");
+            }
+            else
+            {
+                user.Claims.Add(new IdentityUserClaim() { ClaimType = ClaimTypes.DateOfBirth, ClaimValue = Model.BirthDate.ToString("{dd/MM/yyyy}") });
+            }
+
+            user.Claims.Add(GenderClaim);
+            await UserManager.UpdateAsync(user);
+            return RedirectToAction("Edit");
         }
 
         //

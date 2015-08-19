@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LayoutManage</h2>
+<h3>Управление профилем</h3>
 <div class="container">
     <div class="row">
 
             <div id=" menu" class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class = "@Url.SetActive(null , "Test")">@Html.ActionLink("Личные данные", "Test")</li>
+                    <li class = "@Url.SetActive(null , "Edit")">@Html.ActionLink("Личные данные", "Edit")</li>
                     <li class = "@Url.SetActive(null , "ChangePassword")">@Html.ActionLink("Смена пароля", "ChangePassword")</li>
                     <li class = "@Url.SetActive(null , "ManageLogins")">@Html.ActionLink("Управление логинами", "ManageLogins")</li>                                                               
                 </ul>
@@ -24,3 +24,6 @@
     </div>
 </div>
 
+@section scripts{
+    @RenderSection("scripts", required: false)
+}

@@ -51,7 +51,7 @@ namespace MyBlog.Controllers.Tests
             InitController controller = new InitController(ninjectKernel.Get<IUnitOfWork>());
             ViewResult result = controller.Welcome() as ViewResult;
             Assert.IsNotNull(result);
-            Assert.AreEqual("Index",result.ViewName);
+            Assert.AreEqual("Welcome",result.ViewName);
         }
 
 
@@ -69,20 +69,6 @@ namespace MyBlog.Controllers.Tests
             Assert.IsInstanceOfType(result.Model,typeof(Tuple<RegisterVm, LoginVm>));
             Assert.AreEqual((result.Model as Tuple<RegisterVm, LoginVm>).Item1.FullName, vm.FullName);
             Assert.AreEqual((result.Model as Tuple<RegisterVm, LoginVm>).Item1.EmailReg, vm.EmailReg);
-        }
-
-        [TestMethod()]
-        public void RegisterPost_Valid()
-        {
-            RegisterVm vm = new RegisterVm();
-            vm.FullName = "Joe Doe";
-            vm.EmailReg = "Joe.Doe@unknown.no";
-        //    Mock < UserManager < IdentityUser >> = new Mock<ApplicationUserManager>();
-            InitController controller = new InitController(ninjectKernel.Get<IUnitOfWork>());
-            Task<ActionResult> taskResult = controller.Register(vm) as Task<ActionResult>;
-            //mockSet.Verify(x => x.Add(It.IsAny<ApplicationUser>()));
-            RedirectToRouteResult result = taskResult.Result as RedirectToRouteResult;
-            Assert.AreEqual(result.RouteValues["action"], "Index");
         }
 
     }

@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System;
 
 namespace MyBlog.Models
 {
@@ -82,5 +83,33 @@ namespace MyBlog.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    }
+
+    public class AccountInfoVm
+    {
+        [Required]
+        [Display(Name ="Логин")]
+        public string Username { get; set; }
+        [Required]
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        [Required]
+        [Display(Name = "Полное имя")]
+        public string FullName { get; set; }
+        [Display(Name = "Пол")]
+        public string Sex { get; set; } public System.Web.Mvc.SelectList SexSelectList { get; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}",ApplyFormatInEditMode =true)]
+        [Display(Name = "Дата рождения")]
+        public DateTime BirthDate { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Телефонный номер")]
+        public string PhoneNumber { get; set; }
+
+        public AccountInfoVm()
+        {
+            SexSelectList = new System.Web.Mvc.SelectList( new string[] { "Male", "Female" });
+        }
     }
 }
