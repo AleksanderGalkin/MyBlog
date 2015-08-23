@@ -100,11 +100,13 @@ namespace MyBlog.Models
         [Display(Name = "Пол")]
         public string Sex { get; set; } public System.Web.Mvc.SelectList SexSelectList { get; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}",ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString = @"{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
         [Display(Name = "Дата рождения")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Телефонный номер")]
+        [RegularExpression(@"^\+7\(?([0-9]{3})\)[-. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$", ErrorMessage = "Not a valid Phone number")]
+     //   [UIHint("PhoneNumFormatter")]
         public string PhoneNumber { get; set; }
 
         public AccountInfoVm()

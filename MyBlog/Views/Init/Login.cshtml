@@ -24,9 +24,10 @@
     </div>
                             <div class="form-group">
                                 <div class='checkboxArea checkbox-inline'>
-                                    @Html.EditorFor(Model => Model.RememberMe)
                                     <label for='RememberMe' class='cbLabelOut'>
-                                        <label for='RememberMe' class='cbLabelIn'></label>
+                                            @Html.EditorFor(Model => Model.RememberMe)
+                                        <label for='RememberMe' class='cbLabelIn'>
+                                        </label>
                                     </label>
                                     <label for='RememberMe' class='label'>Запомнить пароль</label>
                                     <label for='RememberMe' class='label '><a href='#'>Забыли пароль?</a></label>

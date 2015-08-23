@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyBlog.Infrustructure;
@@ -79,8 +80,12 @@ namespace MyBlog.Controllers
             Tuple<RegisterVm, LoginVm> badModel;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Model.EmailReg, FullName = Model.FullName, Email = Model.EmailReg, IsNotificationAllowed = Model.NotifyMe };
-                ViewBag.FullName = user.FullName;
+                var user = new ApplicationUser { UserName = Model.EmailReg,  Email = Model.EmailReg };
+                IdentityUserClaim _claim = new Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim();
+                _claim.ClaimType = "FullName";
+                _claim.ClaimValue = Model.FullName;
+                user.Claims.Add(_claim);
+                ViewBag.FullName = Model.FullName;
                 ViewBag.Email = user.Email;
                 
                 Random random = new Random(DateTime.Now.Day);

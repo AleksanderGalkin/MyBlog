@@ -95,14 +95,14 @@ footer {
 							-moz-appearance: button; 
 							display: block;
 							cursor: pointer;
-							background-color: #2D333C;
+							background-color:  #2D333C;
 							border: none;
 							margin: 4px;
 
 						}
 
 						/* Toggled State */
-						input[type=checkbox]:checked  + input[type=hidden] + label.cbLabelOut   label.cbLabelIn{
+						label.cbLabelOut input[type=checkbox]:checked  + input[type=hidden] + label.cbLabelIn{
 						   background-color: #FF84BC;
 						}
 

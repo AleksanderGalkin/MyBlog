@@ -211,12 +211,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrustructure\DependencyResolver.cs" />
+    <Compile Include="Infrustructure\Helpers\IdentityHelperGetFullName.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperSetActiveLi.cs" />
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
     <Compile Include="Infrustructure\MyDefaultModelBinder.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperContent.cs" />
+    <Compile Include="Infrustructure\ViewSystemMessage.cs" />
     <Compile Include="Migrations\201508030227366_create.cs" />
     <Compile Include="Migrations\201508030227366_create.Designer.cs">
       <DependentUpon>201508030227366_create.cs</DependentUpon>
@@ -228,6 +230,10 @@
     <Compile Include="Migrations\201508190648245_3.cs" />
     <Compile Include="Migrations\201508190648245_3.Designer.cs">
       <DependentUpon>201508190648245_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508220221313_4.cs" />
+    <Compile Include="Migrations\201508220221313_4.Designer.cs">
+      <DependentUpon>201508220221313_4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -358,6 +364,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-i18n-min.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -482,6 +490,7 @@
     <Content Include="Views\Shared\LayoutManage.cshtml" />
     <Content Include="Views\Manage\Details.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PhoneNumFormatter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -503,6 +512,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508190648245_3.resx">
       <DependentUpon>201508190648245_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508220221313_4.resx">
+      <DependentUpon>201508220221313_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
