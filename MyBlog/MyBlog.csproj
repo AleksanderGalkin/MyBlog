@@ -49,6 +49,9 @@
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Install\programming\log4net-1.2.13\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -215,6 +218,8 @@
     <Compile Include="Infrustructure\Helpers\UrlHelperSetActiveLi.cs" />
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
+    <Compile Include="Infrustructure\Logging\AuditChangePassword.cs" />
+    <Compile Include="Infrustructure\Logging\LogAttribute.cs" />
     <Compile Include="Infrustructure\MyDefaultModelBinder.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperContent.cs" />
@@ -242,6 +247,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ChangePasswordAndConfirmEmailVm.cs" />
+    <Compile Include="ViewModels\ForgottenPasswordVm.cs" />
     <Compile Include="ViewModels\LoginVm.cs" />
     <Compile Include="ViewModels\RegisterVm.cs" />
   </ItemGroup>
@@ -491,6 +497,9 @@
     <Content Include="Views\Manage\Details.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PhoneNumFormatter.cshtml" />
+    <Content Include="Views\Init\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Init\ForgotPassword.cshtml" />
+    <Content Include="Views\Init\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

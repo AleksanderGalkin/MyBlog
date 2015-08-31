@@ -10,6 +10,7 @@ using MyBlog.Models;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity.EntityFramework;
 using MyBlog.Infrustructure;
+using MyBlog.Infrustructure.Logging;
 
 namespace MyBlog.Controllers
 {
@@ -89,13 +90,13 @@ namespace MyBlog.Controllers
             {
                 Username = user.UserName
                 ,
-                FullName = user.Claims.Where(x => x.ClaimType == "FullName").Select(x => x.ClaimValue).SingleOrDefault()
+                FullName = user.Claims.Where(x => x.ClaimType == "FullName").Select(x => x.ClaimValue).FirstOrDefault()
                 ,
                 Email = user.Email
                 ,
                 PhoneNumber = user.PhoneNumber
                 ,
-                Sex = user.Claims.Where(x => x.ClaimType == ClaimTypes.Gender).Select(x => x.ClaimValue).SingleOrDefault()
+                Sex = user.Claims.Where(x => x.ClaimType == ClaimTypes.Gender).Select(x => x.ClaimValue).FirstOrDefault()
             };
             DateTime BirthDate;
             if (DateTime.TryParse(user.Claims.Where(x => x.ClaimType == ClaimTypes.DateOfBirth).Select(x => x.ClaimValue).SingleOrDefault(), out BirthDate))
@@ -115,7 +116,6 @@ namespace MyBlog.Controllers
                 var userId = User.Identity.GetUserId();
                 var user = await UserManager.FindByIdAsync(userId);
                 user.UserName = Model.Username;
-               // user.FullName = Model.FullName;
                 user.Email = Model.Email;
                 user.PhoneNumber = Model.PhoneNumber;
                 if (Model.FullName != null)
@@ -315,6 +315,7 @@ namespace MyBlog.Controllers
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
+        [AuditChangePassword(ApplyToStateMachine =true)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {

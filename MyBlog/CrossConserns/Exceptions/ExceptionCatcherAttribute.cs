@@ -22,8 +22,7 @@ namespace MyBlog.CrossConserns.Exceptions
         }
         public override bool CompileTimeValidate(MethodBase method)
         {
-            Message.Write( MessageLocation.Unknown,SeverityType.Warning, "001", "I am applying ExceptionCatcherAttribute to {0} of class {1}.", method.Name, method.DeclaringType.ToString());
-            return true;
+           return true;
 
         }
         public override void OnException(MethodExecutionArgs args)
