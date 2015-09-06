@@ -1,6 +1,4 @@
-﻿using MyBlog.CrossConserns.Exceptions;
-
-using MyBlog.Models;
+﻿using MyBlog.Models;
 using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,7 +13,6 @@ namespace MyBlog.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext  db = new ApplicationDbContext();
-        [ExceptionCatcherAttribute]
         public ActionResult Index()
         {
             

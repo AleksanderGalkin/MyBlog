@@ -17,6 +17,7 @@ namespace MyBlog.Controllers
             _unitOfWork = UnitOfWork;
         }
 
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             _unitOfWork.BeginTransaction();

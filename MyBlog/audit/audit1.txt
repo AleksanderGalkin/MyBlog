@@ -1,11 +1,26 @@
-INFO - yield
-INFO - yield
-INFO - yield
-INFO - info
-INFO - yield
-INFO - info
-INFO - Result: 
-INFO - Result: 
-INFO - Result: 
-INFO - Result: 
-INFO - Result: 
+INFO - AuditChangePassword:2015/09/06 03:35:25 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 03:35:25 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 04:25:28 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 04:25:28 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 04:41:29 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 04:41:29 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 04:58:00 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 04:58:00 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 05:00:16 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 05:00:16 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 05:49:48 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 05:49:48 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 08:14:12 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 08:14:12 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 08:15:44 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 08:15:44 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 08:17:46 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 08:19:11 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangePassword:2015/09/06 11:07:07 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 11:07:07 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась успешно
+INFO - AuditChangePassword:2015/09/06 11:34:44 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 11:34:44 Z-ManageController:Edit-User:test@test.com -Args:  - Попытка смены пароля завершилась успешно
+INFO - AuditChangePassword:2015/09/06 11:42:46 Z-ManageController:ChangePassword-User:test@test.com -Args: model = MyBlog.Models.ChangePasswordViewModel - Попытка смены пароля
+INFO - AuditChangePassword:2015/09/06 11:42:46 Z-ManageController:ChangePassword-User:test@test.com -Args:  - Попытка смены пароля завершилась не успешно
+INFO - AuditChangeAccountInfo:2015/09/06 11:59:17 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - Попытка изменения учётных данных
+INFO - AuditChangeAccountInfo:2015/09/06 11:59:18 Z-ManageController:Edit-User:test@test.com -Args:  - Попытка изменения учётных данных завершилась успешно

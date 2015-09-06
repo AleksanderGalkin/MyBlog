@@ -10,20 +10,25 @@ using MyBlog.Models;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity.EntityFramework;
 using MyBlog.Infrustructure;
-using MyBlog.Infrustructure.Logging;
+using log4net;
+using Castle.Core;
+using MyBlog.Infrustructure.Windsor.Interceptors.Audit;
 
 namespace MyBlog.Controllers
 {
     [Authorize]
+    [Interceptor(typeof(AuditChangePasswordInterceptor))]
+    [Interceptor(typeof(AuditChangeAccountInfoInterceptor))]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        static private readonly ILog _audit1 = LogManager.GetLogger("Auditor");
+
         public ManageController()
         {
         }
-
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
@@ -315,9 +320,9 @@ namespace MyBlog.Controllers
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
-        [AuditChangePassword(ApplyToStateMachine =true)]
+      //  [AuditChangePassword(ApplyToStateMachine =false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
+        public  async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -491,6 +496,21 @@ namespace MyBlog.Controllers
             Error
         }
 
-#endregion
+        private string createRecord( string head, string body = "")
+        {
+            // var typeNames = args.Method.GetGenericArguments().Select(t => t.Name);
+
+            string result = string.Format(@"{0,15}:{1:yyyy\/MM\/dd hh:mm:ss K}-{2}:{3}-User:{4} - {5} - {6}",
+                head,
+                DateTime.UtcNow,
+                "Class",
+                "Method",
+                HttpContext.User.Identity.Name,
+                "Args",
+                body);
+            return result;
+        }
+
+        #endregion
     }
 }

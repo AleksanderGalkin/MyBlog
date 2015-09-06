@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Helpers;
-using MyBlog.Infrustructure.Logging;
 using MyBlog.Models;
 using MyBlog.ViewModels;
 using System;
