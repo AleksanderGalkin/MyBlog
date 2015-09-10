@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyBlog.Models;
+using System.Data.Entity.Validation;
 
 namespace MyBlog.Controllers
 {
@@ -152,6 +153,7 @@ namespace MyBlog.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -165,7 +167,7 @@ namespace MyBlog.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+              //  AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form

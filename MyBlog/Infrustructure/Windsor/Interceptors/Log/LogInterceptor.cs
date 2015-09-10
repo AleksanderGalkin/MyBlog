@@ -2,6 +2,7 @@
 using log4net;
 using MyBlog.Infrustructure.Windsor.Interceptors.Log;
 using System;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -80,6 +81,19 @@ namespace MyBlog.Infrustructure.Windsor.Interceptors.Audit
             {
                 message = message +" "+ arg.Exception.InnerException.Message;
             }
+
+            if (arg.Exception.GetType() ==  typeof(DbEntityValidationException))
+            {
+                DbEntityValidationException dbEx = arg.Exception as DbEntityValidationException;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        message = message + "," + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
+
             message = message + arg.Exception.StackTrace;
             _logger.Fatal(createRecord("Exception"
                             , arg.Controller.GetType().Name

@@ -16,7 +16,7 @@ namespace MyBlog.Infrustructure
         public void BeginTransaction()
         {
             System.Diagnostics.Debug.WriteLine("BeginTransaction");
-            db = new ApplicationDbContext();
+         //   db = new ApplicationDbContext();
         }
         public void Commit()
         {

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using MyBlog.Infrustructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MyBlog.Models
 {
@@ -22,11 +23,22 @@ namespace MyBlog.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>,IDbContext
     {
+        public IDbSet<Post> Posts { get; set; }
+        public IDbSet<PostContent> PostContents { get; set; }
+        public IDbSet<PostView> PostViews { get; set; }
+        public IDbSet<PostComment> PostComments { get; set; }
+        public IDbSet<PostTag> PostTags { get; set; }
+        public IDbSet<Tag> Tags { get; set; }
+
         public ApplicationDbContext()
             : base("SiteDBConnection", throwIfV1Schema: false)
         {
         }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
+        }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

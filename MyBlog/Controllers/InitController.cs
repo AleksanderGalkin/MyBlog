@@ -8,6 +8,7 @@ using MyBlog.Models;
 using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -84,6 +85,7 @@ namespace MyBlog.Controllers
                 IdentityUserClaim _claim = new Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim();
                 _claim.ClaimType = "FullName";
                 _claim.ClaimValue = Model.FullName;
+                _claim.UserId = user.Id;
                 user.Claims.Add(_claim);
                 ViewBag.FullName = Model.FullName;
                 ViewBag.Email = user.Email;
@@ -96,10 +98,13 @@ namespace MyBlog.Controllers
                     strBuilder.Append((char)random.Next(97, 122));
                 }
                 string temporaryPassword = strBuilder.ToString();
+
                 var result = await UserManager.CreateAsync(user, temporaryPassword);
-                if (result.Succeeded)
+
+
+               if (result.Succeeded)
                 {
-                   // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmailAndChangePassword", "Init", new { userId = System.Web.HttpUtility.UrlEncode(user.Id), code = System.Web.HttpUtility.UrlEncode(code) }, protocol: Request.Url.Scheme);
                     try
@@ -154,6 +159,12 @@ namespace MyBlog.Controllers
             if (ModelState.IsValid)
             {
                 IdentityResult result;
+                result = await UserManager.ConfirmEmailAsync(HttpUtility.UrlDecode(Model.userId), HttpUtility.UrlDecode(Model.code));
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", "Произошла ошибка при подтверждении Email. " + result.Errors.First());
+                    return View(Model);
+                }
                 result = await UserManager.RemovePasswordAsync(Model.userId);
                 if (! result.Succeeded)
                 {
@@ -166,12 +177,7 @@ namespace MyBlog.Controllers
                     ModelState.AddModelError("", "Произошла ошибка при добавлении нового пароля. " + result.Errors.First());
                     return View(Model);
                 }
-                result = await UserManager.ConfirmEmailAsync(HttpUtility.UrlDecode(Model.userId), HttpUtility.UrlDecode(Model.code));
-                if (!result.Succeeded)
-                {
-                    ModelState.AddModelError("", "Произошла ошибка при подтверждении Email. " + result.Errors.First());
-                    return View(Model);
-                }
+
                 return RedirectToAction("Welcome");
 
             }

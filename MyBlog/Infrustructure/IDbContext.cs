@@ -9,8 +9,12 @@ namespace MyBlog.Infrustructure
 {
     public interface IDbContext:IDisposable
     {
-        IDbSet<ApplicationUser> Users { get; set; }
-      //  IDbSet<TEntity> Set<TEntity>() where TEntity : class;
+        IDbSet<Post> Posts { get; set; }
+        IDbSet<PostContent> PostContents { get; set; }
+        IDbSet<PostView> PostViews { get; set; }
+        IDbSet<PostComment> PostComments { get; set; }
+        IDbSet<PostTag> PostTags { get; set; }
+        IDbSet<Tag> Tags { get; set; }
 
         int SaveChanges();
     }

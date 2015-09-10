@@ -165,3 +165,1247 @@ INFO -           Entry:2015/09/06 11:59:18 Z-ManageController:Edit-User:test@tes
 INFO -            Exit:2015/09/06 11:59:18 Z-ManageController:Edit-User:test@test.com -Args:  - 
 INFO -     ResultEntry:2015/09/06 11:59:18 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
 INFO -      ResultExit:2015/09/06 11:59:18 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/07 01:53:44 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 01:53:44 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 01:53:44 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 01:53:46 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:08:29 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:08:29 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:08:29 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:08:31 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:09:48 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:09:48 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:09:48 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/07 04:09:49 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/07 04:10:01 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/07 04:10:02 Z-InitController:Login-User: -Args:  - 
+FATAL -       Exception:2015/09/07 04:10:02 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Login - One or more validation errors were detected during model generation:
+
+MyBlog.Models.IdentityUserRole: : EntityType 'IdentityUserRole' has no key defined. Define the key for this EntityType.
+MyBlog.Models.IdentityUserLogin: : EntityType 'IdentityUserLogin' has no key defined. Define the key for this EntityType.
+IdentityUserRoles: EntityType: EntitySet 'IdentityUserRoles' is based on type 'IdentityUserRole' that has no keys defined.
+IdentityUserLogins: EntityType: EntitySet 'IdentityUserLogins' is based on type 'IdentityUserLogin' that has no keys defined.
+   в System.Data.Entity.Core.Metadata.Edm.EdmModel.Validate()
+   в System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   в System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   в System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   в System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__68.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<FindAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Login>d__15.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 194
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/07 04:13:09 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:13:09 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:13:09 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:13:11 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:13:14 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:13:14 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:13:14 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/07 04:13:14 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/07 04:13:24 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/07 04:13:25 Z-InitController:Login-User: -Args:  - 
+FATAL -       Exception:2015/09/07 04:13:25 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Login - One or more validation errors were detected during model generation:
+
+MyBlog.Models.IdentityUserRole: : EntityType 'IdentityUserRole' has no key defined. Define the key for this EntityType.
+MyBlog.Models.IdentityUserLogin: : EntityType 'IdentityUserLogin' has no key defined. Define the key for this EntityType.
+IdentityUserRoles: EntityType: EntitySet 'IdentityUserRoles' is based on type 'IdentityUserRole' that has no keys defined.
+IdentityUserLogins: EntityType: EntitySet 'IdentityUserLogins' is based on type 'IdentityUserLogin' that has no keys defined.
+   в System.Data.Entity.Core.Metadata.Edm.EdmModel.Validate()
+   в System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   в System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   в System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   в System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__68.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<FindAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Login>d__15.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 194
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/07 04:13:59 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:13:59 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:13:59 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:14:01 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:14:03 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:14:03 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:14:03 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/07 04:14:04 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/07 04:14:14 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/07 04:14:16 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:14:16 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/07 04:14:16 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/07 04:14:16 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/07 04:14:16 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:14:16 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:14:16 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:15:07 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:15:07 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:07 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:15:09 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:15:12 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:15:12 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:12 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/07 04:15:12 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/07 04:15:22 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/07 04:15:24 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:24 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/07 04:15:24 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/07 04:15:24 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/07 04:15:24 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:24 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:15:24 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 04:15:26 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:26 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:26 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/07 04:15:27 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/07 04:15:29 Z-ManageController:ChangePassword-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:29 Z-ManageController:ChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:29 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -      ResultExit:2015/09/07 04:15:29 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -           Entry:2015/09/07 04:15:30 Z-ManageController:ManageLogins-User:test@test.com -Args: message =  - 
+INFO -            Exit:2015/09/07 04:15:30 Z-ManageController:ManageLogins-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:30 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ManageLogins - 
+INFO -      ResultExit:2015/09/07 04:15:30 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ManageLogins - 
+INFO -           Entry:2015/09/07 04:15:31 Z-ManageController:ChangePassword-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:31 Z-ManageController:ChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:31 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -      ResultExit:2015/09/07 04:15:31 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -           Entry:2015/09/07 04:15:32 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:32 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:32 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/07 04:15:32 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/07 04:15:35 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:35 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:35 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/07 04:15:35 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/07 04:15:36 Z-ManageController:ChangePassword-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/07 04:15:36 Z-ManageController:ChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:15:36 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -      ResultExit:2015/09/07 04:15:36 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = ChangePassword - 
+INFO -           Entry:2015/09/07 04:42:40 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 04:42:40 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 04:42:40 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 04:42:42 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/07 09:19:06 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/07 09:19:06 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/07 09:19:06 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/07 09:19:08 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 01:54:57 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 01:54:57 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 01:54:57 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 01:55:00 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 01:55:07 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 01:55:07 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 01:55:07 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 01:55:08 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 01:55:20 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/08 01:55:22 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 01:55:22 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/08 01:55:22 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/08 01:55:46 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 01:55:56 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 01:55:56 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:09:13 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:09:13 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:09:13 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:09:15 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:09:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:09:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:09:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:09:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:09:43 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:09:45 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:09:45 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:10:40 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:10:40 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:10:40 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:10:40 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:10:44 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:10:44 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:10:44 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:10:45 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:10:55 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:11:28 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:11:28 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:11:38 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:11:38 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:11:38 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:11:39 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:11:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:11:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:11:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:11:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:12:00 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:12:42 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:12:42 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:12:53 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:12:53 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:12:53 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:12:54 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:12:57 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:12:57 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:12:57 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:12:57 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:13:06 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:14:18 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:14:18 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:15:12 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:15:12 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:15:12 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:15:13 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:15:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:15:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:15:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:15:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:15:33 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 02:18:47 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:18:47 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:18:47 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:18:49 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:18:52 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:18:52 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:18:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:18:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:19:03 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:19:26 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:19:26 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - The model backing the 'ApplicationDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).   в System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__68.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   в Microsoft.AspNet.Identity.UserValidator`2.<ValidateUserName>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserValidator`2.<ValidateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:20:11 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:20:11 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:20:11 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:20:13 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:21:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:21:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:21:26 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:21:27 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:21:37 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:22:02 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:22:02 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:26:38 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:26:38 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:26:38 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:26:39 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:26:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:26:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:26:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:26:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:26:52 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 02:28:06 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 02:28:06 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 99
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 02:35:31 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:35:31 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:35:31 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:35:33 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:35:36 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:35:36 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:35:36 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:35:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:35:48 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 02:41:03 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:41:03 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:41:03 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 02:41:05 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 02:41:09 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 02:41:09 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 02:41:09 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 02:41:09 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 02:41:18 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 03:03:55 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:03:55 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:03:55 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:03:57 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:03:59 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:03:59 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:03:59 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:04:00 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:04:12 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 03:07:46 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:07:46 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:07:46 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:07:47 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:07:49 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:07:49 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:07:49 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:07:49 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:07:55 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 03:16:16 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:16:16 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:16:16 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:16:18 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:16:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:16:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:16:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:16:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:16:34 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 03:16:54 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:16:54 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 03:16:54 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+FATAL -       Exception:2015/09/08 03:16:54 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Init/Index.aspx
+~/Views/Init/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Init/Index.cshtml
+~/Views/Init/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml   в System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 03:25:22 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:25:22 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:25:22 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:25:23 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:25:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:25:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:25:26 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:25:26 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:25:35 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 03:27:19 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:27:19 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 03:27:19 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+FATAL -       Exception:2015/09/08 03:27:19 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Init/Index.aspx
+~/Views/Init/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Init/Index.cshtml
+~/Views/Init/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml   в System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 03:45:44 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:45:44 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:45:44 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:45:45 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:45:47 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:45:47 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:45:47 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:45:47 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:45:51 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 03:52:58 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:52:58 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:52:58 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 03:53:00 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 03:53:13 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 03:53:13 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 03:53:13 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 03:53:14 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 03:53:28 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -           Entry:2015/09/08 04:01:22 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:01:22 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:01:22 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:01:24 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:02:25 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:02:25 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:02:25 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:02:26 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:02:35 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:02:37 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:02:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:02:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+FATAL -       Exception:2015/09/08 04:02:37 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Init/Index.aspx
+~/Views/Init/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Init/Index.cshtml
+~/Views/Init/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml   в System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:04:18 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:04:18 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:04:18 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:04:19 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:04:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:04:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:04:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:04:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:04:25 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:04:27 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 04:04:27 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.,Property: UserId Error: Требуется поле UserId.   в System.Data.Entity.Internal.InternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync(CancellationToken cancellationToken)
+   в System.Data.Entity.DbContext.SaveChangesAsync()
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<SaveChanges>d__56.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<CreateAsync>d__12.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter.GetResult()
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 102
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:09:43 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:09:43 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:09:43 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:09:45 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:09:48 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:09:48 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:09:48 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:09:48 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:10:11 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:10:14 Z-InitController:Register-User: -Args:  - 
+FATAL -       Exception:2015/09/08 04:10:14 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Init,action = Register - Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.   в System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   в System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   в System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   в System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   в System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   в System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   в System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   в System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   в System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   в System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   в System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   в System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   в System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   в System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   в System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   в System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   в System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   в System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   в System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   в System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
+   в Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__68.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   в Microsoft.AspNet.Identity.UserValidator`2.<ValidateUserName>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserValidator`2.<ValidateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<Register>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 102
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:10:50 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:10:50 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:10:50 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:10:52 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:11:37 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:11:37 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:11:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:11:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:11:56 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:12:00 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:12:00 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:12:00 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:12:27 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = a6766335-03aa-429e-b02b-cc1e05ff0eb0,code = LEItrQHYyVPqFsakJn02xUNutO0zSwNJhlmd2zXClsK9%2f2j5IvSArQ0Nk80XQgc0NzUsL%2frQ%2bjhwhZPi1kanp6Qlzywn18noZeF4jYFw43RxZPnaJTD2RU91UTM5V8m5IW4Qef%2bgHMfOyRTQp7Cv2fqgm6nk2a3vkVVzjrk%2fjZH5f%2bAVND9gbqzxQvMWosIV - 
+INFO -            Exit:2015/09/08 04:12:27 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:12:27 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:12:27 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:12:45 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 04:12:45 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:12:45 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:12:45 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:12:58 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 04:12:58 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:12:58 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:12:58 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:13:12 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = a6766335-03aa-429e-b02b-cc1e05ff0eb0,code = LEItrQHYyVPqFsakJn02xUNutO0zSwNJhlmd2zXClsK9%2f2j5IvSArQ0Nk80XQgc0NzUsL%2frQ%2bjhwhZPi1kanp6Qlzywn18noZeF4jYFw43RxZPnaJTD2RU91UTM5V8m5IW4Qef%2bgHMfOyRTQp7Cv2fqgm6nk2a3vkVVzjrk%2fjZH5f%2bAVND9gbqzxQvMWosIV - 
+INFO -            Exit:2015/09/08 04:13:12 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:13:12 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:13:12 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:13:35 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 04:13:35 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:13:35 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:13:35 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:16:05 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:16:05 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:16:05 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:16:07 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:16:08 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = a6766335-03aa-429e-b02b-cc1e05ff0eb0,code = LEItrQHYyVPqFsakJn02xUNutO0zSwNJhlmd2zXClsK9%2f2j5IvSArQ0Nk80XQgc0NzUsL%2frQ%2bjhwhZPi1kanp6Qlzywn18noZeF4jYFw43RxZPnaJTD2RU91UTM5V8m5IW4Qef%2bgHMfOyRTQp7Cv2fqgm6nk2a3vkVVzjrk%2fjZH5f%2bAVND9gbqzxQvMWosIV - 
+INFO -            Exit:2015/09/08 04:16:09 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:16:09 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:16:09 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:16:20 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -           Entry:2015/09/08 04:19:36 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:19:36 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:19:36 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:19:36 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:19:41 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:19:41 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:19:41 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:19:41 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:19:58 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:22:31 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:22:31 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:22:31 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:22:57 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 0a7727dd-17bf-49c5-ba6f-b41d36c898fb,code = lxgczpGRkJij%2bTCyqCo3KaBJHfZxyiANlRy1D4TD3BCtqgqRA5TRV9uHGSAdtPX1%2brdNcZ3IZOB0mHXRRxLoSPYCFAgv6mT1b3cFui40bdyW8buAjAbU0%2f0yc77Jl6SgRaPZyiQ1BxC9NcCR%2bVBSZeSR%2f1UXHt2w6sX%2frlmKxRv4nvcgNebLCaGOdHIA2OOT - 
+INFO -            Exit:2015/09/08 04:22:57 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:22:57 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:22:57 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:23:08 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 04:30:51 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:30:51 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:30:51 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:35:50 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:35:50 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:35:50 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:35:52 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:36:05 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:36:05 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:36:05 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:36:06 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:36:18 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:36:50 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:36:50 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:36:50 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:37:14 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 59cc5484-8d31-47f7-b575-5d7eff2ed44e,code = U0UWYswm4W%2b7%2f3w%2fX3EPge9bGeJmv%2b8ydtj3tWUqVTx66EiNP6F0G2Y0bSSzzzIYrA%2b50kMMnJ9tnjDgVd8rVmvdo9ZEu2HmesaeETopVojS3JEH%2fcYNss8RcWW%2fWQO1PXLNxfANNma1OwLAo0UtV3VFydbFzYkCxWdv8zlwwT7qEFwFbRQ8baJXDMAzVz8E - 
+INFO -            Exit:2015/09/08 04:37:14 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:37:14 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:37:14 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:37:24 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -           Entry:2015/09/08 04:41:08 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:41:08 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:41:08 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:41:09 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:41:12 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:41:12 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:41:12 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:41:12 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:41:22 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:41:50 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:41:50 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:41:50 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:42:12 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:42:12 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:42:12 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:42:14 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:42:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:42:21 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:42:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:42:21 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:42:33 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:42:46 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:42:46 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:42:46 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+FATAL -       Exception:2015/09/08 04:42:54 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User:test@testasdsa -Args: controller = Init,action = Register - The provided anti-forgery token was meant for a different claims-based user than the current user.   в System.Web.Helpers.AntiXsrf.TokenValidator.ValidateTokens(HttpContextBase httpContext, IIdentity identity, AntiForgeryToken sessionToken, AntiForgeryToken fieldToken)
+   в System.Web.Helpers.AntiXsrf.AntiForgeryWorker.Validate(HttpContextBase httpContext)
+   в System.Web.Helpers.AntiForgery.Validate()
+   в System.Web.Mvc.ValidateAntiForgeryTokenAttribute.OnAuthorization(AuthorizationContext filterContext)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+FATAL -       Exception:2015/09/08 04:43:16 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User:test@testasdsa -Args: controller = Init,action = Register - The provided anti-forgery token was meant for a different claims-based user than the current user.   в System.Web.Helpers.AntiXsrf.TokenValidator.ValidateTokens(HttpContextBase httpContext, IIdentity identity, AntiForgeryToken sessionToken, AntiForgeryToken fieldToken)
+   в System.Web.Helpers.AntiXsrf.AntiForgeryWorker.Validate(HttpContextBase httpContext)
+   в System.Web.Helpers.AntiForgery.Validate()
+   в System.Web.Mvc.ValidateAntiForgeryTokenAttribute.OnAuthorization(AuthorizationContext filterContext)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/09/08 04:43:25 Z-ManageController:Edit-User:test@testasdsa -Args: Message =  - 
+INFO -            Exit:2015/09/08 04:43:25 Z-ManageController:Edit-User:test@testasdsa -Args:  - 
+FATAL -       Exception:2015/09/08 04:43:25 Z-ManageControllerProxy:System.Web.Mvc.EmptyResult-User:test@testasdsa -Args: controller = Manage,action = Edit - Ссылка на объект не указывает на экземпляр объекта.   в MyBlog.Controllers.ManageController.<Edit>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\ManageController.cs:строка 94
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:43:34 Z-HomeController:Index-User:test@testasdsa -Args:  - 
+INFO -            Exit:2015/09/08 04:43:34 Z-HomeController:Index-User:test@testasdsa -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:43:34 Z-HomeController:System.Web.Mvc.ViewResult-User:test@testasdsa -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:43:34 Z-HomeController:System.Web.Mvc.ViewResult-User:test@testasdsa -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:43:35 Z-HomeController:Index-User:test@testasdsa -Args:  - 
+INFO -            Exit:2015/09/08 04:43:35 Z-HomeController:Index-User:test@testasdsa -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:43:35 Z-HomeController:System.Web.Mvc.ViewResult-User:test@testasdsa -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:43:35 Z-HomeController:System.Web.Mvc.ViewResult-User:test@testasdsa -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:43:38 Z-ManageController:Edit-User:test@testasdsa -Args: Message =  - 
+INFO -            Exit:2015/09/08 04:43:38 Z-ManageController:Edit-User:test@testasdsa -Args:  - 
+FATAL -       Exception:2015/09/08 04:43:38 Z-ManageControllerProxy:System.Web.Mvc.EmptyResult-User:test@testasdsa -Args: controller = Manage,action = Edit - Ссылка на объект не указывает на экземпляр объекта.   в MyBlog.Controllers.ManageController.<Edit>d__12.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\ManageController.cs:строка 94
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:43:59 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:43:59 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:43:59 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:44:00 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:44:02 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:44:02 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:44:02 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:44:03 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:44:12 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:44:25 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:44:25 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:44:25 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:52:34 Z-InitController:Welcome-User:test@test.comsad -Args:  - 
+INFO -            Exit:2015/09/08 04:52:34 Z-InitController:Welcome-User:test@test.comsad -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:52:34 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.comsad -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:52:34 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.comsad -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:52:45 Z-InitController:Register-User:test@test.comsad -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:54:30 Z-InitController:Register-User:test@test.comsad -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:54:30 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.comsad -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:54:30 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.comsad -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:54:42 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 7dfd720f-c0c7-46ce-b2df-f53b40cd2b9d,code = 3V61LdqX853IXP0gkzJAFH0pAyBGzV3xvwtsfHWdF85wHd%2fQTmGFlqVamdLu4rXC4p%2fPru89hk2HPuy7RmWzoEtDP7HSYtapkFYwJKwA3%2bV1QXbGgZgbu38eX1AZk9TMuilnX4HzRVfrBRZAPYRqtrkovn2KFg9ygcwZfFDTcieMuRBzrLCj3jmMxEmkVRHN - 
+INFO -            Exit:2015/09/08 04:54:42 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:54:42 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:54:42 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:54:49 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -           Entry:2015/09/08 04:56:35 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:56:35 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:56:35 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:56:37 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:57:16 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:57:16 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:57:16 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:57:16 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 04:57:25 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 04:57:34 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:57:34 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 04:57:34 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 04:57:51 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 7dfd720f-c0c7-46ce-b2df-f53b40cd2b9d,code = 3V61LdqX853IXP0gkzJAFH0pAyBGzV3xvwtsfHWdF85wHd%2fQTmGFlqVamdLu4rXC4p%2fPru89hk2HPuy7RmWzoEtDP7HSYtapkFYwJKwA3%2bV1QXbGgZgbu38eX1AZk9TMuilnX4HzRVfrBRZAPYRqtrkovn2KFg9ygcwZfFDTcieMuRBzrLCj3jmMxEmkVRHN - 
+INFO -            Exit:2015/09/08 04:57:51 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:57:51 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 04:57:51 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 04:57:58 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 04:57:58 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+FATAL -       Exception:2015/09/08 04:57:58 Z-InitControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - UserId not found.   в Microsoft.AspNet.Identity.UserManager`2.<ConfirmEmailAsync>d__c5.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   в MyBlog.Controllers.InitController.<ConfirmEmailAndChangePassword>d__14.MoveNext() в E:\GIT\AleksanderGalkin\MyBlog\MyBlog\Controllers\InitController.cs:строка 163
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 04:59:02 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:59:02 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:59:02 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 04:59:03 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 04:59:52 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 04:59:52 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 04:59:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 04:59:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 05:00:02 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 05:00:18 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:00:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 05:00:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 05:00:40 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 62985a2f-c79b-4b43-acb8-71079e028806,code = 35A66JHxCqtBlQHGjB%2bnEoj2JXf%2ftNi%2b38oJpTFV3GT6QCmymhggNivDTYy1i%2fKSSnsvp5FLt66bak%2bS6zr5R6nFy%2fMiIf5dYD8ccWNSd4BchX%2ftEKEq8AE9NHCItFuVz2E7xtjvCjOY%2ftyE%2fxlmugNU12SR03uqx8U0zsoKGNnI4CLSfBQL3wah8IIGOXKz - 
+INFO -            Exit:2015/09/08 05:00:40 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:00:40 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 05:00:40 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 05:00:48 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 05:01:12 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:12 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 05:01:12 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 05:01:12 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/08 05:01:12 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:12 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 05:01:12 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 05:01:29 Z-InitController:Login-User:test@test.com -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/08 05:01:29 Z-InitController:Login-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:29 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/08 05:01:29 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/08 05:01:29 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/08 05:01:29 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:29 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 05:01:29 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 05:01:32 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/09/08 05:01:32 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:32 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/08 05:01:33 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - 
+INFO -            Exit:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:47 Z-ManageController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/08 05:01:47 Z-ManageController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args: Message = SaveAccountInfoSuccess - 
+INFO -            Exit:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:01:47 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/09/08 05:01:47 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/09/08 05:03:35 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 05:03:35 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:03:35 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 05:03:36 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 05:03:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/08 05:03:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:03:38 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 05:03:38 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 05:04:03 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/08 05:04:10 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:04:10 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/08 05:04:10 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/08 05:04:25 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = ccfabe4c-eb2d-4f09-af72-bff270f7381d,code = VMbYSGnIf%2b%2fF83BZ0Z1UfI02evuIACNGaVx%2fGOGb3jo2fc2aVydQKIoUY9oszA9PX8lLX7ugrHZRqwL5FgelVdqEeLNNSkqBzp6FMosAWugqNkCUyqzXfwLx5wrODtn8Nm41MzCOVUKXHRgl%2bxCcg49raa85qU%2bV8P3Y0BpoxuIGHqjv1lJpQ8lxjftJOvy9 - 
+INFO -            Exit:2015/09/08 05:04:25 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:04:25 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 05:04:25 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 05:04:34 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/08 05:04:42 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:04:42 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/08 05:04:42 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/08 05:04:42 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/08 05:04:42 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/08 05:04:42 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/08 05:04:42 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/08 10:00:36 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:00:36 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:00:36 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 10:00:38 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 10:17:12 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:17:12 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:17:12 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 10:17:14 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 10:17:23 Z-BandController:index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:17:23 Z-BandController:index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:17:23 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+INFO -           Entry:2015/09/08 10:25:01 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:25:01 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:25:01 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 10:25:03 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 10:25:17 Z-BandController:index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:25:17 Z-BandController:index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:25:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+INFO -      ResultExit:2015/09/08 10:25:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+FATAL -       Exception:2015/09/08 10:25:18 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = band,action = index - The model item passed into the dictionary is of type 'MyBlog.ViewModels.PostVm', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[MyBlog.Models.Post]'.   в System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   в System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   в System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   в System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   в System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 10:36:32 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:36:32 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:36:32 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 10:36:34 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 10:36:45 Z-BandController:index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:36:45 Z-BandController:index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:36:45 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+INFO -      ResultExit:2015/09/08 10:36:46 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+FATAL -       Exception:2015/09/08 10:36:46 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = band,action = index - The model item passed into the dictionary is of type 'System.Collections.ObjectModel.Collection`1[MyBlog.ViewModels.PostVm]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[MyBlog.Models.Post]'.   в System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   в System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   в System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   в System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   в System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 10:38:11 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:38:11 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:38:11 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 10:38:13 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 10:38:17 Z-BandController:index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:38:17 Z-BandController:index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:38:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+INFO -      ResultExit:2015/09/08 10:38:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = band,action = index - 
+FATAL -       Exception:2015/09/08 10:38:17 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = band,action = index - The model item passed into the dictionary is of type 'System.Collections.ObjectModel.Collection`1[MyBlog.ViewModels.PostVm]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[MyBlog.Models.Post]'.   в System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   в System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   в System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   в System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   в System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   в System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   в System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   в System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/08 10:39:57 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 10:39:57 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 10:39:57 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/08 10:39:58 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/08 11:10:39 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 11:10:39 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 11:10:39 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/08 11:10:41 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/08 11:12:38 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 11:12:38 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 11:12:38 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/08 11:43:13 Z-BandController:Index-User: -Args:  - 
+INFO -           Entry:2015/09/08 11:45:16 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/08 11:45:18 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/08 11:45:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/08 11:45:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/09 10:56:17 Z-BandController:Index-User: -Args:  - 
+INFO -           Entry:2015/09/09 10:57:28 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/09 10:57:29 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/09 10:57:29 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/09 10:57:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
