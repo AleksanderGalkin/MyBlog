@@ -12,7 +12,7 @@ namespace MyBlog.ViewModels
         public int? PostCommentCount {
             get
             {
-                if (Post != null)
+                if ( Post != null && Post.PostComments != null  )
                     return Post.PostComments.Count;
                 else
                     return null;
@@ -21,7 +21,7 @@ namespace MyBlog.ViewModels
         public int? PostViewCount {
             get
             {
-                if (Post != null)
+                if (Post != null && Post.PostViews != null)
                     return Post.PostViews.Count;
                 else
                     return null;

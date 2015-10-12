@@ -1409,3 +1409,176 @@ INFO -           Entry:2015/09/09 10:57:28 Z-BandController:Index-User: -Args:  
 INFO -            Exit:2015/09/09 10:57:29 Z-BandController:Index-User: -Args:  - 
 INFO -     ResultEntry:2015/09/09 10:57:29 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
 INFO -      ResultExit:2015/09/09 10:57:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 07:17:15 Z-BandController:Index-User: -Args:  - 
+INFO -           Entry:2015/09/12 07:23:45 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:23:49 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:23:50 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 07:23:59 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 07:28:09 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:28:09 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:28:09 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/12 07:28:13 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/12 07:28:26 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/12 07:28:27 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:28:27 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/12 07:28:27 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/12 07:28:46 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/12 07:28:52 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:28:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/12 07:28:52 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/12 07:34:20 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:34:25 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:34:25 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 07:34:31 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 07:35:45 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:35:45 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:35:45 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/12 07:35:47 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/12 07:36:06 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/12 07:36:08 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:36:08 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/12 07:36:08 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/12 07:36:58 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:37:02 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:37:02 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 07:37:04 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 07:40:31 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:40:35 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:40:35 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 07:40:36 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 07:40:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/09/12 07:40:42 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:40:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/12 07:40:42 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/12 07:40:54 Z-InitController:Register-User: -Args: Model = MyBlog.ViewModels.RegisterVm - 
+INFO -            Exit:2015/09/12 07:40:55 Z-InitController:Register-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:40:55 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -      ResultExit:2015/09/12 07:41:03 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Register - 
+INFO -           Entry:2015/09/12 07:41:22 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: userId = 5efe7a2d-1b3f-4657-b8f9-bc73cd65d299,code = k1yArbqu%2bAF0AjTyqZWefiNI4ixBeXc8EvsYw5clGxFEloi%2balg1fKwG5GmljCNN0fnLrv3ATGuyKGUELOZpNaXDNxgB4pRtZYYe5CmxfrSKNKdiyxXjAIC8ReLakr%2bFGTlxbiCsOUtMPjbpS5O7jkStkl9zoSBxCQ1Q6Dndd69UjdNGqd6XmjCE9BOeArAT - 
+INFO -            Exit:2015/09/12 07:41:22 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:41:22 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/12 07:41:22 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/12 07:41:30 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args: Model = MyBlog.ViewModels.ChangePasswordAndConfirmEmailVm - 
+INFO -            Exit:2015/09/12 07:41:30 Z-InitController:ConfirmEmailAndChangePassword-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:41:30 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -      ResultExit:2015/09/12 07:41:30 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = ConfirmEmailAndChangePassword - 
+INFO -           Entry:2015/09/12 07:41:31 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/12 07:41:31 Z-InitController:Welcome-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:41:31 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/09/12 07:41:31 Z-InitController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/09/12 07:41:43 Z-InitController:Login-User:test@test.com -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/09/12 07:41:44 Z-InitController:Login-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:41:44 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/09/12 07:41:44 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/09/12 07:41:44 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/09/12 07:41:44 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/09/12 07:41:44 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/09/12 07:41:46 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/09/12 08:48:43 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 08:48:54 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 08:48:54 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 08:49:00 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 08:57:54 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 08:57:54 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 08:57:54 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 08:59:14 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 08:59:17 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 08:59:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:20:28 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:20:31 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:20:31 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:21:20 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:21:23 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:21:23 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:29:38 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:29:41 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:29:41 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:31:02 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:31:05 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:31:05 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:36:39 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:36:42 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:36:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:40:39 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:40:41 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:40:41 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:42:09 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:42:12 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:42:12 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:42:41 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:42:46 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:42:46 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:45:26 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:45:29 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:45:29 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 09:45:33 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 09:47:39 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 09:47:42 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 09:47:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 09:47:46 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 10:10:24 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 10:10:27 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 10:10:27 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/09/12 11:00:14 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 11:00:17 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 11:00:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 11:00:19 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/09/12 11:00:19 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = Index - c:\GIT\MyBlog\MyBlog\Views\Band\Index.cshtml(15): error CS1061: 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' does not contain a definition for 'PostCommentCount' and no extension method 'PostCommentCount' accepting a first argument of type 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' could be found (are you missing a using directive or an assembly reference?)   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/09/12 11:00:44 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/09/12 11:00:47 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/09/12 11:00:48 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/09/12 11:00:49 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/09/12 11:00:49 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = Index - c:\GIT\MyBlog\MyBlog\Views\Band\Index.cshtml(15): error CS1061: 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' does not contain a definition for 'PostCommentCount' and no extension method 'PostCommentCount' accepting a first argument of type 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' could be found (are you missing a using directive or an assembly reference?)   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/10 10:44:29 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/10 10:44:53 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/10 10:44:53 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/10 10:44:55 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/10 10:44:55 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = Index - c:\GIT\MyBlog\MyBlog\Views\Band\Index.cshtml(15): error CS1061: 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' does not contain a definition for 'PostCommentCount' and no extension method 'PostCommentCount' accepting a first argument of type 'System.Collections.Generic.IList<MyBlog.ViewModels.PostVm>' could be found (are you missing a using directive or an assembly reference?)   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)

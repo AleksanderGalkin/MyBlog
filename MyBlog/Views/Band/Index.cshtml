@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyBlog.ViewModels.PostVm>
+﻿@model IList<MyBlog.ViewModels.PostVm>
 
 @{
     ViewBag.Title = "Index";
@@ -20,7 +20,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (MyBlog.ViewModels.PostVm item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.PostCommentCount)
@@ -34,6 +34,20 @@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
+    <tr>
+        <td>
+            @*@Html.DisplayNameFor(item.PostContents.Select(x=>x.ContentDataType))*@
+        </td>
+        <td>
+           @*@Html.DisplayNameFor(model => model.PostContents.Select(x => x.ContentData))*@
+        </td>
+        <td>
+           
+        </td>
+    </tr>
+
 }
 
+
 </table>
+

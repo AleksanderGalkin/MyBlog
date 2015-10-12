@@ -21,16 +21,16 @@ namespace MyBlog.Controllers
         // GET: Band
         public ActionResult Index()
         {
-            IEnumerable<PostVm> model = from a in _unitOfWork.db.Posts
+            IList<PostVm> model = (from a in _unitOfWork.db.Posts
                                         select new PostVm
                                         {
                                             Post = a,
                                             PostContents = a.PostContents,
                                             PostTags = a.PostTags
-                                        };
+                                        }).ToList();
 
             
-            return View("Index",model.AsEnumerable());
+            return View("Index",model);
         }
     }
 }
