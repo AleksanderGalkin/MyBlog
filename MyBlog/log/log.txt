@@ -1582,3 +1582,16 @@ FATAL -       Exception:2015/10/10 10:44:55 Z-BandControllerProxy:System.Web.Mvc
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/13 03:04:42 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:04:44 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:04:44 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:04:49 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 03:05:54 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:05:56 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:05:56 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:05:58 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 03:08:18 Z-BandController:Index-User: -Args:  - 
+INFO -           Entry:2015/10/13 03:15:33 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:17:00 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:17:00 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:17:01 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 

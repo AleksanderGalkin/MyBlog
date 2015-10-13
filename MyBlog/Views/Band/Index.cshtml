@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PostCommentCount)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().PostCommentCount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PostViewCount)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().PostViewCount)
         </th>
         <th></th>
     </tr>
@@ -36,10 +36,10 @@
     </tr>
     <tr>
         <td>
-            @*@Html.DisplayNameFor(item.PostContents.Select(x=>x.ContentDataType))*@
+
         </td>
         <td>
-           @*@Html.DisplayNameFor(model => model.PostContents.Select(x => x.ContentData))*@
+
         </td>
         <td>
            
