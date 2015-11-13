@@ -16,8 +16,7 @@ namespace MyBlog.Infrustructure.Windsor.Installers
         {
             container.Register(Classes.FromThisAssembly()
                 .BasedOn<IController>()
-                .LifestylePerWebRequest()
-                .Configure(c=>c.LifestylePerWebRequest()
+                 .Configure(c => c.LifestyleTransient()
                 .Interceptors<LoggerInterceptor>()));
 
             container.Register(Classes.FromThisAssembly()

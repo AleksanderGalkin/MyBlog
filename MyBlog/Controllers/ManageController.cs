@@ -123,6 +123,7 @@ namespace MyBlog.Controllers
                 user.UserName = Model.Username;
                 user.Email = Model.Email;
                 user.PhoneNumber = Model.PhoneNumber;
+                
                 if (Model.FullName != null)
                 {
                     IdentityUserClaim FullNameClaim = user.Claims.Where(x => x.ClaimType == "FullName").FirstOrDefault();

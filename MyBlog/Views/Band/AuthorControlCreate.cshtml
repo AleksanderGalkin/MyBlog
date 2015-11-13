@@ -1,0 +1,42 @@
+﻿@model MyBlog.ViewModels.PostVm
+@{
+    Layout = null;
+}
+
+@if (ViewBag.isAuthor == true)
+{
+    <div class="row form-group col-md-offset-8 col-md-2">
+        <a class="btn" data-toggle="modal" data-target="#CreatePostModal">Новый пост</a>
+    </div>
+    <div class="modal fade" id="CreatePostModal" tabindex="-1" role="dialog" aria-labelledby="CreatePostModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+                    <p class="modal-title">
+                        Новый пост 
+                        <button type="button" class="btn-link" id="newContentButton">+</button> 
+                    </p>
+                    
+                </div>
+                <div class="modal-body">
+                    @*@using(@Html.BeginForm("Index","Band", FormMethod.Post,new { id = "CreatePostForm"  })){
+                        @Html.AntiForgeryToken()
+                        @Html.EditorFor(model => model.PostContents.FirstOrDefault().ContentData)
+
+                    }*@
+                    <form method="post" action="somepage">
+                        <textarea name="content" style="width:100%"></textarea>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="document.forms['CreatePostForm'].submit();" >Сохранить</button>
+                    <button type="button" data-dismiss="modal" class="btn">Закрыть</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

@@ -26,3 +26,6 @@ INFO - AuditChangeAccountInfo:2015/09/06 11:59:17 Z-ManageController:Edit-User:t
 INFO - AuditChangeAccountInfo:2015/09/06 11:59:18 Z-ManageController:Edit-User:test@test.com -Args:  - Попытка изменения учётных данных завершилась успешно
 INFO - AuditChangeAccountInfo:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - Попытка изменения учётных данных
 INFO - AuditChangeAccountInfo:2015/09/08 05:01:47 Z-ManageController:Edit-User:test@test.com -Args:  - Попытка изменения учётных данных завершилась успешно
+INFO - AuditChangeAccountInfo:2015/10/23 02:38:09 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - Попытка изменения учётных данных
+INFO - AuditChangeAccountInfo:2015/10/23 02:52:50 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - Попытка изменения учётных данных
+INFO - AuditChangeAccountInfo:2015/10/23 02:53:24 Z-ManageController:Edit-User:test@test.com -Args:  - Попытка изменения учётных данных завершилась успешно

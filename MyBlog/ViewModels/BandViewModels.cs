@@ -29,6 +29,9 @@ namespace MyBlog.ViewModels
         }
         public IEnumerable<PostContent> PostContents { get; set; }
         public IEnumerable<PostTag> PostTags { get; set; }
+        public bool isAuthor { get; set; }
 
     }
+
+
 }

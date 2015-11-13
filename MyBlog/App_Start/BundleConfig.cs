@@ -27,8 +27,10 @@ namespace MyBlog
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootstrap-datepicker.js",
-                      "~/Scripts/locales/bootstrap-datepicker.ru.min.js"));
-
+                      "~/Scripts/locales/bootstrap-datepicker.ru.min.js",
+                      "~/Scripts/bootstrap-modal.js"));
+            bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
+                      "~/Scripts/tinymce/tinymce.min.js"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datepicker.css",

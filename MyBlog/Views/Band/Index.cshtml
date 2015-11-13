@@ -4,50 +4,57 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().PostCommentCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().PostViewCount)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    @Html.Action("AuthorControlCreate")
+    @foreach (MyBlog.ViewModels.PostVm item in Model)
+    {
+        <div class="row col-md-10">
+            <p class="h3">
+                @Html.DisplayFor(modelItem => item.Post.Tittle)
+            </p>
+        </div>
+        foreach (MyBlog.Models.PostContent pcItem in item.PostContents)
+        {
+            <div class="row col-md-10">
+                <p>
+                    @Html.DisplayFor(modelItem => pcItem.ContentData)
+                </p>
+            </div>
+        }
+        <div class="row text-info">
+            <div class="col-md-5">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PostCommentCount) : @Html.DisplayFor(modelItem => item.PostCommentCount)
+            </div>
+            <div class="col-md-5">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PostViewCount) : @Html.DisplayFor(modelItem => item.PostViewCount)
+            </div>
+        </div>
+    }
 
-@foreach (MyBlog.ViewModels.PostVm item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCommentCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostViewCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-    <tr>
-        <td>
+</div>
 
-        </td>
-        <td>
+@if (ViewBag.isAuthor)
+{
+    @Scripts.Render("~/bundles/tinymce")
 
-        </td>
-        <td>
-           
-        </td>
-    </tr>
-
+    @section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#newContentButton').on('click', function () {
+                tinymce.init({
+                    selector: "textarea",
+                    plugins: [
+                        "advlist autolink lists link image charmap print preview anchor",
+                        "searchreplace visualblocks code fullscreen",
+                        "insertdatetime media table contextmenu paste"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                });
+            })
+        });
+    </script>
+    }
 }
 
-
-</table>
-
+ 

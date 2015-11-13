@@ -1595,3 +1595,1115 @@ INFO -           Entry:2015/10/13 03:15:33 Z-BandController:Index-User: -Args:  
 INFO -            Exit:2015/10/13 03:17:00 Z-BandController:Index-User: -Args:  - 
 INFO -     ResultEntry:2015/10/13 03:17:00 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
 INFO -      ResultExit:2015/10/13 03:17:01 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 02:04:35 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 02:05:05 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 02:05:05 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 02:05:10 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 03:11:35 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:11:45 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:11:45 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:11:46 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 03:12:06 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:12:10 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:12:10 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:12:11 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/13 03:12:52 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/13 03:12:56 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/13 03:12:57 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/13 03:12:58 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/14 02:16:36 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 02:16:42 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 02:16:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 02:16:44 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/14 02:23:33 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 02:23:37 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 02:23:37 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 02:23:41 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/14 03:03:38 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 03:03:42 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 03:03:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 03:03:45 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/14 03:21:25 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 03:21:29 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 03:21:29 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 03:21:30 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/14 03:21:30 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = Index - Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/14 03:25:11 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 03:25:14 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 03:25:14 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 03:25:15 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/14 03:25:15 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = Index - Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/14 03:28:24 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/14 03:28:28 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/14 03:28:28 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/14 03:28:30 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/16 02:06:27 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/16 02:06:30 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/16 02:06:30 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/16 02:06:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/19 01:30:55 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/19 01:31:20 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/19 01:31:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/19 01:31:30 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/19 01:46:10 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/19 01:46:16 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/19 01:46:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/19 01:46:22 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/19 01:47:56 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/19 01:47:57 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/19 01:47:57 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/19 01:47:58 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/19 01:52:14 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/19 01:52:14 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/19 01:52:14 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/19 01:52:15 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/19 01:52:58 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/19 01:52:59 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/19 01:52:59 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/19 01:53:00 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/20 02:39:51 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/20 02:40:04 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/20 02:40:04 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/20 02:40:10 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/22 02:07:27 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/22 02:07:43 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/22 02:07:43 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/22 02:07:47 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:12:07 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:12:14 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:12:14 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/23 02:12:15 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:35:13 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:35:17 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:35:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/23 02:35:19 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:35:24 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:35:24 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:35:24 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/23 02:35:30 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/23 02:35:47 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:35:49 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:35:49 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:35:49 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:35:56 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:35:56 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:35:56 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:35:56 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:36:07 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:36:07 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:36:07 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:36:07 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:36:14 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:36:15 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:36:15 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:36:15 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:36:23 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:36:23 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:36:23 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:36:23 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:36:27 Z-InitController:ForgotPassword-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:36:27 Z-InitController:ForgotPassword-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:36:28 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = ForgotPassword - 
+INFO -      ResultExit:2015/10/23 02:36:28 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = ForgotPassword - 
+INFO -           Entry:2015/10/23 02:36:44 Z-InitController:ForgotPassword-User: -Args: Model = MyBlog.ViewModels.ForgottenPasswordVm - 
+INFO -            Exit:2015/10/23 02:36:44 Z-InitController:ForgotPassword-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:36:44 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = ForgotPassword - 
+INFO -      ResultExit:2015/10/23 02:36:44 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = ForgotPassword - 
+INFO -           Entry:2015/10/23 02:37:48 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:37:49 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:37:49 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:37:49 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:37:49 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/23 02:37:49 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:37:49 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/23 02:37:51 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/23 02:37:57 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/10/23 02:37:57 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:37:57 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/10/23 02:37:58 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/10/23 02:38:09 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - 
+INFO -           Entry:2015/10/23 02:48:22 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:48:25 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:48:25 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/23 02:48:26 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:49:28 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:49:32 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:49:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/23 02:49:33 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:52:14 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:52:18 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:52:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/23 02:52:22 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/23 02:52:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/23 02:52:26 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:52:26 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/23 02:52:29 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/23 02:52:40 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/23 02:52:41 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:52:41 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/23 02:52:41 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/23 02:52:41 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/23 02:52:41 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:52:41 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/23 02:52:43 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/23 02:52:46 Z-ManageController:Edit-User:test@test.com -Args: Message =  - 
+INFO -            Exit:2015/10/23 02:52:46 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:52:46 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/10/23 02:52:47 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/10/23 02:52:50 Z-ManageController:Edit-User:test@test.com -Args: Model = MyBlog.Models.AccountInfoVm - 
+INFO -            Exit:2015/10/23 02:53:24 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:53:24 Z-ManageController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/10/23 02:53:24 Z-ManageController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/10/23 02:53:24 Z-ManageController:Edit-User:test@test.com -Args: Message = SaveAccountInfoSuccess - 
+INFO -            Exit:2015/10/23 02:53:24 Z-ManageController:Edit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:53:24 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -      ResultExit:2015/10/23 02:53:24 Z-ManageController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Manage,action = Edit - 
+INFO -           Entry:2015/10/23 02:53:30 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/23 02:53:30 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:53:30 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/23 02:53:30 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/23 02:53:38 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/23 02:53:38 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/23 02:53:38 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/23 02:53:38 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/24 03:03:27 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/24 03:04:11 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:04:11 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/24 03:04:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/24 03:04:37 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/24 03:04:37 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:04:37 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/24 03:04:39 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/24 03:04:51 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/24 03:04:52 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:04:52 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/24 03:04:52 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/24 03:04:53 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/24 03:04:53 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:04:53 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/24 03:04:54 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/24 03:05:11 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -           Entry:2015/10/24 03:06:50 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/24 03:07:03 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:07:03 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/24 03:07:07 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/24 03:07:16 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/24 03:07:16 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:07:16 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/24 03:07:17 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/24 03:07:30 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/24 03:07:32 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:07:32 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/24 03:07:32 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/24 03:07:32 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/24 03:07:32 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/24 03:07:32 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/24 03:07:33 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/24 03:08:21 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -           Entry:2015/10/26 06:55:17 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 06:55:36 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 06:55:36 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/26 06:55:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 06:56:32 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 06:56:39 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 06:56:39 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/26 06:56:41 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/26 07:15:49 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/26 07:16:08 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:16:12 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:16:12 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:17:25 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:17:29 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:17:29 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -      ResultExit:2015/10/26 07:17:31 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:17:51 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:17:54 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:17:54 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:25:15 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:25:18 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:25:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:26:38 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:26:42 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:26:42 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:32:14 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:32:17 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:32:17 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:34:13 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:34:16 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:34:16 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:34:18 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:34:18 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:34:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:34:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:34:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/26 07:36:56 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+FATAL -       Exception:2015/10/26 07:39:59 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+FATAL -       Exception:2015/10/26 07:42:10 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/26 07:42:42 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:42:45 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:42:45 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:42:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:42:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:42:47 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:42:48 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:42:49 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:43:09 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:43:13 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:43:13 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:43:14 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:43:14 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:43:14 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:43:16 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:43:16 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:45:05 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:45:08 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:45:08 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:45:09 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:45:09 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:45:09 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:45:09 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:45:12 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:46:01 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:46:01 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:46:01 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:46:01 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:46:01 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:46:01 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:46:14 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:46:18 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:46:55 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:46:55 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:46:55 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:46:55 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:46:55 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:46:55 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:47:00 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:47:04 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:47:36 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:47:36 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:47:36 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:47:36 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:47:54 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:47:54 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:47:54 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:47:57 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:48:03 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/26 07:48:03 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:48:03 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/26 07:48:05 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/26 07:48:20 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/26 07:48:22 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:48:22 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/26 07:48:22 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/26 07:48:23 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 07:48:23 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:48:23 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/26 07:48:24 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/26 07:48:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 07:48:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:48:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 07:48:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 07:48:52 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 07:48:52 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:48:52 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 07:48:55 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/26 08:29:19 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/26 08:31:27 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:31:32 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:31:32 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:31:32 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:32 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:31:33 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:31:35 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:31:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:31:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:38 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/26 08:31:38 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/26 08:31:49 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/26 08:31:49 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:49 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/26 08:31:49 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/26 08:31:49 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:31:49 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:49 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/26 08:31:50 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/26 08:31:57 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:31:57 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:31:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:31:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:31:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:31:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:31:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/26 08:32:51 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/26 08:33:06 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:33:11 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:11 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:33:11 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:33:11 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:11 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:33:12 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:33:13 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:33:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/10/26 08:33:18 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/10/26 08:33:18 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/10/26 08:33:30 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/10/26 08:33:30 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:30 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/10/26 08:33:30 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/10/26 08:33:30 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:33:30 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:30 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/10/26 08:33:31 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/10/26 08:33:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:33:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 08:33:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 08:33:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 08:33:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:33:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 08:33:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:04:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:04:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:04:06 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:04:08 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:04:08 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:04:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:04:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:04:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:04:58 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:05:02 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:05:02 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:05:02 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:05:02 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:05:02 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:05:03 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:05:04 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:07:10 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:07:14 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:07:14 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:07:14 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:07:14 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:07:14 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:07:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:07:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:24:51 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:24:55 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:24:55 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:24:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:24:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:24:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:24:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:25:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:29:09 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:29:12 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:29:13 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:29:13 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:29:13 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:29:13 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:29:14 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:29:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:47:53 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:47:53 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:47:53 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:47:54 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:47:54 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:47:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:47:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:47:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:49:37 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:49:37 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:49:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:49:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:49:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:49:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:49:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:49:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:50:26 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:50:26 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:50:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:50:27 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:50:27 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:50:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:50:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:50:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:50:50 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:50:50 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:50:50 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:50:51 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:50:51 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:50:51 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:50:51 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:50:51 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:52:17 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:52:17 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:52:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:52:18 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:52:18 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:52:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:52:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:52:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:52:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:52:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:52:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:52:44 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:52:44 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:52:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:52:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:52:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:55:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:55:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:55:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 12:55:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 12:55:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 12:55:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:55:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 12:55:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 01:46:02 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:46:02 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:46:02 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 01:46:03 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:46:03 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:46:03 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:46:03 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:46:04 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 01:48:01 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:48:01 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:48:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 01:48:01 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:48:01 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:48:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:48:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:48:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/10/26 01:49:54 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/26 01:50:19 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:50:22 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:50:23 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 01:50:23 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 01:50:23 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 01:50:23 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:50:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 01:50:25 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:01:34 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:01:34 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:01:34 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:01:35 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:01:35 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:01:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:01:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:01:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:02:31 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:02:31 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:02:31 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:02:32 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:02:32 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:02:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:02:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:02:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:02:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:02:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:02:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:02:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:02:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:02:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:02:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:02:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:03:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:03:44 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:03:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:03:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:03:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:03:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:03:46 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:03:46 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:04:23 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:04:23 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:04:23 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:04:23 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:04:23 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:04:23 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:04:23 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:04:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:06:36 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:06:36 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:06:36 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:06:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:06:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:06:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:06:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:06:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:27:16 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:27:16 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:27:16 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/26 02:27:17 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/26 02:27:17 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/26 02:27:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:27:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/26 02:27:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:48:54 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:48:54 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:48:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:48:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:48:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:48:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:48:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:48:59 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:49:29 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:49:29 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:49:29 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:49:30 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/28 02:49:57 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:49:57 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:49:57 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+FATAL -       Exception:2015/10/28 02:49:57 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - Child actions are not allowed to perform redirect actions.   at System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+FATAL -       Exception:2015/10/28 02:51:05 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/10/28 02:54:11 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:54:15 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:54:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:54:15 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:54:15 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:54:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:54:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:54:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:58:21 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:58:24 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:58:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 02:58:24 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 02:58:24 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 02:58:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:58:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 02:58:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 04:07:35 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 04:07:35 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 04:07:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 04:07:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 04:07:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 04:07:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 04:07:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 04:07:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 04:07:41 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/28 04:07:41 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 04:07:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/28 04:07:41 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/28 04:08:07 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/28 04:08:15 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/28 04:08:15 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+FATAL -       Exception:2015/10/28 04:08:15 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - Child actions are not allowed to perform redirect actions.   at System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/30 02:04:36 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/30 02:04:36 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/30 02:04:36 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/30 02:04:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/30 02:04:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/30 02:04:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/30 02:04:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/30 02:04:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/30 02:05:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/30 02:05:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/30 02:05:06 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/30 02:05:06 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/30 02:05:20 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/30 02:05:20 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/30 02:05:20 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+FATAL -       Exception:2015/10/30 02:05:20 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - Child actions are not allowed to perform redirect actions.   at System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/31 02:29:13 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 02:29:13 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 02:29:13 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 02:29:14 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 02:29:14 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 02:29:14 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 02:29:14 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 02:29:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 02:29:52 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 02:29:52 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 02:29:52 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 02:29:52 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 02:30:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 02:30:11 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 02:30:11 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+FATAL -       Exception:2015/10/31 02:30:11 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - Child actions are not allowed to perform redirect actions.   at System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/10/31 03:02:33 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:02:33 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:02:33 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:02:35 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:02:35 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:02:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:02:36 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:02:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:03:46 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:03:46 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:03:46 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:03:46 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 03:03:53 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:03:53 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:03:53 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:04:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:04:34 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:04:34 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:04:34 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:04:34 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 03:04:36 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:04:36 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:04:36 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:04:47 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:08:17 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:08:17 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:08:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:08:17 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:08:17 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:08:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:08:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:08:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:08:22 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:08:22 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:08:22 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:08:22 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 03:08:25 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:08:25 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:08:25 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:08:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:19:20 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:19:20 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:19:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:19:20 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:19:20 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:19:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:19:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:19:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:20:09 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:20:09 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:20:09 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:20:20 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 03:20:30 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:20:30 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:20:30 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:20:46 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:33:00 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:33:00 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:33:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:33:41 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:33:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:33:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:33:52 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:33:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:34:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/10/31 03:34:45 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:34:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/10/31 03:35:35 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/10/31 03:36:16 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/10/31 03:36:22 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:36:27 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/10/31 03:36:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:44:14 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:44:20 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:44:20 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:44:26 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:44:43 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:44:43 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:44:48 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:45:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:45:13 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:45:27 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:45:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:45:31 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/11/02 03:45:45 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:45:45 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:45:51 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:45:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:57:57 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:58:26 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:58:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:58:30 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:58:38 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:58:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:58:50 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 03:59:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:59:20 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 03:59:33 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 03:59:33 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 03:59:40 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/11/02 04:00:01 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 04:00:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2015/11/02 04:01:15 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 04:02:07 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 04:02:07 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 04:02:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 04:02:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 04:02:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 04:02:12 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 04:02:16 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 04:02:24 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 04:02:26 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 04:02:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 04:02:27 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/11/02 04:02:27 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 04:02:27 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 04:02:28 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 04:02:31 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 07:57:53 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 07:57:59 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 07:57:59 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 07:58:01 Z-BandController:AuthorControlCreate-User:test@test.com -Args: Model = MyBlog.ViewModels.PostVm - 
+INFO -            Exit:2015/11/02 07:58:03 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 07:58:03 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 07:58:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 07:58:07 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/11/02 08:56:42 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/11/02 08:57:07 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 08:57:08 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 08:57:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 08:57:10 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 08:57:10 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 08:57:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 08:57:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 08:57:12 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/11/02 09:01:40 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - The action 'AuthorControlCreate' is accessible only by a child request.   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INFO -           Entry:2015/11/02 09:01:55 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:01:59 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:01:59 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:01:59 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:01:59 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:01:59 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:02:01 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:02:02 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:11:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:11:08 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:11:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:11:10 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:11:10 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:11:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:11:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:11:12 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:31:18 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:31:18 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:31:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:31:18 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:31:18 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:31:18 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:31:19 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:31:21 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:32:07 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:32:11 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:32:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:32:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:32:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:32:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:32:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:32:12 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:35:49 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:35:53 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:35:53 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:35:54 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:35:54 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:35:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:35:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2015/11/02 09:36:50 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:36:54 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:36:54 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:36:56 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:36:56 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:36:56 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:36:56 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:37:47 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+FATAL -       Exception:2015/11/02 09:37:47 Z-BandControllerProxy:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = Index - The file "~/Views/Band/Index.cshtml" cannot be requested directly because it calls the "RenderSection" method.   at System.Web.WebPages.WebPageBase.EnsurePageCanBeRequestedDirectly(String methodName)
+   at System.Web.WebPages.WebPageBase.RenderSection(String name, Boolean required)
+   at ASP._Page_Views_Band_Index_cshtml.<Execute>b__2() in c:\GIT\MyBlog\MyBlog\Views\Band\Index.cshtml:line 39
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderSection>b__5(TextWriter tw)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at ASP._Page_Views_Shared__Layout_cshtml.Execute() in c:\GIT\MyBlog\MyBlog\Views\Shared\_Layout.cshtml:line 46
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INFO -           Entry:2015/11/02 09:47:26 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:47:30 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:47:30 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:47:31 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:47:31 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:47:31 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:47:31 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:47:33 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:48:34 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:48:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:48:38 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:48:39 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:48:39 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:48:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:48:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:48:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:51:37 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:51:40 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:51:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:51:42 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:51:42 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:51:42 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:51:42 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:51:43 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:52:37 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:52:40 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:52:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:52:42 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:52:42 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:52:42 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:52:42 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:52:43 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:53:52 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:53:56 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:53:56 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:53:56 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:53:56 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:53:56 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:53:58 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:53:59 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:54:45 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:54:49 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:54:49 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 09:54:49 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 09:54:49 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 09:54:49 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:54:51 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 09:54:52 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 12:41:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 12:41:06 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 12:41:06 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 12:41:08 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 12:41:08 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 12:41:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 12:41:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 12:41:10 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 12:44:32 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 12:44:35 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 12:44:35 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 12:44:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 12:44:37 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 12:44:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 12:44:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2015/11/02 12:44:37 Z-BandController:AuthorControlCreate_scriptSection-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 12:44:37 Z-BandController:AuthorControlCreate_scriptSection-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 12:44:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate_scriptSection - 
+INFO -      ResultExit:2015/11/02 12:44:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate_scriptSection - 
+INFO -      ResultExit:2015/11/02 12:44:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:01:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:01:08 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:01:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:01:09 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:01:09 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:01:09 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:01:09 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2015/11/02 01:01:28 Z-BandController:AuthorControlCreate_scriptSection-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:01:28 Z-BandController:AuthorControlCreate_scriptSection-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:01:28 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate_scriptSection - 
+INFO -      ResultExit:2015/11/02 01:01:28 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate_scriptSection - 
+INFO -      ResultExit:2015/11/02 01:01:49 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:10:28 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:10:31 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:10:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:10:33 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:10:33 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:10:33 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:10:33 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:10:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:12:56 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:12:57 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:12:57 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:12:58 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:12:58 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:12:58 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:12:58 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2015/11/02 01:26:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -           Entry:2015/11/02 01:29:09 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:29:09 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:29:09 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:29:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:29:11 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:29:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:29:11 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:29:13 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:30:01 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:30:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:30:07 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:30:07 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:07 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:30:07 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:30:08 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:30:13 Z-InitController:LogOff-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:30:13 Z-InitController:LogOff-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:13 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = LogOff - 
+INFO -      ResultExit:2015/11/02 01:30:13 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Init,action = LogOff - 
+INFO -           Entry:2015/11/02 01:30:13 Z-HomeController:Index-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:30:13 Z-HomeController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:13 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/11/02 01:30:15 Z-HomeController:System.Web.Mvc.ViewResult-User: -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/11/02 01:30:30 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:30:33 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:33 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:30:34 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:30:34 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:34 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:30:34 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:30:35 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:30:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:30:38 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:38 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/11/02 01:30:40 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/11/02 01:30:54 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/11/02 01:30:55 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:55 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/11/02 01:30:55 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/11/02 01:30:55 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:30:55 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:30:55 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/11/02 01:30:55 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/11/02 01:31:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:31:05 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:31:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:31:05 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:31:05 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:31:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:31:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:31:05 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:46:21 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:46:24 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:46:24 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:46:26 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:46:26 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:46:26 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:46:26 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:46:28 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:46:32 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2015/11/02 01:46:32 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:46:32 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2015/11/02 01:46:34 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2015/11/02 01:46:50 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2015/11/02 01:46:50 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:46:50 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2015/11/02 01:46:50 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2015/11/02 01:46:51 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:46:51 Z-HomeController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:46:51 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -      ResultExit:2015/11/02 01:46:52 Z-HomeController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Home,action = Index - 
+INFO -           Entry:2015/11/02 01:47:00 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:47:00 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:47:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/02 01:47:00 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/02 01:47:00 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/02 01:47:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:47:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/02 01:47:00 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/04 02:32:48 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/04 02:32:48 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/04 02:32:48 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/04 02:32:50 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/04 02:32:50 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/04 02:32:50 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/04 02:32:50 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/04 02:32:53 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/04 02:37:38 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/04 02:37:42 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/04 02:37:42 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2015/11/04 02:37:44 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2015/11/04 02:37:44 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2015/11/04 02:37:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/04 02:37:44 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2015/11/04 02:37:46 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
