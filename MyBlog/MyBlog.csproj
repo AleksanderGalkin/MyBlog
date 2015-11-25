@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyBlog</RootNamespace>
     <AssemblyName>MyBlog</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -118,9 +120,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -193,6 +195,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -213,6 +216,7 @@
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
     <Compile Include="Infrustructure\MyDefaultModelBinder.cs" />
+    <Compile Include="Infrustructure\Services\Post.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperContent.cs" />
     <Compile Include="Infrustructure\ViewSystemMessage.cs" />
@@ -454,7 +458,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -502,6 +508,14 @@
     <Content Include="Views\Band\Index.cshtml" />
     <Content Include="Views\Band\AuthorControlCreate.cshtml" />
     <Content Include="Views\PostManage\CreateNewPost.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ContentTextEditVm.cshtml" />
+    <Content Include="Views\Band\GetContentView.cshtml" />
+    <Content Include="Views\Band\EditPost.cshtml" />
+    <Content Include="Views\Band\AuthorControlEdit.cshtml" />
+    <Content Include="Views\Band\CreateTextPost.cshtml" />
+    <Content Include="Views\Band\DeletePost.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentTextDispVm.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentImageDispVm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -516,9 +530,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509080410384_create.resx">
       <DependentUpon>201509080410384_create.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509080835119_1.resx">
       <DependentUpon>201509080835119_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509081144034_2.resx">
       <DependentUpon>201509081144034_2.cs</DependentUpon>

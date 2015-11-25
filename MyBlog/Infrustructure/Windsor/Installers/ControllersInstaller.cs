@@ -6,6 +6,7 @@ using MyBlog.Controllers;
 using MyBlog.Infrustructure.Windsor.Interceptors.Audit;
 using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
 using System.Web.Mvc;
 
 namespace MyBlog.Infrustructure.Windsor.Installers

@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MyBlog.Models
 {
     public class Post
     {
+        [HiddenInput]
         public int PostId { get; set; }
         [StringLength(50, MinimumLength = 4)]
+        [Display(Description ="Заголовок",Name = "Заголовок")]
         public string Tittle { get; set; }
         public string ApplicationUserId { get; set; }
         [DataType(DataType.DateTime)]
+        [Display(Description = "Дата публикации",Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
         public virtual ICollection<PostContent> PostContents { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
@@ -23,6 +28,11 @@ namespace MyBlog.Models
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
+
+        public  Post()
+        {
+            PostContents = new Collection<PostContent>();
+        }
     }
 
     public class PostContent
@@ -31,9 +41,11 @@ namespace MyBlog.Models
         public int PostId { get; set; }
         public int LikePlus { get; set; }
         public int LikeMinus { get; set; }
+        [AllowHtml]
         public byte[] ContentData { get; set; }
         public ContentDataTypes ContentDataType { get; set; }
         [StringLength(100)]
+        [Display(Description = "Комментарий",Name = "Комментарий")]
         public string Comment { get; set; }
         public virtual Post Post { get; set; }
 
@@ -95,6 +107,6 @@ namespace MyBlog.Models
         public byte[] RowVersion { get; set; }
     }
 
-    public enum ContentDataTypes { Text, Image, Video};
+    public enum ContentDataTypes { Text, Image, Video, Sound};
  
 }

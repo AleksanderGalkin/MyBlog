@@ -31,6 +31,7 @@ namespace MyBlog
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             log4net.Config.XmlConfigurator.Configure();
+            AutoMapperConfig.RegisterMappings();
             MvcApplication.IdContainer();
         }
 

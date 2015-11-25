@@ -1,4 +1,4 @@
-﻿@model IList<MyBlog.ViewModels.PostVm>
+﻿@model IList<MyBlog.ViewModels.PostDispVm>
 
 @{
     ViewBag.Title = "Index";
@@ -7,21 +7,16 @@
 
 <div class="container">
     @Html.Action("AuthorControlCreate")
-    @foreach (MyBlog.ViewModels.PostVm item in Model)
+    @foreach (MyBlog.ViewModels.PostDispVm item in Model)
     {
         <div class="row col-md-10">
             <p class="h3">
                 @Html.DisplayFor(modelItem => item.Post.Tittle)
+                @*@Html.Action("AuthorControlEdit",new  {PostId = item.Post.PostId})*@
             </p>
         </div>
-        foreach (MyBlog.Models.PostContent pcItem in item.PostContents)
-        {
-            <div class="row col-md-10">
-                <p>
-                    @Html.DisplayFor(modelItem => pcItem.ContentData)
-                </p>
-            </div>
-        }
+        @Html.DisplayFor(modelItem => item.PostContents)
+
         <div class="row text-info">
             <div class="col-md-5">
                 @Html.DisplayNameFor(model => model.FirstOrDefault().PostCommentCount) : @Html.DisplayFor(modelItem => item.PostCommentCount)
@@ -34,27 +29,6 @@
 
 </div>
 
-@if (ViewBag.isAuthor)
-{
-    @Scripts.Render("~/bundles/tinymce")
 
-    @section scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#newContentButton').on('click', function () {
-                tinymce.init({
-                    selector: "textarea",
-                    plugins: [
-                        "advlist autolink lists link image charmap print preview anchor",
-                        "searchreplace visualblocks code fullscreen",
-                        "insertdatetime media table contextmenu paste"
-                    ],
-                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-                });
-            })
-        });
-    </script>
-    }
-}
 
  

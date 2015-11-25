@@ -1,0 +1,15 @@
+﻿@model MyBlog.ViewModels.ContentImageDispVm
+
+
+<div class="row">
+    <div class="col-md-10">
+        @Html.DisplayFor(x => x.Comment)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.Raw(Model.ContentData)
+    </div>
+</div>
+
+

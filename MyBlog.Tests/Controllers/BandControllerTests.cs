@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -146,13 +148,53 @@ namespace MyBlog.Tests.Controllers
         [TestMethod()]
         public void IndexTest()
         {
+            Mock<ControllerContext> mockControllerContext = new Mock<ControllerContext>();
+            Mock<IPrincipal> mockPrincipal = new Mock<IPrincipal>();
+            Mock<ClaimsIdentity> mockIdentity = new Mock<ClaimsIdentity>();
+            List<Claim> claims = new List<Claim>();
+            claims.Add(new Claim("Author", "true"));
+            mockIdentity.SetupGet(p => p.Claims).Returns(claims);
+            mockPrincipal.SetupGet(p => p.Identity).Returns(mockIdentity.Object);
+            mockControllerContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
             BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            controller.ControllerContext = mockControllerContext.Object;
             ViewResult result = controller.Index() as ViewResult;
             Assert.AreEqual("Index", result.ViewName);
             IEnumerable<PostVm> modelInView = result.Model as IEnumerable<PostVm>;
             Assert.AreEqual(1, modelInView.Count());
         }
+        [TestMethod()]
+        public void AuthorPartViewShown()
+        {
+            Mock<ControllerContext> mockControllerContext = new Mock<ControllerContext>();
+            Mock<IPrincipal> mockPrincipal = new Mock<IPrincipal>();
+            Mock<ClaimsIdentity> mockIdentity = new Mock<ClaimsIdentity>();
+            List<Claim> claims = new List<Claim>();
+            claims.Add(new Claim("Author", "true"));
+            mockIdentity.SetupGet(p => p.Claims).Returns(claims);
+            mockPrincipal.SetupGet(p => p.Identity).Returns(mockIdentity.Object);
+            mockControllerContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            controller.ControllerContext = mockControllerContext.Object;
+            ViewResult result = controller.AuthorControlCreate() as ViewResult;
+            Assert.AreEqual("AuthorControlCreate", result.ViewName);
+        }
+        [TestMethod()]
+        public void AuthorPartViewNotShown()
+        {
+            Mock<ControllerContext> mockControllerContext = new Mock<ControllerContext>();
+            Mock<IPrincipal> mockPrincipal = new Mock<IPrincipal>();
+            Mock<ClaimsIdentity> mockIdentity = new Mock<ClaimsIdentity>();
+            List<Claim> claims = new List<Claim>();
+            claims.Add(new Claim("Author", "false"));
+            mockIdentity.SetupGet(p => p.Claims).Returns(claims);
+            mockPrincipal.SetupGet(p => p.Identity).Returns(mockIdentity.Object);
+            mockControllerContext.SetupGet(p => p.HttpContext.User).Returns(mockPrincipal.Object);
+            BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            controller.ControllerContext = mockControllerContext.Object;
+            ViewResult result = controller.AuthorControlCreate() as ViewResult;
+            Assert.IsNull(result);
+        }
 
-   
     }
 }
