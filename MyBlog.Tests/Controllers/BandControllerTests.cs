@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MyBlog.Controllers;
 using MyBlog.Infrustructure;
+using MyBlog.Infrustructure.Services;
 using MyBlog.Infrustructure.Windsor;
 using MyBlog.Models;
 using MyBlog.ViewModels;
@@ -25,18 +26,12 @@ namespace MyBlog.Tests.Controllers
         private static IWindsorContainer container;
 
         private Mock<IDbContext> mockIDbContext;
-
-
-
-
-
-        
-
-
+        Post post;
 
         [TestInitialize]
         public void Init()
         {
+            AutoMapperConfig.RegisterMappings();
             container = new WindsorContainer().Install(FromAssembly.InThisApplication());
             var controllerFactory = new WindsorControllerFactory(container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
@@ -59,7 +54,7 @@ namespace MyBlog.Tests.Controllers
 
             ApplicationUser user = new ApplicationUser();
 
-            Post post = new Post() {
+            post = new Post() {
                 ApplicationUserId = "qweqw"
                 , PostId = 1
                 , PubDate = DateTime.Now
@@ -71,7 +66,7 @@ namespace MyBlog.Tests.Controllers
                  PostContentId = 1
                 , Post = post
                 , ContentData = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
-                , ContentDataType = ContentDataTypes.Text
+                , ContentDataType = ContentTypeEnums.Text
                 , LikeMinus = 1
                 , LikePlus = 3
                 , Comment = "Комментарий"
@@ -160,7 +155,7 @@ namespace MyBlog.Tests.Controllers
             controller.ControllerContext = mockControllerContext.Object;
             ViewResult result = controller.Index() as ViewResult;
             Assert.AreEqual("Index", result.ViewName);
-            IEnumerable<PostVm> modelInView = result.Model as IEnumerable<PostVm>;
+            IEnumerable<PostDispVm> modelInView = result.Model as IEnumerable<PostDispVm>;
             Assert.AreEqual(1, modelInView.Count());
         }
         [TestMethod()]
@@ -195,6 +190,50 @@ namespace MyBlog.Tests.Controllers
             ViewResult result = controller.AuthorControlCreate() as ViewResult;
             Assert.IsNull(result);
         }
+        [TestMethod()]
+        public void EditPostTest_RecordsNumbersTheSame()
+        {
+            BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            PostService PostService = new PostService(post);
+            PostEditVm model = PostService.GetPostEditVm();
+            int postsNumBeforeEdit = mockIDbContext.Object.Posts.Count();
+            controller.EditPost(model);
+            int postsNumAfterEdit = mockIDbContext.Object.Posts.Count();
+            Assert.AreEqual(postsNumBeforeEdit, postsNumAfterEdit);
+        }
+        [TestMethod()]
+        public void EditPostTest_ChangedContent()
+        {
+            BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            PostService PostService = new PostService(post);
+            PostEditVm model = PostService.GetPostEditVm();
+            (model.PostContents.ElementAt(0) as ContentTextVm).ContentData = "Changed content";
+            controller.EditPost(model);
+            var postDb = (from p in mockIDbContext.Object.Posts
+                          where p == post
+                          select p)
+                         .SingleOrDefault();
+            UnicodeEncoding encoding = new UnicodeEncoding();
+            string ContentDataFromDb = encoding.GetString(postDb.PostContents.ElementAt(0).ContentData);
+            Assert.AreEqual((model.PostContents.ElementAt(0) as ContentTextVm).ContentData , ContentDataFromDb);
+        }
+        [TestMethod()]
+        [ExpectedException(typeof(NotImplementedException),"Unknown PostId is allowed")]
+        public void EditPostTest_IfPostIdNotExist()
+        {
+            BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            PostService PostService = new PostService(post);
+            PostEditVm model = PostService.GetPostEditVm();
+            model.PostId = 2;
+            controller.EditPost(model);
 
+        }
+        [TestMethod()]
+        public void CreatePost ()
+        {
+            //BandController controller = new BandController(container.Resolve<IUnitOfWork>(new { DbContext = mockIDbContext.Object }));
+            //PostEditVm<ContentTextVm> PostVm = new PostEditVm<ContentTextVm>();
+            //PostVm.PostMode = PostMod
+        }
     }
 }

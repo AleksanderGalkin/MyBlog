@@ -2,6 +2,7 @@
 using Castle.Windsor.Installer;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Windsor;
+using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace MyBlog
             log4net.Config.XmlConfigurator.Configure();
             AutoMapperConfig.RegisterMappings();
             MvcApplication.IdContainer();
+        //    ModelBinders.Binders.Add(typeof(PostEditVm<IContentType>), new PostEditVmModelBinder2());
+            ModelBinders.Binders.Add(typeof(IContentType), new IContentTypeBinder());
         }
 
         protected void Application_End()

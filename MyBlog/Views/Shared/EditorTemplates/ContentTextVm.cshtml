@@ -1,6 +1,7 @@
-﻿@model MyBlog.ViewModels.ContentTextEditVm
+﻿@model MyBlog.ViewModels.ContentTextVm
 
-        
+        @Html.HiddenFor(x => x.ContentDataType)
+        @Html.HiddenFor(x => x.PostContentId)
     <div class="form-group">
         @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

@@ -20,11 +20,11 @@ namespace MyBlog.Models
         [DataType(DataType.DateTime)]
         [Display(Description = "Дата публикации",Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
-        public virtual ICollection<PostContent> PostContents { get; set; }
+        public virtual IList<PostContent> PostContents { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public virtual ICollection<PostView> PostViews { get; set; }
-        public virtual ICollection<PostComment> PostComments { get; set; }
-        public virtual ICollection<PostTag> PostTags { get; set; }
+        public virtual IList<PostView> PostViews { get; set; }
+        public virtual IList<PostComment> PostComments { get; set; }
+        public virtual IList<PostTag> PostTags { get; set; }
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
@@ -43,7 +43,7 @@ namespace MyBlog.Models
         public int LikeMinus { get; set; }
         [AllowHtml]
         public byte[] ContentData { get; set; }
-        public ContentDataTypes ContentDataType { get; set; }
+        public ContentTypeEnums ContentDataType { get; set; }
         [StringLength(100)]
         [Display(Description = "Комментарий",Name = "Комментарий")]
         public string Comment { get; set; }
@@ -107,6 +107,6 @@ namespace MyBlog.Models
         public byte[] RowVersion { get; set; }
     }
 
-    public enum ContentDataTypes { Text, Image, Video, Sound};
+    public enum ContentTypeEnums { Text, Image, Video, Sound};
  
 }

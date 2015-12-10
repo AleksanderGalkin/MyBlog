@@ -12,11 +12,21 @@ namespace MyBlog
     {
         public static void RegisterMappings()
         {
-            Mapper.CreateMap<PostContent, ContentTextDispVm>(); 
-            Mapper.CreateMap<PostContent, ContentImageDispVm>();
-            Mapper.CreateMap<PostContent, ContentTextEditVm>();
-            Mapper.CreateMap<PostContent, ContentImageEditVm>();
-           // Mapper.CreateMap<PostContent, IContentTypeEditVm>();
+            Mapper.CreateMap<PostContent, ContentTextVm>()
+                .ForMember(dst => dst.ContentData,src=>src.Ignore()); 
+            Mapper.CreateMap<PostContent, ContentImageVm>()
+                 .ForMember(dst => dst.ContentData, src => src.Ignore());
+
+            Mapper.CreateMap<Post, PostDispVm>()
+                .ForMember(dst => dst.PostContents, x => x.Ignore());
+            Mapper.CreateMap<PostDispVm, Post>()
+                .ForMember(dst => dst.PostContents, x => x.Ignore());
+
+
+            Mapper.CreateMap<Post, PostEditVm>()
+                .ForMember(dst => dst.PostContents, x => x.Ignore());
+            Mapper.CreateMap<PostEditVm, Post>()
+                .ForMember(dst => dst.PostContents, x => x.Ignore());
         }
     }
 }

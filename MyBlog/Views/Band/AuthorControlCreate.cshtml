@@ -3,28 +3,19 @@
     Layout = null;
 }
 
-    @*<div class="row form-group col-md-offset-8 col-md-2">
-        <a class="btn" data-toggle="modal" data-target="#CreatePostModal">Новый пост</a>
-    </div>*@
     <br />
-    <div class="row form-group col-md-offset-8 col-md-2">
-
-        <!-- Split button -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-default">Новый пост</button>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Меню с переключением</span>
-            </button>
+    <div class="row form-group col-md-offset-6 col-md-2 ">
+        <!-- Single button -->
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Новый пост &nbsp;<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Текст","CreateTextPost")</li>
+                <li>@Html.ActionLink("Текст", "CreateTextPost")</li>
                 <li>@Html.ActionLink("Фото", "CreatePhotoPost")</li>
                 <li>@Html.ActionLink("Звук", "CreateSoundPost")</li>
                 <li class="divider"></li>
                 <li>@Html.ActionLink("Видео", "CreateVideoPost")</li>
             </ul>
         </div>
-        
     </div>
     
 

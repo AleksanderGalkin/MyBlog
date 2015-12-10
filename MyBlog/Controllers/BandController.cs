@@ -28,7 +28,7 @@ namespace MyBlog.Controllers
             IList<PostDispVm> model = (from a in _unitOfWork.db.Posts
                                        select a)
                                        .ToList()
-                                     .Select(p=> new PostDisp(p))
+                                     .Select(p=> new PostService(p))
                                      .Select(r=>r.GetPostDispVm())
                                      .ToList();
                                      
@@ -37,46 +37,64 @@ namespace MyBlog.Controllers
             ViewBag.isAuthor = this.isAuthor();
             return View("Index",model);
         }
+        
+        public ActionResult EditPost(int PostId)
+        {
+            Post Model = (from a in _unitOfWork.db.Posts
+                          where a.PostId == PostId
+                          select a)
+                          .SingleOrDefault();
 
-        //public ActionResult EditPost(int PostId)
-        //{
-        //    Post Model = (from a in _unitOfWork.db.Posts
-        //                  where a.PostId == PostId
-        //                  select a)
-        //                  .SingleOrDefault();
+            PostService PostService = new PostService(Model);
+            return View("EditPost", PostService.GetPostEditVm());
+        }
 
-        //    PostTextEditVm ModelVm = new PostTextEditVm();
-        //    ModelVm.Post = Model;
-        //    UnicodeEncoding encoding = new UnicodeEncoding();
-        //    ModelVm.PostContent = Model.PostContents.FirstOrDefault().ContentData != null ? encoding.GetString(Model.PostContents.FirstOrDefault().ContentData) : "";
-        //    ModelVm.Comment = Model.PostContents.FirstOrDefault().Comment ?? "";
-        //    return View("EditPost", ModelVm);
-        //}
+        [HttpPost]
+        public ActionResult EditPost(PostEditVm Model)
+        {
+            if (ModelState.IsValid)
+            {
+                Post PostModel = (from a in _unitOfWork.db.Posts
+                                  where a.PostId == Model.PostId
+                                  select a)
+                                  .SingleOrDefault();
+                if (PostModel == null)
+                    throw new NotImplementedException("Post with such Id not found.");
+                PostModel.Tittle = Model.Tittle;
+                if (PostModel.PostContents == null)
+                    PostModel.PostContents = new Collection<PostContent>();
+                for (int i = 0; i < PostModel.PostContents.Count; i++)
+                {
+                    PostContent curPostContent = PostModel.PostContents.ElementAt(i);
+                    int PostContentId = curPostContent.PostContentId;
+                    IContentType ModelContent = Model.PostContents
+                                        .Where(x => x.PostContentId == PostContentId)
+                                        .SingleOrDefault() ;
+                    switch (ModelContent.ContentDataType)
+                    {
+                        case ContentTypeEnums.Text:
+                            PostModel.PostContents[i] = GetPostContentText(ModelContent as ContentTextVm, curPostContent);
+                            break;
+                        case ContentTypeEnums.Image:
+                            break;
+                        case ContentTypeEnums.Sound:
+                            break;
+                        case ContentTypeEnums.Video:
+                            break;
+                        default:
+                            throw new NotImplementedException("Unknown content type: " + ModelContent.ContentDataType);
+                    }
 
-        //[HttpPost]
-        //public ActionResult EditPost(PostTextEditVm Model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Post PostModel = (from a in _unitOfWork.db.Posts
-        //                          where a.PostId == Model.Post.PostId
-        //                          select a)
-        //                          .SingleOrDefault();
-        //        PostModel.Tittle = Model.Post.Tittle;
-        //        PostContent PostContent = PostModel.PostContents.FirstOrDefault();
-        //        if (PostContent == null)
-        //            PostContent = new PostContent();
-        //        PostContent.Comment = Model.Comment ?? "";
-        //        UnicodeEncoding encoding = new UnicodeEncoding();
-        //        PostContent.ContentData = Model.PostContent != null ? encoding.GetBytes(Model.PostContent) : encoding.GetBytes("");
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View("EditPost",Model);
-        //    }
 
-        //}
+                }
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("EditPost", Model);
+            }
+
+        }
 
         [ChildActionOnly]
         public virtual ActionResult AuthorControlCreate()
@@ -89,54 +107,51 @@ namespace MyBlog.Controllers
                 return null;
         }
 
-        //[ChildActionOnly]
-        //[HttpPost]
-        //public virtual ActionResult AuthorControlCreate(PostTextEditVm Model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Post Post = Model.Post;
-        //        PostContent PostContent = new PostContent();
-        //        UnicodeEncoding encoding = new UnicodeEncoding();
-        //        PostContent.ContentData = encoding.GetBytes( Model.PostContent);
-        //        PostContent.Comment = Model.Comment;
-        //        PostContent.ContentDataType = ContentDataTypes.Text;
-        //        Post.PostContents = new Collection<PostContent> { PostContent };
-        //        Post.PubDate = DateTime.Now;
-        //        Post.ApplicationUserId = User.Identity.GetUserId();
-        //        _unitOfWork.db.Posts.Add(Post);
-
-        //    }
-
-        //    if (isAuthor())
-        //    {
-        //        return View("AuthorControlCreate");
-        //    }
-        //    else
-        //        return null;
-        //}
-
         public ActionResult CreateTextPost()
         {
-            PostEdit PostService = new PostEdit(User.Identity.GetUserId(),ContentDataTypes.Text);
-
-            return View("CreateTextPost", PostService.GetPostEditVm<ContentTextEditVm>());
+            PostService PostService = new PostService(User.Identity.GetUserId(), ContentTypeEnums.Text);
+            return View("CreateTextPost", PostService.GetPostEditVm());
         }
-
+        public ActionResult CreatePhotoPost()
+        {
+            PostService PostService = new PostService(User.Identity.GetUserId(), ContentTypeEnums.Image);
+            return View("CreateImagePost", PostService.GetPostEditVm());
+        }
         [HttpPost]
-        public ActionResult CreateTextPost(PostEditVm<ContentTextEditVm> Model)
+        public ActionResult CreatePost(PostEditVm Model)
         {
             if (ModelState.IsValid)
             {
-                Post Post = Model.Post;
-                PostContent PostContent = new PostContent();
+                Post Post = Mapper.Map<PostEditVm,Post>(Model);
+                List<PostContent> PostContents = new List<PostContent>();
                 UnicodeEncoding encoding = new UnicodeEncoding();
-                PostContent.ContentData = encoding.GetBytes(Model.PostContents.FirstOrDefault().ContentData);
-                PostContent.Comment = Model.PostContents.FirstOrDefault() .Comment;
-                PostContent.ContentDataType = ContentDataTypes.Text;
-                Post.PostContents = new Collection<PostContent> { PostContent };
+
+                for (int i = 0; i < Model.PostContents.Count; i++)
+                {
+                    PostContent PostContent = new PostContent();
+                    IContentType ModelContent = Model.PostContents[i];
+                    PostContent = new PostContent();
+                    switch (ModelContent.ContentDataType)
+                    {
+                        case ContentTypeEnums.Text:
+                            PostContent = GetPostContentText(ModelContent as ContentTextVm
+                        ,PostContent);
+                            break;
+                        case ContentTypeEnums.Image:
+                            break;
+                        case ContentTypeEnums.Sound:
+                            break;
+                        case ContentTypeEnums.Video:
+                            break;
+                        default:
+                            throw new NotImplementedException("Unknown content type: " + ModelContent.ContentDataType);
+                    }
+                    PostContents.Add(PostContent);
+
+                }
                 Post.PubDate = DateTime.Now;
                 Post.ApplicationUserId = User.Identity.GetUserId();
+                Post.PostContents = PostContents;
                 _unitOfWork.db.Posts.Add(Post);
                 return RedirectToAction("Index");
             }
@@ -146,38 +161,36 @@ namespace MyBlog.Controllers
             }
         }
 
-        //public ActionResult DeletePost(int PostId)
-        //{
-        //    Post Model = (from a in _unitOfWork.db.Posts
-        //                  where a.PostId == PostId
-        //                  select a)
-        //                              .SingleOrDefault();
+        public ActionResult DeletePost(int PostId)
+        {
+            Post Post = (from a in _unitOfWork.db.Posts
+                         where a.PostId == PostId
+                         select a)
+                          .SingleOrDefault();
 
-        //    PostVm ModelVm = new PostVm();
-        //    ModelVm.Post = Model;
-        //    ModelVm.PostContents = Model.PostContents;
-        //    return View("DeletePost", ModelVm);
-        //}
+            PostService PostService = new PostService(Post);
+            return View("DeletePost", PostService.GetPostDispVm());
+        }
 
-        //[HttpPost]
-        //public ActionResult DeletePost(PostTextEditVm Model)
-        //{
-        //        if (ModelState.IsValid)
-        //        {
-        //        (from a in _unitOfWork.db.Posts
-        //        where a.PostId == Model.Post.PostId
-        //        select a)
-        //        .ToList()
-        //        .ForEach(a => _unitOfWork.db.Posts.Remove(a));
+        [HttpPost]
+        public ActionResult DeletePost(PostDispVm Model)
+        {
+            if (ModelState.IsValid)
+            {
+                (from a in _unitOfWork.db.Posts
+                 where a.PostId == Model.PostId
+                 select a)
+                .ToList()
+                .ForEach(a => _unitOfWork.db.Posts.Remove(a));
 
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View("EditPost", Model);
-        //    }
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("EditPost", Model);
+            }
 
-        //}
+        }
 
         [ChildActionOnly]
         public virtual ActionResult AuthorControlEdit(int PostId)
@@ -190,21 +203,6 @@ namespace MyBlog.Controllers
             else
                 return null;
         }
-
-
-        //[ChildActionOnly]
-        //public ActionResult GetContentView(PostContent Model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        PostTextDispVm VModel = Mapper.Map<PostContent, PostTextDispVm>(Model);
-        //        UnicodeEncoding encoding = new UnicodeEncoding();
-        //        VModel.PostContent = Model.ContentData != null ? encoding.GetString(Model.ContentData) : "";
-        //        return View("GetContentView", VModel);
-        //    }
-        //    else
-        //        return null;
-        //}
 
         private bool isAuthor()
         {
@@ -219,6 +217,15 @@ namespace MyBlog.Controllers
                 }
             }
             return isAuthor;
+        }
+
+        PostContent GetPostContentText(ContentTextVm srcModel, PostContent dstModel)
+        {
+            PostContent result = Mapper.Map<ContentTextVm, PostContent>(srcModel,dstModel);
+            UnicodeEncoding encoding = new UnicodeEncoding();
+            result.ContentData = encoding.GetBytes(srcModel.ContentData);
+            return result;
+
         }
     }
 }

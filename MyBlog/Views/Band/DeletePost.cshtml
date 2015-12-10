@@ -1,4 +1,5 @@
-﻿@model MyBlog.ViewModels.PostVm
+﻿@using MyBlog.ViewModels
+@model PostDispVm
 
 @{
     ViewBag.Title = "Удалить пост";
@@ -11,18 +12,10 @@
 
         <div class="row col-md-10">
             <p class="h3">
-                @Html.DisplayFor(model=> model.Post.Tittle)
+                @Html.DisplayFor(model=> model.Tittle)
             </p>
         </div>
-        @foreach (MyBlog.Models.PostContent pcItem in Model.PostContents)
-        {
-            <div class="row col-md-10">
-                <p>
-                    @Html.Action("GetContentView",new  { Model = pcItem})
-                    
-                </p>
-            </div>
-        }
+        @Html.DisplayFor(model => model.PostContents)
         <div class="row text-info">
             <div class="col-md-5">
                 @Html.DisplayNameFor(model => model.PostCommentCount) : @Html.DisplayFor(model => model.PostCommentCount)
@@ -33,7 +26,7 @@
         </div>
     @using (@Html.BeginForm("DeletePost", "Band", FormMethod.Post, new { id = "DeletePostForm", role = "form" }))
     {
-        @Html.HiddenFor(model => Model.Post.PostId)
+        @Html.HiddenFor(model => Model.PostId)
     }
     <div class=" form-group">
         <div class="col-lg-offset-8 col-md-4">

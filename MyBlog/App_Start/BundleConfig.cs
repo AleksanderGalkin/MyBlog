@@ -29,8 +29,26 @@ namespace MyBlog
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/locales/bootstrap-datepicker.ru.min.js",
                       "~/Scripts/bootstrap-modal.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
                       "~/Scripts/tinymce/tinymce.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/fileupload").Include(
+                      "~/Backload/Client/blueimp/fileupload/js/vendor/jquery.ui.widget.js",
+//                      "~/Backload/Client/blueimp/templates/js/tmpl.min.js",
+                      
+                      "~/Backload/Client/blueimp/loadimage/js/load-image.all.min.js",
+                      "~/Backload/Client/blueimp/blob/js/canvas-to-blob.min.js",
+                      "~/Scripts/bootstrap.min.js",
+
+                      "~/Backload/Client/blueimp/fileupload/js/jquery.iframe-transport.js",
+                      "~/Backload/Client/blueimp/fileupload/js/jquery.fileupload.js",
+                      "~/Backload/Client/blueimp/fileupload/js/jquery.fileupload-process.js",
+                      "~/Backload/Client/blueimp/fileupload/js/jquery.fileupload-image.js",
+                      "~/Backload/Client/blueimp/fileupload/js/jquery.fileupload-validate.js"
+                      //"~/Backload/Client/blueimp/fileupload/js/jquery.fileupload-ui.js"
+                      ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datepicker.css",
@@ -41,6 +59,11 @@ namespace MyBlog
 
             bundles.Add(new StyleBundle("~/Content/landing").Include(
                       "~/Content/landing.css"));
+
+            bundles.Add(new StyleBundle("~/Content/fileupload").Include(
+                     "~/Backload/Client/blueimp/fileupload/css/jquery.fileupload.css",
+                     "~/Content/bootstrap.min.css"
+                     ));
         }
     }
 }

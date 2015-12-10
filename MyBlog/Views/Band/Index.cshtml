@@ -1,34 +1,39 @@
-﻿@model IList<MyBlog.ViewModels.PostDispVm>
+﻿@using MyBlog.ViewModels
+@model IList<PostDispVm>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Galkin Lab";
 }
 
 
 <div class="container">
-    @Html.Action("AuthorControlCreate")
-    @foreach (MyBlog.ViewModels.PostDispVm item in Model)
-    {
-        <div class="row col-md-10">
-            <p class="h3">
-                @Html.DisplayFor(modelItem => item.Post.Tittle)
-                @*@Html.Action("AuthorControlEdit",new  {PostId = item.Post.PostId})*@
-            </p>
+            @Html.Action("AuthorControlCreate")
+
+            @foreach (PostDispVm item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="h3">
+                            @Html.DisplayFor(modelItem => item.Tittle)
+                        </p>
+                    </div>
+                </div>
+                @Html.Action("AuthorControlEdit", new { PostId = item.PostId })
+
+                @Html.DisplayFor(modelItem => item.PostContents)
+
+                <div class="row text-info">
+                    <div class="col-md-4">
+                        @Html.DisplayNameFor(model => item.PostCommentCount) : @Html.DisplayFor(modelItem => item.PostCommentCount)
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayNameFor(model => item.PostViewCount) : @Html.DisplayFor(modelItem => item.PostViewCount)
+                    </div>
+                </div>
+            }
+
         </div>
-        @Html.DisplayFor(modelItem => item.PostContents)
-
-        <div class="row text-info">
-            <div class="col-md-5">
-                @Html.DisplayNameFor(model => model.FirstOrDefault().PostCommentCount) : @Html.DisplayFor(modelItem => item.PostCommentCount)
-            </div>
-            <div class="col-md-5">
-                @Html.DisplayNameFor(model => model.FirstOrDefault().PostViewCount) : @Html.DisplayFor(modelItem => item.PostViewCount)
-            </div>
-        </div>
-    }
-
-</div>
 
 
 
- 
+

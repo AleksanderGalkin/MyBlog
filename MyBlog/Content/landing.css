@@ -38,6 +38,7 @@ footer {
 			background: linear-gradient(to top,#2D333C, #454B56);
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#454B56', endColorstr='#2D333C',GradientType=0 );
 			border: none;
+            margin: 0 1% 0 1%;
 		}
 		.button::-moz-focus-inner {
                 color: #b2b2b2;

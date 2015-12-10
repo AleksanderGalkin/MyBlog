@@ -235,7 +235,7 @@ namespace MyBlog.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Band");
         }
 
         // GET: /Account/ForgotPassword
@@ -353,7 +353,7 @@ namespace MyBlog.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Band");
         }
 
     }
