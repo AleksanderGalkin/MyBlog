@@ -32,14 +32,20 @@
                     onclick="document.location = '@Url.Action("Index","Band")'">Закрыть</button>
         </div>
     </div>
+    <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+
 </div>
 
+
+
+
+
+@section scripts{
 
 @Scripts.Render("~/bundles/tinymce")
 @Scripts.Render("~/bundles/fileupload")
 @Styles.Render("~/Content/fileupload")
 
-@section scripts{
     <script type="text/javascript">
         $(document).ready(function () {
                 tinymce.init({
@@ -65,6 +71,6 @@
                 
 
 
-            })
+        })
     </script>
 }
