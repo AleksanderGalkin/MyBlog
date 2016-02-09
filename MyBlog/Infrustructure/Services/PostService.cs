@@ -31,7 +31,7 @@ namespace MyBlog.Infrustructure.Services
             _post.PostViews = new Collection<PostView>();
             _post.PostTags = new Collection<PostTag>();
             _post.PostContents = new Collection<PostContent>();
-            _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
+           // _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
         }
 
         public PostDispVm GetPostDispVm()
@@ -51,7 +51,7 @@ namespace MyBlog.Infrustructure.Services
                     ContentTextVm newItem = null;
                     newItem = Mapper.Map<PostContent, ContentTextVm>(i);
                     UnicodeEncoding encoding = new UnicodeEncoding();
-                    newItem.ContentData = encoding.GetString(i.ContentData);
+                    newItem.ContentData = encoding.GetString(i.ContentData ?? encoding.GetBytes(""));
                     result.PostContents.Add(newItem);
                 }
 
@@ -59,8 +59,8 @@ namespace MyBlog.Infrustructure.Services
                 {
                     ContentImageVm newItem = null;
                     newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-                    MemoryStream ms = new MemoryStream(i.ContentData);
-                    newItem.ContentData = Image.FromStream(ms);
+                    MemoryStream ms = new MemoryStream(i.ContentData );
+                    newItem.ContentData = i.ContentData;
                     result.PostContents.Add(newItem);
                 }
 
@@ -91,10 +91,9 @@ namespace MyBlog.Infrustructure.Services
                 {
                     ContentImageVm newItem = null;
                     newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-                    MemoryStream ms = new MemoryStream(i.ContentData);
                     try
                     {
-                        newItem.ContentData = Image.FromStream(ms);
+                        newItem.ContentData = i.ContentData;
                     }
                     catch (ArgumentException ex)
                     {

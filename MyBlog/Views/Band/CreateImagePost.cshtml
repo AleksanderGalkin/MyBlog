@@ -1,5 +1,5 @@
 ﻿@using MyBlog.ViewModels
-@model PostEditVm
+@model  MyBlog.ViewModels.PostEditVm
 
 @{
     ViewBag.Title = "CreateImagePost";
@@ -19,17 +19,39 @@
                     @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
                 </div>
             </div>
-            @Html.EditorFor(model=>model.PostContents)
-
-            
-</div>
-    }
+            @Html.EditorFor(model => model.PostContents)
+        </div>
+   }
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">Файл</label> 
+            <div class=" col-md-10">
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <input type="file" class="input-file" id="fileupload" name="files" multiple="multiple" />
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-md-offset-2 col-md-10">
+                <!-- The global progress bar -->
+                <div id="progress" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <!-- The container for the uploaded files -->
+                <div id="files" class="files"></div>
+            </div>
+        </div>
+    </div>
 
     <div class=" form-group">
         <div class="col-lg-offset-8 col-md-4">
-            <button type="button" class="btn btn-primary pull-right" id="sub_button" onclick="document.forms['CreateImagePostForm'].submit();">Сохранить</button>
-            <button type="button" data-dismiss="modal" class="btn pull-right" 
-                    onclick="document.location = '@Url.Action("Index","Band")'">Закрыть</button>
+            <button type="button" class="btn btn-primary pull-right" id="sub_button" onclick='document.forms["CreateImagePostForm"].submit()'>Сохранить</button>
+            <button type="button" data-dismiss="modal" class="btn pull-right"
+                    onclick="document.location = '@Url.Action("Index","Band")'">
+                Закрыть
+            </button>
         </div>
     </div>
 </div>
@@ -38,19 +60,20 @@
     @Scripts.Render("~/bundles/tinymce")
     @Styles.Render("~/Content/fileupload")
 
-    @section scripts{
 
-        @Scripts.Render("~/bundles/fileupload")
-        
+@section scripts{
+
+    @Scripts.Render("~/bundles/fileupload")
 
 
 
-        <script type="text/javascript">
+
+    <script type="text/javascript">
             $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : '/Band/CreatePost/',
+                '//jquery-file-upload.appspot.com/' : '/Band/LoadFile/',
         uploadButton = $('<button/>')
             .addClass('btn btn-primary')
             .prop('disabled', true)
@@ -69,7 +92,7 @@
                     $this.remove();
                 });
             });
-    $('#fileupload').fileupload({ 
+    $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
         autoUpload: false,
@@ -95,10 +118,9 @@
         //    });
         //}
     }).on('fileuploadadd', function (e, data) {
-        
         data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
-            
+
             var node = $('<p/>')
                     .append($('<span/>').text(file.name));
 
@@ -106,7 +128,7 @@
                 node
                     .append('<br>')
                     .append(uploadButton.clone(true).data(data));
-            }
+             }
             node.appendTo(data.context);
         });
     }).on('fileuploadprocessalways', function (e, data) {
@@ -159,5 +181,5 @@
     }) .prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
-        </script>
-    }
+    </script>
+}

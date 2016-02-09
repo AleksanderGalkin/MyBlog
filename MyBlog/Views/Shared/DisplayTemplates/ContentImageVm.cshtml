@@ -8,7 +8,12 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        @Html.Raw(Model.ContentData)
+        @{
+
+            string imageBase64 = Convert.ToBase64String(Model.ContentData);
+            string imageSrc = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+        }
+        <img src="@imageSrc" alt="@Model.Comment" width="100" height="100" />
     </div>
 </div>
 

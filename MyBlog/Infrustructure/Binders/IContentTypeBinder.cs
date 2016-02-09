@@ -34,15 +34,6 @@ namespace MyBlog.Infrustructure
                         break;
                     case ContentTypeEnums.Image:
                         ContentImageVm tempModelImage = new ContentImageVm();
-                        HttpPostedFileBase[] listImgFile = GetImageContent(bindingContext, descriptor);
-                        foreach (var i in listImgFile)
-                        {
-                            if (i != null)
-                            {
-                                tempModelImage.ContentData=Image.FromStream(i.InputStream);
-                            }
-                            
-                        }
                         model = tempModelImage;
                         break;
                     default:
@@ -69,14 +60,6 @@ namespace MyBlog.Infrustructure
             var result = bindingContext.GetValueFromValueProvider(key, false);
             return (result == null) ? null : result.AttemptedValue;
         }
-        private HttpPostedFileBase[] GetFileListValue(
-        ModelBindingContext bindingContext, string key)
-        {
-            HttpPostedFileBase[] result =
-                 bindingContext.ValueProvider.GetValue(key).RawValue as HttpPostedFileBase[];
-            return (result == null) ? null : result;
-        }
-
 
         private string GetTextContent (ModelBindingContext bindingContext, string descriptor)
         {
@@ -91,19 +74,7 @@ namespace MyBlog.Infrustructure
             return result;
         }
 
-        private HttpPostedFileBase[] GetImageContent(ModelBindingContext bindingContext, string descriptor)
-        {
-            HttpPostedFileBase[] result = null;
- 
-            HttpPostedFileBase[] availabilityPostContents =
-               GetFileListValue(bindingContext, descriptor+".ContentData");
-            if (availabilityPostContents != null)
-            {
 
-                result = availabilityPostContents;
-            }
-            return result;
-        }
 
     }
 }

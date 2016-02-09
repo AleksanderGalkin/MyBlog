@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -211,6 +212,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrustructure\Binders\PostEditVmBinder.cs" />
     <Compile Include="Infrustructure\Helpers\IdentityHelperGetFullName.cs" />
     <Compile Include="Infrustructure\Helpers\ModelBindingContextExt.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperSetActiveLi.cs" />
@@ -635,6 +637,7 @@
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\EditorTemplates\ContentImageVm.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -702,7 +705,6 @@
     <Content Include="Views\Band\DeletePost.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentTextVm.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\ContentImageVm.cshtml" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -711,6 +713,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Band\CreateImagePost.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ContentImageVm_CanDeleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

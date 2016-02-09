@@ -44,6 +44,7 @@ namespace MyBlog.ViewModels
         [StringLength(100)]
         [Display(Description = "Комментарий", Name = "Комментарий")]
         string Comment { get; set; }
+        string Url_To_Del { get; set; }
     }
 
     public class PostDispVm:IPost //<T>
@@ -71,7 +72,10 @@ namespace MyBlog.ViewModels
 
     }
 
-
+    public class PostContentsFiles
+    {
+        public HttpPostedFileBase ContentData { get; set; }
+    }
     public class PostEditVm : IPost 
     {
         [HiddenInput]
@@ -104,6 +108,7 @@ namespace MyBlog.ViewModels
         [StringLength(100)]
         [Display(Description = "Комментарий", Name = "Комментарий")]
         public string Comment { get; set; }
+        public string Url_To_Del { get; set; }
         public ContentTextVm()
         {
             ContentDataType = ContentTypeEnums.Text;
@@ -118,16 +123,25 @@ namespace MyBlog.ViewModels
         public int LikeMinus { get; set; }
         [AllowHtml]
         [Display(Description = "Содержимое", Name = "Содержимое")]
-        public Image ContentData { get; set; }
+        public Byte[] ContentData { get; set; }
         [StringLength(100)]
         [Display(Description = "Комментарий", Name = "Комментарий")]
         public string Comment { get; set; }
+        public string Url_To_Del { get; set; }
         public ContentImageVm()
         {
             ContentDataType = ContentTypeEnums.Image;
         }
     }
 
-
+    public class ViewDataUploadFilesResult
+    {
+        public string thumbnailUrl { get; set; }
+        public string name { get; set; }
+        public int length { get; set; }
+        public string type { get; set; }
+        public string url { get; set; }
+        public string deleteUrl { get; set; }
+    }
 
 }

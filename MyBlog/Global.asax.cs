@@ -36,6 +36,7 @@ namespace MyBlog
             MvcApplication.IdContainer();
         //    ModelBinders.Binders.Add(typeof(PostEditVm<IContentType>), new PostEditVmModelBinder2());
             ModelBinders.Binders.Add(typeof(IContentType), new IContentTypeBinder());
+            ModelBinders.Binders.Add(typeof(PostEditVm), new PostEditVmBinder());
         }
 
         protected void Application_End()

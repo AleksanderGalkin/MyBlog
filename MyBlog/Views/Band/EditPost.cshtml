@@ -32,7 +32,7 @@
                     onclick="document.location = '@Url.Action("Index","Band")'">Закрыть</button>
         </div>
     </div>
-    <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+    @*<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>*@
 
 </div>
 
@@ -59,15 +59,18 @@
                 });
 
                 
-                $('#fileupload').fileupload({
-                    dataType: 'json',
-                    url: '@Url.Action("index")',
-                    done: function (e, data) {
-                        $.each(data.result, function (index, file) {
-                            $('<p/>').text(file.name).appendTo(document.body);
-                        });
-                    } 
-                });
+                var $fileupload = $('#fileupload');
+                if ($fileupload) {
+                    $fileupload.fileupload({
+                        dataType: 'json',
+                        url: '@Url.Action("index")',
+                        done: function (e, data) {
+                            $.each(data.result, function (index, file) {
+                                $('<p/>').text(file.name).appendTo(document.body);
+                            });
+                        }
+                    });
+                }
                 
 
 

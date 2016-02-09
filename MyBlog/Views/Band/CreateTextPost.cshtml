@@ -8,7 +8,7 @@
 <h2>Новый пост</h2>
 
 <div class="container">
-    @using (@Html.BeginForm("CreateTextPost", "Band", FormMethod.Post, new { id = "CreateTextPostForm", role = "form"  }))
+    @using (@Html.BeginForm("CreatePost", "Band", FormMethod.Post, new { id = "CreateTextPostForm", role = "form"  }))
     {
         <div class="form-horizontal" >
             @Html.AntiForgeryToken()

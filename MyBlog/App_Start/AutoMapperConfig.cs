@@ -19,6 +19,8 @@ namespace MyBlog
 
             Mapper.CreateMap<ContentTextVm,PostContent > ()
                 .ForMember(dst => dst.ContentData, src => src.Ignore());
+            Mapper.CreateMap<ContentImageVm, PostContent>()
+                .ForMember(dst => dst.ContentData, src => src.Ignore());
 
             Mapper.CreateMap<Post, PostDispVm>()
                 .ForMember(dst => dst.PostContents, x => x.Ignore());

@@ -5,9 +5,13 @@ using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.Models;
 using MyBlog.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -110,7 +114,9 @@ namespace MyBlog.Controllers
         public ActionResult CreateTextPost()
         {
             PostService PostService = new PostService(User.Identity.GetUserId(), ContentTypeEnums.Text);
-            return View("CreateTextPost", PostService.GetPostEditVm());
+            PostEditVm model = PostService.GetPostEditVm();
+            model.PostContents.Add( new ContentTextVm() { ContentDataType = ContentTypeEnums.Text, ContentData = "" });
+            return View("CreateTextPost", model);
         }
         public ActionResult CreatePhotoPost()
         {
@@ -138,6 +144,8 @@ namespace MyBlog.Controllers
                         ,PostContent);
                             break;
                         case ContentTypeEnums.Image:
+                            PostContent = GetPostContentImage(ModelContent as ContentImageVm
+                        , PostContent);
                             break;
                         case ContentTypeEnums.Sound:
                             break;
@@ -204,6 +212,46 @@ namespace MyBlog.Controllers
                 return null;
         }
 
+        [HttpPost]
+        public void LoadFile(IEnumerable<HttpPostedFileBase> files)
+        {
+            ICollection <IContentType> Contents = Session["PostContents"] as Collection<IContentType>;
+            if (Contents == null)
+            {
+                Contents = new Collection<IContentType>();
+            }
+            foreach (var i in files)
+            {
+                IContentType newContent = null;
+                switch (i.ContentType)
+                {
+                    case "image/jpeg":
+                        ContentImageVm newContentImage = new ContentImageVm();
+                        newContentImage.ContentDataType = ContentTypeEnums.Image;
+                        MemoryStream s = new MemoryStream();
+                        i.InputStream.CopyTo(s);
+                        newContentImage.ContentData = s.ToArray();
+                        newContent = newContentImage;
+                        break;
+                    case "video":
+                        break;
+                    default:
+                        throw new NotImplementedException("Неизвестный тип файла");
+                }
+                Contents.Add(newContent);
+            }
+            Session["PostContents"] = Contents;
+            IList<ViewDataUploadFilesResult> r = new List<ViewDataUploadFilesResult>();
+            r.Add(new ViewDataUploadFilesResult
+            {   url = "www.url.ru",
+                name = "asd",
+                type = "jpeg"});
+            var UploadedFiles = new
+            {files = r.ToArray() };
+
+            string json_object = JsonConvert.SerializeObject(UploadedFiles, Formatting.Indented);
+            HttpContext.Response.Write(json_object);
+        }
         private bool isAuthor()
         {
             ClaimsIdentity userIdentity = User.Identity as ClaimsIdentity;
@@ -224,6 +272,13 @@ namespace MyBlog.Controllers
             PostContent result = Mapper.Map<ContentTextVm, PostContent>(srcModel,dstModel);
             UnicodeEncoding encoding = new UnicodeEncoding();
             result.ContentData = encoding.GetBytes(srcModel.ContentData);
+            return result;
+
+        }
+        PostContent GetPostContentImage(ContentImageVm srcModel, PostContent dstModel)
+        {
+            PostContent result = Mapper.Map<ContentImageVm, PostContent>(srcModel, dstModel);
+            result.ContentData = srcModel.ContentData;
             return result;
 
         }
