@@ -7,21 +7,23 @@
 
 
 <div class="container">
-            @Html.Action("AuthorControlCreate")
+    @Html.Action("AuthorControlCreate")
 
-            @foreach (PostDispVm item in Model)
+    @foreach (PostDispVm item in Model)
             {
+        <div class="row">
+            <div class="col-md-8">
+                <p class="h3">
+                    @Html.DisplayFor(modelItem => item.Tittle)
+                </p>
+            </div>
+        </div>
+                @Html.Action("AuthorControlEdit", new { PostId = item.PostId })
                 <div class="row">
                     <div class="col-md-8">
-                        <p class="h3">
-                            @Html.DisplayFor(modelItem => item.Tittle)
-                        </p>
+                        @Html.DisplayFor(modelItem => item.PostContents)
                     </div>
                 </div>
-                @Html.Action("AuthorControlEdit", new { PostId = item.PostId })
-
-                @Html.DisplayFor(modelItem => item.PostContents)
-
                 <div class="row text-info">
                     <div class="col-md-4">
                         @Html.DisplayNameFor(model => item.PostCommentCount) : @Html.DisplayFor(modelItem => item.PostCommentCount)
@@ -30,8 +32,11 @@
                         @Html.DisplayNameFor(model => item.PostViewCount) : @Html.DisplayFor(modelItem => item.PostViewCount)
                     </div>
                 </div>
-            }
+    }
 
-        </div>
+</div>
+
+
+
 
 

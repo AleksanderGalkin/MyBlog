@@ -33,6 +33,11 @@ namespace MyBlog
             bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
                       "~/Scripts/tinymce/tinymce.min.js"));
 
+            bundles.Add(new StyleBundle("~/Content/woothemes-FlexSlider").Include(
+                      "~/woothemes-FlexSlider/flexslider.css"));
+            bundles.Add(new ScriptBundle("~/bundles/woothemes-FlexSlider").Include(
+            "~/woothemes-FlexSlider/jquery.flexslider-min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/fileupload").Include(
                       "~/Backload/Client/blueimp/fileupload/js/vendor/jquery.ui.widget.js",
 //                      "~/Backload/Client/blueimp/templates/js/tmpl.min.js",
