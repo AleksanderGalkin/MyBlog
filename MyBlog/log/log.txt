@@ -20028,3 +20028,190 @@ INFO -            Exit:2016/02/09 04:20:40 Z-BandController:AuthorControlEdit-Us
 INFO -     ResultEntry:2016/02/09 04:20:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 30,controller = Band,action = AuthorControlEdit,5afb02e8-4c72-49ea-bc1d-7208ed97fd95 = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
 INFO -      ResultExit:2016/02/09 04:20:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 30,controller = Band,action = AuthorControlEdit,5afb02e8-4c72-49ea-bc1d-7208ed97fd95 = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
 INFO -      ResultExit:2016/02/09 04:20:41 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/18 05:35:27 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/18 05:35:36 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:35:36 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/18 05:35:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/18 05:35:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:35:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/18 05:35:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/18 05:35:48 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/18 05:35:49 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:35:49 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,2fda3b3e-6b06-46b3-8c72-2983b5f022a7 = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 05:35:49 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,2fda3b3e-6b06-46b3-8c72-2983b5f022a7 = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/18 05:38:45 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/18 05:38:47 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:38:47 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/18 05:38:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/18 05:38:47 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:38:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/18 05:38:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/18 05:38:47 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/18 05:38:47 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:38:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 05:38:47 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/18 05:38:48 Z-BandController:AuthorControlEdit-User: -Args: PostId = 11 - 
+INFO -            Exit:2016/02/18 05:38:48 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 05:38:48 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 05:38:48 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 05:38:50 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/18 06:55:24 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/18 06:55:24 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 06:55:24 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/18 06:55:24 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/18 06:55:24 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 06:55:24 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/18 06:55:24 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/18 06:55:24 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/18 06:55:24 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 06:55:24 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 06:55:24 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/18 06:55:25 Z-BandController:AuthorControlEdit-User: -Args: PostId = 11 - 
+INFO -            Exit:2016/02/18 06:55:25 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/18 06:55:25 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 06:55:25 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,311ee4e1-324d-4d56-a41f-2ff83f6f73df = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/18 06:55:25 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:02:20 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:02:47 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:02:47 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:02:51 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:02:52 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:02:52 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:02:52 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,362b89be-856d-4f38-bc5a-cc18614d206c = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,362b89be-856d-4f38-bc5a-cc18614d206c = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/20 05:02:52 Z-BandController:AuthorControlEdit-User: -Args: PostId = 11 - 
+INFO -            Exit:2016/02/20 05:02:52 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,362b89be-856d-4f38-bc5a-cc18614d206c = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:02:52 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,362b89be-856d-4f38-bc5a-cc18614d206c = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:02:55 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:08:17 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:08:20 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:08:21 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:08:21 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:08:21 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:08:21 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:08:21 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:08:21 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:08:21 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:08:21 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:08:21 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/20 05:08:22 Z-BandController:AuthorControlEdit-User: -Args: PostId = 11 - 
+INFO -            Exit:2016/02/20 05:08:22 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:08:22 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:08:22 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 11,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:08:23 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:08:50 Z-InitController:Welcome-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:08:50 Z-InitController:Welcome-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:08:50 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -      ResultExit:2016/02/20 05:08:58 Z-InitController:System.Web.Mvc.ViewResult-User: -Args: controller = Init,action = Welcome - 
+INFO -           Entry:2016/02/20 05:09:21 Z-InitController:Login-User: -Args: Model = MyBlog.ViewModels.LoginVm,ReturnUrl =  - 
+INFO -            Exit:2016/02/20 05:09:22 Z-InitController:Login-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:22 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -      ResultExit:2016/02/20 05:09:22 Z-InitController:System.Web.Mvc.RedirectToRouteResult-User: -Args: controller = Init,action = Login - 
+INFO -           Entry:2016/02/20 05:09:22 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:09:22 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:22 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:09:22 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:09:22 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:22 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:09:24 Z-BandController:AuthorControlEdit-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:09:24 Z-BandController:AuthorControlEdit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -           Entry:2016/02/20 05:09:24 Z-BandController:AuthorControlEdit-User:test@test.com -Args: PostId = 11 - 
+INFO -            Exit:2016/02/20 05:09:24 Z-BandController:AuthorControlEdit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 11,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 11,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:09:24 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:09:30 Z-BandController:DeletePost-User:test@test.com -Args: PostId = 11 - 
+INFO -            Exit:2016/02/20 05:09:30 Z-BandController:DeletePost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:30 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = DeletePost - 
+INFO -      ResultExit:2016/02/20 05:09:30 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = DeletePost - 
+INFO -           Entry:2016/02/20 05:09:32 Z-BandController:DeletePost-User:test@test.com -Args: Model = MyBlog.ViewModels.PostDispVm - 
+INFO -            Exit:2016/02/20 05:09:32 Z-BandController:DeletePost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = DeletePost - 
+INFO -      ResultExit:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = DeletePost - 
+INFO -           Entry:2016/02/20 05:09:32 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:09:32 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:09:32 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:09:32 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:09:32 Z-BandController:AuthorControlEdit-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:09:32 Z-BandController:AuthorControlEdit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:09:32 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:09:37 Z-BandController:EditPost-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:09:37 Z-BandController:EditPost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:09:37 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -      ResultExit:2016/02/20 05:09:39 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -           Entry:2016/02/20 05:12:15 Z-BandController:EditPost-User:test@test.com -Args: Model = MyBlog.ViewModels.PostEditVm - 
+INFO -            Exit:2016/02/20 05:12:15 Z-BandController:EditPost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -      ResultExit:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -           Entry:2016/02/20 05:12:15 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:12:15 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:12:15 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:12:15 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:12:15 Z-BandController:AuthorControlEdit-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:12:15 Z-BandController:AuthorControlEdit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:12:15 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:12:26 Z-BandController:EditPost-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:12:26 Z-BandController:EditPost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -      ResultExit:2016/02/20 05:12:26 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -           Entry:2016/02/20 05:12:40 Z-BandController:EditPost-User:test@test.com -Args: Model = MyBlog.ViewModels.PostEditVm - 
+INFO -            Exit:2016/02/20 05:12:40 Z-BandController:EditPost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -      ResultExit:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.RedirectToRouteResult-User:test@test.com -Args: controller = Band,action = EditPost - 
+INFO -           Entry:2016/02/20 05:12:40 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:12:40 Z-BandController:Index-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:12:40 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:12:40 Z-BandController:AuthorControlCreate-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:12:40 Z-BandController:AuthorControlEdit-User:test@test.com -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:12:40 Z-BandController:AuthorControlEdit-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:12:40 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:12:51 Z-BandController:CreatePhotoPost-User:test@test.com -Args:  - 
+INFO -            Exit:2016/02/20 05:13:17 Z-BandController:CreatePhotoPost-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:13:17 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = CreatePhotoPost - 
+INFO -      ResultExit:2016/02/20 05:13:19 Z-BandController:System.Web.Mvc.ViewResult-User:test@test.com -Args: controller = Band,action = CreatePhotoPost - 
+INFO -           Entry:2016/02/20 05:13:57 Z-BandController:LoadFile-User:test@test.com -Args: files = System.Web.HttpPostedFileBase[] - 
+INFO -            Exit:2016/02/20 05:13:57 Z-BandController:LoadFile-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:13:57 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = LoadFile - 
+INFO -      ResultExit:2016/02/20 05:13:57 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = LoadFile - 
+INFO -           Entry:2016/02/20 05:14:09 Z-BandController:LoadFile-User:test@test.com -Args: files = System.Web.HttpPostedFileBase[] - 
+INFO -            Exit:2016/02/20 05:14:09 Z-BandController:LoadFile-User:test@test.com -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:14:09 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = LoadFile - 
+INFO -      ResultExit:2016/02/20 05:14:09 Z-BandController:System.Web.Mvc.EmptyResult-User:test@test.com -Args: controller = Band,action = LoadFile - 
+INFO -           Entry:2016/02/20 05:16:20 Z-BandController:CreatePhotoPost-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:16:20 Z-BandController:CreatePhotoPost-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:16:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = CreatePhotoPost - 
+INFO -      ResultExit:2016/02/20 05:16:20 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = CreatePhotoPost - 
+INFO -           Entry:2016/02/20 05:17:02 Z-BandController:Index-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:17:02 Z-BandController:Index-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 
+INFO -           Entry:2016/02/20 05:17:02 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -            Exit:2016/02/20 05:17:02 Z-BandController:AuthorControlCreate-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -      ResultExit:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: controller = Band,action = AuthorControlCreate - 
+INFO -           Entry:2016/02/20 05:17:02 Z-BandController:AuthorControlEdit-User: -Args: PostId = 1 - 
+INFO -            Exit:2016/02/20 05:17:02 Z-BandController:AuthorControlEdit-User: -Args:  - 
+INFO -     ResultEntry:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.EmptyResult-User: -Args: PostId = 1,controller = Band,action = AuthorControlEdit,3e9f9fa4-a337-4968-aa75-0538578b95fb = System.Web.Mvc.DictionaryValueProvider`1[System.Object] - 
+INFO -      ResultExit:2016/02/20 05:17:02 Z-BandController:System.Web.Mvc.ViewResult-User: -Args: controller = Band,action = Index - 

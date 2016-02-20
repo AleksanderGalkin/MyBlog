@@ -12,8 +12,16 @@
 </div>
 <div class="row">
     <div class="col-md-12" >
-        
-            @Html.Raw(Model.ContentData.Substring(0,150))......   (продолжение)
+        @{var len = 0;
+            string str_continue = "";
+            if (Model.ContentData.Length < 120)
+            { len = Model.ContentData.Length; }
+            else
+            { len = 120; str_continue = "......   (продолжение)"; }
+
+
+        }
+        @Html.Raw(Model.ContentData.Substring(0, len)) @str_continue
         
     </div>
 </div>
