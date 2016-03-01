@@ -1,0 +1,91 @@
+﻿@model MyBlog.ViewModels.ContentTextVm
+
+<div id="CreateTextPostForm_dom">
+    <div class="panel panel-default clearfix" style="z-index:10000; position:relative;">
+        <div class="panel-body">
+
+
+            @using (Ajax.BeginForm("EditContent", null,
+                                                    new AjaxOptions
+                                                    {
+                                                        HttpMethod = "POST",
+                                                        InsertionMode = InsertionMode.InsertBefore,
+                                                        UpdateTargetId = "dropdown-menu",
+                                                        OnSuccess = "remove_original_content();remove_form();"
+                                                    }, new { id = "CreateTextPostForm", role = "form" }))
+            {
+                <div class="form-horizontal">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+
+                        @Html.HiddenFor(x => x.ContentDataType)
+                        @Html.HiddenFor(x => x.PostId)
+                        @Html.HiddenFor(x => x.PostContentId)
+                        @Html.HiddenFor(x => x.data_edit_diff_flag)
+
+                        @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(x => x.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+                        @Html.LabelFor(x => x.ContentData, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class=" col-md-10">
+                            @Html.TextAreaFor(x => x.ContentData, htmlAttributes: new { @class = "form-control  TextPostArea" })
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class=" form-group">
+                <div class="col-md-offset-8 col-md-4">
+                    <button type="button" class="btn btn-primary pull-right" onclick="$('#CreateTextPostForm').submit();">Сохранить</button>
+                    <button type="button" data-dismiss="modal" class="btn pull-right"
+                            onclick="remove_form();">
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        @Scripts.Render("~/bundles/tinymce")
+
+
+        <script type="text/javascript">
+
+            var tinymce_init = function () {
+                tinymce.init({
+                    selector: ".TextPostArea",
+                    plugins: [
+                        "advlist autolink lists link image charmap print preview anchor",
+                        "searchreplace visualblocks code fullscreen",
+                        "insertdatetime media table contextmenu paste"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                    setup: function (editor) {
+                        editor.on('change', function () {
+                            editor.save();
+                        });
+                    }
+                })
+            }
+
+            var remove_original_content = function () {
+                $('[id=@Model.PostContentId][data-edit-diff-flag = @Model.data_edit_diff_flag]').remove();
+            }
+
+            var remove_form = function () {
+                $('#CreateTextPostForm_dom > *').remove();
+                $('#CreateTextPostForm_dom').remove();
+                $('.dropdown-toggle').dropdown();
+            }
+            $(document).ready(function () {
+                tinymce_init();
+            });
+
+
+        </script>
+
+
+

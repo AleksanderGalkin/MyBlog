@@ -12,6 +12,9 @@ namespace MyBlog
     {
         public static void RegisterMappings()
         {
+            Mapper.CreateMap<PostContent, PostContent>()
+                .ForMember(dst => dst.Post, src => src.Ignore());
+
             Mapper.CreateMap<PostContent, ContentTextVm>()
                 .ForMember(dst => dst.ContentData,src=>src.Ignore()); 
             Mapper.CreateMap<PostContent, ContentImageVm>()

@@ -7,13 +7,9 @@
     <div class="row form-group col-md-offset-6 col-md-2 ">
         <!-- Single button -->
         <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Новый пост &nbsp;<span class="caret"></span></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Текст", "CreateTextPost")</li>
-                <li>@Html.ActionLink("Фото", "CreatePhotoPost")</li>
-                <li>@Html.ActionLink("Звук", "CreateSoundPost")</li>
-                <li class="divider"></li>
-                <li>@Html.ActionLink("Видео", "CreateVideoPost")</li>
+                <li>@Html.ActionLink("Пост", "CreatePost", "PostEditor")</li>
             </ul>
         </div>
     </div>

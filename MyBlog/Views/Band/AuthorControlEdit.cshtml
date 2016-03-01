@@ -9,8 +9,8 @@
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">. . . &nbsp;<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Редактировать", "EditPost", new { PostId = ViewBag.PostId })</li>
-                <li>@Html.ActionLink("Удалить", "DeletePost", new { PostId = ViewBag.PostId })</li>
+                <li>@Html.ActionLink("Редактировать", "EditPost", "PostEditor", new { PostId = ViewBag.PostId },null)</li>
+                <li>@Html.ActionLink("Удалить", "DeletePost", "PostEditor", new { PostId = ViewBag.PostId }, null)</li>
             </ul>
         </div>
     </div>

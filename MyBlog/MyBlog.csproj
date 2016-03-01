@@ -208,6 +208,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InitController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostEditorController.cs" />
     <Compile Include="DomainModels\SiteDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -467,6 +468,10 @@
     <Content Include="Backload\Client\blueimp\gallery\package.json" />
     <Content Include="Backload\Client\blueimp\fileupload\package.json" />
     <Content Include="Backload\Client\blueimp\blob\package.json" />
+    <Content Include="Scripts\bootstrap-dropdown.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min_.js" />
     <Content Include="woothemes-FlexSlider\bower_components\jquery\dist\jquery.js" />
     <Content Include="woothemes-FlexSlider\bower_components\jquery\dist\jquery.min.js" />
     <Content Include="woothemes-FlexSlider\bower_components\jquery\MIT-LICENSE.txt" />
@@ -697,8 +702,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery-ui-i18n-min.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
@@ -911,13 +914,10 @@
     <Content Include="Views\Init\ResetPassword.cshtml" />
     <Content Include="Views\Band\Index.cshtml" />
     <Content Include="Views\Band\AuthorControlCreate.cshtml" />
-    <Content Include="Views\PostManage\CreateNewPost.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentTextVm.cshtml" />
-    <Content Include="Views\Band\GetContentView.cshtml" />
-    <Content Include="Views\Band\EditPost.cshtml" />
+    <Content Include="Views\PostEditor\GetContentView.cshtml" />
     <Content Include="Views\Band\AuthorControlEdit.cshtml" />
-    <Content Include="Views\Band\CreateTextPost.cshtml" />
-    <Content Include="Views\Band\DeletePost.cshtml" />
+    <Content Include="Views\PostEditor\DeletePost.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentTextVm.cshtml" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
@@ -927,7 +927,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Views\Band\CreateImagePost.cshtml" />
+    <Content Include="Views\PostEditor\old_CreateImagePost.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentImageVm_CanDeleted.cshtml" />
     <Content Include="woothemes-FlexSlider\bower.json" />
     <Content Include="woothemes-FlexSlider\bower_components\jquery\.bower.json" />
@@ -968,6 +968,14 @@
     <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\dist\sizzle.min.map" />
     <Content Include="woothemes-FlexSlider\package.json" />
     <Content Include="woothemes-FlexSlider\README.mdown" />
+    <Content Include="Views\Band\DisplayTemplates\PostDispVm.cshtml" />
+    <Content Include="Views\PostEditor\EditPost.cshtml" />
+    <Content Include="Views\PostEditor\AttachedContent.cshtml" />
+    <Content Include="Views\PostEditor\DisplayTemplates\ContentTextVm.cshtml" />
+    <Content Include="Views\PostEditor\DisplayTemplates\ContentImageVm.cshtml" />
+    <Content Include="Views\PostEditor\EditorTemplates\ContentImageVm.cshtml" />
+    <Content Include="Views\PostEditor\EditorTemplates\ContentTextVm.cshtml" />
+    <Content Include="Views\PostEditor\EditContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

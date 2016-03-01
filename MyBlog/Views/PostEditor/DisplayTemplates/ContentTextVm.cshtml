@@ -1,0 +1,53 @@
+﻿@model MyBlog.ViewModels.ContentTextVm
+
+<div class="row col-md-offset-2 col-md-10" id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag">
+    <div class="row">
+        <div class="col-md-12">
+            <p class=" text-right">
+                <em>
+                    @Html.DisplayFor(x => x.Comment)
+                </em>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @if (Model.ContentData != null)
+            {
+
+                var len = 0;
+                string str_continue = "";
+                if (Model.ContentData.Length < 120)
+                { len = Model.ContentData.Length; }
+                else
+                { len = 120; str_continue = "......   (продолжение)"; }
+
+                @Html.Raw(Model.ContentData.Substring(0, len)) @str_continue
+            }
+        </div>
+        <div class="col-md-2">
+            @Ajax.ActionLink("Edit", "EditContent", new { PostContentId = Model.PostContentId,
+                                                            PostId = Model.PostId},
+            new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "new_content_div"
+            })
+            <br />
+            @Ajax.ActionLink("Delete", "DeleteContent", new { PostContentId = Model.PostContentId,
+                                                                      PostId = Model.PostId},
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                Confirm = "Удалить?",
+                OnSuccess = "removeContentId"
+
+            })
+        </div>
+    </div>
+ </div>
+
+<script type="text/javascript">
+
+</script>

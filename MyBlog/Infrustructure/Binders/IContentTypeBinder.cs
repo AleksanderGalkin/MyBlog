@@ -17,8 +17,10 @@ namespace MyBlog.Infrustructure
         protected override object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType)
         {
             string descriptor = bindingContext.ModelName;
+            if (!String.IsNullOrEmpty(descriptor))
+                descriptor = descriptor + ".";
             string availabilityContentDataType =
-                GetValue(bindingContext, descriptor +".ContentDataType");
+                GetValue(bindingContext, descriptor +"ContentDataType");
             ContentTypeEnums ContentDataType;
             if (availabilityContentDataType != null)
             {
@@ -65,7 +67,7 @@ namespace MyBlog.Infrustructure
         {
             string result = "";
             string availabilityPostContents =
-               GetUnvalidatedValue(bindingContext, descriptor + ".ContentData");
+               GetUnvalidatedValue(bindingContext, descriptor + "ContentData");
             if (availabilityPostContents != null)
             {
 

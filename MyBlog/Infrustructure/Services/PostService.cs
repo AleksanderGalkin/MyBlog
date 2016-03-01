@@ -22,7 +22,7 @@ namespace MyBlog.Infrustructure.Services
             _post = Post;
         }
 
-        public PostService(string parUserId, ContentTypeEnums parContentDataType)
+        public PostService(string parUserId)
         {
             _post = new Post();
             _post.ApplicationUserId = parUserId;
@@ -31,8 +31,9 @@ namespace MyBlog.Infrustructure.Services
             _post.PostViews = new Collection<PostView>();
             _post.PostTags = new Collection<PostTag>();
             _post.PostContents = new Collection<PostContent>();
-           // _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
+            // _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
         }
+
 
         public PostDispVm GetPostDispVm()
         {
@@ -84,6 +85,7 @@ namespace MyBlog.Infrustructure.Services
                     newItem = Mapper.Map<PostContent, ContentTextVm>(i);
                     UnicodeEncoding encoding = new UnicodeEncoding();
                     newItem.ContentData = encoding.GetString(i.ContentData);
+                    newItem.EditMode = ContentModeEnum.None;
                     result.PostContents.Add(newItem);
                 }
 
@@ -99,6 +101,7 @@ namespace MyBlog.Infrustructure.Services
                     {
                         newItem.ContentData = null;
                     }
+                    newItem.EditMode = ContentModeEnum.None;
                     result.PostContents.Add(newItem);
                 }
 

@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using MyBlog.Infrustructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace MyBlog.Models
 {
@@ -44,6 +45,11 @@ namespace MyBlog.Models
             return new ApplicationDbContext();
         }
 
+        public override int SaveChanges()
+        {
+            PostContents.Local.Where(x => x.Post == null).ToList().ForEach(x=>PostContents.Remove(x));
+            return base.SaveChanges();
+        }
 
     }
 }

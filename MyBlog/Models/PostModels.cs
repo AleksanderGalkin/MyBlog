@@ -31,7 +31,7 @@ namespace MyBlog.Models
 
         public  Post()
         {
-            PostContents = new Collection<PostContent>();
+            PostContents = new List<PostContent>();
         }
     }
 

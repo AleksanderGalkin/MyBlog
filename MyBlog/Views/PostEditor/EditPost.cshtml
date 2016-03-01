@@ -1,0 +1,98 @@
+﻿@using MyBlog.ViewModels
+@model PostEditVm
+
+@{
+    ViewBag.Title = "EditPostForm";
+}
+
+<h2>Новый пост</h2>
+
+<div class="container">
+    @using (@Html.BeginForm("EditPost", "PostEditor", FormMethod.Post, new { id = "EditPostForm", role = "form" }))
+    {
+        <div class="form-horizontal">
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => Model.PostId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tittle, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    }
+
+    @Html.DisplayFor(model => model.PostContents)
+
+    <div id ="dropdown-menu" class="form-horizontal" >
+        <div class="form-group col-md-12 ">
+            <!-- Single button -->
+            <div class="btn-group pull-left  col-md-offset-2">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
+                <ul id="dropdown-menu1" class="dropdown-menu" role="menu">
+                    <li>
+                        @Ajax.ActionLink("Текст", "CreateContentText",
+                    new AjaxOptions
+                    {
+                        HttpMethod = "Get",
+                        UpdateTargetId = "new_content_div",
+                        OnSuccess = "loadScriptAndInit"
+                    })
+                    </li>
+                    <li>
+                        @Ajax.ActionLink("Фото", "CreateContentFile",
+                    new AjaxOptions
+                    {
+                        HttpMethod = "Get",
+                        UpdateTargetId = "new_content_div",
+                        OnSuccess = "loadScriptAndInit"
+                    })
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+
+    <div class="row" id="new_content_div"> </div>
+
+    <div class=" form-group">
+        <div class="col-lg-offset-8 col-md-4">
+            <button type="button" class="btn btn-primary pull-right" onclick="document.forms['EditPostForm'].submit();">Сохранить</button>
+            <button type="button" data-dismiss="modal" class="btn pull-right"
+                    onclick="document.location = '@Url.Action("CancelPostEdition")'">
+                Закрыть
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+
+    @section scripts{
+        @Scripts.Render("~/bundles/ajax")
+     
+
+
+<script type="text/javascript">
+
+    function loadScriptAndInit() {
+        $.getScript(
+            '@Url.Action("CreateContentText","PostEditor")');
+    }
+
+    var removeContentId = function (json) {
+        parsedJson = JSON.parse(json);
+        if (parsedJson.result == true)
+            $('#'+parsedJson.id).remove();
+    }
+
+
+   
+ </script>
+}

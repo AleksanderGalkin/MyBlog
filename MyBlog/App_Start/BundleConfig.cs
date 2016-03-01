@@ -12,6 +12,9 @@ namespace MyBlog
                         "~/Scripts/jquery-{version}.js",
                        "~/Scripts/jquery-ui-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                       "~/Scripts/jquery.unobtrusive-ajax.min_.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
