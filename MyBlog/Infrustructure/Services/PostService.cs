@@ -1,6 +1,11 @@
 ﻿using AutoMapper;
+using MyBlog.Infrastructure.Services;
+using MyBlog.Infrustructure.Sevices;
 using MyBlog.Models;
 using MyBlog.ViewModels;
+using MyBlogContract;
+using MyBlogContract.Band;
+using MyBlogContract.PostManage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,7 +36,6 @@ namespace MyBlog.Infrustructure.Services
             _post.PostViews = new Collection<PostView>();
             _post.PostTags = new Collection<PostTag>();
             _post.PostContents = new Collection<PostContent>();
-            // _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
         }
 
 
@@ -41,31 +45,31 @@ namespace MyBlog.Infrustructure.Services
 
             
 
-            result = Mapper.Map<Post, PostDispVm>(_post);
-            result.PostContents = new List<IContentType>();
+        //    result = Mapper.Map<Post, PostDispVm>(_post);
+        //    result.PostContents = new List<IContentType>();
             
-            foreach (var i in _post.PostContents)
-            {
+        //    foreach (var i in _post.PostContents)
+        //    {
                 
-                if (i.ContentDataType == ContentTypeEnums.Text)
-                {
-                    ContentTextVm newItem = null;
-                    newItem = Mapper.Map<PostContent, ContentTextVm>(i);
-                    UnicodeEncoding encoding = new UnicodeEncoding();
-                    newItem.ContentData = encoding.GetString(i.ContentData ?? encoding.GetBytes(""));
-                    result.PostContents.Add(newItem);
-                }
+        //        if (i.ContentDataType == ContentTypeEnums.Text)
+        //        {
+        //            ContentTextVm newItem = null;
+        //            newItem = Mapper.Map<PostContent, ContentTextVm>(i);
+        //            UnicodeEncoding encoding = new UnicodeEncoding();
+        //            newItem.ContentData = encoding.GetString(i.ContentData ?? encoding.GetBytes(""));
+        //            result.PostContents.Add(newItem);
+        //        }
 
-                if (i.ContentDataType == ContentTypeEnums.Image)
-                {
-                    ContentImageVm newItem = null;
-                    newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-                    MemoryStream ms = new MemoryStream(i.ContentData );
-                    newItem.ContentData = i.ContentData;
-                    result.PostContents.Add(newItem);
-                }
+        //        if (i.ContentDataType == ContentTypeEnums.Image)
+        //        {
+        //            ContentImageVm newItem = null;
+        //            newItem = Mapper.Map<PostContent, ContentImageVm>(i);
+        //            MemoryStream ms = new MemoryStream(i.ContentData );
+        //            newItem.ContentData = i.ContentData;
+        //            result.PostContents.Add(newItem);
+        //        }
 
-            }
+        //    }
             
             return result;
         }
@@ -74,38 +78,37 @@ namespace MyBlog.Infrustructure.Services
         {
             PostEditVm result = new PostEditVm();
             result = Mapper.Map<Post, PostEditVm>(_post);
-            result.PostContents = new List<IContentType>();
+            result.PostContents = new List<IDataStoreRecord>();
 
             foreach (var i in _post.PostContents)
             {
 
-                if (i.ContentDataType == ContentTypeEnums.Text)
-                {
-                    ContentTextVm newItem = null;
-                    newItem = Mapper.Map<PostContent, ContentTextVm>(i);
-                    UnicodeEncoding encoding = new UnicodeEncoding();
-                    newItem.ContentData = encoding.GetString(i.ContentData);
-                    newItem.EditMode = ContentModeEnum.None;
-                    result.PostContents.Add(newItem);
-                }
 
-                if (i.ContentDataType == ContentTypeEnums.Image)
-                {
-                    ContentImageVm newItem = null;
-                    newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-                    try
-                    {
-                        newItem.ContentData = i.ContentData;
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        newItem.ContentData = null;
-                    }
-                    newItem.EditMode = ContentModeEnum.None;
+                    IDataStoreRecord newItem = new DataStoreRecord();
+                    newItem = Mapper.Map<PostContent, IDataStoreRecord>(i,newItem);
                     result.PostContents.Add(newItem);
-                }
+
+
 
             }
+
+            return result;
+        }
+
+        public PostDispVm2 GetPostDispVm2()
+        {
+            PostDispVm2 result = new PostDispVm2();
+
+            result = Mapper.Map<Post, PostDispVm2>(_post);
+            result.PostContents = new List<IDataStoreRecord>();
+
+            foreach (var i in _post.PostContents)
+            {
+                    IDataStoreRecord newItem = new DataStoreRecord();
+                    newItem = Mapper.Map<PostContent, IDataStoreRecord>(i, newItem);
+                    result.PostContents.Add(newItem);
+            }
+
 
             return result;
         }
@@ -113,59 +116,5 @@ namespace MyBlog.Infrustructure.Services
 
     }
 
-    //public class PostEdit
-    //{
-    //    Post _post;
-
-    //    public PostEdit(Post Post)
-    //    {
-    //        _post = Post;
-    //    }
-
-    //    public PostEdit(string parUserId, ContentTypeEnums parContentDataType)
-    //    {
-    //        _post = new Post();
-    //        _post.ApplicationUserId = parUserId;
-    //        _post.Tittle = "";
-    //        _post.PostComments = new Collection<PostComment>();
-    //        _post.PostViews = new Collection<PostView>();
-    //        _post.PostTags = new Collection<PostTag>();
-    //        _post.PostContents = new Collection<PostContent>();
-    //        _post.PostContents.Add(new PostContent() { ContentDataType = parContentDataType, ContentData = new byte[0] });
-    //    }
-
-    //    public PostEditVm<T> GetPostEditVm<T>()
-    //        where T :  class, IContentType
-    //    {
-    //        PostEditVm<T> result = new PostEditVm<T>();
-    //        result.PostContents = new Collection<T>();
-    //        foreach (var i in _post.PostContents)
-    //        {
-
-    //            if (i.ContentDataType == ContentTypeEnums.Text)
-    //            {
-    //                ContentTextVm newItem = null;
-    //                newItem = Mapper.Map<PostContent, ContentTextVm>(i);
-    //                UnicodeEncoding encoding = new UnicodeEncoding();
-    //                newItem.ContentData = encoding.GetString(i.ContentData);
-    //                result.PostContents.Add(newItem as T);
-
-    //            }
-
-    //            if (i.ContentDataType == ContentTypeEnums.Image)
-    //            {
-    //                ContentImageVm newItem = null;
-    //                newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-    //                UnicodeEncoding encoding = new UnicodeEncoding();
-    //                newItem.ContentData = encoding.GetString(i.ContentData);
-    //                result.PostContents.Add(newItem as T);
-    //            }
-
-    //        }
-
-    //        return result;
-    //    }
-
-    //}
 
 }

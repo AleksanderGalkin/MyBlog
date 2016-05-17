@@ -1,14 +1,18 @@
 ﻿using MyBlog.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
 
 namespace MyBlog.Infrustructure
 {
+    [Export(typeof(IUnitOfWork))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class UnitOfWork:IUnitOfWork
     {
         public IDbContext db { get; private set; }
+        [ImportingConstructor]
         public UnitOfWork (IDbContext DbContext)
         {
             db = DbContext;

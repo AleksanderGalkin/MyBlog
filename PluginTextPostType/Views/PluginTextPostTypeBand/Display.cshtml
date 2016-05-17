@@ -1,0 +1,39 @@
+﻿@model PluginTextPostType.Models.VmDisplay
+@{ 
+    Layout = null;
+}
+@using System.Text.RegularExpressions;
+
+<div class="row">
+    <div class="col-md-12">
+        <p class=" text-right">
+            <em>
+                @Html.DisplayFor(x => x.Comment)
+            </em>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @{var len = 0;
+            string str_continue = "";
+            if (Model.Data.Length < 120)
+            { len = Model.Data.Length; }
+            else
+            { len = 120; str_continue = "......   (продолжение)"; }
+
+
+        }
+        @Html.Raw(Model.Data.Substring(0, len))  
+        @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { Id = Model.Id },null)
+            @{
+                string cutted_string = Model.Data.Substring(len);
+                var matches = Regex.Matches(cutted_string, @"</\w+>");
+                foreach (Match i in matches)
+                {
+                    @Html.Raw(@i.Value);
+                }
+
+            }
+</div>
+</div>

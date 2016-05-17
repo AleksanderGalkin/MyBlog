@@ -16,7 +16,8 @@ namespace MyBlog
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Band", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Band", action = "Index", id = UrlParameter.Optional },
+                                namespaces: new[] { "MyBlog.Controllers" }
             );
         }
     }

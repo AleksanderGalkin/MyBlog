@@ -30,5 +30,9 @@ namespace MyBlog.Infrustructure.Windsor
             }
             return (IController)kernel.Resolve(controllerType);
         }
+        public override IController CreateController(RequestContext requestContext, string controllerName)
+        {
+            return base.CreateController(requestContext, controllerName);
+        }
     }
 }

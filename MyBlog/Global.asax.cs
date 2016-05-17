@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
+using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Windsor;
 using MyBlog.ViewModels;
@@ -33,10 +34,17 @@ namespace MyBlog
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             log4net.Config.XmlConfigurator.Configure();
             AutoMapperConfig.RegisterMappings();
-            MvcApplication.IdContainer();
-        //    ModelBinders.Binders.Add(typeof(PostEditVm<IContentType>), new PostEditVmModelBinder2());
-            ModelBinders.Binders.Add(typeof(IContentType), new IContentTypeBinder());
-            ModelBinders.Binders.Add(typeof(PostEditVm), new PostEditVmBinder());
+          //  MvcApplication.IdContainer();
+            //    ModelBinders.Binders.Add(typeof(PostEditVm<IContentType>), new PostEditVmModelBinder2());
+            //  ModelBinders.Binders.Add(typeof(IContentType), new IContentTypeBinder());
+            //  ModelBinders.Binders.Add(typeof(PostEditVm), new PostEditVmBinder());
+
+            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+            PlugInFactory.InitFactory();
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new CustomViewEngine(PlugInFactory.GetPluginNamesList()));
+            ModelBinders.Binders.DefaultBinder = new DemBinder();
+
         }
 
         protected void Application_End()

@@ -1,12 +1,17 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
+using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.Models;
 using MyBlog.ViewModels;
+using MyBlogContract;
+using MyBlogContract.Band;
+using MyBlogContract.PostManage;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -17,10 +22,23 @@ using System.Web.Mvc;
 
 namespace MyBlog.Controllers
 {
+    [Export(typeof(IController)),
+   ExportMetadata("Name", ""),
+    ExportMetadata("Version", ""),
+    ExportMetadata("ControllerName", "PostEditor"),
+    ExportMetadata("ControllerType", typeof(IController))]
+
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class PostEditorController : AbstractController
     {
-        public PostEditorController(IUnitOfWork UnitOfWork) : base(UnitOfWork)
+        IDataStorePostManage _ds;
+
+        [ImportingConstructor]
+        public PostEditorController(IUnitOfWork UnitOfWork,
+             [Import("PluginTextPostType", typeof(IDataStorePostManage))]IDataStorePostManage DataStore)
+            : base(UnitOfWork)
         {
+            _ds = DataStore;
         }
         // GET: PostEditor
 
@@ -29,7 +47,7 @@ namespace MyBlog.Controllers
         {
             PostService PostService = new PostService(User.Identity.GetUserId());
             PostEditVm model = PostService.GetPostEditVm();
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
+            IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
             if (Contents != null)
             {
                 model.PostContents = Contents;
@@ -39,7 +57,7 @@ namespace MyBlog.Controllers
 
         public ActionResult CancelPostEdition()
         {
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
+            IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
             if (Contents != null)
             {
                 Session["PostContents"] = null;
@@ -50,6 +68,7 @@ namespace MyBlog.Controllers
         public ActionResult CreateContentText()
         {
             IContentType TextContent = new ContentTextVm();
+
             return View("EditContent",TextContent);
         }
 
@@ -59,63 +78,86 @@ namespace MyBlog.Controllers
             return View("EditContent", model);
         }
 
+        public ActionResult EditPost(int PostId)
+        {
+            Post Model = (from a in _unitOfWork.db.Posts
+                          where a.PostId == PostId
+                          select a)
+                          .SingleOrDefault();
+            PostService PostService = new PostService(Model);
+            PostEditVm retModel = PostService.GetPostEditVm();
+            _ds.Clear();
+            foreach (var item in retModel.PostContents)
+            {
+                _ds.Add(item);
+            }
+            Session["data_store"] = _ds;
+
+            return View("EditPost", retModel);
+        }
 
         [HttpPost]
         public ActionResult EditPost(PostEditVm Model)
         {
-            if (ModelState.IsValid)
+            IDataStorePostManage data_store = Session["data_store"] as IDataStorePostManage;
+            if (data_store == null)
             {
-                Post Post = null;
-                if (Model.PostId == 0)
-                {
-                    Post = Mapper.Map<PostEditVm, Post>(Model);
-                    Post.PubDate = DateTime.Now;
-                    Post.ApplicationUserId = User.Identity.GetUserId();
-                }
-                else
-                {
-                    Post = (from a in _unitOfWork.db.Posts.Include(p=>p.PostContents)
-                                      where a.PostId == Model.PostId
-                                      select a)
-                                  .SingleOrDefault();
-                    if (Post == null)
-                        throw new NotImplementedException("Post with such Id not found.");
-                }
-               
-                foreach(var mc in Model.PostContents)
-                {
-                    PostContent content = (from c in Post.PostContents
-                                                  where c.PostContentId == mc.PostContentId
-                                                  select c)
-                                                 .SingleOrDefault();
-                    switch (mc.EditMode)
-                    {
-                        case ContentModeEnum.Create:
-                            PostContent pc = GetPostContent(mc);
-                            pc.PostContentId = 0;
-                            Post.PostContents.Add(pc);
-                            break;
-                        case ContentModeEnum.Edit:
-                            content = GetPostContent(mc);
-                            break;
-                        case ContentModeEnum.Delete:
-                            Post.PostContents.Remove(content);
-                            break;
-                    }
-                }
+                throw new HttpException("Session not exist");
+            }
+            Post post = null;
+            if (Model.PostId == 0)
+            {
+                post = Mapper.Map<Post>(Model);
+                post.PubDate = DateTime.Now;
+                post.ApplicationUserId = User.Identity.GetUserId();
 
-
-                if (Model.PostId == 0)
-                {
-                    _unitOfWork.db.Posts.Add(Post);
-                }
-               
-                return RedirectToAction("Index", "Band");
             }
             else
             {
-                return View("EditPost", Model);
+                post = _unitOfWork.db.Posts.Where(p => p.PostId == Model.PostId).FirstOrDefault();
             }
+
+            
+            var content_of_post = data_store.Get().Where(c => c.PostId == Model.PostId);
+            foreach ( var i in content_of_post)
+            {
+                PostContent post_content = new PostContent();
+                post_content = Mapper.Map<IDataStoreRecord, PostContent>(i,post_content);
+                
+                switch (i.Status)
+                {
+                    case IDataStoreRecordStatus.None:
+                        break;
+                    case IDataStoreRecordStatus.Created:
+                        
+                        post.PostContents.Add(post_content);
+                        break;
+                    case IDataStoreRecordStatus.Modified:
+                        
+                        PostContent current_content = post.PostContents.Where(c=>c.PostContentId == i.PostContentId)
+                                                       .SingleOrDefault();
+                        current_content.Comment = i.Comment;
+                        current_content.ContentData = i.ContentData;
+                        current_content.ContentType = i.DataPluginName;
+                        break;
+                    case IDataStoreRecordStatus.Deleted:
+  
+                        PostContent current_content_for_del = post.PostContents.Where(c => c.PostContentId == post_content.PostContentId)
+                            .SingleOrDefault();
+                        post.PostContents.Remove(current_content_for_del);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (Model.PostId == 0)
+            {
+                _unitOfWork.db.Posts.Add(post);
+            }
+
+            return RedirectToAction("Index", "Band");
+  
         }
 
         private PostContent GetPostContent (IContentType Content)
@@ -141,27 +183,7 @@ namespace MyBlog.Controllers
             return PostContent;
         }
 
-        public ActionResult EditPost(int PostId)
-        {
-            Post Model = (from a in _unitOfWork.db.Posts
-                          where a.PostId == PostId
-                          select a)
-                          .SingleOrDefault();
-            PostService PostService = new PostService(Model);
-            PostEditVm retModel = PostService.GetPostEditVm();
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-            if (Contents == null)
-            {
-                Contents = new List<IContentType>();
-            }
-            Contents = retModel.PostContents;
-            Session["PostContents"] = Contents;
-            //IList<IContentType> Contents2 = Session["PostContents"] as IList<IContentType>;
-            //var Contents3 = Session["PostContents"];
-            //IList<IContentType> Contents4 = Contents3 as IList<IContentType>;
-
-            return View("EditPost", retModel);
-        }
+        
 
 
         public ActionResult DeletePost(int PostId)

@@ -1,4 +1,7 @@
 ﻿using MyBlog.Models;
+using MyBlogContract;
+using MyBlogContract.Band;
+using MyBlogContract.PostManage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -40,7 +43,24 @@ namespace MyBlog.ViewModels
         [Display(Description = "Дата публикации", Name = "Дата публикации")]
         DateTime PubDate { get; set; }
         [AllowHtml]
-        IList<IContentType> PostContents { get; set; }
+        IList<IDataStoreRecord> PostContents { get; set; }
+    }
+
+    public interface IPost2 //<T>
+                           //where T : class,IContentType
+    {
+        [HiddenInput]
+        PostModeEnums PostMode { get; set; }
+        [HiddenInput]
+        int PostId { get; set; }
+        [StringLength(50, MinimumLength = 4)]
+        [Display(Description = "Заголовок", Name = "Заголовок")]
+        string Tittle { get; set; }
+        [DataType(DataType.DateTime)]
+        [Display(Description = "Дата публикации", Name = "Дата публикации")]
+        DateTime PubDate { get; set; }
+        [AllowHtml]
+        IList<IDataStoreRecord> PostContents { get; set; }
     }
 
     public interface IContentType
@@ -71,12 +91,37 @@ namespace MyBlog.ViewModels
         [DataType(DataType.DateTime)]
         [Display(Description = "Дата публикации", Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
-        public IList<IContentType> PostContents { get; set; }
+        public IList<IDataStoreRecord> PostContents { get; set; }
         [Display(Description = "Комментарии", Name = "Комментарии")]
         public int PostCommentCount { get; set; }
         [Display(Description = "Просмотры", Name = "Просмотры")]
         public int PostViewCount { get; set; }
         public PostDispVm()
+        {
+            PostMode = PostModeEnums.Display;
+        }
+
+    }
+
+    public class PostDispVm2 : IPost2 //<T>
+                                    //where T : class, IContentType
+    {
+        [HiddenInput]
+        public PostModeEnums PostMode { get; set; }
+        [HiddenInput]
+        public int PostId { get; set; }
+        [StringLength(50, MinimumLength = 4)]
+        [Display(Description = "Заголовок", Name = "Заголовок")]
+        public string Tittle { get; set; }
+        [DataType(DataType.DateTime)]
+        [Display(Description = "Дата публикации", Name = "Дата публикации")]
+        public DateTime PubDate { get; set; }
+        public IList<IDataStoreRecord> PostContents { get; set; }
+        [Display(Description = "Комментарии", Name = "Комментарии")]
+        public int PostCommentCount { get; set; }
+        [Display(Description = "Просмотры", Name = "Просмотры")]
+        public int PostViewCount { get; set; }
+        public PostDispVm2()
         {
             PostMode = PostModeEnums.Display;
         }
@@ -99,7 +144,7 @@ namespace MyBlog.ViewModels
         [DataType(DataType.DateTime)]
         [Display(Description = "Дата публикации", Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
-        public IList<IContentType> PostContents { get; set; }
+        public IList<IDataStoreRecord> PostContents { get; set; }
         public PostEditVm()
         {
             PostMode = PostModeEnums.Edit;

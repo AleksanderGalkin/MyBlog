@@ -1,0 +1,77 @@
+﻿@model PluginTextPostType.Models.VmDisplay
+@{
+    Layout = null;
+}
+@using System.Text.RegularExpressions;
+
+<div class="row col-md-offset-2 col-md-10" id="@Model.Id" data-edit-diff-flag="@Model.data_edit_diff_flag"
+                                                data-_temporary_PostContentId="@Model._temporary_PostContentId">
+    <div class="row">
+        <div class="col-md-12">
+            <p class=" text-right">
+                <em>
+                    @Html.DisplayFor(x => x.Comment)
+                </em>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @if (Model.Data != null)
+            {
+
+                var len = 0;
+                string str_continue = "";
+                if (Model.Data.Length < 120)
+                { len = Model.Data.Length; }
+                else
+                { len = 120; str_continue = "......   (продолжение)"; }
+
+                    @Html.Raw(Model.Data.Substring(0, len)) <a href="_blank"> @str_continue </a>
+                string cutted_string = Model.Data.Substring(len);
+                var matches = Regex.Matches(cutted_string, @"</\w+>");
+                foreach (Match i in matches)
+                {
+                    @Html.Raw(@i.Value);
+                }
+                
+            }
+        </div>
+        <div class="col-md-2">
+            @Ajax.ActionLink("Edit", "Modify", new
+       {
+           Id = Model.Id,
+           _temporary_PostContentId = Model._temporary_PostContentId,
+           PostId = Model.PostId,
+           data_edit_diff_flag = Model.data_edit_diff_flag,
+           UpdateTargetId = Model.UpdateTargetId,
+           OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback
+       },
+            new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = Model.UpdateTargetId
+            })
+            <br />
+            @Ajax.ActionLink("Delete", "DeleteContent", new
+       {
+           Id = Model.Id,
+           _temporary_PostContentId = Model._temporary_PostContentId,
+           PostId = Model.PostId
+       },
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                Confirm = "Удалить?",
+                //OnSuccess = "removeContentId"
+                OnSuccess = Model.OnSuccessRemoveCallback
+
+            })
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>

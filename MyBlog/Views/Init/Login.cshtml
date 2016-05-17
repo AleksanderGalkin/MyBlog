@@ -1,6 +1,11 @@
 ﻿@model MyBlog.ViewModels.LoginVm
 <p class='h3'>Логин</p>
 <p class="small">Помогите нам вспомнить Вас</p>
+@{
+    RouteValueDictionary route = new RouteValueDictionary();
+    route.Add("area", "");
+}
+
 @using (Html.BeginForm("Login","Init"))
 {
     @Html.AntiForgeryToken()
@@ -30,11 +35,11 @@
                                         </label>
                                     </label>
                                     <label for='RememberMe' class='label'>Запомнить пароль</label>
-                                    <label  class='label '><a href=@Url.Action("ForgotPassword","Init")>Забыли пароль?</a></label>
+                                    <label  class='label '><a href=@Url.Action("ForgotPassword","Init", new { area=""})>Забыли пароль?</a></label>
                                 </div>
                             </div>
                             <input type='submit' class='btn btn-default button' value='Войти'>
                             <input type='button' class='btn btn-default button' value='Я - Гость'
-                                   onclick='document.location="@Url.Action("Index","Band")"'>
+                                   onclick='document.location="@Url.Action("Index","Band", new { area=""} )"'>
 
 }

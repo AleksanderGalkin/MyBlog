@@ -114,6 +114,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
@@ -208,12 +209,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InitController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PluginController.cs" />
     <Compile Include="Controllers\PostEditorController.cs" />
     <Compile Include="DomainModels\SiteDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrustructure\AppSettings.cs" />
     <Compile Include="Infrustructure\Binders\PostEditVmBinder.cs" />
+    <Compile Include="Infrustructure\Services\DataStoreRecord.cs" />
     <Compile Include="Infrustructure\Helpers\IdentityHelperGetFullName.cs" />
     <Compile Include="Infrustructure\Helpers\ModelBindingContextExt.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperSetActiveLi.cs" />
@@ -221,7 +225,13 @@
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
     <Compile Include="Infrustructure\Binders\MyDefaultModelBinder.cs" />
+    <Compile Include="Infrustructure\Services\CustomControllerFactory.cs" />
+    <Compile Include="Infrustructure\Services\CustomViewEngine .cs" />
+    <Compile Include="Infrustructure\Services\DataStore.cs" />
+    <Compile Include="Infrustructure\Services\DemBinder.cs" />
+    <Compile Include="Infrustructure\Services\PlugInFactory.cs" />
     <Compile Include="Infrustructure\Services\PostService.cs" />
+    <Compile Include="Infrustructure\Services\PreApplicationInit.cs" />
     <Compile Include="Infrustructure\UnitOfWork.cs" />
     <Compile Include="Infrustructure\Helpers\UrlHelperContent.cs" />
     <Compile Include="Infrustructure\ViewSystemMessage.cs" />
@@ -247,6 +257,10 @@
     <Compile Include="Migrations\201509091057056_3.cs" />
     <Compile Include="Migrations\201509091057056_3.Designer.cs">
       <DependentUpon>201509091057056_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101155575_4.cs" />
+    <Compile Include="Migrations\201605101155575_4.Designer.cs">
+      <DependentUpon>201605101155575_4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -976,6 +990,8 @@
     <Content Include="Views\PostEditor\EditorTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\PostEditor\EditorTemplates\ContentTextVm.cshtml" />
     <Content Include="Views\PostEditor\EditContent.cshtml" />
+    <Content Include="Views\Band\Index2.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\PostDispVm2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -985,6 +1001,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Plugin\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509080410384_create.resx">
@@ -1001,6 +1018,15 @@
     <EmbeddedResource Include="Migrations\201509091057056_3.resx">
       <DependentUpon>201509091057056_3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101155575_4.resx">
+      <DependentUpon>201605101155575_4.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlogContract\MyBlogContract.csproj">
+      <Project>{d1136b08-e511-4fca-9b67-ef2853e0ecca}</Project>
+      <Name>MyBlogContract</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

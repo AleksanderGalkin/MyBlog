@@ -44,6 +44,7 @@ namespace MyBlog.Models
         [AllowHtml]
         public byte[] ContentData { get; set; }
         public ContentTypeEnums ContentDataType { get; set; }
+        public string ContentType { get; set; }
         [StringLength(100)]
         [Display(Description = "Комментарий",Name = "Комментарий")]
         public string Comment { get; set; }

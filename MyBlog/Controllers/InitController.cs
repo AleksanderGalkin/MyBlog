@@ -8,6 +8,7 @@ using MyBlog.Models;
 using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net.Mail;
@@ -18,11 +19,18 @@ using System.Web.Mvc;
 
 namespace MyBlog.Controllers
 {
+    [Export(typeof(IController)),
+        ExportMetadata("Name", ""),
+        ExportMetadata("Version", ""),
+        ExportMetadata("ControllerName", "Init"),
+        ExportMetadata("ControllerType", typeof(IController))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class InitController : AbstractController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        [ImportingConstructor]
         public InitController(IUnitOfWork UnitOfWork) : base(UnitOfWork)
         {
          
@@ -178,7 +186,7 @@ namespace MyBlog.Controllers
                     return View(Model);
                 }
 
-                return RedirectToAction("Welcome");
+                return RedirectToAction("Welcome", new { area=""});
 
             }
             return View(Model);
@@ -235,7 +243,7 @@ namespace MyBlog.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Band");
+            return RedirectToAction("Index", "Band", new { area = "" });
         }
 
         // GET: /Account/ForgotPassword
@@ -266,7 +274,7 @@ namespace MyBlog.Controllers
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Init", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
               //  await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                return RedirectToAction("ForgotPasswordConfirmation", "Init", new  { callbackUrl = callbackUrl });
+                return RedirectToAction("ForgotPasswordConfirmation", "Init", new  { area="", callbackUrl = callbackUrl });
             }
             else
             {
@@ -307,12 +315,12 @@ namespace MyBlog.Controllers
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("ResetPasswordConfirmation", "Account", new { area = "" });
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.code, model.newPassword);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("ResetPasswordConfirmation", "Account", new { area = "" });
             }
             AddErrors(result);
             return View();
@@ -353,7 +361,7 @@ namespace MyBlog.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Band");
+            return RedirectToAction("Index", "Band", new { area = "" });
         }
 
     }

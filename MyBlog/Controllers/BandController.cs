@@ -1,42 +1,54 @@
-﻿using AutoMapper;
-using Castle.Core;
-using Microsoft.AspNet.Identity;
-using MyBlog.Infrustructure;
+﻿using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
-using MyBlog.Models;
 using MyBlog.ViewModels;
-using Newtonsoft.Json;
-using System;
+using MyBlogContract.Band;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyBlog.Controllers
 {
+    [Export(typeof(IController)),
+       ExportMetadata("Name",""),
+        ExportMetadata("Version",""),
+        ExportMetadata("ControllerName", "Band"),
+        ExportMetadata("ControllerType", typeof(IController))]
+        
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class BandController : AbstractController
     {
-        public BandController(IUnitOfWork UnitOfWork) : base(UnitOfWork)
+        IDataStoreBand _ds;
+        [ImportingConstructor]
+        public BandController(IUnitOfWork UnitOfWork,
+            [Import("PluginTextPostType", typeof(IDataStoreBand))]IDataStoreBand DataStore) 
+            : base(UnitOfWork)
         {
+            _ds = DataStore;
         }
 
         // GET: Band
         public ActionResult Index()
         {
-            IList<PostDispVm> model = (from a in _unitOfWork.db.Posts
+            IList<PostDispVm2> model = (from a in _unitOfWork.db.Posts
                                        select a)
                             .ToList()
                             .Select(p => new PostService(p))
-                            .Select(r => r.GetPostDispVm())
+                            .Select(r => r.GetPostDispVm2())
                             .ToList();
             ViewBag.isAuthor = this.isAuthor();
-            return View("Index", model);
+            _ds.Clear();
+            foreach (var post in model)
+            {
+                foreach(var content in post.PostContents)
+                {
+                    _ds.Add(content);
+                }
+                
+            }
+            Session["data_store"] = _ds;
+            return View("Index2",  model);
 
         }
 

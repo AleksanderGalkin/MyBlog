@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using MyBlog.Infrustructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using System.ComponentModel.Composition;
 
 namespace MyBlog.Models
 {
@@ -22,6 +23,8 @@ namespace MyBlog.Models
         }
     }
 
+    [Export(typeof(IDbContext))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>,IDbContext
     {
         public IDbSet<Post> Posts { get; set; }

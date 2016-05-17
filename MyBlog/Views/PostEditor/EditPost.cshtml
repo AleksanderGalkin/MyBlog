@@ -1,6 +1,9 @@
 ﻿@using MyBlog.ViewModels
 @model PostEditVm
 
+@using MyBlog.Infrastructure.Services
+@using MyBlogContract.PostManage
+
 @{
     ViewBag.Title = "EditPostForm";
 }
@@ -26,8 +29,28 @@
 
     }
 
-    @Html.DisplayFor(model => model.PostContents)
+ @{ 
 
+
+     foreach (var item in Model.PostContents)
+     {
+
+         IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
+         dte.Id = item.PostContentId;
+         dte.UpdateTargetId = "new_content_div";
+         dte.OnSuccessRemoveCallback = "removeContentId";
+         dte.CallbackActionName = "EditPost";
+         dte.CallbackControllerName = "PostEditor";
+         RouteValueDictionary rvd = dte.GetDictionary();
+         rvd.Add("area", item.DataPluginName);
+
+         @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
+                                   , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+
+
+     }
+
+     }
     <div id ="dropdown-menu" class="form-horizontal" >
         <div class="form-group col-md-12 ">
             <!-- Single button -->
@@ -35,23 +58,19 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
                 <ul id="dropdown-menu1" class="dropdown-menu" role="menu">
                     <li>
-                        @Ajax.ActionLink("Текст", "CreateContentText",
-                    new AjaxOptions
-                    {
-                        HttpMethod = "Get",
-                        UpdateTargetId = "new_content_div",
-                        OnSuccess = "loadScriptAndInit"
-                    })
+                        @Ajax.ActionLink("Текст", "Create","PluginTextPostTypePM",
+                                        new { area = "PluginTextPostType",
+                                                PostId = Model.PostId,
+                                                UpdateTargetId = "new_content_div",
+                                                OnSuccessRemoveCallback = "removeContentId"},
+                                        new AjaxOptions
+                                        {
+                                            HttpMethod = "Get",
+                                            UpdateTargetId = "new_content_div",
+                                            OnSuccess = "loadScriptAndInit"
+                                        })
                     </li>
-                    <li>
-                        @Ajax.ActionLink("Фото", "CreateContentFile",
-                    new AjaxOptions
-                    {
-                        HttpMethod = "Get",
-                        UpdateTargetId = "new_content_div",
-                        OnSuccess = "loadScriptAndInit"
-                    })
-                    </li>
+                   
                 </ul>
             </div>
             </div>

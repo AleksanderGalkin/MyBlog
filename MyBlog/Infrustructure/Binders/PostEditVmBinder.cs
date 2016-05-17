@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using MyBlogContract;
 
 namespace MyBlog.Infrustructure
 {
@@ -19,12 +20,12 @@ namespace MyBlog.Infrustructure
 
         protected override void OnModelUpdated(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            IList<IContentType> Contents = controllerContext.HttpContext.Session["PostContents"] as IList<IContentType>;
+            IList<IDataStoreRecord> Contents = controllerContext.HttpContext.Session["PostContents"] as IList<IDataStoreRecord>;
             if (Contents != null)
             {
                 PostEditVm binding_model = bindingContext.Model as PostEditVm;
-                binding_model.PostContents = binding_model.PostContents ?? new List<IContentType>();
-                IList<IContentType> pc = binding_model.PostContents.Union(Contents).ToList();
+                binding_model.PostContents = binding_model.PostContents ?? new List<IDataStoreRecord>();
+                IList<IDataStoreRecord> pc = binding_model.PostContents.Union(Contents).ToList();
                 (bindingContext.Model as PostEditVm).PostContents = pc.ToList();
                 controllerContext.HttpContext.Session["PostContents"] = null;
             }

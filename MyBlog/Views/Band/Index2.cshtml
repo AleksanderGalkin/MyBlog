@@ -1,0 +1,20 @@
+﻿@using MyBlog.ViewModels
+@model IList<PostDispVm2>
+
+@{
+    ViewBag.Title = "Galkin Lab";
+}
+
+
+<div class="container">
+    @Html.Action("AuthorControlCreate")
+
+    @Html.DisplayFor(model => model)
+
+
+</div>
+
+
+
+
+
