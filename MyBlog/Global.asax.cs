@@ -3,9 +3,12 @@ using Castle.Windsor.Installer;
 using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Windsor;
+using MyBlog.Migrations;
+using MyBlog.Models;
 using MyBlog.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -44,6 +47,8 @@ namespace MyBlog
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new CustomViewEngine(PlugInFactory.GetPluginNamesList()));
             ModelBinders.Binders.DefaultBinder = new DemBinder();
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Migrations.Configuration>());
 
         }
 

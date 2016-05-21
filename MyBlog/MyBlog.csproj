@@ -109,6 +109,10 @@
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.1.0.0.505\lib\NLog.dll</HintPath>
       <Private>True</Private>
@@ -125,45 +129,41 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
@@ -389,6 +389,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Modules\PluginTextPostType\PluginTextPostType.dll" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -486,221 +487,18 @@
     <Content Include="Scripts\jquery-ui-1.10.2.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min_.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\dist\jquery.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\dist\jquery.min.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\MIT-LICENSE.txt" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\jsonp.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\load.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\parseJSON.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\parseXML.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\script.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\var\nonce.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\var\rquery.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\ajax\xhr.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes\attr.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes\classes.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes\prop.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\attributes\val.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\callbacks.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core\access.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core\init.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core\parseHTML.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core\ready.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\core\var\rsingleTag.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\addGetHookIf.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\curCSS.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\defaultDisplay.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\swap.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\var\cssExpand.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\var\isHidden.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\var\rmargin.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\css\var\rnumnonpx.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\data.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\data\accepts.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\data\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\deferred.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\deprecated.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\dimensions.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\effects.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\effects\animatedSelector.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\effects\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\effects\Tween.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\event.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\event\ajax.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\event\alias.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\event\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\exports\amd.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\exports\global.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\intro.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\jquery.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\manipulation.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\manipulation\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\manipulation\var\rcheckableType.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\manipulation\_evalUrl.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\offset.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\outro.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\queue.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\queue\delay.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\selector-sizzle.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\selector.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\serialize.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\sizzle\dist\sizzle.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\sizzle\dist\sizzle.min.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\traversing.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\traversing\findFilter.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\traversing\var\rneedsContext.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\class2type.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\concat.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\deletedIds.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\hasOwn.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\indexOf.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\pnum.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\push.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\rnotwhite.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\slice.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\strundefined.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\support.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\var\toString.js" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\wrap.js" />
-    <Content Include="woothemes-FlexSlider\changelog.txt" />
-    <Content Include="woothemes-FlexSlider\demo\basic-carousel.html" />
-    <Content Include="woothemes-FlexSlider\demo\basic-slider-with-caption.html" />
-    <Content Include="woothemes-FlexSlider\demo\basic-slider-with-custom-direction-nav.html" />
-    <Content Include="woothemes-FlexSlider\demo\carousel-min-max.html" />
-    <Content Include="woothemes-FlexSlider\demo\css\demo.css" />
-    <Content Include="woothemes-FlexSlider\demo\dynamic-carousel-min-max.html" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-medium\svg\1110FC_0.svg" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-medium\svg\svg_test.html" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-regular\svg\11014B_0.svg" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-regular\svg\svg_test.html" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-semibold\svg\index.html" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-semibold\svg\style_169898.svg" />
-    <Content Include="woothemes-FlexSlider\demo\images\kitchen_adventurer_caramel.jpg" />
-    <Content Include="woothemes-FlexSlider\demo\images\kitchen_adventurer_cheesecake_brownie.jpg" />
-    <Content Include="woothemes-FlexSlider\demo\images\kitchen_adventurer_donut.jpg" />
-    <Content Include="woothemes-FlexSlider\demo\images\kitchen_adventurer_lemon.jpg" />
-    <Content Include="woothemes-FlexSlider\demo\images\logo.png" />
-    <Content Include="woothemes-FlexSlider\demo\index.html" />
-    <Content Include="woothemes-FlexSlider\demo\js\demo.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\froogaloop.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\jquery.easing.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\jquery.fitvid.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\jquery.mousewheel.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\modernizr.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\shBrushCss.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\shBrushJScript.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\shBrushXml.js" />
-    <Content Include="woothemes-FlexSlider\demo\js\shCore.js" />
-    <Content Include="woothemes-FlexSlider\demo\thumbnail-controlnav.html" />
-    <Content Include="woothemes-FlexSlider\demo\thumbnail-slider.html" />
-    <Content Include="woothemes-FlexSlider\demo\video-wistia.html" />
-    <Content Include="woothemes-FlexSlider\demo\video.html" />
-    <Content Include="woothemes-FlexSlider\flexslider.css" />
-    <Content Include="woothemes-FlexSlider\fonts\flexslider-icon.svg" />
-    <Content Include="woothemes-FlexSlider\images\bg_play_pause.png" />
-    <Content Include="woothemes-FlexSlider\jquery.flexslider-min.js" />
-    <Content Include="woothemes-FlexSlider\jquery.flexslider.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\AUTHORS.txt" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\dist\jquery.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\dist\jquery.min.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\MIT-LICENSE.txt" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\jsonp.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\load.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\parseJSON.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\parseXML.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\script.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\var\nonce.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\var\rquery.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\ajax\xhr.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes\attr.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes\classes.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes\prop.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\attributes\val.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\callbacks.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core\access.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core\init.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core\parseHTML.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core\ready.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\core\var\rsingleTag.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\addGetHookIf.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\curCSS.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\defaultDisplay.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\hiddenVisibleSelectors.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\swap.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\var\cssExpand.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\var\isHidden.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\var\rmargin.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\css\var\rnumnonpx.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\data.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\data\accepts.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\data\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\deferred.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\deprecated.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\dimensions.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\effects.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\effects\animatedSelector.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\effects\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\effects\Tween.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\event.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\event\ajax.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\event\alias.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\event\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\exports\amd.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\exports\global.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\intro.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\jquery.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\manipulation.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\manipulation\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\manipulation\var\rcheckableType.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\manipulation\_evalUrl.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\offset.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\outro.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\queue.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\queue\delay.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\selector-sizzle.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\selector.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\serialize.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\dist\sizzle.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\dist\sizzle.min.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\data\empty.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\data\mixed_sort.html" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\data\testinit.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\index.html" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\jquery.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\unit\extending.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\unit\selector.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\test\unit\utilities.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\traversing.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\traversing\findFilter.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\traversing\var\rneedsContext.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\class2type.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\concat.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\deletedIds.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\hasOwn.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\indexOf.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\pnum.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\push.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\rnotwhite.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\slice.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\strundefined.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\support.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\var\toString.js" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\wrap.js" />
+    <Content Include="Views\Band\Index.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Home\About.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Home\Contact.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Home\Index.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginFullContent\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Modify.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Shared\Error.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Shared\_Layout.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Web.config" />
+    <Content Include="Modules\PluginTextPostType\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -926,7 +724,6 @@
     <Content Include="Views\Init\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Init\ForgotPassword.cshtml" />
     <Content Include="Views\Init\ResetPassword.cshtml" />
-    <Content Include="Views\Band\Index.cshtml" />
     <Content Include="Views\Band\AuthorControlCreate.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentTextVm.cshtml" />
     <Content Include="Views\PostEditor\GetContentView.cshtml" />
@@ -943,55 +740,17 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\PostEditor\old_CreateImagePost.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentImageVm_CanDeleted.cshtml" />
-    <Content Include="woothemes-FlexSlider\bower.json" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\.bower.json" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\bower.json" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\dist\jquery.min.map" />
-    <Content Include="woothemes-FlexSlider\bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
-    <Content Include="woothemes-FlexSlider\composer.json" />
-    <Content Include="woothemes-FlexSlider\CONTRIBUTING.md" />
-    <Content Include="woothemes-FlexSlider\css\base.less" />
-    <Content Include="woothemes-FlexSlider\css\font.less" />
-    <Content Include="woothemes-FlexSlider\css\mixins.less" />
-    <Content Include="woothemes-FlexSlider\css\resets.less" />
-    <Content Include="woothemes-FlexSlider\css\responsive.less" />
-    <Content Include="woothemes-FlexSlider\css\theme.less" />
-    <Content Include="woothemes-FlexSlider\css\variables.less" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-medium\eot\1110FC_0.eot" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-medium\ttf\1110FC_0.ttf" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-medium\woff\1110FC_0.woff" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-regular\eot\11014B_0.eot" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-regular\ttf\11014B_0.ttf" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-regular\woff\11014B_0.woff" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-semibold\eot\style_169898.eot" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-semibold\ttf\style_169898.ttf" />
-    <Content Include="woothemes-FlexSlider\demo\fonts\webfonts\geo-semibold\woff\style_169898.woff" />
-    <Content Include="woothemes-FlexSlider\flexslider.less" />
-    <Content Include="woothemes-FlexSlider\fonts\flexslider-icon.eot" />
-    <Content Include="woothemes-FlexSlider\fonts\flexslider-icon.ttf" />
-    <Content Include="woothemes-FlexSlider\fonts\flexslider-icon.woff" />
-    <Content Include="woothemes-FlexSlider\LICENSE.md" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\.bowerrc" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\.jscsrc" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\.npmignore" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\bower.json" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\CONTRIBUTING.md" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\dist\jquery.min.map" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\package.json" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\README.md" />
-    <Content Include="woothemes-FlexSlider\node_modules\jquery\src\sizzle\dist\sizzle.min.map" />
-    <Content Include="woothemes-FlexSlider\package.json" />
-    <Content Include="woothemes-FlexSlider\README.mdown" />
     <Content Include="Views\Band\DisplayTemplates\PostDispVm.cshtml" />
     <Content Include="Views\PostEditor\EditPost.cshtml" />
     <Content Include="Views\PostEditor\AttachedContent.cshtml" />
     <Content Include="Views\PostEditor\DisplayTemplates\ContentTextVm.cshtml" />
     <Content Include="Views\PostEditor\DisplayTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\PostEditor\EditorTemplates\ContentImageVm.cshtml" />
-    <Content Include="Views\PostEditor\EditorTemplates\ContentTextVm.cshtml" />
+    <Content Include="Views\PostEditor\EditorTemplates\!!!DELContentTextVm.cshtml" />
     <Content Include="Views\PostEditor\EditContent.cshtml" />
     <Content Include="Views\Band\Index2.cshtml" />
     <Content Include="Views\Band\DisplayTemplates\PostDispVm2.cshtml" />
+    <Content Include="Views\Band\NotFounPlugin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -1001,6 +760,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Modules\PluginTextPostType\roslyn\" />
+    <Folder Include="Modules\PluginTextPostType\ru\" />
     <Folder Include="Views\Plugin\" />
   </ItemGroup>
   <ItemGroup>

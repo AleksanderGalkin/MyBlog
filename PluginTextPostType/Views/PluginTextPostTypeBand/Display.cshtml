@@ -22,10 +22,19 @@
             else
             { len = 120; str_continue = "......   (продолжение)"; }
 
-
+            string showing_string = Model.Data.Substring(0,len);
+            string cutted_showing_string = "";
+            var mat = Regex.Matches(showing_string, @"<[p,h\d?]>.+"); //</[p,h\d?]>
+            foreach (Match i in mat)
+            {
+                cutted_showing_string = cutted_showing_string + i.Value;
+            }
         }
-        @Html.Raw(Model.Data.Substring(0, len))  
-        @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { Id = Model.Id },null)
+        @Html.Raw(cutted_showing_string)  
+        @if (!String.IsNullOrEmpty(str_continue))
+        {
+            @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { Id = Model.Id }, null)
+        }
             @{
                 string cutted_string = Model.Data.Substring(len);
                 var matches = Regex.Matches(cutted_string, @"</\w+>");

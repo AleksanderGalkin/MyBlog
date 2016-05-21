@@ -61,7 +61,11 @@
 
 <script type="text/javascript">
 
-            var tinymce_init = function () {
+    var tinymce_init = function () {
+
+                tinymce.suffix = '.min';
+                tinymce.baseURL = '@Url.Content(@"~/Scripts/tinymce")';
+
                 tinymce.init({
                     selector: ".TextPostArea",
                     plugins: [

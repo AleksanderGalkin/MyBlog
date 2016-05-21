@@ -31,6 +31,14 @@ namespace MyBlog.Controllers
         // GET: Band
         public ActionResult Index()
         {
+            var m1 = (from a in _unitOfWork.db.Posts
+                                        select a);
+            var m2 = m1.SelectMany(m => m.PostContents);
+            foreach(var item in m2)
+            {
+                item.ContentType = "PluginTextPostType";
+            }
+            _unitOfWork.Commit();
             IList<PostDispVm2> model = (from a in _unitOfWork.db.Posts
                                        select a)
                             .ToList()

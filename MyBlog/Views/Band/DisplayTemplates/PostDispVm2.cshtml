@@ -25,21 +25,28 @@
 
 
                 IDEModelDisplay dte = (IDEModelDisplay)PlugInFactory.GetModelByInterface(typeof(IDEModelDisplay), item.DataPluginName);
-                dte.Id = item.PostContentId;
+                if (dte != null)
+                {
+                    dte.Id = item.PostContentId;
+
+                    RouteValueDictionary rvd = dte.GetDictionary();
 
 
-                RouteValueDictionary rvd = dte.GetDictionary();
+                    rvd.Add("area", item.DataPluginName);
 
+                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), item.DataPluginName)
+                                                        , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), item.DataPluginName), rvd)
+                }
 
-                rvd.Add("area", item.DataPluginName);
+                else
+                {
+                    string plugin_string = item.DataPluginName ?? "(empty)";
+                    @Html.Partial("NotFounPlugin", plugin_string, null)
+                }
 
-                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), item.DataPluginName)
-                                           , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), item.DataPluginName), rvd)
+            }
 
-
-             }
-
-       }
+            }
     </div>
 </div>
 <div class="row text-info">
