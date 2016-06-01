@@ -17,7 +17,7 @@ namespace MyBlog.Controllers
         public ActionResult RunPlugin(IDEModelPostManage Model)
         {
             string content_type_handler = "PluginTextPostType";
-            string version = "1.0";
+            //string version = "1.0";
 
             string controller_name = PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), content_type_handler);
             string display_action_name = PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), content_type_handler);

@@ -1,23 +1,19 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
-using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.Models;
 using MyBlog.ViewModels;
 using MyBlogContract;
-using MyBlogContract.Band;
 using MyBlogContract.PostManage;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace MyBlog.Controllers
@@ -52,6 +48,7 @@ namespace MyBlog.Controllers
             {
                 model.PostContents = Contents;
             }
+            ViewBag.EditPostmode = "Новый пост";
             return View("EditPost", model);
         }
 
@@ -64,6 +61,9 @@ namespace MyBlog.Controllers
             }
             return RedirectToAction("Index","Band");
         }
+
+        
+
 
         public ActionResult CreateContentText()
         {
@@ -92,7 +92,7 @@ namespace MyBlog.Controllers
                 _ds.Add(item);
             }
             Session["data_store"] = _ds;
-
+            ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
         }
 
@@ -115,6 +115,7 @@ namespace MyBlog.Controllers
             else
             {
                 post = _unitOfWork.db.Posts.Where(p => p.PostId == Model.PostId).FirstOrDefault();
+                post.Tittle = Model.Tittle;
             }
 
             
@@ -194,7 +195,7 @@ namespace MyBlog.Controllers
                           .SingleOrDefault();
 
             PostService PostService = new PostService(Post);
-            return View("DeletePost", PostService.GetPostDispVm());
+            return View("DeletePost", PostService.GetPostDispVm2());
         }
 
         [HttpPost]

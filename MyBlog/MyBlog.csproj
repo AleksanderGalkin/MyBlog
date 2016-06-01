@@ -389,7 +389,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Modules\PluginTextPostType\PluginTextPostType.dll" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -488,17 +487,6 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min_.js" />
     <Content Include="Views\Band\Index.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Home\About.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Home\Contact.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Home\Index.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginFullContent\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Modify.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Shared\Error.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Shared\_Layout.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Web.config" />
-    <Content Include="Modules\PluginTextPostType\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -738,7 +726,6 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Views\PostEditor\old_CreateImagePost.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentImageVm_CanDeleted.cshtml" />
     <Content Include="Views\Band\DisplayTemplates\PostDispVm.cshtml" />
     <Content Include="Views\PostEditor\EditPost.cshtml" />
@@ -750,7 +737,8 @@
     <Content Include="Views\PostEditor\EditContent.cshtml" />
     <Content Include="Views\Band\Index2.cshtml" />
     <Content Include="Views\Band\DisplayTemplates\PostDispVm2.cshtml" />
-    <Content Include="Views\Band\NotFounPlugin.cshtml" />
+    <Content Include="Views\Shared\NotFounPlugin.cshtml" />
+    <Content Include="Views\Shared\Disqus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -760,8 +748,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Modules\PluginTextPostType\roslyn\" />
-    <Folder Include="Modules\PluginTextPostType\ru\" />
     <Folder Include="Views\Plugin\" />
   </ItemGroup>
   <ItemGroup>

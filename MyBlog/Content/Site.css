@@ -30,3 +30,7 @@ dl.details >dt,dd{
     padding-top: 1%;
 }
 
+#dropdown-menu
+{
+    display:block;
+}

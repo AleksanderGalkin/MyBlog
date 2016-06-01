@@ -1,5 +1,10 @@
 ﻿@using MyBlog.ViewModels
-@model PostDispVm
+@using MyBlog.Infrastructure.Services
+@using MyBlogContract.PostManage
+
+@model PostDispVm2
+
+
 
 @{
     ViewBag.Title = "Удалить пост";
@@ -8,14 +13,48 @@
 
 <div class="container">
 
-
+        <h3>@ViewBag.Title</h3>
 
         <div class="row col-md-10">
             <p class="h3">
                 @Html.DisplayFor(model=> model.Tittle)
             </p>
         </div>
-        @Html.DisplayFor(model => model.PostContents)
+  
+
+
+    @{
+
+
+        foreach (var item in Model.PostContents)
+        {
+
+            IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
+            if (dte != null)
+            {
+                dte.Id = item.PostContentId;
+                dte.UpdateTargetId = "new_content_div";
+                dte.OnSuccessRemoveCallback = "removeContentId";
+                dte.CallbackActionName = "EditPost";
+                dte.CallbackControllerName = "PostEditor";
+                RouteValueDictionary rvd = dte.GetDictionary();
+                rvd.Add("area", item.DataPluginName);
+
+                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
+                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+            }
+            else
+            {
+                string plugin_string = item.DataPluginName ?? "(empty)";
+                @Html.Partial("NotFounPlugin", plugin_string, null)
+            }
+
+        }
+
+    }
+
+
+
         <div class="row text-info">
             <div class="col-md-5">
                 @Html.DisplayNameFor(model => model.PostCommentCount) : @Html.DisplayFor(model => model.PostCommentCount)
@@ -30,8 +69,10 @@
     }
     <div class=" form-group">
         <div class="col-lg-offset-8 col-md-4">
-            <button type="button" class="btn btn-primary pull-right" onclick="document.forms['DeletePostForm'].submit();">Сохранить</button>
-            <button type="button" data-dismiss="modal" class="btn pull-right">Закрыть</button>
+            <button type="button" class="btn btn-danger pull-right" onclick="document.forms['DeletePostForm'].submit();">Удалить</button>
+            <button type="button" data-dismiss="modal" class="btn  pull-right" onclick="document.location = '@Url.Action("CancelPostEdition")'">
+                Закрыть
+            </button>
         </div>
     </div>
 </div>

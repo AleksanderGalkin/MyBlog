@@ -1,9 +1,10 @@
 ﻿@model PluginTextPostType.Models.VmDisplay
+
 <div class="container">
     <br />
     <div class="row">
         <div class="col-md-12">
-            <p class=" text-right">
+            <p class="text-right">
                 <em>
                     @Html.DisplayFor(x => x.Comment)
                 </em>
@@ -18,3 +19,5 @@
         </div>
     </div>
 </div>
+
+@Html.Partial("Disqus")

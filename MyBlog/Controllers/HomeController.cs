@@ -129,7 +129,7 @@ namespace MyBlog.Controllers
         {
             ViewBag.Message = "В случае, если Вы хотите что-то мне сообщить:";
 
-            return View();
+            return View("Contact");
         }
 
         protected override void Dispose(bool disposing)

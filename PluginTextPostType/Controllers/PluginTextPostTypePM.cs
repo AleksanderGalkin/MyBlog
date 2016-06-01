@@ -108,12 +108,18 @@ namespace PluginTextPostType.Controllers
             else
             if (Model.Id == 0 && Model._temporary_PostContentId == 0)
             {
-                model = _ds.GetNew();
-                int new_temp_key = 1;
+                
+                int new_temp_key;
                 if(_ds.Get().Count()>0)
                 {
                     new_temp_key = _ds.Get().Max(m => m._temporary_PostContentId);
+                    new_temp_key++;
                 }
+                else
+                {
+                    new_temp_key = 1;
+                }
+                model = _ds.GetNew();
                 model._temporary_PostContentId = new_temp_key;
                 Model._temporary_PostContentId = new_temp_key;
                 isRecordNew = true;

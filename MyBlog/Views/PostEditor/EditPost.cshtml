@@ -8,9 +8,9 @@
     ViewBag.Title = "EditPostForm";
 }
 
-<h2>Новый пост</h2>
+<h2>@ViewBag.EditPostmode</h2>
 
-<div class="container">
+
     @using (@Html.BeginForm("EditPost", "PostEditor", FormMethod.Post, new { id = "EditPostForm", role = "form" }))
     {
         <div class="form-horizontal">
@@ -19,8 +19,8 @@
             @Html.HiddenFor(model => Model.PostId)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-11">
                     @Html.EditorFor(model => model.Tittle, new { htmlAttributes = new { @class = "form-control " } })
                     @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
                 </div>
@@ -29,57 +29,89 @@
 
     }
 
- @{ 
+<div class="row">
+    <div class="col-md-offset-1 col-md-11">
+        @{
 
 
-     foreach (var item in Model.PostContents)
-     {
+            foreach (var item in Model.PostContents)
+            {
 
-         IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
-         dte.Id = item.PostContentId;
-         dte.UpdateTargetId = "new_content_div";
-         dte.OnSuccessRemoveCallback = "removeContentId";
-         dte.CallbackActionName = "EditPost";
-         dte.CallbackControllerName = "PostEditor";
-         RouteValueDictionary rvd = dte.GetDictionary();
-         rvd.Add("area", item.DataPluginName);
+                IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
+                if (dte != null)
+                {
+                    dte.Id = item.PostContentId;
+                    dte.UpdateTargetId = "new_content_div";
+                    dte.OnSuccessRemoveCallback = "removeContentId";
+                    dte.CallbackActionName = "EditPost";
+                    dte.CallbackControllerName = "PostEditor";
+                    RouteValueDictionary rvd = dte.GetDictionary();
+                    rvd.Add("area", item.DataPluginName);
 
-         @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
-                                   , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
+                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+                }
+                else
+                {
+                    string plugin_string = item.DataPluginName ?? "(empty)";
+                    @Html.Partial("NotFounPlugin", plugin_string, null)
+                }
+
+            }
+
+        }
+    </div>
+</div>
+
+<div class="col-md-offset-1 col-md-11">
+
+    <div id="content_insert"></div>
+</div>
+
+<div id="dropdown-menu" >
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-11">
 
 
-     }
-
-     }
-    <div id ="dropdown-menu" class="form-horizontal" >
-        <div class="form-group col-md-12 ">
-            <!-- Single button -->
-            <div class="btn-group pull-left  col-md-offset-2">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
-                <ul id="dropdown-menu1" class="dropdown-menu" role="menu">
-                    <li>
-                        @Ajax.ActionLink("Текст", "Create","PluginTextPostTypePM",
-                                        new { area = "PluginTextPostType",
-                                                PostId = Model.PostId,
-                                                UpdateTargetId = "new_content_div",
-                                                OnSuccessRemoveCallback = "removeContentId"},
+                <div class="btn-group pull-left ">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
+                    <ul id="dropdown-menu1" class="dropdown-menu" role="menu">
+                        <li>
+                            @Ajax.ActionLink("Текст", "Create", "PluginTextPostTypePM",
+                                        new
+                                        {
+                                            area = "PluginTextPostType",
+                                            PostId = Model.PostId,
+                                            UpdateTargetId = "new_content_div",
+                                            OnSuccessRemoveCallback = "removeContentId"
+                                        },
                                         new AjaxOptions
                                         {
                                             HttpMethod = "Get",
                                             UpdateTargetId = "new_content_div",
                                             OnSuccess = "loadScriptAndInit"
                                         })
-                    </li>
-                   
-                </ul>
-            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
         </div>
+    </div>
+  </div>
 
 
-    <div class="row" id="new_content_div"> </div>
 
-    <div class=" form-group">
+
+    <div class="row">
+        <div class="form-group">
+            <div id="new_content_div"> </div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <div class="col-lg-offset-8 col-md-4">
             <button type="button" class="btn btn-primary pull-right" onclick="document.forms['EditPostForm'].submit();">Сохранить</button>
             <button type="button" data-dismiss="modal" class="btn pull-right"
@@ -89,29 +121,29 @@
         </div>
     </div>
 
-</div>
+
 
 
 
     @section scripts{
         @Scripts.Render("~/bundles/ajax")
-     
 
 
-<script type="text/javascript">
 
-    function loadScriptAndInit() {
-        $.getScript(
-            '@Url.Action("CreateContentText","PostEditor")');
+        <script type="text/javascript">
+
+            function loadScriptAndInit() {
+                $.getScript(
+                    '@Url.Action("CreateContentText","PostEditor")');
+            }
+
+            var removeContentId = function (json) {
+                parsedJson = JSON.parse(json);
+                if (parsedJson.result == true)
+                    $('#' + parsedJson.id).remove();
+            }
+
+
+
+        </script>
     }
-
-    var removeContentId = function (json) {
-        parsedJson = JSON.parse(json);
-        if (parsedJson.result == true)
-            $('#'+parsedJson.id).remove();
-    }
-
-
-   
- </script>
-}
