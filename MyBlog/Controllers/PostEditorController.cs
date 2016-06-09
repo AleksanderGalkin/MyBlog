@@ -36,13 +36,14 @@ namespace MyBlog.Controllers
         {
             _ds = DataStore;
         }
-        // GET: PostEditor
 
 
-        public ActionResult CreatePost()
+
+        public ActionResult CreatePost(string PostPluginName)
         {
             PostService PostService = new PostService(User.Identity.GetUserId());
-            PostEditVm model = PostService.GetPostEditVm();
+            PostVm model = PostService.GetPostVm();
+            model.PostPluginName = PostPluginName;
             IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
             if (Contents != null)
             {
@@ -52,31 +53,8 @@ namespace MyBlog.Controllers
             return View("EditPost", model);
         }
 
-        public ActionResult CancelPostEdition()
-        {
-            IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
-            if (Contents != null)
-            {
-                Session["PostContents"] = null;
-            }
-            return RedirectToAction("Index","Band");
-        }
-
         
 
-
-        public ActionResult CreateContentText()
-        {
-            IContentType TextContent = new ContentTextVm();
-
-            return View("EditContent",TextContent);
-        }
-
-        public ActionResult CreateContentFile()
-        {
-            IContentType model = new ContentImageVm();
-            return View("EditContent", model);
-        }
 
         public ActionResult EditPost(int PostId)
         {
@@ -85,7 +63,7 @@ namespace MyBlog.Controllers
                           select a)
                           .SingleOrDefault();
             PostService PostService = new PostService(Model);
-            PostEditVm retModel = PostService.GetPostEditVm();
+            PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
             _ds.Clear();
             foreach (var item in retModel.PostContents)
             {
@@ -97,7 +75,7 @@ namespace MyBlog.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditPost(PostEditVm Model)
+        public ActionResult EditPost(PostVm Model)  //или добавить в PostService логигу обновления из PostVm
         {
             IDataStorePostManage data_store = Session["data_store"] as IDataStorePostManage;
             if (data_store == null)
@@ -139,7 +117,7 @@ namespace MyBlog.Controllers
                                                        .SingleOrDefault();
                         current_content.Comment = i.Comment;
                         current_content.ContentData = i.ContentData;
-                        current_content.ContentType = i.DataPluginName;
+                        current_content.ContentPluginName = i.ContentPluginName;
                         break;
                     case IDataStoreRecordStatus.Deleted:
   
@@ -161,32 +139,6 @@ namespace MyBlog.Controllers
   
         }
 
-        private PostContent GetPostContent (IContentType Content)
-        {
-            PostContent PostContent = new PostContent();
-            switch (Content.ContentDataType)
-            {
-                case ContentTypeEnums.Text:
-                    PostContent = GetPostContentText(Content as ContentTextVm
-                , PostContent);
-                    break;
-                case ContentTypeEnums.Image:
-                    PostContent = GetPostContentImage(Content as ContentImageVm
-                , PostContent);
-                    break;
-                case ContentTypeEnums.Sound:
-                    break;
-                case ContentTypeEnums.Video:
-                    break;
-                default:
-                    throw new NotImplementedException("Unknown content type: " + Content.ContentDataType);
-            }
-            return PostContent;
-        }
-
-        
-
-
         public ActionResult DeletePost(int PostId)
         {
             Post Post = (from a in _unitOfWork.db.Posts
@@ -195,11 +147,11 @@ namespace MyBlog.Controllers
                           .SingleOrDefault();
 
             PostService PostService = new PostService(Post);
-            return View("DeletePost", PostService.GetPostDispVm2());
+            return View("DeletePost", PostService.GetPostVm());
         }
 
         [HttpPost]
-        public ActionResult DeletePost(PostDispVm Model)
+        public ActionResult DeletePost(PostVm Model)
         {
             if (ModelState.IsValid)
             {
@@ -218,148 +170,58 @@ namespace MyBlog.Controllers
 
         }
 
-        [HttpPost]
-        public void LoadFile(HttpPostedFileBase file, string comment)
+        public ActionResult CancelPostEdition()
         {
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-            if (Contents == null)
+            IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
+            if (Contents != null)
             {
-                Contents = new List<IContentType>();
+                Session["PostContents"] = null;
             }
-            string arViewResults = "";
-          //  foreach (var i in files)
-           // {
-                IContentType newContent = null;
-                switch (file.ContentType)
-                {
-                    case "image/jpeg":
-                        ContentImageVm newContentImage = new ContentImageVm();
-                        newContentImage.ContentDataType = ContentTypeEnums.Image;
-                        MemoryStream s = new MemoryStream();
-                        file.InputStream.CopyTo(s);
-                        newContentImage.ContentData = s.ToArray();
-                        newContent = newContentImage;
-                        break;
-                    case "video":
-                        break;
-                    default:
-                        throw new NotImplementedException("Неизвестный тип файла");
-                }
-                var ids = from c in Contents
-                          select c.PostContentId;
-
-                int next_id = ids.Count() == 0 ? -1 : ids.Min() - 1;
-                newContent.PostContentId = next_id;
-                newContent.Comment = comment;
-                Contents.Add(newContent);
-                arViewResults = arViewResults + this.RenderPartialViewToString("AttachedContent", newContent); // View("AttachedContent", newContent);
-            //}
-            Session["PostContents"] = Contents;
-
-            string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
-            HttpContext.Response.Write(arViewResults);
-        }
-
-        public ActionResult EditContent (int PostId, int PostContentId)
-        {
-
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-            if (Contents == null )
-            {
-                throw new Exception("Session timeout");
-            }
-
-            IContentType content = (from c in Contents
-                                    where c.PostContentId == PostContentId
-                                    select c)
-                                    .SingleOrDefault();
-          
-
-            return View("EditContent",content);
-        }
-        [HttpPost]
-        public ActionResult EditContent(IContentType Model)
-        {
-            IContentType returnedModel = null;
-            if (ModelState.IsValid)
-            {
-                IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-                if (Contents == null)
-                {
-                    throw new Exception("Session timeout");
-                }
-
-                if (Model.PostContentId == 0)
-                {
-                    var ids = from c in Contents
-                              where c.PostContentId < 0
-                              select c.PostContentId;
-
-                    int next_id = ids.Count() == 0 ? -1 : ids.Min() - 1;
-                    Model.PostContentId = next_id;
-                    Model.EditMode = ContentModeEnum.Create;
-                    Contents.Add(Model);
-                    returnedModel = Model;
-                }
-                else
-                {
-                    int index = Contents.IndexOf(Contents.Where(c => c.PostContentId == Model.PostContentId)
-                                                          .SingleOrDefault());
-                    //if (index < 0)
-                    //{
-                    //    Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
-                    //    Contents.Add(Model);
-                    //    returnedModel = Model;
-                    //}
-                    //else
-                    //{
-                    if (Model.EditMode == ContentModeEnum.None)
-                        Model.EditMode = ContentModeEnum.Edit;
-                    Contents[index].UpdateFrom(Model);
-                    returnedModel = Contents[index];
-                    //}
-                }
-
-                Session["PostContents"] = Contents;
-            }
-            return View("AttachedContent", returnedModel as IContentType);
+            return RedirectToAction("Index", "Band");
         }
 
 
-        [HttpPost]
-        public void DeleteContent (int PostId, int PostContentId)
-        {
-            IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-            if (Contents == null )
-            {
-                throw new Exception("Session timeout");
-            }
-            else 
-            {
-                int index = Contents.IndexOf(Contents.Where(c => c.PostContentId == PostContentId)
-                                                           .SingleOrDefault());
+    //    [HttpPost] //LoadFile
+    //    public void LoadFile(HttpPostedFileBase file, string comment)
+    //    {
+    //        IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
+    //        if (Contents == null)
+    //        {
+    //            Contents = new List<IContentType>();
+    //        }
+    //        string arViewResults = "";
 
-                Contents[index].EditMode = ContentModeEnum.Delete;
-                Session["PostContents"] = Contents;
-             }
-            string json_object = JsonConvert.SerializeObject(new {id = PostContentId, result = true }, Formatting.Indented);
-            HttpContext.Response.Write(json_object);
-        }
+    //        IContentType newContent = null;
+    //        switch (file.ContentType)
+    //        {
+    //            case "image/jpeg":
+    //                ContentImageVm newContentImage = new ContentImageVm();
+    //                newContentImage.ContentDataType = ContentTypeEnums.Image;
+    //                MemoryStream s = new MemoryStream();
+    //                file.InputStream.CopyTo(s);
+    //                newContentImage.ContentData = s.ToArray();
+    //                newContent = newContentImage;
+    //                break;
+    //            case "video":
+    //                break;
+    //            default:
+    //                throw new NotImplementedException("Неизвестный тип файла");
+    //        }
+    //        var ids = from c in Contents
+    //                    select c.PostContentId;
 
-        PostContent GetPostContentText(ContentTextVm srcModel, PostContent dstModel)
-        {
-            PostContent result = Mapper.Map<ContentTextVm, PostContent>(srcModel, dstModel);
-            UnicodeEncoding encoding = new UnicodeEncoding();
-            result.ContentData = encoding.GetBytes(srcModel.ContentData);
-            return result;
+    //        int next_id = ids.Count() == 0 ? -1 : ids.Min() - 1;
+    //        newContent.PostContentId = next_id;
+    //        newContent.Comment = comment;
+    //        Contents.Add(newContent);
+    //        arViewResults = arViewResults + this.RenderPartialViewToString("AttachedContent", newContent); // View("AttachedContent", newContent);
+            
+    //        Session["PostContents"] = Contents;
 
-        }
-        PostContent GetPostContentImage(ContentImageVm srcModel, PostContent dstModel)
-        {
-            PostContent result = Mapper.Map<ContentImageVm, PostContent>(srcModel, dstModel);
-            result.ContentData = srcModel.ContentData;
-            return result;
-        }
+    //        string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
+    //        HttpContext.Response.Write(arViewResults);
+    //    }
+
     }
 
 

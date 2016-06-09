@@ -4,8 +4,8 @@
 }
 @using System.Text.RegularExpressions;
 
-<div class="row col-md-10" id="@Model.Id" data-edit-diff-flag="@Model.data_edit_diff_flag"
-                                                data-_temporary_PostContentId="@Model._temporary_PostContentId">
+<div class="row col-md-10" id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag"
+                                                data-_temporary_PostContentId="@Model.PostContentIdForNewRecords">
     <div class="row">
         <div class="col-md-12">
             <p class="text-right">
@@ -63,7 +63,7 @@
                     @Html.Raw(cutted_showing_string)
                     if (!String.IsNullOrEmpty(str_continue))
                     {
-                        @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { Id = Model.Id }, null)
+                        @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { PostContentId = Model.PostContentId }, null)
                     }
 
                     string cutted_string = Model.Data.Substring(len);
@@ -82,31 +82,31 @@
         <div class="col-md-2">
             @Ajax.ActionLink("Edit", "Modify", new
        {
-           Id = Model.Id,
-           _temporary_PostContentId = Model._temporary_PostContentId,
+           PostContentId = Model.PostContentId,
+           PostContentIdForNewRecords = Model.PostContentIdForNewRecords,
            PostId = Model.PostId,
            data_edit_diff_flag = Model.data_edit_diff_flag,
-           UpdateTargetId = Model.UpdateTargetId,
+           List_content_insert_before_Id = Model.List_content_insert_before_Id,
+           Update_area_replace_Id = Model.Update_area_replace_Id,
            OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback
        },
             new AjaxOptions
             {
                 HttpMethod = "GET",
                 InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = Model.UpdateTargetId
+                UpdateTargetId = Model.Update_area_replace_Id
             })
             <br />
             @Ajax.ActionLink("Delete", "DeleteContent", new
        {
-           Id = Model.Id,
-           _temporary_PostContentId = Model._temporary_PostContentId,
+           PostContentId = Model.PostContentId,
+           PostContentIdForNewRecords = Model.PostContentIdForNewRecords,
            PostId = Model.PostId
        },
             new AjaxOptions
             {
                 HttpMethod = "POST",
                 Confirm = "Удалить?",
-                //OnSuccess = "removeContentId"
                 OnSuccess = Model.OnSuccessRemoveCallback
 
             })
@@ -114,6 +114,3 @@
     </div>
 </div>
 
-@*<script type="text/javascript">
-
-</script>*@

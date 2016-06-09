@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
+using MyBlog.Infrastructure;
 using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Windsor;
@@ -19,15 +20,15 @@ namespace MyBlog
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        private static IWindsorContainer container;
+        //private static IWindsorContainer container;
 
-        private static void IdContainer()
-        {
-            container = new WindsorContainer().Install(FromAssembly.This());
+        //private static void IdContainer()
+        //{
+        //    container = new WindsorContainer().Install(FromAssembly.This());
 
-            var controllerFactory = new WindsorControllerFactory(container.Kernel);
-            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
-        }
+        //    var controllerFactory = new WindsorControllerFactory(container.Kernel);
+        //    ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+        //}
 
         protected void Application_Start()
         {
@@ -52,9 +53,9 @@ namespace MyBlog
 
         }
 
-        protected void Application_End()
-        {
-            container.Dispose();
-        }
+        //protected void Application_End()
+        //{
+        //    container.Dispose();
+        //}
     }
 }

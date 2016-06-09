@@ -7,10 +7,14 @@ using System.Web.Routing;
 
 namespace MyBlogContract
 {
+    /// <summary>
+    /// Model what used for exchanging data between host and plugins
+    /// </summary>
     public abstract class IDEModel
     {
-        virtual public int Id { get; set; }
-        virtual public int PostId { get; set; }
+        abstract public int PostId { get; set; }
+        abstract public int PostContentId { get; set; }
+        abstract public string area { get; set; }
 
         abstract public RouteValueDictionary GetDictionary();
 

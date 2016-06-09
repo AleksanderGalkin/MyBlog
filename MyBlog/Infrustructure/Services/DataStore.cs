@@ -19,6 +19,8 @@ namespace MyBlog.Infrastructure.Services
     public  class DataStore : IDataStoreBand, IDataStorePostManage, IDataStoreFullContent
     {
         private IList<IDataStoreRecord> store;
+        
+
         public DataStore()
         {
              store = new List<IDataStoreRecord>();
@@ -31,22 +33,24 @@ namespace MyBlog.Infrastructure.Services
 
         public  IEnumerable<IDataStoreRecord> Get()
         {
-            return store.Select(x=>x);
+            var result = store.Select(x => x) ;
+            return result;
         }
 
         public IDataStoreRecord GetNew()
         {
-            IDataStoreRecord Model = new DataStoreRecord();
+
+            IDataStoreRecord Model = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
             return Model;
         }
 
         public IDataStoreRecord Get(int Id)
         {
-            IDataStoreRecord Model = (IDataStoreRecord)store.Where(m=>m.PostContentId == Id).FirstOrDefault();
+            IDataStoreRecord Model = (IDataStoreRecord)store.Where(m => m.PostContentId == Id).FirstOrDefault();
             return Model;
         }
 
-        public IDataStoreRecord Get(int Id, int _temporary_PostContentId)
+        public IDataStoreRecord Get(int Id, int PostContentIdForNewRecords)
         {
             IDataStoreRecord result = null;
             if (Id != 0)
@@ -56,10 +60,10 @@ namespace MyBlog.Infrastructure.Services
                     .FirstOrDefault();
             }
             else
-            if (Id == 0 && _temporary_PostContentId != 0)
+            if (Id == 0 && PostContentIdForNewRecords != 0)
             {
                 result = (IDataStoreRecord)store
-                    .Where(x => x._temporary_PostContentId == _temporary_PostContentId)
+                    .Where(x => x.PostContentIdForNewRecords == PostContentIdForNewRecords)
                     .SingleOrDefault();
             }
 
@@ -79,11 +83,11 @@ namespace MyBlog.Infrastructure.Services
                 store.Add(Model);
             }
             else
-            if(Model.PostContentId == 0 && Model._temporary_PostContentId != 0)
+            if(Model.PostContentId == 0 && Model.PostContentIdForNewRecords != 0)
             {
                 Model.Status = Model.Status;
                 int idx = store
-                    .Where(x => x._temporary_PostContentId == Model._temporary_PostContentId)
+                    .Where(x => x.PostContentIdForNewRecords == Model.PostContentIdForNewRecords)
                     .Select(i => store.IndexOf(i))
                     .SingleOrDefault();
                 store.RemoveAt(idx);
@@ -108,7 +112,7 @@ namespace MyBlog.Infrastructure.Services
             else
             if (Id == 0 && _temporary_PostContentId != 0)
             {
-                int idx = store.Where(x => x._temporary_PostContentId == _temporary_PostContentId)
+                int idx = store.Where(x => x.PostContentIdForNewRecords == _temporary_PostContentId)
                     .Select(i => store.IndexOf(i))
                     .SingleOrDefault();
                 store.ElementAt(idx).Status = IDataStoreRecordStatus.Deleted;
@@ -128,7 +132,7 @@ namespace MyBlog.Infrastructure.Services
             if (Id == 0 && _temporary_PostContentId != 0)
             {
                 result = (IDataStoreRecord)store
-                    .Where(x => x._temporary_PostContentId == _temporary_PostContentId)
+                    .Where(x => x.PostContentIdForNewRecords == _temporary_PostContentId)
                     .SingleOrDefault();
             }
 
@@ -138,6 +142,19 @@ namespace MyBlog.Infrastructure.Services
         public void Clear()
         {
             store.Clear();
+        }
+
+        IEnumerable<IDataStoreRecord> IDataStoreBand.GetPost(int PostId)
+        {
+            IEnumerable<IDataStoreRecord> result =
+                store.Where(r => (r.PostId == PostId));
+            return result;
+        }
+        IEnumerable<IDataStoreRecord> IDataStoreFullContent.GetPost(int PostId)
+        {
+            IEnumerable<IDataStoreRecord> result =
+                store.Where(r => (r.PostId == PostId));
+            return result;
         }
     }
 }

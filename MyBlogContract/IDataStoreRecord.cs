@@ -10,16 +10,22 @@ namespace MyBlogContract
     public abstract class IDataStoreRecord
     {
 
-        virtual public int PostId { get; set; }
-        virtual public int PostContentId { get; set; }
-        virtual public int _temporary_PostContentId { get; set; }
-        virtual public int LikePlus { get; set; }
-        virtual public int LikeMinus { get; set; }
-        virtual public byte[] ContentData { get; set; }
-        virtual public string Comment { get; set; }
-        virtual public string DataPluginName { get; set; }
-        virtual public string DataPluginVersion { get; set; }
-        virtual public IDataStoreRecordStatus Status { get; set; }
+        abstract public int PostId { get; set; }
+        abstract public int PostContentId { get; set; }
+        abstract public int PostContentIdForNewRecords { get; set; }
+        abstract public int LikePlus { get; set; }
+        abstract public int LikeMinus { get; set; }
+        abstract public byte[] ContentData { get; set; }
+        abstract public string Comment { get; set; }
+
+        abstract public string ContentPluginName { get; set; }
+        abstract public string ContentPluginVersion { get; set; }
+
+        abstract public bool IsInGroup { get; set; }
+        abstract public int Order { get; set; }
+
+        abstract public IDataStoreRecordStatus Status { get; set; }
 
     }
+
 }

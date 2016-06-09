@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlogContract", "MyBlogContract\MyBlogContract.csproj", "{D1136B08-E511-4FCA-9B67-EF2853E0ECCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextPostType", "PluginTextPostType\PluginTextPostType.csproj", "{F4040149-89C0-4EA8-97EB-68E1CAF9FE1D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog", "MyBlog\MyBlog.csproj", "{CE6EE6E1-C71E-4E0E-A6D4-F7BBD0E3DC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginImagePostType", "PluginImagePostType\PluginImagePostType.csproj", "{6B18991E-78C9-4F1D-BB08-95C913D55003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextPostType.Test", "PluginTextPostType.Test\PluginTextPostType.Test.csproj", "{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginImagePostType.Tests", "PluginImagePostType.Tests\PluginImagePostType.Tests.csproj", "{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +47,30 @@ Global
 		{CE6EE6E1-C71E-4E0E-A6D4-F7BBD0E3DC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE6EE6E1-C71E-4E0E-A6D4-F7BBD0E3DC1D}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE6EE6E1-C71E-4E0E-A6D4-F7BBD0E3DC1D}.Release|x86.Build.0 = Release|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Debug|x86.Build.0 = Debug|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B18991E-78C9-4F1D-BB08-95C913D55003}.Release|x86.Build.0 = Release|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Debug|x86.Build.0 = Debug|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{3494DEBB-1A2A-4658-BD12-5B1AA860E7BE}.Release|x86.Build.0 = Release|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Debug|x86.Build.0 = Debug|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

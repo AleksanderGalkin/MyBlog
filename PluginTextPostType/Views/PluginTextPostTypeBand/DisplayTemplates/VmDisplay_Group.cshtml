@@ -1,0 +1,81 @@
+﻿@using PluginTextPostType.Models
+@using System.Text.RegularExpressions;
+@model  IEnumerable<VmDisplay>
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-right">
+                    <em>
+                        @Html.DisplayFor(x => item.Comment)
+                    </em>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @{
+
+                    int num_of_string_cut = item.Data.Length;
+                    int text_position = 0;
+                    bool is_bracket_open = false;
+                    for (int i = 0; i < item.Data.Length; i++)
+                    {
+                        if (item.Data[i] == '<')
+                        {
+                            is_bracket_open = true;
+                        }
+                        else
+                        if (item.Data[i] == '>')
+                        {
+                            is_bracket_open = false;
+                        }
+                        else
+                        if (!is_bracket_open)
+                        {
+                            text_position++;
+                            if (text_position == 100)
+                            {
+                                num_of_string_cut = i;
+                            }
+                        }
+                    }
+
+
+                    var len = 0;
+                    string str_continue = "";
+                    if (item.Data.Length < num_of_string_cut)
+                    { len = item.Data.Length; }
+                    else
+                    { len = num_of_string_cut; str_continue = "......   (продолжение)"; }
+
+                    string showing_string = item.Data.Substring(0, len);
+                    string cutted_showing_string = "";
+                    cutted_showing_string = Regex.Replace(showing_string, @"<table>.*</table>", " ");
+                }
+                @Html.Raw(cutted_showing_string)
+                @if (!String.IsNullOrEmpty(str_continue))
+                {
+                    @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { Id = item.PostId }, null)
+                }
+                @{
+                    string cutted_string = item.Data.Substring(len);
+                    var matches = Regex.Matches(cutted_string, @"</\w+>");
+                    foreach (Match i in matches)
+                    {
+                        @Html.Raw(@i.Value);
+                    }
+
+                }
+            </div>
+        </div>
+}

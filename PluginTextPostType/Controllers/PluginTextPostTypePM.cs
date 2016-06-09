@@ -1,4 +1,5 @@
-﻿using MyBlogContract;
+﻿using AutoMapper;
+using MyBlogContract;
 using MyBlogContract.PostManage;
 using Newtonsoft.Json;
 using PluginTextPostType.Infrastructure;
@@ -32,22 +33,36 @@ namespace PluginTextPostType.Controllers
         [ImportingConstructor]
         public PluginTextPostTypePMController(IDataStorePostManage DataStore)
         {
+            if (DataStore == null)
+                throw new NullReferenceException("DataStore reference must be not null");
             _ds = DataStore;
         }
 
         public ActionResult Display(IDEModelPostManage Model)
         {
-            IDataStoreRecord result = _ds.Get(Model.Id);
-            VmDisplay vmodel = new VmDisplay();
+            IDataStoreRecord result = _ds.Get(Model.PostContentId);
 
-            vmodel.Id = Model.Id;
-            vmodel._temporary_PostContentId = result._temporary_PostContentId;
-            vmodel.PostId = result.PostId;
-            vmodel.Comment = result.Comment;
-            vmodel.CallbackActionName = Model.CallbackActionName;
-            vmodel.CallbackControllerName = Model.CallbackControllerName;
-            vmodel.OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback;
-            vmodel.UpdateTargetId = Model.UpdateTargetId;
+            if (result == null)
+            {
+                throw new InvalidOperationException("Data store not return value");
+            }
+
+            if (Model.PostId != result.PostId)
+            {
+                throw new ArgumentOutOfRangeException("PostContentId not belong postid");
+            }
+
+            if (Model.area != AppSettings.PluginName)
+            {
+                throw new InvalidOperationException("Area not this plugin");
+            }
+
+            
+
+            VmDisplay vmodel = Mapper.Map<VmDisplay>(Model);
+
+            Mapper.Map<IDataStoreRecord,VmDisplay>(result, vmodel);
+
             UnicodeEncoding encoding = new UnicodeEncoding();
             vmodel.Data = encoding.GetString(result.ContentData ?? encoding.GetBytes(""));
             return View(vmodel);
@@ -56,32 +71,40 @@ namespace PluginTextPostType.Controllers
 
         public ActionResult Create(IDEModelPostManage Model)
         {
-            
-            VmDisplay vmodel = new VmDisplay();
+            if (Model.area != AppSettings.PluginName)
+            {
+                throw new InvalidOperationException("Area not this plugin");
+            }
 
-            vmodel.PostId = Model.PostId;
-            vmodel.CallbackActionName = Model.CallbackActionName;
-            vmodel.CallbackControllerName = Model.CallbackControllerName;
-            vmodel.OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback;
-            vmodel.UpdateTargetId = Model.UpdateTargetId;
-            UnicodeEncoding encoding = new UnicodeEncoding();
+            if (Model.PostContentId != 0)
+            {
+                throw new InvalidOperationException("PostContentId not 0");
+            }
+
+            if(string.IsNullOrWhiteSpace(Model.CallbackControllerName )
+                || string.IsNullOrWhiteSpace(Model.CallbackActionName )
+                || string.IsNullOrWhiteSpace(Model.List_content_insert_before_Id)
+                || string.IsNullOrWhiteSpace(Model.Update_area_replace_Id)
+                || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
+                )
+            {
+                throw new InvalidOperationException("Route variables contain empty values ");
+            }
+
+
+            VmDisplay vmodel = Mapper.Map<VmDisplay>(Model);
 
             return View("Modify",vmodel);
         }
 
         public ActionResult Modify(VmDisplay Model)
         {
-            IDataStoreRecord result = _ds.Get(Model.Id, Model._temporary_PostContentId);
-            VmDisplay vmodel = new VmDisplay();
-            vmodel.PostId = result.PostId;
-            vmodel._temporary_PostContentId = result._temporary_PostContentId;
-            vmodel.Id = result.PostContentId;
-            vmodel.Comment = result.Comment;
-            vmodel.CallbackActionName = Model.CallbackActionName;
-            vmodel.CallbackControllerName = Model.CallbackControllerName;
-            vmodel.OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback;
-            vmodel.UpdateTargetId = Model.UpdateTargetId;
-            vmodel.data_edit_diff_flag = Model.data_edit_diff_flag;
+            IDataStoreRecord result = _ds.Get(Model.PostContentId, Model.PostContentIdForNewRecords);
+
+            VmDisplay vmodel = Mapper.Map<VmDisplay>(Model);
+
+            Mapper.Map<IDataStoreRecord, VmDisplay>(result, vmodel);
+
             UnicodeEncoding encoding = new UnicodeEncoding();
             vmodel.Data = encoding.GetString(result.ContentData ?? encoding.GetBytes(""));
             
@@ -90,67 +113,71 @@ namespace PluginTextPostType.Controllers
       [HttpPost]
         public ActionResult ModifyPost(VmDisplay Model  )
         {
-            IDataStoreRecord model = null;
+            IDataStoreRecord record = null;
             bool isRecordNew = false;
-            if (Model.Id != 0)
+            if (Model.PostContentId != 0)
             {
-                model = _ds.Get(Model.Id);
+                record = _ds.Get(Model.PostContentId);
                 isRecordNew = false;
             }
             else
-            if(Model.Id == 0 && Model._temporary_PostContentId!=0)
+            if(Model.PostContentId == 0 && Model.PostContentIdForNewRecords!=0)
             {
-                model = _ds.Get()
-                    .Where(r=>r._temporary_PostContentId== Model._temporary_PostContentId)
+                record = _ds.Get()
+                    .Where(r=>r.PostContentIdForNewRecords== Model.PostContentIdForNewRecords)
                     .SingleOrDefault();
                 isRecordNew = false;
             }
             else
-            if (Model.Id == 0 && Model._temporary_PostContentId == 0)
+            if (Model.PostContentId == 0 && Model.PostContentIdForNewRecords == 0)
             {
                 
                 int new_temp_key;
                 if(_ds.Get().Count()>0)
                 {
-                    new_temp_key = _ds.Get().Max(m => m._temporary_PostContentId);
+                    new_temp_key = _ds.Get().Max(m => m.PostContentIdForNewRecords);
                     new_temp_key++;
                 }
                 else
                 {
                     new_temp_key = 1;
                 }
-                model = _ds.GetNew();
-                model._temporary_PostContentId = new_temp_key;
-                Model._temporary_PostContentId = new_temp_key;
+                record = _ds.GetNew();
+                record.PostContentIdForNewRecords = new_temp_key;
+                Model.PostContentIdForNewRecords = new_temp_key;
                 isRecordNew = true;
             }
-            model.PostId = Model.PostId;
-            model.DataPluginName = AppSettings.PluginName;
-            model.DataPluginVersion = AppSettings.Version;
-            model.Comment = Model.Comment;
+            record.PostId = Model.PostId;
+            record.ContentPluginName = AppSettings.PluginName;
+            record.ContentPluginVersion = AppSettings.Version;
+            record.Comment = Model.Comment;
             UnicodeEncoding encoding = new UnicodeEncoding();
             byte[] bytes = encoding.GetBytes(Model.Data);
-            model.ContentData = bytes;
+            record.ContentData = bytes;
 
             if (isRecordNew)
             {
-                _ds.Create(model);
+                _ds.Create(record);
             }
             else
             {
-                _ds.Modify(model);
+                _ds.Modify(record);
             }
             Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
+   
             System.Web.HttpContext.Current.Session["data_store"] = _ds;
             return View("Display", Model);
         }
 
         [HttpPost]
-        public void DeleteContent(int Id)
+        public void DeleteContent(int PostContentId, int PostContentIdForNewRecords)
         {
-            _ds.Delete(Id);
+            _ds.Delete(PostContentId, PostContentIdForNewRecords);
             System.Web.HttpContext.Current.Session["data_store"] = _ds;
-            string json_object = JsonConvert.SerializeObject(new { id = Id, result = true }, Formatting.Indented);
+
+            string json_object = JsonConvert.SerializeObject(new { PostContentId = PostContentId
+                                                                , PostContentIdForNewRecords = PostContentIdForNewRecords
+                                                                , result = true }, Formatting.Indented);
             HttpContext.Response.Write(json_object);
         }
         

@@ -1,0 +1,76 @@
+﻿@using PluginTextPostType.Models
+@using System.Text.RegularExpressions;
+@model  VmDisplay
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="text-right">
+            <em>
+                @Html.DisplayFor(x => x.Comment)
+            </em>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @{
+
+            int num_of_string_cut = Model.Data.Length;
+            int text_position = 0;
+            bool is_bracket_open = false;
+            for (int i = 0; i < Model.Data.Length; i++)
+            {
+                if (Model.Data[i] == '<')
+                {
+                    is_bracket_open = true;
+                }
+                else
+                if (Model.Data[i] == '>')
+                {
+                    is_bracket_open = false;
+                }
+                else
+                if (!is_bracket_open)
+                {
+                    text_position++;
+                    if (text_position == 100)
+                    {
+                        num_of_string_cut = i;
+                    }
+                }
+            }
+
+
+            var len = 0;
+            string str_continue = "";
+            if (Model.Data.Length < num_of_string_cut)
+            { len = Model.Data.Length; }
+            else
+            { len = num_of_string_cut; str_continue = "......   (продолжение)"; }
+
+            string showing_string = Model.Data.Substring(0, len);
+            string cutted_showing_string = "";
+            cutted_showing_string = Regex.Replace(showing_string, @"<table>.*</table>", " ");
+        }
+        @Html.Raw(cutted_showing_string)
+        @if (!String.IsNullOrEmpty(str_continue))
+        {
+            @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { PostContentId = Model.PostContentId }, null)
+        }
+        @{
+            string cutted_string = Model.Data.Substring(len);
+            var matches = Regex.Matches(cutted_string, @"</\w+>");
+            foreach (Match i in matches)
+            {
+                @Html.Raw(@i.Value);
+            }
+
+        }
+    </div>
+</div>

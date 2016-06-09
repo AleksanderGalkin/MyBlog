@@ -1,0 +1,54 @@
+﻿@using MyBlog.ViewModels
+@model PostVm
+
+
+
+    @using MyBlog.Infrastructure.Services
+    @using MyBlogContract.Band
+    @using MyBlogContract.PostManage
+
+
+<div class="row">
+    <div class="col-md-8">
+        <p class="h3">
+            @Html.DisplayFor(m => m.Tittle)
+        </p>
+    </div>
+</div>
+@Html.Action("AuthorControlEdit", new { PostId = Model.PostId })
+<div class="row">
+    <div class="col-md-8">
+        @{ 
+
+            IDEModelDisplay dte = (IDEModelDisplay)PlugInFactory.GetModelByInterface(typeof(IDEModelDisplay), Model.PostPluginName);
+            if (dte != null)
+            {
+                dte.PostId = Model.PostId;
+                dte.area = Model.PostPluginName;
+
+
+
+                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), Model.PostPluginName)
+                                                     , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), Model.PostPluginName)
+                                                     , dte.GetDictionary())
+                    }
+
+                    else
+                    {
+                        string plugin_string = Model.PostPluginName ?? "(empty)";
+                        @Html.Partial("NotFounPlugin", plugin_string, null)
+                    }
+                
+
+
+      }
+    </div>
+</div>
+<div class="row text-info">
+    <div class="col-md-4">
+        @Html.DisplayNameFor(m => m.PostCommentCount) : @Html.DisplayFor(m => m.PostCommentCount)
+    </div>
+    <div class="col-md-4">
+        @Html.DisplayNameFor(m => m.PostViewCount) : @Html.DisplayFor(m => m.PostViewCount)
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@using PluginImagePostType.Models
+@model IEnumerable<GroupVmDisplay>
+@{ 
+    Layout = null;
+}
+
+@{
+    foreach (GroupVmDisplay group1 in Model)
+    {
+        if (group1.IsInGroup)
+        {
+            IEnumerable<VmDisplay> model_group = group1.VmDisplays;
+            @Html.DisplayFor(x=> model_group, "VmDisplay_Group");
+        }
+        else
+        {
+            VmDisplay model_single = group1.VmDisplays.SingleOrDefault();
+            @Html.DisplayFor(x => model_single, "VmDisplay_Single");
+        }
+    }
+}

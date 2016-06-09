@@ -20,33 +20,31 @@ namespace MyBlog.Controllers
     public class BandController : AbstractController
     {
         IDataStoreBand _ds;
+
         [ImportingConstructor]
-        public BandController(IUnitOfWork UnitOfWork,
+        public BandController
+            (IUnitOfWork UnitOfWork,
             [Import("PluginTextPostType", typeof(IDataStoreBand))]IDataStoreBand DataStore) 
             : base(UnitOfWork)
         {
             _ds = DataStore;
         }
 
-        // GET: Band
+ 
         public ActionResult Index()
         {
-            var m1 = (from a in _unitOfWork.db.Posts
-                                        select a);
-            var m2 = m1.SelectMany(m => m.PostContents);
-            //foreach(var item in m2)
-            //{
-            //    item.ContentType = "PluginTextPostType";
-            //}
-            //_unitOfWork.Commit();
-            IList<PostDispVm2> model = (from a in _unitOfWork.db.Posts
+
+            IList<PostVm> model = (from a in _unitOfWork.db.Posts
                                        select a)
                             .ToList()
-                            .Select(p => new PostService(p))
-                            .Select(r => r.GetPostDispVm2())
+                            .Select(p => new PostService(p))   //// Переделать на AutoMapper ??
+                            .Select(r => r.GetPostVm())
                             .ToList();
+
             ViewBag.isAuthor = this.isAuthor();
+
             _ds.Clear();
+
             foreach (var post in model)
             {
                 foreach(var content in post.PostContents)
@@ -56,7 +54,7 @@ namespace MyBlog.Controllers
                 
             }
             Session["data_store"] = _ds;
-            return View("Index2",  model);
+            return View("Index",  model);
 
         }
 

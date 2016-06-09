@@ -33,6 +33,7 @@ namespace MyBlog.Models
         public IDbSet<PostComment> PostComments { get; set; }
         public IDbSet<PostTag> PostTags { get; set; }
         public IDbSet<Tag> Tags { get; set; }
+        
 
         public ApplicationDbContext()
             : base("SiteDBConnection", throwIfV1Schema: false)

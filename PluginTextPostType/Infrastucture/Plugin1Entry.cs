@@ -47,6 +47,8 @@ namespace PluginTextPostType.Infrastucture
                 new { controller = "Band", action = "Display", id = UrlParameter.Optional },
                 namespaces: new[] { AppSettings.PluginName + ".Controllers" }
                 );
+
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@using MyBlog.ViewModels
-@model PostEditVm
+@model PostVm
 
 @using MyBlog.Infrastructure.Services
 @using MyBlogContract.PostManage
@@ -17,6 +17,7 @@
             @Html.AntiForgeryToken()
 
             @Html.HiddenFor(model => Model.PostId)
+            @Html.HiddenFor(model => Model.PostPluginName)
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-1" })
@@ -37,23 +38,25 @@
             foreach (var item in Model.PostContents)
             {
 
-                IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
+                IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.ContentPluginName);
                 if (dte != null)
                 {
-                    dte.Id = item.PostContentId;
-                    dte.UpdateTargetId = "new_content_div";
+                    dte.PostContentId = item.PostContentId;
+                    dte.Update_area_replace_Id = "Update_area_replace_Id";
+                    dte.List_content_insert_before_Id = "list_content_insert_before";
                     dte.OnSuccessRemoveCallback = "removeContentId";
                     dte.CallbackActionName = "EditPost";
                     dte.CallbackControllerName = "PostEditor";
-                    RouteValueDictionary rvd = dte.GetDictionary();
-                    rvd.Add("area", item.DataPluginName);
+                    dte.area = item.ContentPluginName;
 
-                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
-                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+
+                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                                 , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                                 , dte.GetDictionary() );
                 }
                 else
                 {
-                    string plugin_string = item.DataPluginName ?? "(empty)";
+                    string plugin_string = item.ContentPluginName ?? "(empty)";
                     @Html.Partial("NotFounPlugin", plugin_string, null)
                 }
 
@@ -65,7 +68,7 @@
 
 <div class="col-md-offset-1 col-md-11">
 
-    <div id="content_insert"></div>
+    <div id="list_content_insert_before"></div>
 </div>
 
 <div id="dropdown-menu" >
@@ -83,13 +86,14 @@
                                         {
                                             area = "PluginTextPostType",
                                             PostId = Model.PostId,
-                                            UpdateTargetId = "new_content_div",
+                                            List_content_insert_before_Id = "list_content_insert_before",
+                                            Update_area_replace_Id = "Update_area_replace_Id",
                                             OnSuccessRemoveCallback = "removeContentId"
                                         },
                                         new AjaxOptions
                                         {
                                             HttpMethod = "Get",
-                                            UpdateTargetId = "new_content_div",
+                                            UpdateTargetId = "Update_area_replace_Id",
                                             OnSuccess = "loadScriptAndInit"
                                         })
                         </li>
@@ -107,7 +111,7 @@
 
     <div class="row">
         <div class="form-group">
-            <div id="new_content_div"> </div>
+            <div id="Update_area_replace_Id"> </div>
         </div>
     </div>
 
@@ -140,7 +144,8 @@
             var removeContentId = function (json) {
                 parsedJson = JSON.parse(json);
                 if (parsedJson.result == true)
-                    $('#' + parsedJson.id).remove();
+                  //  $('#' + parsedJson.PostContentId).remove();
+                $('[id='+parsedJson.PostContentId+'][data-_temporary_PostContentId =' + parsedJson.PostContentIdForNewRecords+']').remove();
             }
 
 

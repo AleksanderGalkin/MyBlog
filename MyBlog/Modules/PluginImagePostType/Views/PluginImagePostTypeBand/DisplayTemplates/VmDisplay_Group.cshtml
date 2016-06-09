@@ -1,0 +1,13 @@
+﻿@using PluginImagePostType.Models
+@model  IEnumerable<VmDisplay>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+         <img src="@item.Data" alt="@item.Comment" width="150" height="100" />
+        }
+    </div>
+</div>

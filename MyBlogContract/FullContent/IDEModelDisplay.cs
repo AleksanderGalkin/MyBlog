@@ -8,7 +8,7 @@ namespace MyBlogContract.FullContent
 {
     public abstract class IDEModelFullContent : IDEModel
     {
-
+        
     }
 
 }

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace MyBlog.Infrustructure.Windsor
-{
+{//Not used now. Mef is used
     public class WindsorControllerFactory : DefaultControllerFactory
     {
         private readonly IKernel kernel;

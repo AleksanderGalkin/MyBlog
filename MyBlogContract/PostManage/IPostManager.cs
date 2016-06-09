@@ -9,8 +9,7 @@ namespace MyBlogContract.PostManage
 {
     public interface IPostManager : IController
     {
-      //  ActionResult Modify(IDEModelPostManage Model);
-      //  ActionResult ModifyPost(IDEModelPostManage Model);
+
     }
 
 }

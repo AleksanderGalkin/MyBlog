@@ -74,7 +74,7 @@
     <Compile Include="Band\IDataStoreBand.cs" />
     <Compile Include="Band\IDEModelDisplay.cs" />
     <Compile Include="FullContent\IFullContent.cs" />
-    <Compile Include="FullContent\IDataStoreBand.cs" />
+    <Compile Include="FullContent\IDataStoreFullContent.cs" />
     <Compile Include="FullContent\IDEModelDisplay.cs" />
     <Compile Include="IDEModel.cs" />
     <Compile Include="IMetadata.cs" />

@@ -204,19 +204,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AbstractController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InitController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PluginController.cs" />
     <Compile Include="Controllers\PostEditorController.cs" />
     <Compile Include="DomainModels\SiteDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrustructure\AppSettings.cs" />
-    <Compile Include="Infrustructure\Binders\PostEditVmBinder.cs" />
+    <Compile Include="Infrustructure\Binders\PostVmBinder.cs" />
     <Compile Include="Infrustructure\Services\DataStoreRecord.cs" />
     <Compile Include="Infrustructure\Helpers\IdentityHelperGetFullName.cs" />
     <Compile Include="Infrustructure\Helpers\ModelBindingContextExt.cs" />
@@ -224,11 +222,11 @@
     <Compile Include="Infrustructure\Binders\IContentTypeBinder.cs" />
     <Compile Include="Infrustructure\IDbContext.cs" />
     <Compile Include="Infrustructure\IUnitOfWork.cs" />
-    <Compile Include="Infrustructure\Binders\MyDefaultModelBinder.cs" />
+    <Compile Include="Infrustructure\Binders\InitModelBinder.cs" />
     <Compile Include="Infrustructure\Services\CustomControllerFactory.cs" />
     <Compile Include="Infrustructure\Services\CustomViewEngine .cs" />
     <Compile Include="Infrustructure\Services\DataStore.cs" />
-    <Compile Include="Infrustructure\Services\DemBinder.cs" />
+    <Compile Include="Infrustructure\Binders\DemBinder.cs" />
     <Compile Include="Infrustructure\Services\PlugInFactory.cs" />
     <Compile Include="Infrustructure\Services\PostService.cs" />
     <Compile Include="Infrustructure\Services\PreApplicationInit.cs" />
@@ -262,15 +260,18 @@
     <Compile Include="Migrations\201605101155575_4.Designer.cs">
       <DependentUpon>201605101155575_4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606040322386_5.cs" />
+    <Compile Include="Migrations\201606040322386_5.Designer.cs">
+      <DependentUpon>201606040322386_5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\PostModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BandViewModels.cs" />
-    <Compile Include="ViewModels\ManageAccountViewModels.cs" />
+    <Compile Include="ViewModels\InitViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backload\Client\blueimp\blob\js\canvas-to-blob.min.js" />
@@ -389,6 +390,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Modules\PluginImagePostType\PluginImagePostType.dll" />
+    <Content Include="Modules\PluginTextPostType\PluginTextPostType.dll" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginFullContent\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Display.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Modify.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Shared\Error.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Shared\_Layout.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\Web.config" />
+    <Content Include="Modules\PluginTextPostType\Views\_ViewStart.cshtml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -486,7 +497,15 @@
     <Content Include="Scripts\jquery-ui-1.10.2.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min_.js" />
-    <Content Include="Views\Band\Index.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\Display.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\Shared\Error.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\Shared\_Layout.cshtml" />
+    <Content Include="Modules\PluginImagePostType\Views\Web.config" />
+    <Content Include="Modules\PluginImagePostType\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
+    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -673,18 +692,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -714,7 +721,6 @@
     <Content Include="Views\Init\ResetPassword.cshtml" />
     <Content Include="Views\Band\AuthorControlCreate.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ContentTextVm.cshtml" />
-    <Content Include="Views\PostEditor\GetContentView.cshtml" />
     <Content Include="Views\Band\AuthorControlEdit.cshtml" />
     <Content Include="Views\PostEditor\DeletePost.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentImageVm.cshtml" />
@@ -727,16 +733,14 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Shared\EditorTemplates\ContentImageVm_CanDeleted.cshtml" />
-    <Content Include="Views\Band\DisplayTemplates\PostDispVm.cshtml" />
     <Content Include="Views\PostEditor\EditPost.cshtml" />
     <Content Include="Views\PostEditor\AttachedContent.cshtml" />
     <Content Include="Views\PostEditor\DisplayTemplates\ContentTextVm.cshtml" />
     <Content Include="Views\PostEditor\DisplayTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\PostEditor\EditorTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\PostEditor\EditorTemplates\!!!DELContentTextVm.cshtml" />
-    <Content Include="Views\PostEditor\EditContent.cshtml" />
-    <Content Include="Views\Band\Index2.cshtml" />
-    <Content Include="Views\Band\DisplayTemplates\PostDispVm2.cshtml" />
+    <Content Include="Views\Band\Index.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\PostVm.cshtml" />
     <Content Include="Views\Shared\NotFounPlugin.cshtml" />
     <Content Include="Views\Shared\Disqus.cshtml" />
   </ItemGroup>
@@ -748,6 +752,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Modules\PluginImagePostType\roslyn\" />
+    <Folder Include="Modules\PluginTextPostType\roslyn\" />
+    <Folder Include="Modules\PluginTextPostType\ru\" />
     <Folder Include="Views\Plugin\" />
   </ItemGroup>
   <ItemGroup>
@@ -767,6 +774,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605101155575_4.resx">
       <DependentUpon>201605101155575_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606040322386_5.resx">
+      <DependentUpon>201606040322386_5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

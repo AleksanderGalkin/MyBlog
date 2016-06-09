@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//Not used now. Mef is used
 namespace MyBlog.Infrustructure.Windsor.Interceptors.Audit
 {
     public abstract class AAudit : IInterceptor

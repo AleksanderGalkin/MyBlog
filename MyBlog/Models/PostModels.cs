@@ -20,6 +20,9 @@ namespace MyBlog.Models
         [DataType(DataType.DateTime)]
         [Display(Description = "Дата публикации",Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
+        
+        public string PostPluginName { get; set; }
+
         public virtual IList<PostContent> PostContents { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual IList<PostView> PostViews { get; set; }
@@ -43,16 +46,24 @@ namespace MyBlog.Models
         public int LikeMinus { get; set; }
         [AllowHtml]
         public byte[] ContentData { get; set; }
-        public ContentTypeEnums ContentDataType { get; set; }
-        public string ContentType { get; set; }
+
+        
+        public string ContentPluginName { get; set; }
+
+        public bool IsInGroup { get; set; }
+        public int Order { get; set; }
+
         [StringLength(100)]
         [Display(Description = "Комментарий",Name = "Комментарий")]
         public string Comment { get; set; }
         public virtual Post Post { get; set; }
 
+
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }
+
+
     public class PostView
     {
         public int PostViewId { get; set; }
@@ -108,6 +119,6 @@ namespace MyBlog.Models
         public byte[] RowVersion { get; set; }
     }
 
-    public enum ContentTypeEnums { Text, Image, Video, Sound};
+  //  public enum ContentTypeEnums { Text, Image, Video, Sound};
  
 }

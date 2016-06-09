@@ -21,7 +21,7 @@ namespace MyBlog.Infrastructure.Services
         private static AggregateCatalog AggregateCatalog;
         private static  CompositionContainer _container;
         private static DirectoryInfo plugins_folder_root_di;
-        private static IDictionary<IMetadata,Type> types_of_controllers;
+     //   private static IDictionary<IMetadata,Type> types_of_controllers;
 
         private static IDataStoreBand _ds;
 
@@ -31,7 +31,7 @@ namespace MyBlog.Infrastructure.Services
         static PlugInFactory()
         {
             plugins_folder_root_di = new DirectoryInfo(HostingEnvironment.MapPath("~/" + AppSettings.PluginDirectory));
-            types_of_controllers = new Dictionary<IMetadata, Type>();
+           // types_of_controllers = new Dictionary<IMetadata, Type>();
         }
 
         public static void InitFactory()
@@ -74,17 +74,6 @@ namespace MyBlog.Infrastructure.Services
 
             }
 
-            //if (controller == null)
-            //{
-            //    var export_not_plugin = _container.GetExports<IController, IMetadata>()
-            //        .Where(e => e.Metadata.ControllerName.Equals(ControllerName))
-            //        .SingleOrDefault();
-            //    if (export_not_plugin != null)
-            //    {
-            //        controller = export_not_plugin.Value as IController;
-            //    }
-            //}
-
             return controller;
         }
 
@@ -100,14 +89,6 @@ namespace MyBlog.Infrastructure.Services
             }
             return obj;
         }
-
-        //public static IController GetControllerInstance<T>(string Plugin)
-        //{
-        //    IController Controller 
-        //        = (IController)_container.GetExportedValueOrDefault<T>(Plugin);
-            
-        //    return Controller;
-        //}
 
         public static string GetControllerNameByInterface(Type type, string Plugin)
         {

@@ -9,10 +9,12 @@ namespace MyBlogContract.PostManage
 {
     public abstract class IDEModelPostManage : IDEModel
     {
-        virtual public string CallbackControllerName { get; set; }
-        virtual public string CallbackActionName { get; set; }
-        virtual public string UpdateTargetId { get; set; }
-        virtual public string OnSuccessRemoveCallback { get; set; }
+        abstract public string CallbackControllerName { get; set; }
+        abstract public string CallbackActionName { get; set; }
+        
+        abstract public string List_content_insert_before_Id { get; set; }
+        abstract public string Update_area_replace_Id { get; set; }
+        abstract public string OnSuccessRemoveCallback { get; set; }
     }
 
 }

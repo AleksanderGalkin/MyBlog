@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 namespace MyBlogContract.Band
 {
     [InheritedExport]
-    public interface IDataStoreBand
+    public interface IDataStoreBand 
     {
         IDataStoreRecord Get(int Id);
         void Add(IDataStoreRecord Record);
         IEnumerable<IDataStoreRecord> Get();
+        IEnumerable<IDataStoreRecord> GetPost(int PostId);
         void Clear();
     }
 

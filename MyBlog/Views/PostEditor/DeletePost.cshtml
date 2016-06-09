@@ -2,7 +2,7 @@
 @using MyBlog.Infrastructure.Services
 @using MyBlogContract.PostManage
 
-@model PostDispVm2
+@model PostVm
 
 
 
@@ -29,23 +29,24 @@
         foreach (var item in Model.PostContents)
         {
 
-            IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.DataPluginName);
+            IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.ContentPluginName);
             if (dte != null)
             {
-                dte.Id = item.PostContentId;
-                dte.UpdateTargetId = "new_content_div";
+                dte.PostContentId = item.PostContentId;
+                dte.Update_area_replace_Id = "Update_area_replace_Id";
+                dte.List_content_insert_before_Id = "list_content_insert_before";
                 dte.OnSuccessRemoveCallback = "removeContentId";
                 dte.CallbackActionName = "EditPost";
                 dte.CallbackControllerName = "PostEditor";
-                RouteValueDictionary rvd = dte.GetDictionary();
-                rvd.Add("area", item.DataPluginName);
+                dte.area = item.ContentPluginName;
 
-                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.DataPluginName)
-                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.DataPluginName), rvd)
+                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                                                , dte.GetDictionary())
             }
             else
             {
-                string plugin_string = item.DataPluginName ?? "(empty)";
+                string plugin_string = item.ContentPluginName ?? "(empty)";
                 @Html.Partial("NotFounPlugin", plugin_string, null)
             }
 
@@ -67,7 +68,7 @@
     {
         @Html.HiddenFor(model => Model.PostId)
     }
-    <div class=" form-group">
+    <div class="form-group">
         <div class="col-lg-offset-8 col-md-4">
             <button type="button" class="btn btn-danger pull-right" onclick="document.forms['DeletePostForm'].submit();">Удалить</button>
             <button type="button" data-dismiss="modal" class="btn  pull-right" onclick="document.location = '@Url.Action("CancelPostEdition")'">

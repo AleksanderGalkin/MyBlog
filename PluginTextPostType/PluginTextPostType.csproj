@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -118,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -132,6 +139,8 @@
     </Compile>
     <Compile Include="Infrastucture\AppSettings.cs" />
     <Compile Include="Infrastucture\Plugin1Entry.cs" />
+    <Compile Include="Models\GroupKey.cs" />
+    <Compile Include="Models\GroupVmDisplay.cs" />
     <Compile Include="Models\VmDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +180,8 @@
     <Content Include="Views\PluginTextPostTypePM\Display.cshtml" />
     <Content Include="Views\PluginTextPostTypePM\Modify.cshtml" />
     <Content Include="Views\PluginFullContent\Display.cshtml" />
+    <Content Include="Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
+    <Content Include="Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -224,7 +235,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y /E $(TargetPath) $(SolutionDir)MyBlog\Modules\PluginTextPostType
-xcopy /Y /S $(ProjectDir)\Views\*.* $(SolutionDir)MyBlog\Modules\PluginTextPostType\Views</PostBuildEvent>
+xcopy /Y /E $(ProjectDir)\Views\*.* $(SolutionDir)MyBlog\Modules\PluginTextPostType\Views</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

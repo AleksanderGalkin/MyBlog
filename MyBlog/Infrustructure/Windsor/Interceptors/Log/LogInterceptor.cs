@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
+//Not used now. Mef is used
 namespace MyBlog.Infrustructure.Windsor.Interceptors.Audit
 {
     public class LoggerInterceptor : ALog

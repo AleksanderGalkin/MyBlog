@@ -11,13 +11,14 @@ namespace MyBlogContract.PostManage
     [InheritedExport]
     public interface IDataStorePostManage
     {
-        void Add(IDataStoreRecord Record);
-        IEnumerable<IDataStoreRecord> Get();
+         void Add(IDataStoreRecord Record);
+         IEnumerable<IDataStoreRecord> Get();
+         void Clear();
+
         IDataStoreRecord Get(int Id, int _temporary_PostContentId = 0);
         IDataStoreRecord GetNew();
         void Modify(IDataStoreRecord Model);
-        void Delete (int Id, int _temporary_PostContentId = 0);
+        void Delete(int Id, int _temporary_PostContentId = 0);
         void Create(IDataStoreRecord Model);
-        void Clear();
     }
 }

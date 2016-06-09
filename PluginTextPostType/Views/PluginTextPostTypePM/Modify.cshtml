@@ -14,7 +14,7 @@
                                                     {
                                                         HttpMethod = "POST",
                                                         InsertionMode = InsertionMode.InsertBefore,
-                                                        UpdateTargetId = "content_insert",//"dropdown -menu",
+                                                        UpdateTargetId = Model.List_content_insert_before_Id,
                                                         OnSuccess = "remove_original_content();remove_form();"
                                                     }, new { id = "CreateTextPostForm", role = "form" }))
             {
@@ -24,10 +24,11 @@
 
     
                         @Html.HiddenFor(x => x.PostId)
-                        @Html.HiddenFor(x => x._temporary_PostContentId)
-                        @Html.HiddenFor(x => x.Id)
+                        @Html.HiddenFor(x => x.PostContentIdForNewRecords)
+                        @Html.HiddenFor(x => x.PostContentId)
                         @Html.HiddenFor(x => x.data_edit_diff_flag)
-                        @Html.HiddenFor(x => x.UpdateTargetId)
+                        @Html.HiddenFor(x => x.List_content_insert_before_Id)
+                        @Html.HiddenFor(x => x.Update_area_replace_Id)
                         @Html.HiddenFor(x => x.OnSuccessRemoveCallback)
 
                         @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -63,37 +64,37 @@
 
     var tinymce_init = function () {
 
-                tinymce.suffix = '.min';
-                tinymce.baseURL = '@Url.Content(@"~/Scripts/tinymce")';
+        tinymce.suffix = '.min';
+        tinymce.baseURL = '@Url.Content(@"~/Scripts/tinymce")';
 
-                tinymce.init({
-                    selector: ".TextPostArea",
-                    plugins: [
-                        "advlist autolink lists link image charmap print preview anchor",
-                        "searchreplace visualblocks code fullscreen",
-                        "insertdatetime media table contextmenu paste"
-                    ],
-                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-                    setup: function (editor) {
-                        editor.on('change', function () {
-                            editor.save();
-                        });
-                    }
-                })
+        tinymce.init({
+            selector: ".TextPostArea",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
             }
+        })
+    }
 
-            var remove_original_content = function () {
-                $('[id=@Model.Id][data-edit-diff-flag = @Model.data_edit_diff_flag][data-_temporary_PostContentId = @Model._temporary_PostContentId]').remove();
-            }
+    var remove_original_content = function () {
+        $('[id=@Model.PostContentId][data-edit-diff-flag = @Model.data_edit_diff_flag][data-_temporary_PostContentId = @Model.PostContentIdForNewRecords]').remove();
+    }
 
-            var remove_form = function () {
-                $('#CreateTextPostForm_dom > *').remove();
-                $('#CreateTextPostForm_dom').remove();
-                $('.dropdown-toggle').dropdown();
-            }
-            $(document).ready(function () {
-                tinymce_init();
-            });
+    var remove_form = function () {
+        $('#CreateTextPostForm_dom > *').remove();
+        $('#CreateTextPostForm_dom').remove();
+        $('.dropdown-toggle').dropdown();
+    }
+    $(document).ready(function () {
+        tinymce_init();
+    });
 
 
 </script>

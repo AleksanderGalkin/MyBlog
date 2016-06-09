@@ -39,81 +39,21 @@ namespace MyBlog.Infrustructure.Services
         }
 
 
-        public PostDispVm GetPostDispVm()
+        public PostVm GetPostVm()
         {
-            PostDispVm result = new PostDispVm();
-
-            
-
-        //    result = Mapper.Map<Post, PostDispVm>(_post);
-        //    result.PostContents = new List<IContentType>();
-            
-        //    foreach (var i in _post.PostContents)
-        //    {
-                
-        //        if (i.ContentDataType == ContentTypeEnums.Text)
-        //        {
-        //            ContentTextVm newItem = null;
-        //            newItem = Mapper.Map<PostContent, ContentTextVm>(i);
-        //            UnicodeEncoding encoding = new UnicodeEncoding();
-        //            newItem.ContentData = encoding.GetString(i.ContentData ?? encoding.GetBytes(""));
-        //            result.PostContents.Add(newItem);
-        //        }
-
-        //        if (i.ContentDataType == ContentTypeEnums.Image)
-        //        {
-        //            ContentImageVm newItem = null;
-        //            newItem = Mapper.Map<PostContent, ContentImageVm>(i);
-        //            MemoryStream ms = new MemoryStream(i.ContentData );
-        //            newItem.ContentData = i.ContentData;
-        //            result.PostContents.Add(newItem);
-        //        }
-
-        //    }
-            
-            return result;
-        }
-
-        public PostEditVm GetPostEditVm()
-        {
-            PostEditVm result = new PostEditVm();
-            result = Mapper.Map<Post, PostEditVm>(_post);
+            PostVm result = new PostVm();
+            result = Mapper.Map<Post, PostVm>(_post);
             result.PostContents = new List<IDataStoreRecord>();
 
             foreach (var i in _post.PostContents)
             {
-
-
-                    IDataStoreRecord newItem = new DataStoreRecord();
-                    newItem = Mapper.Map<PostContent, IDataStoreRecord>(i,newItem);
-                    result.PostContents.Add(newItem);
-
-
-
+                IDataStoreRecord newItem = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
+                newItem = Mapper.Map<PostContent, IDataStoreRecord>(i,newItem);
+                result.PostContents.Add(newItem);
             }
 
             return result;
         }
-
-        public PostDispVm2 GetPostDispVm2()
-        {
-            PostDispVm2 result = new PostDispVm2();
-
-            result = Mapper.Map<Post, PostDispVm2>(_post);
-            result.PostContents = new List<IDataStoreRecord>();
-
-            foreach (var i in _post.PostContents)
-            {
-                    IDataStoreRecord newItem = new DataStoreRecord();
-                    newItem = Mapper.Map<PostContent, IDataStoreRecord>(i, newItem);
-                    result.PostContents.Add(newItem);
-            }
-
-
-            return result;
-        }
-
-
     }
 
 

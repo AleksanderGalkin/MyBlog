@@ -1,5 +1,7 @@
-﻿using MyBlogContract;
+﻿using AutoMapper;
+using MyBlogContract;
 using MyBlogContract.FullContent;
+using PluginTextPostType.Infrastructure;
 using PluginTextPostType.Models;
 using System;
 using System.Collections.Generic;
@@ -27,19 +29,36 @@ namespace PluginTextPostType.Controllers
         [ImportingConstructor]
         public PluginFullContentController(IDataStoreFullContent DataStore)
         {
+            if (DataStore == null)
+                throw new NullReferenceException("DataStore reference must be not null");
             _ds = DataStore;
         }
 
         // GET: PluginFullContent
         public ActionResult Display(IDEModelFullContent Model)
         {
-            IDataStoreRecord result = _ds.Get(Model.Id);
-            VmDisplay vmodel = new VmDisplay();
-            vmodel.Id = result.PostContentId;
-            vmodel.Comment = result.Comment;
-            UnicodeEncoding encoding = new UnicodeEncoding();
-            vmodel.Data = encoding.GetString(result.ContentData ?? encoding.GetBytes(""));
+            IDataStoreRecord result = _ds.Get(Model.PostContentId);
+            VmDisplay vmodel = null;
+            if (result == null)
+            {
+                throw new InvalidOperationException("Data store not return value");
+            }
 
+            if ( Model.PostId != result.PostId)
+            {
+                throw new ArgumentOutOfRangeException("PostContentId not belong postid");
+            }
+
+            if ( Model.area != AppSettings.PluginName)
+            {
+                throw new InvalidOperationException("Area not this plugin");
+            }
+
+            vmodel = Mapper.Map<VmDisplay>(Model);
+                Mapper.Map<IDataStoreRecord, VmDisplay>(result, vmodel);
+                UnicodeEncoding encoding = new UnicodeEncoding();
+                vmodel.Data = encoding.GetString(result.ContentData ?? encoding.GetBytes(""));
+            
             return View(vmodel);
         }
     }
