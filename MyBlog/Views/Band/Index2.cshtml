@@ -14,7 +14,35 @@
 
 </div>
 
+<input type="button" class="btn btn-default" id="ok" value="ok" />
 
 
-
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $("#ok").on("click", function () {
+            var obj = [{model : 'asd'}];
+            $.ajax({
+                url: '@Url.Action("js","Band")',
+                type: 'POST',
+                data: JSON.stringify(obj),
+                dataType: 'json',
+               // processData: false,
+                contentType:  'application/json; charset=utf-8', 
+                success: function(result)
+                {
+                    debugger;
+                    alert(result.status);
+                },
+                error: function (err)
+                {
+                    debugger;
+                    alert(err);
+                }
+            }
+                );
+        });
+    });
+    </script>
+}
 
