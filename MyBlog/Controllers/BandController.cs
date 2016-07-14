@@ -95,5 +95,15 @@ namespace MyBlog.Controllers
             }
             return isAuthor;
         }
+
+        public JsonResult js (List<data> m)
+        {
+            return Json(new { status = "ok" });
+        } 
+    }
+
+    public class data
+    {
+        public string model { get; set; }
     }
 }
