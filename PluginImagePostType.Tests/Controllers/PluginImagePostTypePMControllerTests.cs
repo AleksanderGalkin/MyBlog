@@ -1,33 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyBlogContract;
 using MyBlogContract.PostManage;
-using Newtonsoft.Json;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.SessionState;
-using Microsoft.CSharp.RuntimeBinder;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using PluginImagePostType.Controllers;
-using PluginImagePostType;
 using PluginImagePostType.Models;
-using PluginImagePostType.Test;
 using PluginImagePostType.Tests;
 using System.Drawing.Imaging;
 using System.Drawing;
 
 namespace PluginImagePostType.Controllers.Tests
 {
-    
+
 
     [TestClass()]
     public class PluginImagePostTypePMControllerTests
@@ -43,6 +34,7 @@ namespace PluginImagePostType.Controllers.Tests
         public void Init()
         {
             _ds = Substitute.For<IDataStorePostManage>();
+            
             #region filling of _ds
             IList<IDataStoreRecord> _ds_result
                 = new List<IDataStoreRecord>();
@@ -61,6 +53,8 @@ namespace PluginImagePostType.Controllers.Tests
             record1.IsInGroup = true;
             record1.Order = 1;
             _ds_result.Add(record1);
+  
+
 
             IDataStoreRecord record2 = Substitute.For<IDataStoreRecord>();
             record2.PostId = 1;
@@ -77,6 +71,7 @@ namespace PluginImagePostType.Controllers.Tests
             record2.Order = 1;
             _ds_result.Add(record2);
 
+
             IDataStoreRecord record3 = Substitute.For<IDataStoreRecord>();
             record3.PostId = 2;
             record3.PostContentId = 3;
@@ -92,11 +87,19 @@ namespace PluginImagePostType.Controllers.Tests
             record3.Order = 1;
             _ds_result.Add(record3);
 
+
+
+
             _ds.Get().Returns(_ds_result);
-            _ds.Get(Arg.Any<int>()).
-                Returns(x => _ds_result
-                        .Where(r => r.PostContentId == (int)x[0])
-                        .SingleOrDefault());
+
+            _ds.Get(Arg.Any<int>(), Arg.Any<int>()).
+             Returns(x => _ds_result
+            .Where(r => (int)x[1] == 0
+                        ? r.PostContentId == (int)x[0]
+                        : r.PostContentIdForNewRecords == (int)x[1])
+            .SingleOrDefault());
+
+
             _ds.WhenForAnyArgs(x => x.Create(Arg.Any<IDataStoreRecord>()))
                 .Do(x => _ds_result.Add((IDataStoreRecord)x[0]));
 
@@ -260,7 +263,7 @@ namespace PluginImagePostType.Controllers.Tests
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
 
-            var result = controller.LoadFiles(files,Model) as ViewResult;
+            var result = controller.LoadFiles(files, Model) as ViewResult;
         }
 
         [TestMethod()]
@@ -320,7 +323,7 @@ namespace PluginImagePostType.Controllers.Tests
             Model.List_content_insert_before_Id = "something";
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
-            
+
             var result = controller.LoadFiles(files, Model) as ViewResult;
 
             Assert.AreEqual(3 + files.Count(), _ds.Get().Count());
@@ -329,7 +332,7 @@ namespace PluginImagePostType.Controllers.Tests
             Assert.AreEqual(Model.area, newRecord.ContentPluginName);
 
             Image newFile_verify = ImageFactory.GetImage(4);
-            
+
             MemoryStream ms = new MemoryStream(newRecord.ContentData);
             Image newFile_Saved = Image.FromStream(ms);
             Assert.AreEqual(newFile_verify, newFile_Saved);
@@ -531,23 +534,23 @@ namespace PluginImagePostType.Controllers.Tests
         //#endregion
 
         [TestMethod()]
-        public void tMetadata ()
+        public void tMetadata()
         {
             AggregateCatalog AggregateCatalog = new AggregateCatalog();
-            IEnumerable<AssemblyCatalog> ac = 
+            IEnumerable<AssemblyCatalog> ac =
                 AppDomain
                 .CurrentDomain
                 .GetAssemblies()
-                .Where(a=>a.FullName.Contains("PluginImagePostType"))
-                .Select(a=> new AssemblyCatalog(a));
+                .Where(a => a.FullName.Contains("PluginImagePostType"))
+                .Select(a => new AssemblyCatalog(a));
             foreach (var i in ac)
                 AggregateCatalog.Catalogs.Add(i);
 
-            
+
             CompositionContainer _container = new CompositionContainer(AggregateCatalog);
 
             var e1 = _container.GetExports<IController, IMetadata>("PluginImagePostType")
-                        .Where(m=>m.Metadata.ControllerType== typeof(IPostManager));
+                        .Where(m => m.Metadata.ControllerType == typeof(IPostManager));
 
             if (e1 != null)
             {
@@ -561,7 +564,7 @@ namespace PluginImagePostType.Controllers.Tests
                 int prop_count = typeof(IMetadata).GetProperties().Count();
 
                 Assert.AreEqual("PluginImagePostType", Name);
-                Assert.AreEqual("1.0",Version);
+                Assert.AreEqual("1.0", Version);
                 Assert.AreEqual("PluginImagePostTypePM", ControllerName);
                 Assert.AreEqual(typeof(IPostManager), ControllerType);
                 Assert.AreEqual("Display", ActionDisplayName);
@@ -571,7 +574,7 @@ namespace PluginImagePostType.Controllers.Tests
             }
 
             Assert.IsNotNull(e1);
-            Assert.AreEqual(1,e1.Count());
+            Assert.AreEqual(1, e1.Count());
 
 
 

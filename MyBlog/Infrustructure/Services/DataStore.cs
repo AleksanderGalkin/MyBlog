@@ -139,6 +139,7 @@ namespace MyBlog.Infrastructure.Services
             return result;
         }
 
+    
         public void Clear()
         {
             store.Clear();
@@ -156,5 +157,7 @@ namespace MyBlog.Infrastructure.Services
                 store.Where(r => (r.PostId == PostId));
             return result;
         }
+
+    
     }
 }
