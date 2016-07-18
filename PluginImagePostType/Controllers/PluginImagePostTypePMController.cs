@@ -7,6 +7,7 @@ using PluginImagePostType.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -118,9 +119,13 @@ namespace PluginImagePostType.Controllers
                     new_temp_key = 1;
                 }
                 IDataStoreRecord newRecord = _ds.GetNew();
+                file.InputStream.Position = 0;
                 MemoryStream ms = new MemoryStream();
                 file.InputStream.CopyTo(ms);
                 newRecord.ContentData = ms.ToArray();
+
+
+
                 newRecord.ContentPluginName = AppSettings.PluginName;
                 newRecord.ContentPluginVersion = AppSettings.Version;
                 newRecord.PostId = Model.PostId;

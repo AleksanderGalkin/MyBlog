@@ -82,6 +82,7 @@ namespace PluginImagePostType.Controllers.Tests
             record3.Comment = "AnyComment3";
             ms = new MemoryStream();
             ImageFactory.GetImage(record3.PostContentId).Save(ms, ImageFormat.Bmp);
+            
             record3.ContentData = ms.ToArray();
             record3.IsInGroup = false;
             record3.Order = 1;
@@ -114,13 +115,13 @@ namespace PluginImagePostType.Controllers.Tests
             #endregion
 
             HttpPostedFileBase hpfb = Substitute.For<HttpPostedFileBase>();
-            hpfb.FileName.Returns("File1.jpg");
+            hpfb.FileName.Returns("File1.bmp");
             Image newFile = ImageFactory.GetImage(4);
             MemoryStream ms2 = new MemoryStream();
-            newFile.Save(ms2, ImageFormat.Jpeg);
-            hpfb.InputStream.Returns(ms);
-            hpfb.ContentLength.Returns((int)ms.Length);
-            hpfb.ContentType.Returns("image/jpeg");
+            newFile.Save(ms2, ImageFormat.Bmp);
+            hpfb.InputStream.Returns(ms2);
+            hpfb.ContentLength.Returns((int)ms2.Length);
+            hpfb.ContentType.Returns("image/bmp");
             files = new HttpPostedFileBase[] { hpfb };
 
             controller = new PluginImagePostTypePMController(_ds);
@@ -331,11 +332,14 @@ namespace PluginImagePostType.Controllers.Tests
             IDataStoreRecord newRecord = _ds.Get(0, 1);
             Assert.AreEqual(Model.area, newRecord.ContentPluginName);
 
-            Image newFile_verify = ImageFactory.GetImage(4);
+            Image newFile_expected = ImageFactory.GetImage(4);
+            MemoryStream ms_expected = new MemoryStream();
+            newFile_expected.Save(ms_expected, ImageFormat.Bmp);
+            string ms_expected_string = Convert.ToBase64String(ms_expected.ToArray());
 
-            MemoryStream ms = new MemoryStream(newRecord.ContentData);
-            Image newFile_Saved = Image.FromStream(ms);
-            Assert.AreEqual(newFile_verify, newFile_Saved);
+            MemoryStream ms_actual = new MemoryStream(newRecord.ContentData);
+            string ms_actual_string = Convert.ToBase64String(ms_actual.ToArray());
+            Assert.AreEqual(ms_expected_string, ms_actual_string);
 
         }
 

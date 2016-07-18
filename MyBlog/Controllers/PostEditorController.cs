@@ -181,46 +181,47 @@ namespace MyBlog.Controllers
         }
 
 
-    //    [HttpPost] //LoadFile
-    //    public void LoadFile(HttpPostedFileBase file, string comment)
-    //    {
-    //        IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
-    //        if (Contents == null)
-    //        {
-    //            Contents = new List<IContentType>();
-    //        }
-    //        string arViewResults = "";
+        //    [HttpPost] //LoadFile
+        //    public void LoadFile(HttpPostedFileBase file, string comment)
+        //    {
+        //        IList<IContentType> Contents = Session["PostContents"] as IList<IContentType>;
+        //        if (Contents == null)
+        //        {
+        //            Contents = new List<IContentType>();
+        //        }
+        //        string arViewResults = "";
 
-    //        IContentType newContent = null;
-    //        switch (file.ContentType)
-    //        {
-    //            case "image/jpeg":
-    //                ContentImageVm newContentImage = new ContentImageVm();
-    //                newContentImage.ContentDataType = ContentTypeEnums.Image;
-    //                MemoryStream s = new MemoryStream();
-    //                file.InputStream.CopyTo(s);
-    //                newContentImage.ContentData = s.ToArray();
-    //                newContent = newContentImage;
-    //                break;
-    //            case "video":
-    //                break;
-    //            default:
-    //                throw new NotImplementedException("Неизвестный тип файла");
-    //        }
-    //        var ids = from c in Contents
-    //                    select c.PostContentId;
+        //        IContentType newContent = null;
+        //        switch (file.ContentType)
+        //        {
+        //            case "image/jpeg":
+        //                ContentImageVm newContentImage = new ContentImageVm();
+        //                newContentImage.ContentDataType = ContentTypeEnums.Image;
+        //                MemoryStream s = new MemoryStream();
+        //                  file.InputStream.Position = 0;
+        //                file.InputStream.CopyTo(s);
+        //                newContentImage.ContentData = s.ToArray();
+        //                newContent = newContentImage;
+        //                break;
+        //            case "video":
+        //                break;
+        //            default:
+        //                throw new NotImplementedException("Неизвестный тип файла");
+        //        }
+        //        var ids = from c in Contents
+        //                    select c.PostContentId;
 
-    //        int next_id = ids.Count() == 0 ? -1 : ids.Min() - 1;
-    //        newContent.PostContentId = next_id;
-    //        newContent.Comment = comment;
-    //        Contents.Add(newContent);
-    //        arViewResults = arViewResults + this.RenderPartialViewToString("AttachedContent", newContent); // View("AttachedContent", newContent);
-            
-    //        Session["PostContents"] = Contents;
+        //        int next_id = ids.Count() == 0 ? -1 : ids.Min() - 1;
+        //        newContent.PostContentId = next_id;
+        //        newContent.Comment = comment;
+        //        Contents.Add(newContent);
+        //        arViewResults = arViewResults + this.RenderPartialViewToString("AttachedContent", newContent); // View("AttachedContent", newContent);
 
-    //        string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
-    //        HttpContext.Response.Write(arViewResults);
-    //    }
+        //        Session["PostContents"] = Contents;
+
+        //        string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
+        //        HttpContext.Response.Write(arViewResults);
+        //    }
 
     }
 
