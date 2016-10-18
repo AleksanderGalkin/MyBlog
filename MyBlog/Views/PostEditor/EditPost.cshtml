@@ -41,13 +41,14 @@
                 IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.ContentPluginName);
                 if (dte != null)
                 {
+                    dte.PostId = item.PostId;
                     dte.PostContentId = item.PostContentId;
                     dte.Update_area_replace_Id = "Update_area_replace_Id";
                     dte.List_content_insert_before_Id = "list_content_insert_before";
                     dte.OnSuccessRemoveCallback = "removeContentId";
                     dte.CallbackActionName = "EditPost";
                     dte.CallbackControllerName = "PostEditor";
-                    dte.area = item.ContentPluginName;
+                    dte.AreaName = item.ContentPluginName;
 
 
                     @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.ContentPluginName)

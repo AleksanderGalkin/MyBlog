@@ -52,7 +52,7 @@ namespace PluginTextPostType.Controllers
                 throw new ArgumentOutOfRangeException("PostContentId not belong postid");
             }
 
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
             {
                 throw new InvalidOperationException("Area not this plugin");
             }
@@ -71,7 +71,7 @@ namespace PluginTextPostType.Controllers
 
         public ActionResult Create(IDEModelPostManage Model)
         {
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
             {
                 throw new InvalidOperationException("Area not this plugin");
             }

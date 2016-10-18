@@ -105,7 +105,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelDisplay Model = Substitute.For<IDEModelDisplay>();
             Model.PostId = 1;
             Model.PostContentId = 1;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             var result = controller.Display(Model) as ViewResult;
         }
 
@@ -116,7 +116,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelDisplay Model = Substitute.For<IDEModelDisplay>();
             Model.PostId = 1;
             Model.PostContentId = 2;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             var result = controller.Display(Model) as ViewResult;
             var output_model = result.Model as IEnumerable<GroupVmDisplay>;
             Assert.IsNotNull(output_model);

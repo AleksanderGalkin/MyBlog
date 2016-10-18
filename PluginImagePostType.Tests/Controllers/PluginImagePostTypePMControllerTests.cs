@@ -145,13 +145,13 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 2;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             var result = controller.Display(Model) as ViewResult;
             var output_model = result.Model as VmDisplay;
             Assert.IsNotNull(result.Model);
             Assert.AreEqual(1, output_model.PostId);
             Assert.AreEqual(2, output_model.PostContentId);
-            Assert.AreEqual("PluginImagePostType", output_model.area);
+            Assert.AreEqual("PluginImagePostType", output_model.AreaName);
             Assert.AreEqual("AnyComment2", output_model.Comment);
 
             string imageBase64 = Convert.ToBase64String(_ds.Get(2).ContentData);
@@ -166,7 +166,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 100;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
 
             var result = controller.Display(Model) as ViewResult;
         }
@@ -178,7 +178,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 3;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             var result = controller.Display(Model) as ViewResult;
 
         }
@@ -190,7 +190,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 1;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             var result = controller.Display(Model) as ViewResult;
         }
 
@@ -205,7 +205,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 1;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -221,7 +221,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -236,7 +236,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -257,7 +257,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 1;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -273,7 +273,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -288,7 +288,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -303,7 +303,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -318,7 +318,7 @@ namespace PluginImagePostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "PluginImagePostType";
+            Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -330,7 +330,7 @@ namespace PluginImagePostType.Controllers.Tests
             Assert.AreEqual(3 + files.Count(), _ds.Get().Count());
 
             IDataStoreRecord newRecord = _ds.Get(0, 1);
-            Assert.AreEqual(Model.area, newRecord.ContentPluginName);
+            Assert.AreEqual(Model.AreaName, newRecord.ContentPluginName);
 
             Image newFile_expected = ImageFactory.GetImage(4);
             MemoryStream ms_expected = new MemoryStream();

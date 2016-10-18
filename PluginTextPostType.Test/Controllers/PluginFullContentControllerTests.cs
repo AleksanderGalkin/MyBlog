@@ -91,13 +91,13 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelFullContent Model = Substitute.For<IDEModelFullContent>();
             Model.PostId = 1;
             Model.PostContentId = 2;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             var result = controller.Display(Model) as ViewResult;
             var output_model = result.Model as VmDisplay;
             Assert.IsNotNull(result.Model);
             Assert.AreEqual(1, output_model.PostId);
             Assert.AreEqual(2, output_model.PostContentId);
-            Assert.AreEqual("PluginTextPostType", output_model.area);
+            Assert.AreEqual("PluginTextPostType", output_model.AreaName);
             Assert.AreEqual("AnyComment2", output_model.Comment);
             Assert.AreEqual("MyStringData2", output_model.Data);
         }
@@ -109,7 +109,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelFullContent Model = Substitute.For<IDEModelFullContent>();
             Model.PostId = 1;
             Model.PostContentId = 100;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
 
             var result = controller.Display(Model) as ViewResult;
         }
@@ -121,7 +121,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelFullContent Model = Substitute.For<IDEModelFullContent>();
             Model.PostId = 1;
             Model.PostContentId = 3;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             var result = controller.Display(Model) as ViewResult;
 
         }
@@ -133,7 +133,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelFullContent Model = Substitute.For<IDEModelFullContent>();
             Model.PostId = 1;
             Model.PostContentId = 1;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             var result = controller.Display(Model) as ViewResult;
         }
     }

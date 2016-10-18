@@ -51,7 +51,7 @@ namespace PluginImagePostType.Controllers
                 throw new ArgumentOutOfRangeException("PostContentId not belong postid");
             }
 
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
             {
                 throw new InvalidOperationException("Area not this plugin");
             }
@@ -67,7 +67,7 @@ namespace PluginImagePostType.Controllers
 
         public ViewResult Create( IDEModelPostManage Model)
         {
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
                 throw new InvalidOperationException("This plagin is not for this area.");
             if (Model.PostContentId != 0)
             {
@@ -87,7 +87,7 @@ namespace PluginImagePostType.Controllers
         [HttpPost]
         public ViewResult LoadFiles(HttpPostedFileBase[] files, IDEModelPostManage Model)
         {
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
                 throw new InvalidOperationException("This plagin is not for this area.");
             if (Model.PostContentId != 0)
             {

@@ -15,7 +15,7 @@ namespace PluginImagePostType.DataExchangeModels
     {
         public override int PostId { get; set; }
         public override int PostContentId { get; set; }
-        public override string area { get; set; }
+        public override string AreaName { get; set; }
 
 
         public override RouteValueDictionary GetDictionary()
@@ -23,7 +23,8 @@ namespace PluginImagePostType.DataExchangeModels
             RouteValueDictionary result = new RouteValueDictionary();
             result.Add("PostId", this.PostId.ToString());
             result.Add("PostContentId", this.PostContentId.ToString());
-            result.Add("area", this.area);
+            result.Add("area", this.AreaName);
+            result.Add("AreaName", this.AreaName);
 
             return result;
         }

@@ -16,7 +16,7 @@ namespace PluginTextPostType.DataExchangeModels
 
         public override int PostId { get; set; }
         public override int PostContentId { get; set; }
-        public override string area { get; set; }
+        public override string AreaName { get; set; }
 
         public override string CallbackControllerName { get; set; }
         public override string CallbackActionName { get; set; }
@@ -29,7 +29,8 @@ namespace PluginTextPostType.DataExchangeModels
             RouteValueDictionary result = new RouteValueDictionary();
             result.Add("PostId", this.PostId.ToString());
             result.Add("PostContentId", this.PostContentId.ToString());
-            result.Add("area", this.area);
+            result.Add("area", this.AreaName);
+            result.Add("AreaName", this.AreaName);
 
             result.Add("CallbackControllerName", this.CallbackControllerName);
             result.Add("CallbackActionName", this.CallbackActionName);

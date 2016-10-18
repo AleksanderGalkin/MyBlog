@@ -115,13 +115,13 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 2;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             var result = controller.Display(Model) as ViewResult;
             var output_model = result.Model as VmDisplay;
             Assert.IsNotNull(result.Model);
             Assert.AreEqual(1, output_model.PostId);
             Assert.AreEqual(2, output_model.PostContentId);
-            Assert.AreEqual("PluginTextPostType", output_model.area);
+            Assert.AreEqual("PluginTextPostType", output_model.AreaName);
             Assert.AreEqual("AnyComment2", output_model.Comment);
             Assert.AreEqual("MyStringData2", output_model.Data);
         }
@@ -133,7 +133,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 100;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
 
             var result = controller.Display(Model) as ViewResult;
         }
@@ -145,7 +145,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 3;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             var result = controller.Display(Model) as ViewResult;
 
         }
@@ -157,7 +157,7 @@ namespace PluginTextPostType.Controllers.Tests
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostId = 1;
             Model.PostContentId = 1;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             var result = controller.Display(Model) as ViewResult;
         }
 
@@ -176,7 +176,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 1;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -191,7 +191,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "AnotherPlugin";
+            Model.AreaName = "AnotherPlugin";
             Model.CallbackActionName = "something";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -206,7 +206,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
             Model.PostContentId = 0;
-            Model.area = "PluginTextPostType";
+            Model.AreaName = "PluginTextPostType";
             Model.CallbackActionName = "";
             Model.CallbackControllerName = "something";
             Model.List_content_insert_before_Id = "something";
@@ -223,7 +223,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             VmDisplay input = new VmDisplay();
             input.PostContentId = 1;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";
@@ -232,7 +232,7 @@ namespace PluginTextPostType.Controllers.Tests
             var result = controller.Modify(input) as ViewResult;
             var output = result.Model as VmDisplay;
             Assert.AreEqual(input.PostContentId, output.PostContentId);
-            Assert.AreEqual(input.area, output.area);
+            Assert.AreEqual(input.AreaName, output.AreaName);
             Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
             Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
             Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
@@ -248,7 +248,7 @@ namespace PluginTextPostType.Controllers.Tests
             UnicodeEncoding encoding = new UnicodeEncoding();
 
             input.PostContentId = 1;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";
@@ -264,7 +264,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             VmDisplay input = new VmDisplay();
             input.PostContentId = 1;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";
@@ -273,7 +273,7 @@ namespace PluginTextPostType.Controllers.Tests
             var result = controller.Modify(input) as ViewResult;
             var output = result.Model as VmDisplay;
             Assert.AreEqual(input.PostContentId, output.PostContentId);
-            Assert.AreEqual(input.area, output.area);
+            Assert.AreEqual(input.AreaName, output.AreaName);
             Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
             Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
             Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
@@ -287,7 +287,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             VmDisplay input = new VmDisplay();
             input.PostContentId = 1;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";
@@ -308,7 +308,7 @@ namespace PluginTextPostType.Controllers.Tests
         {
             VmDisplay input = new VmDisplay();
             input.PostContentId = 1;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";
@@ -333,7 +333,7 @@ namespace PluginTextPostType.Controllers.Tests
             VmDisplay input = new VmDisplay();
             input.PostId = 1;
             input.PostContentId = 0;
-            input.area = "PluginTextPostType";
+            input.AreaName = "PluginTextPostType";
             input.CallbackActionName = "something";
             input.CallbackControllerName = "something";
             input.List_content_insert_before_Id = "something";

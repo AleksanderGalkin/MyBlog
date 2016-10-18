@@ -51,7 +51,7 @@ namespace PluginTextPostType.Controllers
                 throw new InvalidOperationException("Data store not return value");
             }
 
-            if (Model.area != AppSettings.PluginName)
+            if (Model.AreaName != AppSettings.PluginName)
             {
                 throw new InvalidOperationException("Area not this plugin");
             }

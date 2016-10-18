@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextPostType.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginImagePostType.Tests", "PluginImagePostType.Tests\PluginImagePostType.Tests.csproj", "{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Tests", "MyBlog.Tests\MyBlog.Tests.csproj", "{14BD41E7-F530-4ABE-9255-104E667389C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,14 @@ Global
 		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|x86.ActiveCfg = Release|Any CPU
 		{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}.Release|x86.Build.0 = Release|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Debug|x86.Build.0 = Debug|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|x86.ActiveCfg = Release|Any CPU
+		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

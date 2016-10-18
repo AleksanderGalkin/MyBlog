@@ -14,7 +14,7 @@ namespace MyBlogContract
     {
         abstract public int PostId { get; set; }
         abstract public int PostContentId { get; set; }
-        abstract public string area { get; set; }
+        abstract public string AreaName { get; set; }
 
         abstract public RouteValueDictionary GetDictionary();
 

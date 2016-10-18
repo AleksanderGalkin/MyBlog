@@ -58,6 +58,11 @@ namespace MyBlog.Controllers
 
         }
 
+        public ActionResult ShowContent (int PostId, int ContentId)
+        {
+            return View();
+        }
+
         [ChildActionOnly]
         public virtual ActionResult AuthorControlCreate()
         {
