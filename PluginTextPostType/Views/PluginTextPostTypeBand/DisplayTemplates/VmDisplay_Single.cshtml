@@ -61,7 +61,11 @@
         @Html.Raw(cutted_showing_string)
         @if (!String.IsNullOrEmpty(str_continue))
         {
-            @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new { PostContentId = Model.PostContentId }, null)
+            @Html.ActionLink(@str_continue, "Display", "PluginFullContent", new {
+                                                                                   PostId = Model.PostId,
+                                                                                   PostContentId = Model.PostContentId,
+                                                                                   AreaName = Model.AreaName
+                                                                               }, null)
         }
         @{
             string cutted_string = Model.Data.Substring(len);

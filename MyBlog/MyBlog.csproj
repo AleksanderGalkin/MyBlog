@@ -390,7 +390,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Modules\PluginImagePostType\PluginImagePostType.dll" />
     <Content Include="Modules\PluginTextPostType\PluginTextPostType.dll" />
     <Content Include="Modules\PluginTextPostType\Views\PluginFullContent\Display.cshtml" />
     <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\Display.cshtml" />

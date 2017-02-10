@@ -48,7 +48,8 @@ namespace PluginTextPostType.Controllers
             IEnumerable<IDataStoreRecord> ds_records = _ds.GetPost(Model.PostId);
             if (ds_records == null || ds_records.Count() == 0)
             {
-                throw new InvalidOperationException("Data store not return value");
+                // могут быть пустые посты
+               // throw new InvalidOperationException("Data store not return value");
             }
 
             if (Model.AreaName != AppSettings.PluginName)
