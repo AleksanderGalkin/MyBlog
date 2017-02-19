@@ -2,8 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
+using MyBlog.Infrustructure.Helpers;
 
 namespace MyBlog.Infrustructure
 {
@@ -26,6 +30,7 @@ namespace MyBlog.Infrustructure
         {
             System.Diagnostics.Debug.WriteLine("Commit");
             db.SaveChanges();
+          //  db.RefreshAllEntites(RefreshMode.StoreWins);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace MyBlog.Models
     }
 
     [Export(typeof(IDbContext))]
-    [PartCreationPolicy(CreationPolicy.NonShared)]
+    [PartCreationPolicy(CreationPolicy.Shared)]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>,IDbContext
     {
         public IDbSet<Post> Posts { get; set; }
@@ -34,7 +34,7 @@ namespace MyBlog.Models
         public IDbSet<PostTag> PostTags { get; set; }
         public IDbSet<Tag> Tags { get; set; }
         
-
+        
         public ApplicationDbContext()
             : base("SiteDBConnection", throwIfV1Schema: false)
         {
@@ -54,6 +54,7 @@ namespace MyBlog.Models
             PostContents.Local.Where(x => x.Post == null).ToList().ForEach(x=>PostContents.Remove(x));
             return base.SaveChanges();
         }
+        
 
     }
 }

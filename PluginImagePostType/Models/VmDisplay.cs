@@ -7,7 +7,7 @@ namespace PluginImagePostType.Models
     public class VmDisplay: DataExchangeModelPostManage
     {
 
-        public int PostContentIdForNewRecords { get; set; }
+        public int tempPostContentId { get; set; }
         public string Comment { get; set; }
         [AllowHtml]
         public string Data { get; set; }

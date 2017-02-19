@@ -5,7 +5,7 @@
 @using System.Text.RegularExpressions;
 
 <div class="row col-md-10" id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag"
-                                                data-_temporary_PostContentId="@Model.PostContentIdForNewRecords">
+                                                data-_temporary_PostContentId="@Model.tempPostContentId">
     <div class="row">
         <div class="col-md-12">
             <p class="text-right">
@@ -85,7 +85,7 @@
             @Ajax.ActionLink("Edit", "Modify", new
        {
            PostContentId = Model.PostContentId,
-           PostContentIdForNewRecords = Model.PostContentIdForNewRecords,
+           PostContentIdForNewRecords = Model.tempPostContentId,
            PostId = Model.PostId,
            data_edit_diff_flag = Model.data_edit_diff_flag,
            List_content_insert_before_Id = Model.List_content_insert_before_Id,
@@ -102,7 +102,7 @@
             @Ajax.ActionLink("Delete", "DeleteContent", new
        {
            PostContentId = Model.PostContentId,
-           PostContentIdForNewRecords = Model.PostContentIdForNewRecords,
+           tempPostContentId = Model.tempPostContentId,
            PostId = Model.PostId
        },
             new AjaxOptions

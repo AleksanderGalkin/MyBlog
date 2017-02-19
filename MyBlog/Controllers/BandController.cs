@@ -43,17 +43,17 @@ namespace MyBlog.Controllers
 
             ViewBag.isAuthor = this.isAuthor();
 
-            _ds.Clear();
+            //_ds.Clear();
 
-            foreach (var post in model)
-            {
-                foreach(var content in post.PostContents)
-                {
-                    _ds.Add(content);
-                }
+            //foreach (var post in model)
+            //{
+            //    foreach(var content in post.PostContents)
+            //    {
+            //        _ds.Add(content);
+            //    }
                 
-            }
-            Session["data_store"] = _ds;
+            //}
+           // Session["data_store"] = _ds;
             return View("Index",  model);
 
         }

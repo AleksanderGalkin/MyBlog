@@ -14,7 +14,7 @@ namespace MyBlog.Infrustructure.Sevices
     {
         override public int PostId { get; set; }
         override public int PostContentId { get; set; }
-        override public int PostContentIdForNewRecords { get; set; }
+        override public int tempPostContentId { get; set; }
         override public int LikePlus { get; set; }
         override public int LikeMinus { get; set; }
         override public byte[] ContentData { get; set; }

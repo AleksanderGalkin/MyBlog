@@ -38,7 +38,8 @@ namespace PluginImagePostType.Controllers
 
         public ActionResult Display(IDEModelDisplay Model)
         {
-            IEnumerable<IDataStoreRecord> ds_records = _ds.GetPost(Model.PostId);
+            IEnumerable<IDataStoreRecord> ds_records = _ds.GetDbPost(Model.PostId)
+                                                         .Union(_ds.GetModPost(Model.PostId));
 
             if (ds_records == null || ds_records.Count() == 0)
             {

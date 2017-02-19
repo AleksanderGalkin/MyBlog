@@ -10,10 +10,10 @@ namespace MyBlogContract.Band
     [InheritedExport]
     public interface IDataStoreBand 
     {
-        IDataStoreRecord Get(int Id);
-        void Add(IDataStoreRecord Record);
-        IEnumerable<IDataStoreRecord> Get();
-        IEnumerable<IDataStoreRecord> GetPost(int PostId);
+        IDataStoreRecord GetContent(int Id, int tempPostContentId=0);
+        IEnumerable<IDataStoreRecord> GetAllContents();
+        IEnumerable<IDataStoreRecord> GetDbPost(int PostId);
+        IEnumerable<IDataStoreRecord> GetModPost(int PostId);
         void Clear();
     }
 

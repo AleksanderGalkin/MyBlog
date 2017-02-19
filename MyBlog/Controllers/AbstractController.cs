@@ -2,6 +2,7 @@
 using MyBlog.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,6 +29,7 @@ namespace MyBlog.Controllers
             if (filterContext.Exception == null)
             {
                 _unitOfWork.Commit();
+                
             }
         }
     }

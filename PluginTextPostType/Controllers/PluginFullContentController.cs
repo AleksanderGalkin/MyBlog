@@ -37,7 +37,7 @@ namespace PluginTextPostType.Controllers
         // GET: PluginFullContent
         public ActionResult Display(IDEModelFullContent Model)
         {
-            IDataStoreRecord result = _ds.Get(Model.PostContentId);
+            IDataStoreRecord result = _ds.GetContent(Model.PostContentId);
             VmDisplay vmodel = null;
             if (result == null)
             {

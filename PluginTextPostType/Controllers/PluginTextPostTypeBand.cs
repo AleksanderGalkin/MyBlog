@@ -45,7 +45,8 @@ namespace PluginTextPostType.Controllers
                 throw new NullReferenceException("Input parammeter reference must be not null");
             }
 
-            IEnumerable<IDataStoreRecord> ds_records = _ds.GetPost(Model.PostId);
+            IEnumerable<IDataStoreRecord> ds_records = _ds.GetDbPost(Model.PostId)
+                                                          .Union(_ds.GetModPost(Model.PostId));
             if (ds_records == null || ds_records.Count() == 0)
             {
                 // могут быть пустые посты

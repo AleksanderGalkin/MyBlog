@@ -12,7 +12,7 @@ namespace MyBlogContract
 
         abstract public int PostId { get; set; }
         abstract public int PostContentId { get; set; }
-        abstract public int PostContentIdForNewRecords { get; set; }
+        abstract public int tempPostContentId { get; set; }
         abstract public int LikePlus { get; set; }
         abstract public int LikeMinus { get; set; }
         abstract public byte[] ContentData { get; set; }

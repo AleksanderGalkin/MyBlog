@@ -65,11 +65,11 @@ namespace MyBlog.Controllers
             PostService PostService = new PostService(Model);
             PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
             _ds.Clear();
-            foreach (var item in retModel.PostContents)
-            {
-                _ds.Add(item);
-            }
-            Session["data_store"] = _ds;
+            //foreach (var item in retModel.PostContents)
+            //{
+            //    _ds.Add(item);
+            //}
+            //Session["data_store"] = _ds;
             ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
         }
@@ -77,11 +77,11 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult EditPost(PostVm Model)  //или добавить в PostService логигу обновления из PostVm
         {
-            IDataStorePostManage data_store = Session["data_store"] as IDataStorePostManage;
-            if (data_store == null)
-            {
-                throw new HttpException("Session not exist");
-            }
+            //IDataStorePostManage data_store = Session["data_store"] as IDataStorePostManage;
+            //if (data_store == null)
+            //{
+            //    throw new HttpException("Session not exist");
+            //}
             Post post = null;
             if (Model.PostId == 0)
             {
@@ -96,8 +96,9 @@ namespace MyBlog.Controllers
                 post.Tittle = Model.Tittle;
             }
 
-            
-            var content_of_post = data_store.Get().Where(c => c.PostId == Model.PostId);
+
+            //var content_of_post = _ds.GetAllContents().Where(c => c.PostId == Model.PostId);
+            var content_of_post = _ds.GetModPost(Model.PostId);
             foreach ( var i in content_of_post)
             {
                 PostContent post_content = new PostContent();
@@ -134,7 +135,8 @@ namespace MyBlog.Controllers
             {
                 _unitOfWork.db.Posts.Add(post);
             }
-
+            _ds.Clear();
+            
             return RedirectToAction("Index", "Band");
   
         }

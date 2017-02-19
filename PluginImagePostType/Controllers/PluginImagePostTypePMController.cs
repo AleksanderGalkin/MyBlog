@@ -39,7 +39,7 @@ namespace PluginImagePostType.Controllers
         public ViewResult Display(IDEModelPostManage Model)
         {
             
-            IDataStoreRecord _ds_record = _ds.Get(Model.PostContentId);
+            IDataStoreRecord _ds_record = _ds.GetContent(Model.PostContentId);
 
             if (_ds_record == null)
             {
@@ -109,9 +109,9 @@ namespace PluginImagePostType.Controllers
             foreach(var file in files)
             {
                 int new_temp_key;
-                if (_ds.Get().Count() > 0)
+                if (_ds.GetAllContents().Count() > 0)
                 {
-                    new_temp_key = _ds.Get().Max(m => m.PostContentIdForNewRecords);
+                    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
                     new_temp_key++;
                 }
                 else
@@ -129,8 +129,8 @@ namespace PluginImagePostType.Controllers
                 newRecord.ContentPluginName = AppSettings.PluginName;
                 newRecord.ContentPluginVersion = AppSettings.Version;
                 newRecord.PostId = Model.PostId;
-                newRecord.PostContentIdForNewRecords = new_temp_key;
-                _ds.Create(newRecord);
+                newRecord.tempPostContentId = new_temp_key;
+                //_ds.Create(newRecord);
             }
 
             return View();
@@ -144,7 +144,7 @@ namespace PluginImagePostType.Controllers
             {
                 output = new VmDisplay();
                 IDataStoreRecord _ds_record =
-                    _ds.Get(Model.PostContentId, Model.PostContentIdForNewRecords);
+                    _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
 
                 output = Mapper.Map<VmDisplay>(Model);
                 Mapper.Map<IDataStoreRecord, VmDisplay>(_ds_record, output);
@@ -162,25 +162,25 @@ namespace PluginImagePostType.Controllers
             bool isRecordNew = false;
             if (Model.PostContentId != 0)
             {
-                record = _ds.Get(Model.PostContentId);
+                record = _ds.GetContent(Model.PostContentId);
                 isRecordNew = false;
             }
             else
-            if (Model.PostContentId == 0 && Model.PostContentIdForNewRecords != 0)
+            if (Model.PostContentId == 0 && Model.tempPostContentId != 0)
             {
-                record = _ds.Get()
-                    .Where(r => r.PostContentIdForNewRecords == Model.PostContentIdForNewRecords)
+                record = _ds.GetAllContents()
+                    .Where(r => r.tempPostContentId == Model.tempPostContentId)
                     .SingleOrDefault();
                 isRecordNew = false;
             }
             else
-            if (Model.PostContentId == 0 && Model.PostContentIdForNewRecords == 0)
+            if (Model.PostContentId == 0 && Model.tempPostContentId == 0)
             {
 
                 int new_temp_key;
-                if (_ds.Get().Count() > 0)
+                if (_ds.GetAllContents().Count() > 0)
                 {
-                    new_temp_key = _ds.Get().Max(m => m.PostContentIdForNewRecords);
+                    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
                     new_temp_key++;
                 }
                 else
@@ -188,8 +188,8 @@ namespace PluginImagePostType.Controllers
                     new_temp_key = 1;
                 }
                 record = _ds.GetNew();
-                record.PostContentIdForNewRecords = new_temp_key;
-                Model.PostContentIdForNewRecords = new_temp_key;
+                record.tempPostContentId = new_temp_key;
+                Model.tempPostContentId = new_temp_key;
 
                 isRecordNew = true;
             }
@@ -203,7 +203,7 @@ namespace PluginImagePostType.Controllers
 
             if (isRecordNew)
             {
-                _ds.Create(record);
+                //_ds.Create(record);
             }
             else
             {

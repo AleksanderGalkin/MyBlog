@@ -20,8 +20,7 @@ namespace MyBlog
             Mapper.CreateMap<PostContent, IDataStoreRecord>();
 
             Mapper.CreateMap<IDataStoreRecord, PostContent>();
-                
-                
+
 
             Mapper.CreateMap<Post, PostVm>()
                 .ForMember(dst => dst.PostContents, x => x.Ignore());

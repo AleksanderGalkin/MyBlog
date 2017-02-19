@@ -24,7 +24,7 @@
 
     
                         @Html.HiddenFor(x => x.PostId)
-                        @Html.HiddenFor(x => x.PostContentIdForNewRecords)
+                        @Html.HiddenFor(x => x.tempPostContentId)
                         @Html.HiddenFor(x => x.PostContentId)
                         @Html.HiddenFor(x => x.data_edit_diff_flag)
                         @Html.HiddenFor(x => x.List_content_insert_before_Id)
@@ -84,7 +84,7 @@
     }
 
     var remove_original_content = function () {
-        $('[id=@Model.PostContentId][data-edit-diff-flag = @Model.data_edit_diff_flag][data-_temporary_PostContentId = @Model.PostContentIdForNewRecords]').remove();
+        $('[id=@Model.PostContentId][data-edit-diff-flag = @Model.data_edit_diff_flag][data-_temporary_PostContentId = @Model.tempPostContentId]').remove();
     }
 
     var remove_form = function () {

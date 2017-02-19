@@ -43,7 +43,7 @@ namespace MyBlog.Infrastructure.Services
             AggregateCatalog.Catalogs.Add(AssemblyCatalog);
             _container = new CompositionContainer(AggregateCatalog);
             plugin_list = _container.GetExportedValues<IPlugIn>();
-            _ds = new DataStore();
+           // _ds = new DataStore();
 
             
 
