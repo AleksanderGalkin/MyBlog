@@ -20,6 +20,7 @@ using System.Web.SessionState;
 using Microsoft.CSharp.RuntimeBinder;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using PluginTextPostType.Tests;
 
 namespace PluginTextPostType.Controllers.Tests
 {
@@ -35,65 +36,66 @@ namespace PluginTextPostType.Controllers.Tests
         [TestInitialize]
         public void Init()
         {
-            _ds = Substitute.For<IDataStorePostManage>();
+            DataStorePostManageFactory.SetDataStore();
+            _ds = DataStorePostManageFactory.CurrentDataStore;
             #region filling of _ds
-            IList<IDataStoreRecord> _ds_result
-                = new List<IDataStoreRecord>();
-            UnicodeEncoding encoding = new UnicodeEncoding();
-            IDataStoreRecord record1 = Substitute.For<IDataStoreRecord>();
-            record1.PostId = 1;
-            record1.PostContentId = 1;
-            record1.PostContentIdForNewRecords = 0;
-            record1.Status = IDataStoreRecordStatus.None;
-            record1.ContentPluginName = "AnyPlugin";
-            record1.ContentPluginVersion = "1.0";
-            record1.Comment = "AnyComment";
-            record1.ContentData = encoding.GetBytes("MyStringData");
-            record1.IsInGroup = true;
-            record1.Order = 1;
-            _ds_result.Add(record1);
+            //IList<IDataStoreRecord> _ds_result
+            //    = new List<IDataStoreRecord>();
+            //UnicodeEncoding encoding = new UnicodeEncoding();
+            //IDataStoreRecord record1 = Substitute.For<IDataStoreRecord>();
+            //record1.PostId = 1;
+            //record1.PostContentId = 1;
+            //record1.tempPostContentId = 0;
+            //record1.Status = IDataStoreRecordStatus.None;
+            //record1.ContentPluginName = "AnyPlugin";
+            //record1.ContentPluginVersion = "1.0";
+            //record1.Comment = "AnyComment";
+            //record1.ContentData = encoding.GetBytes("MyStringData");
+            //record1.IsInGroup = true;
+            //record1.Order = 1;
+            //_ds_result.Add(record1);
 
-            IDataStoreRecord record2 = Substitute.For<IDataStoreRecord>();
-            record2.PostId = 1;
-            record2.PostContentId = 2;
-            record2.PostContentIdForNewRecords = 0;
-            record2.Status = IDataStoreRecordStatus.None;
-            record2.ContentPluginName = "AnyPlugin";
-            record2.ContentPluginVersion = "1.0";
-            record2.Comment = "AnyComment2";
-            record2.ContentData = encoding.GetBytes("MyStringData2");
-            record2.IsInGroup = true;
-            record2.Order = 1;
-            _ds_result.Add(record2);
+            //IDataStoreRecord record2 = Substitute.For<IDataStoreRecord>();
+            //record2.PostId = 1;
+            //record2.PostContentId = 2;
+            //record2.tempPostContentId = 0;
+            //record2.Status = IDataStoreRecordStatus.None;
+            //record2.ContentPluginName = "AnyPlugin";
+            //record2.ContentPluginVersion = "1.0";
+            //record2.Comment = "AnyComment2";
+            //record2.ContentData = encoding.GetBytes("MyStringData2");
+            //record2.IsInGroup = true;
+            //record2.Order = 1;
+            //_ds_result.Add(record2);
 
-            IDataStoreRecord record3 = Substitute.For<IDataStoreRecord>();
-            record3.PostId = 2;
-            record3.PostContentId = 3;
-            record3.PostContentIdForNewRecords = 0;
-            record3.Status = IDataStoreRecordStatus.None;
-            record3.ContentPluginName = "AnyPlugin";
-            record3.ContentPluginVersion = "1.0";
-            record3.Comment = "AnyComment3";
-            record3.ContentData = encoding.GetBytes("MyStringData3");
-            record3.IsInGroup = false;
-            record3.Order = 1;
-            _ds_result.Add(record3);
+            //IDataStoreRecord record3 = Substitute.For<IDataStoreRecord>();
+            //record3.PostId = 2;
+            //record3.PostContentId = 3;
+            //record3.tempPostContentId = 0;
+            //record3.Status = IDataStoreRecordStatus.None;
+            //record3.ContentPluginName = "AnyPlugin";
+            //record3.ContentPluginVersion = "1.0";
+            //record3.Comment = "AnyComment3";
+            //record3.ContentData = encoding.GetBytes("MyStringData3");
+            //record3.IsInGroup = false;
+            //record3.Order = 1;
+            //_ds_result.Add(record3);
 
-            _ds.Get().Returns(_ds_result);
-            _ds.Get(Arg.Any<int>()).
-                Returns(x => _ds_result
-                        .Where(r => r.PostContentId == (int)x[0])
-                        .SingleOrDefault());
-            _ds.WhenForAnyArgs(x => x.Create(Arg.Any<IDataStoreRecord>()))
-                .Do(x => _ds_result.Add((IDataStoreRecord)x[0]));
+            //_ds.GetAllContents().Returns(_ds_result);
+            //_ds.GetContent(Arg.Any<int>()).
+            //    Returns(x => _ds_result
+            //            .Where(r => r.PostContentId == (int)x[0])
+            //            .SingleOrDefault());
+            ////_ds.WhenForAnyArgs(x => x.Create(Arg.Any<IDataStoreRecord>()))
+            ////    .Do(x => _ds_result.Add((IDataStoreRecord)x[0]));
 
-            _ds.GetNew().Returns(x => Substitute.For<IDataStoreRecord>());
+            //_ds.GetNew().Returns(x => Substitute.For<IDataStoreRecord>());
 
-            _ds.When(x => x.Delete(Arg.Any<int>(), Arg.Any<int>()))
-                .Do(x => _ds_result
-                            .Remove(_ds_result
-                                .Where(r=>r.PostContentId == (int)x[0])
-                                .SingleOrDefault()));
+            //_ds.When(x => x.Delete(Arg.Any<int>(), Arg.Any<int>()))
+            //    .Do(x => _ds_result
+            //                .Remove(_ds_result
+            //                    .Where(r=>r.PostContentId == (int)x[0])
+            //                    .SingleOrDefault()));
 
             #endregion
             controller = new PluginTextPostTypePMController(_ds);
@@ -295,40 +297,16 @@ namespace PluginTextPostType.Controllers.Tests
             input.OnSuccessRemoveCallback = "something";
             input.Data = "Data";
 
-            System.Web.HttpContext.Current = HttpContextFactory.HttpContextCurrent;
+            
             var result = controller.ModifyPost(input) as ViewResult;
-            var session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
-            Assert.IsNotNull(session);
+            var session_records = _ds.GetAllContents().Count();
+            Assert.IsTrue(session_records>0);
 
 
         }
 
         [TestMethod()]
-        public void tModifyPost_record_is_modified()
-        {
-            VmDisplay input = new VmDisplay();
-            input.PostContentId = 1;
-            input.AreaName = "PluginTextPostType";
-            input.CallbackActionName = "something";
-            input.CallbackControllerName = "something";
-            input.List_content_insert_before_Id = "something";
-            input.Update_area_replace_Id = "something";
-            input.OnSuccessRemoveCallback = "something";
-            input.Data = "Data";
-
-            System.Web.HttpContext.Current = HttpContextFactory.HttpContextCurrent;
-            var result = controller.ModifyPost(input) as ViewResult;
-            var session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
-
-            UnicodeEncoding encoding = new UnicodeEncoding();
-            Assert.AreEqual(input.Data
-                , encoding.GetString(session.Get(input.PostContentId).ContentData));
-
-        }
-
-
-        [TestMethod()]
-        public void tModifyPost_record_is_created()
+        public void tModifyPost_is_Called()
         {
             VmDisplay input = new VmDisplay();
             input.PostId = 1;
@@ -341,77 +319,34 @@ namespace PluginTextPostType.Controllers.Tests
             input.OnSuccessRemoveCallback = "something";
             input.Data = "Data";
 
-            System.Web.HttpContext.Current = HttpContextFactory.HttpContextCurrent;
+ 
             var result = controller.ModifyPost(input) as ViewResult;
-            var session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
 
-            UnicodeEncoding encoding = new UnicodeEncoding();
-            Assert.AreEqual(4, session.Get().Count());
-            var data = _ds.Get().Where(x => x.PostContentIdForNewRecords != 0).SingleOrDefault().ContentData;
-            Assert.AreEqual("Data", encoding.GetString(data));
+            _ds.Received().Modify(Arg.Any<IDataStoreRecord>());
+            _ds.Received().Modify(Arg.Is<IDataStoreRecord>(x => x.PostContentId == 0));
+            _ds.Received().Modify(Arg.Is<IDataStoreRecord>(x => x.ContentData != null));
+            _ds.Received().Modify(Arg.Is<IDataStoreRecord>(x => x.ContentPluginName != null));
+            _ds.Received().Modify(Arg.Is<IDataStoreRecord>(x => x.ContentPluginVersion != null));
 
-            input = result.Model as VmDisplay;
-            input.Data = "Data2";
-            result = controller.ModifyPost(input) as ViewResult;
-            session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
+            Assert.AreEqual(true, input.data_edit_diff_flag);
+
+            Assert.AreEqual("Display", result.ViewName);
 
 
-            Assert.AreEqual(4, session.Get().Count());
-            data = _ds.Get().Where(x => x.PostContentIdForNewRecords != 0).SingleOrDefault().ContentData;
-            Assert.AreEqual("Data2", encoding.GetString(data));
-
-        }
+          }
 
         [TestMethod()]
         public void tDeleteContent_by_PostContentId()
         {
-            System.Web.HttpContext.Current = HttpContextFactory.HttpContextCurrent;
-            controller.ControllerContext
-                = new ControllerContext(new HttpContextWrapper(HttpContextFactory.HttpContextCurrent)
-                                        , new RouteData(), controller);
+            ControllerContextFactory.SetContext();
+            controller.ControllerContext = ControllerContextFactory.CurrentContext;
             controller.DeleteContent(2, 0);
 
-            dynamic ds = JsonConvert
-                .DeserializeObject(controller
-                                    .ControllerContext
-                                    .HttpContext
-                                    .Response
-                                    .Output
-                                    .ToString());
-            Assert.AreEqual(2, (int) ds.PostContentId);
-            var session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
-            Assert.AreEqual(2, session.Get().Count());
+            _ds.Received().Delete(Arg.Any<int>(), Arg.Any<int>());
+            _ds.Received().Delete(Arg.Is<int>(x=>x==2), Arg.Is<int>(y=>y==0));
         }
 
-        [TestMethod()]
-        public void tDeleteContent_by_PostContentIdFornewRecords()
-        {
-            //-------- Step 1 -----------
-            tModifyPost_record_is_created();
-            var session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
-            Assert.AreEqual(4, session.Get().Count());
-
-            //-------- Step 2 -----------
-            System.Web.HttpContext.Current = HttpContextFactory.HttpContextCurrent;
-            controller.ControllerContext
-                = new ControllerContext(new HttpContextWrapper(HttpContextFactory.HttpContextCurrent)
-                                        , new RouteData(), controller);
-            controller.DeleteContent(0,1);
-
-            session = System.Web.HttpContext.Current.Session["data_store"] as IDataStorePostManage;
-
-            dynamic ds = JsonConvert
-                .DeserializeObject(controller
-                                    .ControllerContext
-                                    .HttpContext
-                                    .Response
-                                    .Output
-                                    .ToString());
-
-            Assert.AreEqual(1, (int)ds.PostContentIdForNewRecords);
-            
-            Assert.AreEqual(3, session.Get().Count());
-        }
+      
         #endregion
 
         [TestMethod()]
@@ -431,16 +366,17 @@ namespace PluginTextPostType.Controllers.Tests
             CompositionContainer _container = new CompositionContainer(AggregateCatalog);
 
             var e1 = _container.GetExports<IController, IMetadata>("PluginTextPostType");
+            var e2 = e1.Where(e => e.Metadata.ControllerName.Equals("PluginTextPostTypePM"));
 
-            if (e1 != null)
+            if (e2 != null)
             {
-                string Name = e1.Select(m => m.Metadata.Name).SingleOrDefault();
-                string Version = e1.Select(m => m.Metadata.Version).SingleOrDefault();
-                string ControllerName = e1.Select(m => m.Metadata.ControllerName).SingleOrDefault();
-                Type ControllerType = e1.Select(m => m.Metadata.ControllerType).SingleOrDefault();
-                string ActionDisplayName = e1.Select(m => m.Metadata.ActionDisplayName).SingleOrDefault();
-                string ActionModifyName = e1.Select(m => m.Metadata.ActionModifyName).SingleOrDefault();
-                string ActionCreateName = e1.Select(m => m.Metadata.ActionCreateName).SingleOrDefault();
+                string Name = e2.Select(m => m.Metadata.Name).SingleOrDefault();
+                string Version = e2.Select(m => m.Metadata.Version).SingleOrDefault();
+                string ControllerName = e2.Select(m => m.Metadata.ControllerName).SingleOrDefault();
+                Type ControllerType = e2.Select(m => m.Metadata.ControllerType).SingleOrDefault();
+                string ActionDisplayName = e2.Select(m => m.Metadata.ActionDisplayName).SingleOrDefault();
+                string ActionModifyName = e2.Select(m => m.Metadata.ActionModifyName).SingleOrDefault();
+                string ActionCreateName = e2.Select(m => m.Metadata.ActionCreateName).SingleOrDefault();
                 int prop_count = typeof(IMetadata).GetProperties().Count();
 
                 Assert.AreEqual("PluginTextPostType", Name);
@@ -453,12 +389,9 @@ namespace PluginTextPostType.Controllers.Tests
                 Assert.AreEqual(7, prop_count);
             }
 
-            Assert.IsNotNull(e1);
-            Assert.AreEqual(1,e1.Count());
-
-
-
-
+            Assert.IsNotNull(e2);
+            Assert.AreEqual(1,e2.Count());
+            
         }
     }
 }

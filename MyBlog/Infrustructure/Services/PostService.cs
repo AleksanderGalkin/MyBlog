@@ -47,7 +47,8 @@ namespace MyBlog.Infrustructure.Services
 
             foreach (var i in _post.PostContents)
             {
-                IDataStoreRecord newItem = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
+                // IDataStoreRecord newItem = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
+                IDataStoreRecord newItem = new DataStoreRecord();
                 newItem = Mapper.Map<PostContent, IDataStoreRecord>(i,newItem);
                 result.PostContents.Add(newItem);
             }

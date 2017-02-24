@@ -30,10 +30,17 @@ namespace MyBlog.Infrastructure.Services
 
         static PlugInFactory()
         {
-            plugins_folder_root_di = new DirectoryInfo(HostingEnvironment.MapPath("~/" + AppSettings.PluginDirectory));
+            SetPluginsFolder();
            // types_of_controllers = new Dictionary<IMetadata, Type>();
         }
-
+        static public void SetPluginsFolder(string Folder)
+        {
+            plugins_folder_root_di = new DirectoryInfo(Folder);
+        }
+        static public void SetPluginsFolder()
+        {
+            plugins_folder_root_di = new DirectoryInfo(HostingEnvironment.MapPath("~/" + AppSettings.PluginDirectory));
+        }
         public static void InitFactory()
         {
 

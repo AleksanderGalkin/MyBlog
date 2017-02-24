@@ -25,6 +25,7 @@ namespace PluginTextPostType.Controllers
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class PluginTextPostTypeBandController :Controller, IBandDisplay
     {
+       
         private IDataStoreBand _ds;
 
 

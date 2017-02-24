@@ -69,9 +69,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllerContextFactory.cs" />
     <Compile Include="Controllers\PluginFullContentControllerTests.cs" />
     <Compile Include="Controllers\PluginTextPostTypeBandControllerTests.cs" />
     <Compile Include="Controllers\PluginTextPostTypePMControllerTests.cs" />
+    <Compile Include="DataStorePostManageFactory.cs" />
     <Compile Include="HttpContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

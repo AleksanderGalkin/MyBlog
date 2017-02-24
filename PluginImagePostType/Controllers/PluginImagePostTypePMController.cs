@@ -108,16 +108,16 @@ namespace PluginImagePostType.Controllers
 
             foreach(var file in files)
             {
-                int new_temp_key;
-                if (_ds.GetAllContents().Count() > 0)
-                {
-                    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
-                    new_temp_key++;
-                }
-                else
-                {
-                    new_temp_key = 1;
-                }
+                //int new_temp_key;
+                //if (_ds.GetAllContents().Count() > 0)
+                //{
+                //    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
+                //    new_temp_key++;
+                //}
+                //else
+                //{
+                //    new_temp_key = 1;
+                //}
                 IDataStoreRecord newRecord = _ds.GetNew();
                 file.InputStream.Position = 0;
                 MemoryStream ms = new MemoryStream();
@@ -129,8 +129,8 @@ namespace PluginImagePostType.Controllers
                 newRecord.ContentPluginName = AppSettings.PluginName;
                 newRecord.ContentPluginVersion = AppSettings.Version;
                 newRecord.PostId = Model.PostId;
-                newRecord.tempPostContentId = new_temp_key;
-                //_ds.Create(newRecord);
+
+                _ds.Modify(newRecord);
             }
 
             return View();
@@ -177,20 +177,7 @@ namespace PluginImagePostType.Controllers
             if (Model.PostContentId == 0 && Model.tempPostContentId == 0)
             {
 
-                int new_temp_key;
-                if (_ds.GetAllContents().Count() > 0)
-                {
-                    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
-                    new_temp_key++;
-                }
-                else
-                {
-                    new_temp_key = 1;
-                }
                 record = _ds.GetNew();
-                record.tempPostContentId = new_temp_key;
-                Model.tempPostContentId = new_temp_key;
-
                 isRecordNew = true;
             }
             record.PostId = Model.PostId;
@@ -203,7 +190,7 @@ namespace PluginImagePostType.Controllers
 
             if (isRecordNew)
             {
-                //_ds.Create(record);
+                _ds.Modify(record);
             }
             else
             {
@@ -211,7 +198,7 @@ namespace PluginImagePostType.Controllers
             }
             Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
 
-            System.Web.HttpContext.Current.Session["data_store"] = _ds;
+
             return View("Display", Model);
         }
 

@@ -33,7 +33,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDataStoreRecord record1 = Substitute.For<IDataStoreRecord>();
             record1.PostId = 1;
             record1.PostContentId = 1;
-            record1.PostContentIdForNewRecords = 0;
+            record1.tempPostContentId = 0;
             record1.Status = IDataStoreRecordStatus.None;
             record1.ContentPluginName = "AnyPlugin";
             record1.ContentPluginVersion = "1.0";
@@ -46,7 +46,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDataStoreRecord record2 = Substitute.For<IDataStoreRecord>();
             record2.PostId = 1;
             record2.PostContentId = 2;
-            record2.PostContentIdForNewRecords = 0;
+            record2.tempPostContentId = 0;
             record2.Status = IDataStoreRecordStatus.None;
             record2.ContentPluginName = "AnyPlugin";
             record2.ContentPluginVersion = "1.0";
@@ -59,7 +59,7 @@ namespace PluginImagePostType.Controllers.Tests
             IDataStoreRecord record3 = Substitute.For<IDataStoreRecord>();
             record3.PostId = 2;
             record3.PostContentId = 3;
-            record3.PostContentIdForNewRecords = 0;
+            record3.tempPostContentId = 0;
             record3.Status = IDataStoreRecordStatus.None;
             record3.ContentPluginName = "AnyPlugin";
             record3.ContentPluginVersion = "1.0";
@@ -69,12 +69,12 @@ namespace PluginImagePostType.Controllers.Tests
             record3.Order = 1;
             _ds_result.Add(record3);
 
-            _ds.Get().Returns(_ds_result);
-            _ds.Get(Arg.Any<int>()).
+            _ds.GetAllContents().Returns(_ds_result);
+            _ds.GetContent(Arg.Any<int>()).
                 Returns(x => _ds_result
                         .Where(r => r.PostContentId == (int)x[0])
                         .SingleOrDefault());
-            _ds.GetPost(Arg.Any<int>()).
+            _ds.GetModPost(Arg.Any<int>()).
             Returns(x => _ds_result
             .Where(r => r.PostId == (int)x[0]));
             #endregion

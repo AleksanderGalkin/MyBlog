@@ -23,13 +23,15 @@ namespace PluginTextPostType.Controllers
          ExportMetadata("ActionDisplayName", "Display"),
          ExportMetadata("ActionModifyName", "Modify"),
         ExportMetadata("ActionCreateName", "Create")]
-    
+
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class PluginTextPostTypePMController : Controller, IPostManager
 
     {
+ 
         private IDataStorePostManage _ds;
-        
+
+          
         [ImportingConstructor]
         public PluginTextPostTypePMController(IDataStorePostManage DataStore)
         {

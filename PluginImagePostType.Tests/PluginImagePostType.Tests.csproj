@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Controllers\PluginImagePostTypeBandControllerTests.cs" />
     <Compile Include="Controllers\PluginImagePostTypePMControllerTests.cs" />
+    <Compile Include="DataStorePostManageFactory.cs" />
     <Compile Include="HttpContextFactory.cs" />
     <Compile Include="ImageFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

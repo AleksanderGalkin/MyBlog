@@ -64,12 +64,8 @@ namespace MyBlog.Controllers
                           .SingleOrDefault();
             PostService PostService = new PostService(Model);
             PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
-            _ds.Clear();
-            //foreach (var item in retModel.PostContents)
-            //{
-            //    _ds.Add(item);
-            //}
-            //Session["data_store"] = _ds;
+            //_ds.Clear();
+
             ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
         }
@@ -77,11 +73,6 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult EditPost(PostVm Model)  //или добавить в PostService логигу обновления из PostVm
         {
-            //IDataStorePostManage data_store = Session["data_store"] as IDataStorePostManage;
-            //if (data_store == null)
-            //{
-            //    throw new HttpException("Session not exist");
-            //}
             Post post = null;
             if (Model.PostId == 0)
             {
@@ -174,10 +165,10 @@ namespace MyBlog.Controllers
 
         public ActionResult CancelPostEdition()
         {
-            IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
-            if (Contents != null)
+            
+            if (_ds.GetAllContents().Count() != 0)
             {
-                Session["PostContents"] = null;
+                _ds.Clear();
             }
             return RedirectToAction("Index", "Band");
         }
