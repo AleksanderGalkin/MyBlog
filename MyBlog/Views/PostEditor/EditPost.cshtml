@@ -101,6 +101,26 @@
                                             OnSuccess = "loadScriptAndInit"
                                         })
                         </li>
+                        <li>
+                            @Ajax.ActionLink("Изображение", "Create", "PluginImagePostTypePM",
+                                        new
+                                        {
+                                            area = "PluginImagePostType",
+                                            PostId = Model.PostId,
+                                            List_content_insert_before_Id = "list_content_insert_before",
+                                            Update_area_replace_Id = "Update_area_replace_Id",
+                                            CallbackActionName = "EditPost",
+                                            CallbackControllerName = "PostEditor",
+                                            AreaName = "PluginImagePostType",
+                                            OnSuccessRemoveCallback = "removeContentId"
+                                        },
+                                        new AjaxOptions
+                                        {
+                                            HttpMethod = "Get",
+                                            UpdateTargetId = "Update_area_replace_Id",
+                                            OnSuccess = "loadScriptAndInit"
+                                        })
+                        </li>
                     </ul>
                 </div>
 

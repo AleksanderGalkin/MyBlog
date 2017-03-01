@@ -28,6 +28,8 @@ namespace PluginImagePostType.Controllers
     public class PluginImagePostTypePMController : Controller
     {
         private IDataStorePostManage _ds;
+
+        [ImportingConstructor]
         public PluginImagePostTypePMController(IDataStorePostManage DataStore)
         {
             if (DataStore == null)
