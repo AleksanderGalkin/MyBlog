@@ -131,6 +131,7 @@
     <Compile Include="Controllers\PluginFullContentController.cs" />
     <Compile Include="Controllers\PluginTextPostTypeBand.cs" />
     <Compile Include="Controllers\PluginTextPostTypePM.cs" />
+    <Compile Include="DataExchangeModels\DataExchangeGroupModelDisplay.cs" />
     <Compile Include="DataExchangeModels\DataExchangeModelFullContent.cs" />
     <Compile Include="DataExchangeModels\DataExchangeModelDisplay.cs" />
     <Compile Include="DataExchangeModels\DataExchangeModelPostManage.cs" />

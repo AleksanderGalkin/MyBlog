@@ -266,6 +266,7 @@
       <DependentUpon>201606040322386_5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\GroupVmDisplay.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\PostModels.cs" />
@@ -741,9 +742,10 @@
     <Content Include="Views\PostEditor\EditorTemplates\ContentImageVm.cshtml" />
     <Content Include="Views\PostEditor\EditorTemplates\!!!DELContentTextVm.cshtml" />
     <Content Include="Views\Band\Index.cshtml" />
-    <Content Include="Views\Band\DisplayTemplates\PostVm.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\PostGroupVm.cshtml" />
     <Content Include="Views\Shared\NotFounPlugin.cshtml" />
     <Content Include="Views\Shared\Disqus.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\PostVm - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

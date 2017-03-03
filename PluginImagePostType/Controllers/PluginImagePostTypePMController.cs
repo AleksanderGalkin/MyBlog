@@ -10,6 +10,7 @@ using System.ComponentModel.Composition;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -67,7 +68,7 @@ namespace PluginImagePostType.Controllers
             return View(output);
         }
 
-        public ViewResult Create( IDEModelPostManage Model)
+        public ViewResult Create(IDEModelPostManage Model)
         {
             if (Model.AreaName != AppSettings.PluginName)
                 throw new InvalidOperationException("This plagin is not for this area.");
@@ -83,60 +84,100 @@ namespace PluginImagePostType.Controllers
                 || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
                 )
                 throw new InvalidOperationException("One or more route values are empty");
-            return View();
+            VmDisplay VModel = Mapper.Map<IDEModelPostManage, VmDisplay>(Model);
+            return View("Edit", VModel);
         }
 
-        [HttpPost]
-        public ViewResult LoadFiles(HttpPostedFileBase[] files, IDEModelPostManage Model)
+        //[HttpPost]
+        //public ViewResult LoadFiles(HttpPostedFileBase[] files, IDEModelPostManage Model)
+        //{
+        //    if (Model.AreaName != AppSettings.PluginName)
+        //        throw new InvalidOperationException("This plagin is not for this area.");
+        //    if (Model.PostContentId != 0)
+        //    {
+        //        throw new InvalidOperationException("PostContentId not 0");
+        //    }
+        //    if (
+        //        string.IsNullOrWhiteSpace(Model.CallbackActionName)
+        //        || string.IsNullOrWhiteSpace(Model.CallbackControllerName)
+        //        || string.IsNullOrWhiteSpace(Model.List_content_insert_before_Id)
+        //        || string.IsNullOrWhiteSpace(Model.Update_area_replace_Id)
+        //        || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
+        //        )
+        //        throw new InvalidOperationException("One or more route values are empty");
+        //    if (files ==null || files.Count() == 0)
+        //    {
+        //        throw new InvalidOperationException("Files number should be  not 0");
+        //    }
+
+        //    foreach(var file in files)
+        //    {
+
+        //        IDataStoreRecord newRecord = _ds.GetNew();
+        //        file.InputStream.Position = 0;
+        //        MemoryStream ms = new MemoryStream();
+        //        file.InputStream.CopyTo(ms);
+        //        newRecord.ContentData = ms.ToArray();
+
+
+
+        //        newRecord.ContentPluginName = AppSettings.PluginName;
+        //        newRecord.ContentPluginVersion = AppSettings.Version;
+        //        newRecord.PostId = Model.PostId;
+
+        //        _ds.Modify(newRecord);
+        //    }
+
+        //    return View();
+        //}
+
+        [HttpPost] //LoadFile
+            public void LoadFile(List<HttpPostedFileBase> files, string comment) 
         {
-            if (Model.AreaName != AppSettings.PluginName)
-                throw new InvalidOperationException("This plagin is not for this area.");
-            if (Model.PostContentId != 0)
+                
+            string arViewResults = "";
+          
+            foreach (var file in files)
             {
-                throw new InvalidOperationException("PostContentId not 0");
-            }
-            if (
-                string.IsNullOrWhiteSpace(Model.CallbackActionName)
-                || string.IsNullOrWhiteSpace(Model.CallbackControllerName)
-                || string.IsNullOrWhiteSpace(Model.List_content_insert_before_Id)
-                || string.IsNullOrWhiteSpace(Model.Update_area_replace_Id)
-                || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
-                )
-                throw new InvalidOperationException("One or more route values are empty");
-            if (files ==null || files.Count() == 0)
-            {
-                throw new InvalidOperationException("Files number should be  not 0");
-            }
-
-            foreach(var file in files)
-            {
-                //int new_temp_key;
-                //if (_ds.GetAllContents().Count() > 0)
-                //{
-                //    new_temp_key = _ds.GetAllContents().Max(m => m.tempPostContentId);
-                //    new_temp_key++;
-                //}
-                //else
-                //{
-                //    new_temp_key = 1;
-                //}
+                VmDisplay vModel = new VmDisplay();
+                vModel.Comment = comment;
+                
                 IDataStoreRecord newRecord = _ds.GetNew();
-                file.InputStream.Position = 0;
-                MemoryStream ms = new MemoryStream();
-                file.InputStream.CopyTo(ms);
-                newRecord.ContentData = ms.ToArray();
-
-
-
+                
+                newRecord = Mapper.Map<VmDisplay, IDataStoreRecord>(vModel, newRecord);
                 newRecord.ContentPluginName = AppSettings.PluginName;
                 newRecord.ContentPluginVersion = AppSettings.Version;
-                newRecord.PostId = Model.PostId;
-
+                MemoryStream s = new MemoryStream();
+                file.InputStream.Position = 0;
+                file.InputStream.CopyTo(s);
+                newRecord.ContentData = s.ToArray();
                 _ds.Modify(newRecord);
+
+                switch (file.ContentType)
+                {
+                    case "image/jpeg":
+                        
+                        vModel.Comment = comment;
+                        
+                        file.InputStream.Position = 0;
+                        file.InputStream.CopyTo(s);
+                        string imageBase64 = Convert.ToBase64String(s.ToArray());
+                        vModel.Data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+                
+                        break;
+                    case "video":
+                        break;
+                    default:
+                        throw new NotImplementedException("Неизвестный тип файла");
+                }
+                arViewResults = arViewResults + this.RenderPartialViewToString("Display", vModel); // View("AttachedContent", newContent);
             }
 
-            return View();
-        }
+
+                string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
+                HttpContext.Response.Write(arViewResults);
+            }
+
 
 
         public ViewResult Modify(VmDisplay Model)
@@ -219,5 +260,45 @@ namespace PluginImagePostType.Controllers
             }, Formatting.Indented);
             HttpContext.Response.Write(json_object);
         }
+
+
+    
+
     }
+
+    public static class ControllerExtensions
+    {
+        /// <summary>
+        /// Renders the specified partial view to a string.
+        /// </summary>
+        /// <param name="controller">The current controller instance.</param>
+        /// <param name="viewName">The name of the partial view.</param>
+        /// <param name="model">The model.</param>
+        /// <returns>The partial view as a string.</returns>
+        public static string RenderPartialViewToString(this Controller controller, string viewName, object model)
+        {
+            if (string.IsNullOrEmpty(viewName))
+            {
+                viewName = controller.ControllerContext.RouteData.GetRequiredString("action");
+            }
+
+            controller.ViewData.Model = model;
+
+            using (var sw = new StringWriter())
+            {
+                // Find the partial view by its name and the current controller context.
+                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
+
+                // Create a view context.
+                var viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
+
+                // Render the view using the StringWriter object.
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+    }
+
 }
+

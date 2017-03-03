@@ -34,11 +34,11 @@ namespace MyBlog.Controllers
         public ActionResult Index()
         {
 
-            IList<PostVm> model = (from a in _unitOfWork.db.Posts
+            IList<PostGroupVm> model = (from a in _unitOfWork.db.Posts
                                        select a)
                             .ToList()
                             .Select(p => new PostService(p))   //// Переделать на AutoMapper ??
-                            .Select(r => r.GetPostVm())
+                            .Select(r => r.GetPostGroupVm())
                             .ToList();
 
             ViewBag.isAuthor = this.isAuthor();

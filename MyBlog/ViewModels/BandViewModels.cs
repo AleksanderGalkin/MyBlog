@@ -1,4 +1,5 @@
-﻿using MyBlogContract;
+﻿using MyBlog.Models;
+using MyBlogContract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -38,6 +39,12 @@ namespace MyBlog.ViewModels
         [Display(Description = "Просмотры", Name = "Просмотры")]
         public int PostViewCount { get; set; }
 
+
+    }
+
+    public class PostGroupVm : PostVm
+    {
+        public IList<GroupVmDisplay> GroupPostContents { get; set; }
 
     }
 

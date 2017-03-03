@@ -28,7 +28,9 @@ namespace PluginImagePostType.DataExchangeModels
         {
             RouteValueDictionary result = new RouteValueDictionary();
             result.Add("PostId", this.PostId.ToString());
+            result.Add("PostContentId", this.PostContentId.ToString());
             result.Add("area", this.AreaName);
+            result.Add("AreaName", this.AreaName);
 
             result.Add("CallbackControllerName", this.CallbackControllerName);
             result.Add("CallbackActionName", this.CallbackActionName);

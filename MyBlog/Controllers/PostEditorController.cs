@@ -56,16 +56,22 @@ namespace MyBlog.Controllers
         
 
 
-        public ActionResult EditPost(int PostId)
+        public ActionResult EditPost(int PostId = 0)
         {
-            Post Model = (from a in _unitOfWork.db.Posts
-                          where a.PostId == PostId
-                          select a)
-                          .SingleOrDefault();
+            Post Model = new Post();
+            if (PostId != 0) // новый пост
+            {
+                Model = (from a in _unitOfWork.db.Posts
+                         where a.PostId == PostId
+                         select a)
+                        .SingleOrDefault();
+            }
+            
+                
             PostService PostService = new PostService(Model);
             PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
             //_ds.Clear();
-
+            
             ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
         }

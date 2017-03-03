@@ -9,8 +9,9 @@
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Текст", "CreatePost", "PostEditor", new { PostPluginName  = "PluginTextPostType" },null)</li>
-                <li>@Html.ActionLink("Фото", "CreatePost", "PostEditor", new { PostPluginName = "PluginImagePostType" },null)</li>
+                @*<li>@Html.ActionLink("Текст", "CreatePost", "PostEditor", new { PostPluginName  = "PluginTextPostType" },null)</li>
+                <li>@Html.ActionLink("Фото", "CreatePost", "PostEditor", new { PostPluginName = "PluginImagePostType" },null)</li>*@
+                <li>@Html.ActionLink("Пост", "EditPost", "PostEditor", null, null)</li>
             </ul>
         </div>
     </div>

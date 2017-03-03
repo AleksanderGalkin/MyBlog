@@ -27,8 +27,9 @@ namespace MyBlog
             Mapper.CreateMap<PostVm, Post>()
                 .ForMember(dst => dst.PostContents, x => x.Ignore());
 
-
-
+            Mapper.CreateMap<PostVm, PostGroupVm>()
+                .ReverseMap();
+            
         }
     }
 }

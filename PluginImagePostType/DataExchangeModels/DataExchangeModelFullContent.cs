@@ -23,6 +23,7 @@ namespace PluginImagePostType.DataExchangeModels
             RouteValueDictionary result = new RouteValueDictionary();
             result.Add("PostId", this.PostId.ToString());
             result.Add("PostContentId", this.PostContentId.ToString());
+            result.Add("AreaName", this.AreaName);
             result.Add("area", this.AreaName);
 
             return result;

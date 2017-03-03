@@ -7,14 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Routing;
 
-namespace PluginImagePostType.DataExchangeModels
+namespace PluginTextPostType.DataExchangeModels
 {
-    [Export("PluginImagePostType", typeof(IDEModelDisplay))]
+    [Export("PluginTextPostType", typeof(IDeGroupModelDisplay))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class DataExchangeModelDisplay : IDEModelDisplay
+    public class DataExchangeGroupModelDisplay : IDeGroupModelDisplay
     {
         public override int PostId { get; set; }
-        public override int PostContentId { get; set; }
+        public override int Order { get; set; }
         public override string AreaName { get; set; }
 
 
@@ -22,9 +22,9 @@ namespace PluginImagePostType.DataExchangeModels
         {
             RouteValueDictionary result = new RouteValueDictionary();
             result.Add("PostId", this.PostId.ToString());
-            result.Add("PostContentId", this.PostContentId.ToString());
-            result.Add("AreaName", this.AreaName);
+            result.Add("Order", this.Order.ToString());
             result.Add("area", this.AreaName);
+            result.Add("AreaName", this.AreaName);
 
             return result;
         }

@@ -55,6 +55,43 @@ namespace MyBlog.Infrustructure.Services
 
             return result;
         }
+
+        public PostGroupVm GetPostGroupVm()
+        {
+            PostVm PostVm = new PostVm();
+            PostVm = Mapper.Map<Post, PostVm>(_post);
+            PostVm.PostContents = new List<IDataStoreRecord>();
+
+            foreach (var i in _post.PostContents)
+            {
+                // IDataStoreRecord newItem = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
+                IDataStoreRecord newItem = new DataStoreRecord();
+                newItem = Mapper.Map<PostContent, IDataStoreRecord>(i, newItem);
+                PostVm.PostContents.Add(newItem);
+            }
+
+
+            var group = from r in PostVm.PostContents
+                        group r by new { PostId = r.PostId, Order = r.Order, IsInGroup = r.IsInGroup, PostPluginName = r.ContentPluginName }
+                        into g
+                        select g;
+
+            IList<GroupVmDisplay> result_group = group.Select(x => new GroupVmDisplay
+            {
+                PostId = x.Key.PostId,
+                Order = x.Key.Order,
+                IsInGroup = x.Key.IsInGroup,
+                GroupPluginName = x.Key.PostPluginName,
+                Contexts = x.ToList()
+            })
+            .OrderBy(o => o.Order)
+            .ToList();
+            //PostGroupVm PostGroupVm = new PostGroupVm();
+            PostGroupVm PostGroupVm =  Mapper.Map<PostVm,PostGroupVm>(PostVm);
+            PostGroupVm.GroupPostContents = new List<GroupVmDisplay>(result_group);
+
+            return PostGroupVm;
+        }
     }
 
 
