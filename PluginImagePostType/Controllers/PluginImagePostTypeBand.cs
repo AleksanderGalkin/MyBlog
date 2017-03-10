@@ -36,10 +36,11 @@ namespace PluginImagePostType.Controllers
             _ds = DataStore;
         }
 
-        public ActionResult Display(IDEModelDisplay Model)
+        public ActionResult Display(IDeGroupModelDisplay Model)
         {
-            IEnumerable<IDataStoreRecord> ds_records = _ds.GetDbPost(Model.PostId)
-                                                         .Union(_ds.GetModPost(Model.PostId));
+            //IEnumerable<IDataStoreRecord> ds_records = _ds.GetDbPost(Model.PostId)
+            //                                             .Union(_ds.GetModPost(Model.PostId));
+            IEnumerable<IDataStoreRecord> ds_records = _ds.GetGroupContent(Model.PostId,Model.Order);
 
             if (ds_records == null || ds_records.Count() == 0)
             {
@@ -64,14 +65,14 @@ namespace PluginImagePostType.Controllers
             }
 
             var group = from r in vmodel
-                         group r by new  { Order = r.Order, IsInGroup = r.IsInGroup }
+                         group r by new  { Order = r.Order }
                          into g
                          select g;
 
             IEnumerable<GroupVmDisplay> result = group.Select(x => new GroupVmDisplay
                                             {
                                                 Order = x.Key.Order,
-                                                IsInGroup = x.Key.IsInGroup,
+                                        
                                                 VmDisplays = x.ToList()
                                             })
                                             .OrderBy(o=>o.Order);

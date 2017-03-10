@@ -76,6 +76,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllerContextFactory.cs" />
     <Compile Include="Controllers\PluginImagePostTypeBandControllerTests.cs" />
     <Compile Include="Controllers\PluginImagePostTypePMControllerTests.cs" />
     <Compile Include="DataStorePostManageFactory.cs" />

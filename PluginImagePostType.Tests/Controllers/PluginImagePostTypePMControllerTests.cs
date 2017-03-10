@@ -26,7 +26,7 @@ namespace PluginImagePostType.Controllers.Tests
         [Export] //It needs for MEF metadata loading.
         public IDataStorePostManage _ds;
         PluginImagePostTypePMController controller;
-        HttpPostedFileBase[] files;
+        List<HttpPostedFileBase> files;
 
 
 
@@ -44,7 +44,7 @@ namespace PluginImagePostType.Controllers.Tests
             hpfb.InputStream.Returns(ms2);
             hpfb.ContentLength.Returns((int)ms2.Length);
             hpfb.ContentType.Returns("image/bmp");
-            files = new HttpPostedFileBase[] { hpfb };
+            files = new List<HttpPostedFileBase> { hpfb };
 
             controller = new PluginImagePostTypePMController(_ds);
             AutoMapperConfig.RegisterMappings();
@@ -177,7 +177,8 @@ namespace PluginImagePostType.Controllers.Tests
         [ExpectedException(typeof(InvalidOperationException))]
         public void tLoadFiles_wrong_PostContentId()
         {
-            IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            // IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            GroupVmDisplay Model = Substitute.For<GroupVmDisplay>();
             Model.PostContentId = 1;
             Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
@@ -186,14 +187,14 @@ namespace PluginImagePostType.Controllers.Tests
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
 
-            var result = controller.LoadFiles(files, Model) as ViewResult;
+           controller.LoadFile(files, Model);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void tLoadFiles_area_not_this_plugin()
         {
-            IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            GroupVmDisplay Model = Substitute.For<GroupVmDisplay>();
             Model.PostContentId = 0;
             Model.AreaName = "AnotherPlugin";
             Model.CallbackActionName = "something";
@@ -201,14 +202,14 @@ namespace PluginImagePostType.Controllers.Tests
             Model.List_content_insert_before_Id = "something";
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
-            var result = controller.LoadFiles(files, Model) as ViewResult;
+            controller.LoadFile(files, Model) ;
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void tLoadFiles_wrong_route_values()
         {
-            IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            GroupVmDisplay Model = Substitute.For<GroupVmDisplay>();
             Model.PostContentId = 0;
             Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "";
@@ -216,14 +217,14 @@ namespace PluginImagePostType.Controllers.Tests
             Model.List_content_insert_before_Id = "something";
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
-            var result = controller.LoadFiles(files, Model) as ViewResult;
+            controller.LoadFile(files, Model);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void tLoadFiles_empty_file_array()
         {
-            IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            GroupVmDisplay Model = Substitute.For<GroupVmDisplay>();
             Model.PostContentId = 0;
             Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
@@ -232,13 +233,19 @@ namespace PluginImagePostType.Controllers.Tests
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
             files = null;
-            var result = controller.LoadFiles(files, Model) as ViewResult;
+           controller.LoadFile(files, Model);
         }
 
         [TestMethod()]
         public void tLoadFiles_add_new_content()
         {
-            IDEModelPostManage Model = Substitute.For<IDEModelPostManage>();
+            GroupVmDisplay Model = new GroupVmDisplay();
+            List<VmDisplay> VmDisplays = new List<VmDisplay>();
+            VmDisplay VmDisplay = new VmDisplay();
+            VmDisplay.Comment = "some text";
+            VmDisplay.Order = 1;
+            VmDisplays.Add(VmDisplay);
+            Model.VmDisplays = VmDisplays;
             Model.PostContentId = 0;
             Model.AreaName = "PluginImagePostType";
             Model.CallbackActionName = "something";
@@ -247,7 +254,10 @@ namespace PluginImagePostType.Controllers.Tests
             Model.Update_area_replace_Id = "something";
             Model.OnSuccessRemoveCallback = "something";
 
-            var result = controller.LoadFiles(files, Model) as ViewResult;
+            ControllerContextFactory.SetContext();
+            controller.ControllerContext = ControllerContextFactory.CurrentContext;
+            controller.ControllerContext.Controller.Returns(controller);
+            controller.LoadFile(files, Model);
 
             _ds.Received().Modify(Arg.Any<IDataStoreRecord>());
             _ds.Received().Modify(Arg.Is<IDataStoreRecord>(x => checkModifyArgs(x)));
@@ -269,93 +279,93 @@ namespace PluginImagePostType.Controllers.Tests
         #endregion
 
         //#region Modify tests
-        [TestMethod()]
-        public void tModify_input_equals_output()
-        {
-            VmDisplay input = new VmDisplay();
-            input.PostContentId = 1;
-            input.AreaName = "PluginImagePostType";
-            input.CallbackActionName = "something";
-            input.CallbackControllerName = "something";
-            input.List_content_insert_before_Id = "something";
-            input.Update_area_replace_Id = "something";
-            input.OnSuccessRemoveCallback = "something";
-            var result = controller.Modify(input) as ViewResult;
-            var output = result.Model as VmDisplay;
-            Assert.AreEqual(input.PostContentId, output.PostContentId);
-            Assert.AreEqual(input.AreaName, output.AreaName);
-            Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
-            Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
-            Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
-            Assert.AreEqual(input.Update_area_replace_Id, output.Update_area_replace_Id);
-            Assert.AreEqual(input.OnSuccessRemoveCallback, output.OnSuccessRemoveCallback);
+        //[TestMethod()]
+        //public void tModify_input_equals_output()
+        //{
+        //    VmDisplay input = new VmDisplay();
+        //    input.PostContentId = 1;
+        //    input.AreaName = "PluginImagePostType";
+        //    input.CallbackActionName = "something";
+        //    input.CallbackControllerName = "something";
+        //    input.List_content_insert_before_Id = "something";
+        //    input.Update_area_replace_Id = "something";
+        //    input.OnSuccessRemoveCallback = "something";
+        //    var result = controller.Modify(input) as ViewResult;
+        //    var output = result.Model as VmDisplay;
+        //    Assert.AreEqual(input.PostContentId, output.PostContentId);
+        //    Assert.AreEqual(input.AreaName, output.AreaName);
+        //    Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
+        //    Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
+        //    Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
+        //    Assert.AreEqual(input.Update_area_replace_Id, output.Update_area_replace_Id);
+        //    Assert.AreEqual(input.OnSuccessRemoveCallback, output.OnSuccessRemoveCallback);
 
-        }
+        //}
 
-        [TestMethod()]
-        public void tModify_input_data_equal_output_this_one()
-        {
-            VmDisplay input = new VmDisplay();
-            UnicodeEncoding encoding = new UnicodeEncoding();
+        //[TestMethod()]
+        //public void tModify_input_data_equal_output_this_one()
+        //{
+        //    VmDisplay input = new VmDisplay();
+        //    UnicodeEncoding encoding = new UnicodeEncoding();
 
-            input.PostContentId = 2;
-            input.AreaName = "PluginImagePostType";
-            input.CallbackActionName = "something";
-            input.CallbackControllerName = "something";
-            input.List_content_insert_before_Id = "something";
-            input.Update_area_replace_Id = "something";
-            input.OnSuccessRemoveCallback = "something";
-            var result = controller.Modify(input) as ViewResult;
-            var output = result.Model as VmDisplay;
+        //    input.PostContentId = 2;
+        //    input.AreaName = "PluginImagePostType";
+        //    input.CallbackActionName = "something";
+        //    input.CallbackControllerName = "something";
+        //    input.List_content_insert_before_Id = "something";
+        //    input.Update_area_replace_Id = "something";
+        //    input.OnSuccessRemoveCallback = "something";
+        //    var result = controller.Modify(input) as ViewResult;
+        //    var output = result.Model as VmDisplay;
 
-            string imageBase64 = Convert.ToBase64String(_ds.GetContent(2).ContentData);
-            var output_string_data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+        //    string imageBase64 = Convert.ToBase64String(_ds.GetContent(2).ContentData);
+        //    var output_string_data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
 
-            Assert.AreEqual(output_string_data, output.Data);
-        }
+        //    Assert.AreEqual(output_string_data, output.Data);
+        //}
 
-        [TestMethod()]
-        public void tModifyPost_input_data_equal_output_this_one()
-        {
-            VmDisplay input = new VmDisplay();
-            input.PostContentId = 1;
-            input.AreaName = "PluginImagePostType";
-            input.CallbackActionName = "something";
-            input.CallbackControllerName = "something";
-            input.List_content_insert_before_Id = "something";
-            input.Update_area_replace_Id = "something";
-            input.OnSuccessRemoveCallback = "something";
-            var result = controller.ModifyPost(input) as ViewResult;
-            var output = result.Model as VmDisplay;
-            Assert.AreEqual(input.PostContentId, output.PostContentId);
-            Assert.AreEqual(input.AreaName, output.AreaName);
-            Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
-            Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
-            Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
-            Assert.AreEqual(input.Update_area_replace_Id, output.Update_area_replace_Id);
-            Assert.AreEqual(input.OnSuccessRemoveCallback, output.OnSuccessRemoveCallback);
+        //[TestMethod()]
+        //public void tModifyPost_input_data_equal_output_this_one()
+        //{
+        //    VmDisplay input = new VmDisplay();
+        //    input.PostContentId = 1;
+        //    input.AreaName = "PluginImagePostType";
+        //    input.CallbackActionName = "something";
+        //    input.CallbackControllerName = "something";
+        //    input.List_content_insert_before_Id = "something";
+        //    input.Update_area_replace_Id = "something";
+        //    input.OnSuccessRemoveCallback = "something";
+        //    var result = controller.ModifyPost(input) as ViewResult;
+        //    var output = result.Model as VmDisplay;
+        //    Assert.AreEqual(input.PostContentId, output.PostContentId);
+        //    Assert.AreEqual(input.AreaName, output.AreaName);
+        //    Assert.AreEqual(input.CallbackActionName, output.CallbackActionName);
+        //    Assert.AreEqual(input.CallbackControllerName, output.CallbackControllerName);
+        //    Assert.AreEqual(input.List_content_insert_before_Id, output.List_content_insert_before_Id);
+        //    Assert.AreEqual(input.Update_area_replace_Id, output.Update_area_replace_Id);
+        //    Assert.AreEqual(input.OnSuccessRemoveCallback, output.OnSuccessRemoveCallback);
 
-        }
+        //}
 
-        [TestMethod()]
-        public void tModifyPost_session_exist()
-        {
-            VmDisplay input = new VmDisplay();
-            input.PostContentId = 1;
-            input.AreaName = "PluginImagePostType";
-            input.CallbackActionName = "something";
-            input.CallbackControllerName = "something";
-            input.List_content_insert_before_Id = "something";
-            input.Update_area_replace_Id = "something";
-            input.OnSuccessRemoveCallback = "something";
-            input.Data = "Data";
+        //[TestMethod()]
+        //public void tModifyPost_session_exist()
+        //{
+        //    VmDisplay input = new VmDisplay();
+        //    input.PostContentId = 1;
+        //    input.AreaName = "PluginImagePostType";
+        //    input.CallbackActionName = "something";
+        //    input.CallbackControllerName = "something";
+        //    input.List_content_insert_before_Id = "something";
+        //    input.Update_area_replace_Id = "something";
+        //    input.OnSuccessRemoveCallback = "something";
+        //    input.Data = "Data";
 
-            var result = controller.ModifyPost(input) as ViewResult;
-            int cntContents = _ds.GetAllContents().Where(x => x.PostContentId == input.PostContentId).Count();
-            Assert.IsTrue(cntContents > 0,"Session not contains records");
+        //    var result = controller.ModifyPost(input) as ViewResult;
+        //    int cntContents = _ds.GetAllContents().Where(x => x.PostContentId == input.PostContentId).Count();
+        //    Assert.IsTrue(cntContents > 0,"Session not contains records");
 
 
-        }
+        //}
 
 
 

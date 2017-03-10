@@ -8,7 +8,6 @@ namespace PluginTextPostType.Models
     public class GroupVmDisplay
     {
         public int Order { get; set; }
-        public bool IsInGroup { get; set; }
         public IEnumerable<VmDisplay> VmDisplays  { get;set;}
     }
 }

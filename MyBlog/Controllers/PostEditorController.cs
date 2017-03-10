@@ -94,7 +94,7 @@ namespace MyBlog.Controllers
             }
 
 
-            //var content_of_post = _ds.GetAllContents().Where(c => c.PostId == Model.PostId);
+            
             var content_of_post = _ds.GetModPost(Model.PostId);
             foreach ( var i in content_of_post)
             {

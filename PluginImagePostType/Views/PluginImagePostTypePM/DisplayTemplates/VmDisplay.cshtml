@@ -1,17 +1,18 @@
 ﻿@using PluginImagePostType.Models
 @model  VmDisplay
 
-<div class="row">
-    <div class="col-md-12">
-        <p class="text-right">
-            <em>
-                @Html.DisplayFor(x => x.Comment)
-            </em>
-        </p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <em>
+                    @Html.DisplayFor(x => x.Comment)
+                </em>
+            </p>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <img src="@Model.Data" alt="@Model.Comment" width="150" height="100" />
+    <div class="row">
+        <div class="col-md-10">
+            <img src="@Model.Data" alt="@Model.Comment" width="150" height="100" />
+        </div>
     </div>
-</div>

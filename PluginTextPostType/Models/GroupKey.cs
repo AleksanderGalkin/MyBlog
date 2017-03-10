@@ -9,6 +9,6 @@ namespace PluginTextPostType.Models
     public class GroupKey
     {
         public int Order { get; set; }
-        public bool IsInGroup { get; set; }
+        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBlogContract.FullContent
 {
-    public abstract class IDEModelFullContent : IDEModel
+    public abstract class IDEModelFullContent : IDeItemModel
     {
         
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyBlogContract.Band
 {
-    public abstract class IDEModelDisplay : IDEModel
-    {
+    //public abstract class IDEModelDisplay : IDeItemModel
+    //{
 
-    }
+    //}
 
 }

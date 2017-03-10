@@ -37,7 +37,6 @@ namespace PluginTextPostType.Controllers.Tests
             record1.ContentPluginVersion = "1.0";
             record1.Comment = "AnyComment";
             record1.ContentData = encoding.GetBytes("MyStringData");
-            record1.IsInGroup = true;
             record1.Order = 1;
             _ds_result.Add(record1);
 
@@ -50,7 +49,6 @@ namespace PluginTextPostType.Controllers.Tests
             record2.ContentPluginVersion = "1.0";
             record2.Comment = "AnyComment2";
             record2.ContentData = encoding.GetBytes("MyStringData2");
-            record2.IsInGroup = true;
             record2.Order = 1;
             _ds_result.Add(record2);
 
@@ -63,7 +61,6 @@ namespace PluginTextPostType.Controllers.Tests
             record3.ContentPluginVersion = "1.0";
             record3.Comment = "AnyComment3";
             record3.ContentData = encoding.GetBytes("MyStringData3");
-            record3.IsInGroup = false;
             record3.Order = 1;
             _ds_result.Add(record3);
 
@@ -75,6 +72,9 @@ namespace PluginTextPostType.Controllers.Tests
             _ds.GetModPost(Arg.Any<int>()).
             Returns(x => _ds_result
             .Where(r => r.PostId == (int)x[0]));
+            _ds.GetGroupContent(Arg.Any<int>(), Arg.Any<int>()).
+            Returns(x => _ds_result
+            .Where(r => (r.PostId == (int)x[0] && r.Order == (int)x[1])));
             #endregion
             controller = new PluginTextPostTypeBandController(_ds);
             AutoMapperConfig.RegisterMappings();
@@ -101,9 +101,8 @@ namespace PluginTextPostType.Controllers.Tests
         [ExpectedException(typeof(InvalidOperationException))]
         public void tDisplay_area_not_this_plugin()
         {
-            IDEModelDisplay Model = Substitute.For<IDEModelDisplay>();
+            IDeGroupModelDisplay Model = Substitute.For<IDeGroupModelDisplay>();
             Model.PostId = 1;
-            Model.PostContentId = 1;
             Model.AreaName = "AnotherPlugin";
             var result = controller.Display(Model) as ViewResult;
         }
@@ -112,9 +111,9 @@ namespace PluginTextPostType.Controllers.Tests
         [TestMethod()]
         public void tDisplay_all_is_correct()
         {
-            IDEModelDisplay Model = Substitute.For<IDEModelDisplay>();
+            IDeGroupModelDisplay Model = Substitute.For<IDeGroupModelDisplay>();
             Model.PostId = 1;
-            Model.PostContentId = 2;
+            Model.Order = 1;
             Model.AreaName = "PluginTextPostType";
             var result = controller.Display(Model) as ViewResult;
             var output_model = result.Model as IEnumerable<GroupVmDisplay>;

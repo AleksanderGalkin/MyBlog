@@ -23,9 +23,6 @@ namespace MyBlog.Infrastructure.Services
         private static DirectoryInfo plugins_folder_root_di;
      //   private static IDictionary<IMetadata,Type> types_of_controllers;
 
-        private static IDataStoreBand _ds;
-
-
         static private IEnumerable<IPlugIn> plugin_list { get; set; }
 
         static PlugInFactory()

@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace MyBlogContract.PostManage
 {
-    public abstract class IDEModelPostManage : IDEModel
+    public abstract class IDEModelPostManage : IDeItemModel
     {
         abstract public string CallbackControllerName { get; set; }
         abstract public string CallbackActionName { get; set; }

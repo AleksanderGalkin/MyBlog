@@ -73,7 +73,7 @@
     <Compile Include="Band\IBandDisplay.cs" />
     <Compile Include="Band\IDataStoreBand.cs" />
     <Compile Include="Band\IDeGroupModelDisplay.cs" />
-    <Compile Include="Band\IDEModelDisplay.cs" />
+    <Compile Include="Band\!!!DEL_IDEModelDisplay.cs" />
     <Compile Include="FullContent\IFullContent.cs" />
     <Compile Include="FullContent\IDataStoreFullContent.cs" />
     <Compile Include="FullContent\IDEModelDisplay.cs" />

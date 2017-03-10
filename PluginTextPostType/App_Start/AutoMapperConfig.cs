@@ -17,7 +17,7 @@ namespace PluginTextPostType
         public static void RegisterMappings()
         {
 
-            Mapper.CreateMap<IDEModelDisplay, VmDisplay>()
+            Mapper.CreateMap<IDeGroupModelDisplay, VmDisplay>()
                 .ReverseMap();
 
             Mapper.CreateMap<IDEModelPostManage, VmDisplay>()
@@ -28,7 +28,7 @@ namespace PluginTextPostType
 
             Mapper.CreateMap<IDataStoreRecord, VmDisplay>()
                 .ReverseMap();
-                
+
 
         }
     }

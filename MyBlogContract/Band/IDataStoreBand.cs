@@ -14,6 +14,8 @@ namespace MyBlogContract.Band
         IEnumerable<IDataStoreRecord> GetAllContents();
         IEnumerable<IDataStoreRecord> GetDbPost(int PostId);
         IEnumerable<IDataStoreRecord> GetModPost(int PostId);
+        IEnumerable<IDataStoreRecord> GetActualPost(int PostId);
+        IEnumerable<IDataStoreRecord> GetGroupContent(int PostId, int Order);
         void Clear();
     }
 

@@ -23,7 +23,7 @@ namespace MyBlog.Infrustructure.Sevices
         override public string ContentPluginName { get; set; }
         override public string ContentPluginVersion { get; set; }
 
-        override public bool IsInGroup { get; set; }
+        
         override public int Order { get; set; }
 
         override public IDataStoreRecordStatus Status { get; set; }

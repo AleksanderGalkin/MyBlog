@@ -84,177 +84,164 @@ namespace PluginImagePostType.Controllers
                 || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
                 )
                 throw new InvalidOperationException("One or more route values are empty");
-            VmDisplay VModel = Mapper.Map<IDEModelPostManage, VmDisplay>(Model);
+            GroupVmDisplay VModel = Mapper.Map<IDEModelPostManage, GroupVmDisplay>(Model);
             return View("Edit", VModel);
         }
 
-        //[HttpPost]
-        //public ViewResult LoadFiles(HttpPostedFileBase[] files, IDEModelPostManage Model)
-        //{
-        //    if (Model.AreaName != AppSettings.PluginName)
-        //        throw new InvalidOperationException("This plagin is not for this area.");
-        //    if (Model.PostContentId != 0)
-        //    {
-        //        throw new InvalidOperationException("PostContentId not 0");
-        //    }
-        //    if (
-        //        string.IsNullOrWhiteSpace(Model.CallbackActionName)
-        //        || string.IsNullOrWhiteSpace(Model.CallbackControllerName)
-        //        || string.IsNullOrWhiteSpace(Model.List_content_insert_before_Id)
-        //        || string.IsNullOrWhiteSpace(Model.Update_area_replace_Id)
-        //        || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
-        //        )
-        //        throw new InvalidOperationException("One or more route values are empty");
-        //    if (files ==null || files.Count() == 0)
-        //    {
-        //        throw new InvalidOperationException("Files number should be  not 0");
-        //    }
-
-        //    foreach(var file in files)
-        //    {
-
-        //        IDataStoreRecord newRecord = _ds.GetNew();
-        //        file.InputStream.Position = 0;
-        //        MemoryStream ms = new MemoryStream();
-        //        file.InputStream.CopyTo(ms);
-        //        newRecord.ContentData = ms.ToArray();
-
-
-
-        //        newRecord.ContentPluginName = AppSettings.PluginName;
-        //        newRecord.ContentPluginVersion = AppSettings.Version;
-        //        newRecord.PostId = Model.PostId;
-
-        //        _ds.Modify(newRecord);
-        //    }
-
-        //    return View();
-        //}
 
         [HttpPost] //LoadFile
-            public void LoadFile(List<HttpPostedFileBase> files, string comment) 
+            public void LoadFile(List<HttpPostedFileBase> files, GroupVmDisplay Model) //string comment,
         {
-                
-            string arViewResults = "";
-          
-            foreach (var file in files)
+
+            if (Model.AreaName != AppSettings.PluginName)
+                throw new InvalidOperationException("This plagin is not for this area.");
+            if (Model.PostContentId != 0)
             {
-                VmDisplay vModel = new VmDisplay();
-                vModel.Comment = comment;
-                
+                throw new InvalidOperationException("PostContentId not 0");
+            }
+            if (
+                   string.IsNullOrWhiteSpace(Model.CallbackActionName)
+                     || string.IsNullOrWhiteSpace(Model.CallbackControllerName)
+                     || string.IsNullOrWhiteSpace(Model.List_content_insert_before_Id)
+                     || string.IsNullOrWhiteSpace(Model.Update_area_replace_Id)
+                     || string.IsNullOrWhiteSpace(Model.OnSuccessRemoveCallback)
+                )
+                throw new InvalidOperationException("One or more route values are empty");
+            if (files == null || files.Count() == 0)
+            {
+                throw new InvalidOperationException("Files number should be  not 0");
+            }
+            string arViewResults = "";
+
+            for ( int i = 0; i < files.Count; i++)
+            {
+
                 IDataStoreRecord newRecord = _ds.GetNew();
-                
-                newRecord = Mapper.Map<VmDisplay, IDataStoreRecord>(vModel, newRecord);
+
+                newRecord = Mapper.Map<VmDisplay, IDataStoreRecord>(Model.VmDisplays.ElementAt(i), newRecord);
                 newRecord.ContentPluginName = AppSettings.PluginName;
                 newRecord.ContentPluginVersion = AppSettings.Version;
                 MemoryStream s = new MemoryStream();
-                file.InputStream.Position = 0;
-                file.InputStream.CopyTo(s);
+                files[i].InputStream.Position = 0;
+                files[i].InputStream.CopyTo(s);
                 newRecord.ContentData = s.ToArray();
+                newRecord.PostId = Model.PostId;
                 _ds.Modify(newRecord);
 
-                switch (file.ContentType)
+                switch (files[i].ContentType)
                 {
                     case "image/jpeg":
+
+                        //         vModel.Comment = comment;
+
+                        files[i].InputStream.Position = 0;
+                        files[i].InputStream.CopyTo(s);
+                        string imageBase64jpeg = Convert.ToBase64String(s.ToArray());
+                        Model.VmDisplays.ElementAt(i).Data = string.Format("data:image/jpeg;base64,{0}", imageBase64jpeg);
+                        Model.VmDisplays.ElementAt(i).PostId = Model.PostId;
                         
-                        vModel.Comment = comment;
-                        
-                        file.InputStream.Position = 0;
-                        file.InputStream.CopyTo(s);
-                        string imageBase64 = Convert.ToBase64String(s.ToArray());
-                        vModel.Data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
-                
+                        break;
+                    case "image/bmp":
+
+                        //         vModel.Comment = comment;
+
+                        files[i].InputStream.Position = 0;
+                        files[i].InputStream.CopyTo(s);
+                        string imageBase64bmp = Convert.ToBase64String(s.ToArray());
+                        Model.VmDisplays.ElementAt(i).Data = string.Format("data:image/jpeg;base64,{0}", imageBase64bmp);
+                        Model.VmDisplays.ElementAt(i).PostId = Model.PostId;
+
                         break;
                     case "video":
                         break;
                     default:
                         throw new NotImplementedException("Неизвестный тип файла");
                 }
-                arViewResults = arViewResults + this.RenderPartialViewToString("Display", vModel); // View("AttachedContent", newContent);
+                arViewResults = arViewResults + this.RenderPartialViewToString("Display", Model.VmDisplays.ElementAt(i)); // View("AttachedContent", newContent);
             }
 
 
-                string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
+            string json_object = JsonConvert. SerializeObject(arViewResults,Formatting.Indented);
                 HttpContext.Response.Write(arViewResults);
             }
 
 
 
-        public ViewResult Modify(VmDisplay Model)
+        //public ViewResult Modify(VmDisplay Model)
+        //{
+        //    VmDisplay output =null;
+        //    if (Model!=null)
+        //    {
+        //        output = new VmDisplay();
+        //        IDataStoreRecord _ds_record =
+        //            _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
+
+        //        output = Mapper.Map<VmDisplay>(Model);
+        //        Mapper.Map<IDataStoreRecord, VmDisplay>(_ds_record, output);
+
+        //        string imageBase64 = Convert.ToBase64String(_ds_record.ContentData);
+        //        output.Data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+        //    }
+
+        //    return View(output);
+        //}
+
+        //public ViewResult ModifyPost(VmDisplay Model)
+        //{
+        //    IDataStoreRecord record = null;
+        //    bool isRecordNew = false;
+        //    if (Model.PostContentId != 0)
+        //    {
+        //        record = _ds.GetContent(Model.PostContentId);
+        //        isRecordNew = false;
+        //    }
+        //    else
+        //    if (Model.PostContentId == 0 && Model.tempPostContentId != 0)
+        //    {
+        //        record = _ds.GetAllContents()
+        //            .Where(r => r.tempPostContentId == Model.tempPostContentId)
+        //            .SingleOrDefault();
+        //        isRecordNew = false;
+        //    }
+        //    else
+        //    if (Model.PostContentId == 0 && Model.tempPostContentId == 0)
+        //    {
+
+        //        record = _ds.GetNew();
+        //        isRecordNew = true;
+        //    }
+        //    record.PostId = Model.PostId;
+        //    record.ContentPluginName = AppSettings.PluginName;
+        //    record.ContentPluginVersion = AppSettings.Version;
+        //    record.Comment = Model.Comment;
+
+        //    byte[] bytes = null;
+        //    record.ContentData = bytes;
+
+        //    if (isRecordNew)
+        //    {
+        //        _ds.Modify(record);
+        //    }
+        //    else
+        //    {
+        //        _ds.Modify(record);
+        //    }
+        //    Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
+
+
+        //    return View("Display", Model);
+        //}
+
+        public void DeleteContent(int PostContentId, int tempPostContentId)
         {
-            VmDisplay output =null;
-            if (Model!=null)
-            {
-                output = new VmDisplay();
-                IDataStoreRecord _ds_record =
-                    _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
-
-                output = Mapper.Map<VmDisplay>(Model);
-                Mapper.Map<IDataStoreRecord, VmDisplay>(_ds_record, output);
-
-                string imageBase64 = Convert.ToBase64String(_ds_record.ContentData);
-                output.Data = string.Format("data:image/jpeg;base64,{0}", imageBase64);
-            }
-
-            return View(output);
-        }
-
-        public ViewResult ModifyPost(VmDisplay Model)
-        {
-            IDataStoreRecord record = null;
-            bool isRecordNew = false;
-            if (Model.PostContentId != 0)
-            {
-                record = _ds.GetContent(Model.PostContentId);
-                isRecordNew = false;
-            }
-            else
-            if (Model.PostContentId == 0 && Model.tempPostContentId != 0)
-            {
-                record = _ds.GetAllContents()
-                    .Where(r => r.tempPostContentId == Model.tempPostContentId)
-                    .SingleOrDefault();
-                isRecordNew = false;
-            }
-            else
-            if (Model.PostContentId == 0 && Model.tempPostContentId == 0)
-            {
-
-                record = _ds.GetNew();
-                isRecordNew = true;
-            }
-            record.PostId = Model.PostId;
-            record.ContentPluginName = AppSettings.PluginName;
-            record.ContentPluginVersion = AppSettings.Version;
-            record.Comment = Model.Comment;
-
-            byte[] bytes = null;
-            record.ContentData = bytes;
-
-            if (isRecordNew)
-            {
-                _ds.Modify(record);
-            }
-            else
-            {
-                _ds.Modify(record);
-            }
-            Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
-
-
-            return View("Display", Model);
-        }
-
-        public void DeleteContent(int PostContentId, int PostContentIdForNewRecords)
-        {
-            _ds.Delete(PostContentId, PostContentIdForNewRecords);
-            System.Web.HttpContext.Current.Session["data_store"] = _ds;
+            _ds.Delete(PostContentId, tempPostContentId);
+           // System.Web.HttpContext.Current.Session["data_store"] = _ds;
 
             string json_object = JsonConvert.SerializeObject(new
             {
                 PostContentId = PostContentId
                                                                 ,
-                PostContentIdForNewRecords = PostContentIdForNewRecords
+                tempPostContentId = tempPostContentId
                                                                 ,
                 result = true
             }, Formatting.Indented);

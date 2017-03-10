@@ -4,6 +4,31 @@
     Layout = null;
 }
 
+<div class="row col-md-10" id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag"
+     data-_temporary_PostContentId="@Model.tempPostContentId">
+    
+        <div class="col-md-12">
+            <p class="text-right">
+
+                @Ajax.ActionLink("Delete", "DeleteContent", new
+           {
+               PostContentId = Model.PostContentId,
+               tempPostContentId = Model.tempPostContentId,
+               PostId = Model.PostId
+           },
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                Confirm = "Удалить?",
+                OnSuccess = Model.OnSuccessRemoveCallback
+
+            })
+
+            </p>
+        </div>
+    
 
 
-@Html.DisplayFor(model => model)
+    @Html.DisplayFor(model => model)
+
+</div>

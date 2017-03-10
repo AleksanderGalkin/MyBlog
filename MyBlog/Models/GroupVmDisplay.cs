@@ -10,7 +10,6 @@ namespace MyBlog.Models
     {
         public int PostId { get; set; }
         public int Order { get; set; }
-        public bool IsInGroup { get; set; }
         public string GroupPluginName { get; set; }
         public IEnumerable<IDataStoreRecord> Contexts  { get;set;}
     }

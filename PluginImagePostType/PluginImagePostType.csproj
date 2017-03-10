@@ -131,7 +131,6 @@
     <Compile Include="Controllers\PluginImagePostTypeBand.cs" />
     <Compile Include="Controllers\PluginImagePostTypePMController.cs" />
     <Compile Include="DataExchangeModels\DataExchangeGroupModelDisplay.cs" />
-    <Compile Include="DataExchangeModels\DataExchangeModelDisplay.cs" />
     <Compile Include="DataExchangeModels\DataExchangeModelFullContent.cs" />
     <Compile Include="DataExchangeModels\DataExchangeModelPostManage.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,7 +181,7 @@
     <Content Include="Views\PluginImagePostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
     <Content Include="Views\PluginImagePostTypePM\Display.cshtml" />
     <Content Include="Views\PluginImagePostTypePM\Edit.cshtml" />
-    <Content Include="Views\PluginImagePostTypePM\AttachedContent.cshtml" />
+    <Content Include="Views\PluginImagePostTypePM\!!!DEL_AttachedContent.cshtml" />
     <Content Include="Views\PluginImagePostTypePM\DisplayTemplates\VmDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup />

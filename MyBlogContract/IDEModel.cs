@@ -10,7 +10,7 @@ namespace MyBlogContract
     /// <summary>
     /// Model what used for exchanging data between host and plugins
     /// </summary>
-    public abstract class IDEModel
+    public abstract class IDeItemModel
     {
         abstract public int PostId { get; set; }
         abstract public int PostContentId { get; set; }

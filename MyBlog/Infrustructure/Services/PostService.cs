@@ -72,7 +72,7 @@ namespace MyBlog.Infrustructure.Services
 
 
             var group = from r in PostVm.PostContents
-                        group r by new { PostId = r.PostId, Order = r.Order, IsInGroup = r.IsInGroup, PostPluginName = r.ContentPluginName }
+                        group r by new { PostId = r.PostId, Order = r.Order,  PostPluginName = r.ContentPluginName }
                         into g
                         select g;
 
@@ -80,7 +80,6 @@ namespace MyBlog.Infrustructure.Services
             {
                 PostId = x.Key.PostId,
                 Order = x.Key.Order,
-                IsInGroup = x.Key.IsInGroup,
                 GroupPluginName = x.Key.PostPluginName,
                 Contexts = x.ToList()
             })

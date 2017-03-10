@@ -104,20 +104,23 @@ namespace MyBlog.Infrastructure.Services
                 {
                     int max_tempPostContentId = store
                                             .Where(x => x.PostId == Model.PostId)
-                                            .Max(m => m.PostContentId);
+                                            .Max(m => m.tempPostContentId);
                     Model.tempPostContentId = max_tempPostContentId + 1;
                 }
 
-                if (store.Where(x => x.PostId == Model.PostId).Count() == 0)
+                if (Model.Order == 0)
                 {
-                    Model.Order = 1;
-                }
-                else
-                {
-                    int max_order = store
-                                            .Where(x => x.PostId == Model.PostId)
-                                            .Max(m => m.Order);
-                    Model.Order = max_order + 1;
+                    var actual_contents = GetActualPost(Model.PostId);
+                    if (actual_contents.Count() == 0)
+                    {
+                        Model.Order = 1;
+                    }
+                    else
+                    {
+                        int max_order = actual_contents
+                                                .Max(m => m.Order);
+                        Model.Order = max_order + 1;
+                    }
                 }
 
             }
@@ -132,9 +135,9 @@ namespace MyBlog.Infrastructure.Services
             
         }
 
-        void IDataStorePostManage.Delete(int Id, int tempPostContentId)
+        void IDataStorePostManage.Delete(int PostContentId, int tempPostContentId)
         {
-            IDataStoreRecord record = GetContent(Id, tempPostContentId);
+            IDataStoreRecord record = GetContent(PostContentId, tempPostContentId);
             record.Status = IDataStoreRecordStatus.Deleted;
             int idx = store
                   .Where(x => x.tempPostContentId == record.tempPostContentId && x.PostContentId == record.PostContentId)
@@ -180,6 +183,27 @@ namespace MyBlog.Infrastructure.Services
                     .ToList();
                             
            
+            return result;
+        }
+
+        public IEnumerable<IDataStoreRecord> GetActualPost(int PostId)
+        {
+            IEnumerable<IDataStoreRecord> resultStore = GetModPost(PostId);
+
+            IEnumerable<IDataStoreRecord> resultDb = GetDbPost(PostId);
+
+
+            IEnumerable<IDataStoreRecord> resultDbMinusStore = from d in resultDb
+                                                               where ! resultStore.Any(s=>s.PostContentId == d.PostContentId) 
+                                                               select d;
+            IEnumerable<IDataStoreRecord> result = resultDbMinusStore.Union(resultStore);
+
+            return result;
+        }
+
+        public IEnumerable<IDataStoreRecord> GetGroupContent(int PostId, int Order)
+        {
+            IEnumerable<IDataStoreRecord> result = GetActualPost(PostId).Where (x=>x.Order == Order);
             return result;
         }
 

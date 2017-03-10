@@ -1,5 +1,5 @@
 ﻿@using PluginImagePostType.Models
-@model VmDisplay
+@model GroupVmDisplay
 
 @{
     Layout = null;
@@ -34,17 +34,26 @@
                 <div class="form-horizontal">
                     @Html.AntiForgeryToken()
                     <div class="form-group">
-                        @Html.HiddenFor(x => x.Data)
+
                         @Html.HiddenFor(x => x.PostId)
-                        @Html.HiddenFor(x => x.PostContentId)
-                        @Html.HiddenFor(x => x.data_edit_diff_flag)
-                        <div class="form-group">
-                            @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(x => x.Comment, new { htmlAttributes = new { @class = "form-control file_comment" } })
-                            </div>
-                        </div>
+                        @Html.HiddenFor(x => x.AreaName)
+                        @Html.HiddenFor(x => x.List_content_insert_before_Id)
+                        @Html.HiddenFor(x => x.Update_area_replace_Id)
+                        @Html.HiddenFor(x => x.OnSuccessRemoveCallback)
+                        @Html.HiddenFor(x => x.CallbackControllerName)
+                        @Html.HiddenFor(x => x.CallbackActionName)
+                        
+                        
+                        
+                        
+
                     </div>
+                    @*<div class="form-group">
+                        @Html.LabelFor(x => x.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(x => x.Comment, new { htmlAttributes = new { @class = "form-control file_comment" } })
+                        </div>
+                    </div>*@
                 </div>
 
             }
@@ -83,6 +92,7 @@
             $(function () {
                 'use strict';
                 // Change this to the location of your server-side upload handler:
+                var i = 0;
                 var url = '/PluginImagePostType/PluginImagePostTypePM/LoadFile/'
                 $('#fileupload').fileupload({
                     url: url,
@@ -108,6 +118,17 @@
                     $.each(data.files, function (index, file) {
                         var node = $('<p/>').attr('id', file.name.replace(/\./g, ''))
                                 .append($('<span/>').text(file.name));
+                        i = i + 1;
+                        node.append(' <div class="form-group">');
+                        node.append('<label for="Names[' + i + ']"  class = "control-label col-md-2">Комментарий</label>');
+                        node.append('<div class="col-md-10">');
+                        node.append('<input id="Names[' + i + ']" name="Names[' + i + ']" type="text" class = "form-control" value="" />');
+                        node.append('</div >');
+                        node.append(' <div class="form-group">');
+                        node.append('<label for="Order[' + i + ']"  class = "control-label col-md-2">Группа</label>');
+                        node.append('<div class="col-md-10">');
+                        node.append('<input id="Order[' + i + ']" name="Order[' + i + ']" type="text" class = "form-control" value="" />');
+                        node.append(' </div > </div >');
 
                         node.appendTo(data.context);
 
@@ -159,8 +180,52 @@
                 }).on('fileuploadfail', function (e, data) {
                     alert("Uploading is failure");
                 }).on('fileuploadsubmit', function (e, data) {
-                    var input = $('#Comment');
-                    data.formData = { comment: input.val() };
+                    
+                    var Comment = $('#Comment');
+                    var PostId = $('#PostId');
+                    var PostContentId = $('#PostContentId');
+                    var data_edit_diff_flag = $('#data_edit_diff_flag');
+                    var tempPostContentId = $('#tempPostContentId');
+                    var AreaName = $('#AreaName');
+                    var List_content_insert_before_Id = $('#List_content_insert_before_Id');
+                    var Update_area_replace_Id = $('#Update_area_replace_Id');
+                    var OnSuccessRemoveCallback = $('#OnSuccessRemoveCallback');
+                    var CallbackControllerName = $('#CallbackControllerName');
+                    var CallbackActionName = $('#CallbackActionName');
+                    
+                    
+                    var Names = $('input[name^="Names["]')
+                                .map(function () {
+                                    return $(this).val();
+                                })
+                                .get();
+                    var Orders = $('input[name^="Order["]')
+                                .map(function () {
+                                    return $(this).val();
+                                })
+                                .get();
+                    data.formData = {
+                        comment: Comment.val(),
+                        PostId: PostId.val(),
+                        PostContentId: PostContentId.val(),
+                        data_edit_diff_flag: data_edit_diff_flag.val(),
+                        tempPostContentId: tempPostContentId.val(),
+                        AreaName: AreaName.val(),
+                        List_content_insert_before_Id: List_content_insert_before_Id.val(),
+                        Update_area_replace_Id: Update_area_replace_Id.val(),
+                        OnSuccessRemoveCallback: OnSuccessRemoveCallback.val(),
+                        CallbackControllerName: CallbackControllerName.val(),
+                        CallbackActionName: CallbackActionName.val()
+                    };
+                    for (var item in  Names)
+                    {
+                        
+                        data.formData["VmDisplays[" + item + "].Comment"] = Names[item];
+                    }
+                    for (var item in Orders) {
+                        
+                        data.formData["VmDisplays[" + item + "].Order"] = Orders[item];
+                    }
                 }).prop('disabled', !$.support.fileInput)
                     .parent().addClass($.support.fileInput ? undefined : 'disabled');
             });

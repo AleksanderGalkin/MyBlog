@@ -40,7 +40,7 @@ namespace MyBlog.Controllers.Tests
             ControllerContextFactory.SetContext();
             controller.ControllerContext = ControllerContextFactory.CurrentContext;
             var result = controller.Index() as ViewResult;
-            Assert.IsInstanceOfType(result.Model, typeof(IList<PostVm>));
+            Assert.IsInstanceOfType(result.Model, typeof(IList<PostGroupVm>));
             Assert.AreEqual(result.ViewName, "Index");
         }
     }

@@ -9,7 +9,7 @@ namespace MyBlogContract.Band
 {
     public interface IBandDisplay : IController
     {
-        ActionResult Display(IDEModelDisplay Model);
+        ActionResult Display(IDeGroupModelDisplay Model);
     }
 
 }

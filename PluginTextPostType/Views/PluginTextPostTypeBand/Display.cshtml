@@ -7,7 +7,7 @@
 @{
     foreach (GroupVmDisplay group1 in Model)
     {
-        if (group1.IsInGroup)
+        if (group1.VmDisplays.Count() > 1 )
         {
             IEnumerable<VmDisplay> model_group = group1.VmDisplays;
             @Html.DisplayFor(x => model_group, "VmDisplay_Group");

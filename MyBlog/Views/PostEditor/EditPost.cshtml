@@ -43,7 +43,7 @@
                 {
                     dte.PostId = item.PostId;
                     dte.PostContentId = item.PostContentId;
-                    dte.Update_area_replace_Id = "Update_area_replace_Id";
+                    dte.Update_area_replace_Id = "Update_area_replace";
                     dte.List_content_insert_before_Id = "list_content_insert_before";
                     dte.OnSuccessRemoveCallback = "removeContentId";
                     dte.CallbackActionName = "EditPost";
@@ -88,7 +88,7 @@
                                             area = "PluginTextPostType",
                                             PostId = Model.PostId,
                                             List_content_insert_before_Id = "list_content_insert_before",
-                                            Update_area_replace_Id = "Update_area_replace_Id",
+                                            Update_area_replace_Id = "Update_area_replace",
                                             CallbackActionName = "EditPost",
                                             CallbackControllerName = "PostEditor",
                                             AreaName = "PluginTextPostType",
@@ -97,7 +97,7 @@
                                         new AjaxOptions
                                         {
                                             HttpMethod = "Get",
-                                            UpdateTargetId = "Update_area_replace_Id",
+                                            UpdateTargetId = "Update_area_replace",
                                             OnSuccess = "loadScriptAndInit"
                                         })
                         </li>
@@ -108,7 +108,7 @@
                                             area = "PluginImagePostType",
                                             PostId = Model.PostId,
                                             List_content_insert_before_Id = "list_content_insert_before",
-                                            Update_area_replace_Id = "Update_area_replace_Id",
+                                            Update_area_replace_Id = "Update_area_replace",
                                             CallbackActionName = "EditPost",
                                             CallbackControllerName = "PostEditor",
                                             AreaName = "PluginImagePostType",
@@ -117,7 +117,7 @@
                                         new AjaxOptions
                                         {
                                             HttpMethod = "Get",
-                                            UpdateTargetId = "Update_area_replace_Id",
+                                            UpdateTargetId = "Update_area_replace",
                                             OnSuccess = "loadScriptAndInit"
                                         })
                         </li>
@@ -135,7 +135,7 @@
 
     <div class="row">
         <div class="form-group">
-            <div id="Update_area_replace_Id"> </div>
+            <div id="Update_area_replace"> </div>
         </div>
     </div>
 
@@ -166,10 +166,11 @@
             }
 
             var removeContentId = function (json) {
+                
                 parsedJson = JSON.parse(json);
                 if (parsedJson.result == true)
                   //  $('#' + parsedJson.PostContentId).remove();
-                $('[id='+parsedJson.PostContentId+'][data-_temporary_PostContentId =' + parsedJson.PostContentIdForNewRecords+']').remove();
+                    $('[id=' + parsedJson.PostContentId + '][data-_temporary_PostContentId =' + parsedJson.tempPostContentId + ']').remove();
             }
 
 

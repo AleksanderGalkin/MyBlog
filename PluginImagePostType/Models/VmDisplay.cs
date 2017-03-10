@@ -1,4 +1,6 @@
 ﻿using PluginImagePostType.DataExchangeModels;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -13,7 +15,7 @@ namespace PluginImagePostType.Models
         public string Data { get; set; }
         public bool data_edit_diff_flag { get; set; }
 
-        public bool IsInGroup { get; set; }
+       
         public int Order { get; set; }
 
         public override RouteValueDictionary GetDictionary()

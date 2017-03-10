@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Data.Entity;
 
 namespace MyBlog.Infrustructure.Helpers

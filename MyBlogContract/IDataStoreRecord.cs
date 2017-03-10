@@ -21,7 +21,7 @@ namespace MyBlogContract
         abstract public string ContentPluginName { get; set; }
         abstract public string ContentPluginVersion { get; set; }
 
-        abstract public bool IsInGroup { get; set; }
+      
         abstract public int Order { get; set; }
 
         abstract public IDataStoreRecordStatus Status { get; set; }

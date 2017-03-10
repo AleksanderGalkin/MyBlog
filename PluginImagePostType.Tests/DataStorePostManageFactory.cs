@@ -48,7 +48,6 @@ namespace PluginImagePostType.Tests
             MemoryStream ms = new MemoryStream();
             ImageFactory.GetImage(record1.PostContentId).Save(ms, ImageFormat.Bmp);
             record1.ContentData = ms.ToArray();
-            record1.IsInGroup = true;
             record1.Order = 1;
             _ds_result.Add(record1);
 
@@ -65,7 +64,6 @@ namespace PluginImagePostType.Tests
             ms = new MemoryStream();
             ImageFactory.GetImage(record2.PostContentId).Save(ms, ImageFormat.Bmp);
             record2.ContentData = ms.ToArray();
-            record2.IsInGroup = true;
             record2.Order = 1;
             _ds_result.Add(record2);
 
@@ -82,7 +80,6 @@ namespace PluginImagePostType.Tests
             ImageFactory.GetImage(record3.PostContentId).Save(ms, ImageFormat.Bmp);
 
             record3.ContentData = ms.ToArray();
-            record3.IsInGroup = false;
             record3.Order = 1;
             _ds_result.Add(record3);
 

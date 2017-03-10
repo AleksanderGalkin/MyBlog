@@ -19,7 +19,7 @@ namespace MyBlogContract.PostManage
         IEnumerable<IDataStoreRecord> GetModPost(int PostId);
         IDataStoreRecord GetNew();
         void Modify(IDataStoreRecord Model);
-        void Delete(int Id, int tempPostContentId = 0);
+        void Delete(int PostContentId, int tempPostContentId = 0);
        
     }
 }

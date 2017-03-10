@@ -194,7 +194,7 @@ namespace PluginTextPostType.Controllers
            // System.Web.HttpContext.Current.Session["data_store"] = _ds;
 
             string json_object = JsonConvert.SerializeObject(new { PostContentId = PostContentId
-                                                                , PostContentIdForNewRecords = tempPostContentId
+                                                                , tempPostContentId = tempPostContentId
                                                                 , result = true }, Formatting.Indented);
             HttpContext.Response.Write(json_object);
         }
