@@ -142,7 +142,7 @@ namespace MyBlog.Controllers
             
             // If we got this far, something failed, redisplay form
             badModel = new Tuple<RegisterVm, LoginVm>(Model, new LoginVm());
-            return View("Index", badModel);
+            return View("Welcome", badModel);
         }
 
         //
@@ -202,7 +202,6 @@ namespace MyBlog.Controllers
             {
                 return View(Model);
             }
-            
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var user = await UserManager.FindAsync(Model.EmailLog, Model.Password);

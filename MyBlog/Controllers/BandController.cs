@@ -1,4 +1,5 @@
-﻿using MyBlog.Infrustructure;
+﻿using Microsoft.AspNet.Identity;
+using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.ViewModels;
 using MyBlogContract.Band;
@@ -86,6 +87,12 @@ namespace MyBlog.Controllers
                     isAuthor = true;
                 }
             }
+
+            if (User.IsInRole("Admin"))
+            {
+                isAuthor = true;
+            }
+
             return isAuthor;
         }
 

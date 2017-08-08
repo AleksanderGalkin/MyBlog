@@ -1,4 +1,4 @@
-﻿@model MyBlog.ViewModels.ContentImageVm
+﻿@*@model MyBlog.ViewModels.ContentImageVm
 
 
 
@@ -9,7 +9,7 @@
             string imageBase64 = Convert.ToBase64String(Model.ContentData);
             string imageSrc = string.Format("data:image/jpeg;base64,{0}", imageBase64);
         }
-        <img src="@imageSrc" alt="@Model.Comment" width="150" height="100" />
+        <img src="@imageSrc" alt="@Model.Comment" width="150" height="100" />*@
 
 
 

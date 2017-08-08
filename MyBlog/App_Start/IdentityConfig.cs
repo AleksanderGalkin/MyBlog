@@ -22,14 +22,14 @@ namespace MyBlog
         {
             // Plug in your email service here to send an email.
             SmtpClient client = new SmtpClient();
-            client.Host = "127.0.0.1";
-            client.Port = 25;
+            client.Host = "smtp.mail.ru";
+            client.Port = 587;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("GalkinLab@test.com","test");
-            client.EnableSsl = false;
+            client.Credentials = new NetworkCredential("agalkinov@mail.ru","1641642dD");
+            client.EnableSsl = true;
 
-            var mail = new MailMessage("GalkinLab@test.com", message.Destination);
+            var mail = new MailMessage("agalkinov@mail.ru", message.Destination);
             mail.Subject = message.Subject;
             mail.Body = message.Body;
             mail.IsBodyHtml = true;
