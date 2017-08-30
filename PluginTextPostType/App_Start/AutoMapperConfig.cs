@@ -2,6 +2,7 @@
 
 using MyBlogContract;
 using MyBlogContract.Band;
+using MyBlogContract.ContentGroup;
 using MyBlogContract.FullContent;
 using MyBlogContract.PostManage;
 using PluginTextPostType.Models;
@@ -17,17 +18,34 @@ namespace PluginTextPostType
         public static void RegisterMappings()
         {
 
-            Mapper.CreateMap<IDeGroupModelDisplay, VmDisplay>()
+            Mapper.CreateMap<IDeGroupBand, VmManage>()
                 .ReverseMap();
 
-            Mapper.CreateMap<IDEModelPostManage, VmDisplay>()
+            Mapper.CreateMap<IDEModelPostManage, VmManage>()
                 .ReverseMap();
 
-            Mapper.CreateMap<IDEModelFullContent, VmDisplay>()
+            Mapper.CreateMap<IDeFullContent, VmManage>()
                 .ReverseMap();
 
-            Mapper.CreateMap<IDataStoreRecord, VmDisplay>()
+            Mapper.CreateMap<IDataStoreRecord, VmManage>()
                 .ReverseMap();
+
+            Mapper.CreateMap<IDeGroupBand, VmItem>()
+                           .ReverseMap();
+
+            Mapper.CreateMap<IDEModelPostManage, VmItem>()
+                .ReverseMap();
+
+            Mapper.CreateMap<IDeFullContent, VmItem>()
+                .ReverseMap();
+
+            Mapper.CreateMap<IDataStoreRecord, VmItem>()
+                .ReverseMap();
+
+            Mapper.CreateMap<IDeContentGroup, VmContentGroup>()
+                .ReverseMap();
+            Mapper.CreateMap<IDataStoreRecord, VmContentGroup>()
+                 .ReverseMap();
 
 
         }

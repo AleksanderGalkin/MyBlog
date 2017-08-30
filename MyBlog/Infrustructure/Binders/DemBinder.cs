@@ -36,6 +36,11 @@ namespace MyBlog.Infrastructure
             {
                 previous_area = second_segment_prev_area;
             }
+            else
+            {
+                if ( bindingContext.ValueProvider.GetValue("AreaName") != null)
+                    previous_area = bindingContext.ValueProvider.GetValue("AreaName").AttemptedValue;
+            }
             if ( ! string.IsNullOrWhiteSpace(current_area))
             {
                 model = PlugInFactory.GetModelByInterface(modelType, current_area);

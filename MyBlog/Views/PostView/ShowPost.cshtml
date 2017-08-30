@@ -1,0 +1,22 @@
+﻿@using MyBlog.ViewModels;
+@using MyBlog.Models;
+@model PostGroupVm
+
+@{
+    ViewBag.Title = "Galkin Lab";
+}
+
+
+<div class="container">
+
+    @Html.DisplayFor(model => model)
+</div>
+@{
+    int disqus_identifier_post_id = Model.PostId;
+    int disqus_identifier_content_id = 0;
+    string disqus_identifier = disqus_identifier_post_id.ToString() + ':' + disqus_identifier_content_id.ToString();
+}
+@Html.Partial("Disqus", disqus_identifier)
+
+
+

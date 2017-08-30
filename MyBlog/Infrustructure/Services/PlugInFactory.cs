@@ -123,5 +123,14 @@ namespace MyBlog.Infrastructure.Services
 
             return name;
         }
+        public static string GetActionGetPostUrlByInterface(Type type, string Plugin)
+        {
+            var meta = _container.GetExports<IController, IMetadata>(Plugin)
+               .Where(m => m.Metadata.ControllerType == type)
+               .SingleOrDefault();
+            var name = meta.Metadata.ActionGetPostUrl;
+
+            return name;
+        }
     }
 }

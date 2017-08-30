@@ -48,6 +48,13 @@ namespace MyBlog.ViewModels
 
     }
 
+    public class GroupVmDisplay
+    {
+        public int PostId { get; set; }
+        public int Order { get; set; }
+        public string GroupPluginName { get; set; }
+        public IEnumerable<IDataStoreRecord> Contexts { get; set; }
+    }
 
     public class PostContentsFiles
     {

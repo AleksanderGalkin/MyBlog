@@ -1,0 +1,24 @@
+﻿@using PluginTextPostType.Models
+@model IEnumerable<VmItemGroup>
+@{
+    Layout = null;
+}
+
+@{
+    foreach (VmItemGroup group1 in Model)
+    {
+        if (group1.VmItems.Count() > 1 )
+        {
+            IEnumerable<VmItem> model_group = group1.VmItems;
+            @Html.DisplayFor(x => model_group, "VmDisplay_Group");
+        }
+        else
+        {
+            VmItem model_single = group1.VmItems.FirstOrDefault();
+            @Html.DisplayFor(x => model_single, "VmDisplay_Single");
+        }
+    }
+}
+
+
+

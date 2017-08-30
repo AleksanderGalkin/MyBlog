@@ -209,6 +209,7 @@
     <Compile Include="Controllers\InitController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostEditorController.cs" />
+    <Compile Include="Controllers\PostViewController.cs" />
     <Compile Include="DomainModels\SiteDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -266,7 +267,6 @@
       <DependentUpon>201606040322386_5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\GroupVmDisplay.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\PostModels.cs" />
@@ -392,16 +392,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Modules\PluginImagePostType\PluginImagePostType.dll" />
-    <Content Include="Modules\PluginTextPostType\PluginTextPostType.dll" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginFullContent\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Display.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypePM\Modify.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Shared\Error.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Shared\_Layout.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\Web.config" />
-    <Content Include="Modules\PluginTextPostType\Views\_ViewStart.cshtml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -499,15 +489,6 @@
     <Content Include="Scripts\jquery-ui-1.10.2.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min_.js" />
-    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\Display.cshtml" />
-    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
-    <Content Include="Modules\PluginImagePostType\Views\PluginImagePostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
-    <Content Include="Modules\PluginImagePostType\Views\Shared\Error.cshtml" />
-    <Content Include="Modules\PluginImagePostType\Views\Shared\_Layout.cshtml" />
-    <Content Include="Modules\PluginImagePostType\Views\Web.config" />
-    <Content Include="Modules\PluginImagePostType\Views\_ViewStart.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
-    <Content Include="Modules\PluginTextPostType\Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -743,6 +724,8 @@
     <Content Include="Views\Band\DisplayTemplates\PostGroupVm.cshtml" />
     <Content Include="Views\Shared\NotFounPlugin.cshtml" />
     <Content Include="Views\Shared\Disqus.cshtml" />
+    <Content Include="Views\PostView\ShowPost.cshtml" />
+    <Content Include="Views\PostView\DisplayTemplates\PostGroupVm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -752,9 +735,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Modules\PluginImagePostType\roslyn\" />
-    <Folder Include="Modules\PluginTextPostType\roslyn\" />
-    <Folder Include="Modules\PluginTextPostType\ru\" />
+    <Folder Include="Modules\" />
     <Folder Include="Views\Plugin\" />
   </ItemGroup>
   <ItemGroup>

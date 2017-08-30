@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace MyBlogContract.FullContent
+namespace MyBlogContract.ContentGroup
 {
-    public interface IFullContent : IController
+    public interface IContentGroupDisplay : IController
     {
-        ActionResult Display(IDeFullContent Model);
+        ActionResult Display(IDeContentGroup Model);
     }
 
 }

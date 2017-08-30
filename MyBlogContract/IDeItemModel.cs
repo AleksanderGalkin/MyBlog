@@ -8,12 +8,13 @@ using System.Web.Routing;
 namespace MyBlogContract
 {
     /// <summary>
-    /// Group of Models what used for exchanging data between host and plugins
+    /// Model what used for exchanging data between host and plugins
     /// </summary>
-    public abstract class IDeGroupModel
+    public abstract class IDeItemModel
     {
         abstract public int PostId { get; set; }
-        abstract public int Order { get; set; }
+        abstract public int PostContentId { get; set; }
+
         abstract public string AreaName { get; set; }
 
         abstract public RouteValueDictionary GetDictionary(DeDirection direction = DeDirection.ToPlugin);

@@ -25,5 +25,8 @@ namespace MyBlogContract
         [DefaultValue("Undefined")]
         string ActionCreateName { get; }
 
+        [DefaultValue("Undefined")]
+        string ActionGetPostUrl { get; }
+
     }
 }

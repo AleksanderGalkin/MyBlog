@@ -9,7 +9,8 @@ namespace MyBlogContract.Band
 {
     public interface IBandDisplay : IController
     {
-        ActionResult Display(IDeGroupModelDisplay Model);
+        ActionResult Display(IDeGroupBand Model);
+        string GetPostUrl(IDeGroupBand Model);
     }
 
 }

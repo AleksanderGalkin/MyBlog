@@ -6,6 +6,7 @@ using MyBlog.Infrustructure.Sevices;
 using MyBlog.Models;
 using MyBlogContract;
 using MyBlogContract.Band;
+using MyBlogContract.ContentGroup;
 using MyBlogContract.FullContent;
 using MyBlogContract.PostManage;
 using System;
@@ -20,7 +21,7 @@ namespace MyBlog.Infrastructure.Services
     [Export("PluginTextPostType", typeof(IDataStorePostManage))]
     [Export("PluginTextPostType", typeof(IDataStoreFullContent))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    public  class DataStore : IDataStoreBand, IDataStorePostManage, IDataStoreFullContent
+    public  class DataStore : IDataStoreBand, IDataStorePostManage, IDataStoreFullContent, IDataStoreContentGroup
     {
         private IList<IDataStoreRecord> store;
         private IUnitOfWork _unitOfWork;

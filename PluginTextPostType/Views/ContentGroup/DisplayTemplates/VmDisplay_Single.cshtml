@@ -1,0 +1,27 @@
+﻿@using PluginTextPostType.Models
+@using PluginTextPostType.DataExchangeModels
+@using System.Text.RegularExpressions;
+@model  VmContentGroup
+
+@{
+    Layout = null;
+}
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <em>
+                    @Html.DisplayFor(x => x.Comment)
+                </em>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            @Html.Raw(Model.Data)
+
+        </div>
+    </div>
+</div>

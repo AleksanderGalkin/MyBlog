@@ -70,9 +70,13 @@ namespace MyBlog.Infrustructure.Services
                 PostVm.PostContents.Add(newItem);
             }
 
+            PostVm.PostViewCount = _post.PostViews.Count;
 
             var group = from r in PostVm.PostContents
-                        group r by new { PostId = r.PostId, Order = r.Order,  PostPluginName = r.ContentPluginName }
+                        group r by new { PostId = r.PostId,
+                            Order = r.Order,
+                            PostPluginName = r.ContentPluginName
+                        }
                         into g
                         select g;
 
@@ -82,6 +86,7 @@ namespace MyBlog.Infrustructure.Services
                 Order = x.Key.Order,
                 GroupPluginName = x.Key.PostPluginName,
                 Contexts = x.ToList()
+                  
             })
             .OrderBy(o => o.Order)
             .ToList();

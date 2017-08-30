@@ -70,15 +70,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentGroup\IContentGroupDisplay.cs" />
+    <Compile Include="ContentGroup\IDataStoreBand.cs" />
+    <Compile Include="ContentGroup\IDeContentGroup.cs" />
     <Compile Include="Band\IBandDisplay.cs" />
     <Compile Include="Band\IDataStoreBand.cs" />
-    <Compile Include="Band\IDeGroupModelDisplay.cs" />
-    <Compile Include="Band\!!!DEL_IDEModelDisplay.cs" />
+    <Compile Include="Band\IDeItemBand.cs" />
+    <Compile Include="Band\IDeGroupBand.cs" />
+    <Compile Include="DeDirection.cs" />
     <Compile Include="FullContent\IFullContent.cs" />
     <Compile Include="FullContent\IDataStoreFullContent.cs" />
-    <Compile Include="FullContent\IDEModelDisplay.cs" />
+    <Compile Include="FullContent\IDeFullContent.cs" />
     <Compile Include="IDeGroupModel.cs" />
-    <Compile Include="IDEModel.cs" />
+    <Compile Include="IDeItemModel.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IPlugIn.cs" />
     <Compile Include="PostManage\IDataStorePostManage.cs" />
@@ -91,6 +95,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

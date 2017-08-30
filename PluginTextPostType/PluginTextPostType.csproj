@@ -128,20 +128,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\PluginFullContentController.cs" />
-    <Compile Include="Controllers\PluginTextPostTypeBand.cs" />
-    <Compile Include="Controllers\PluginTextPostTypePM.cs" />
-    <Compile Include="DataExchangeModels\DataExchangeGroupModelDisplay.cs" />
-    <Compile Include="DataExchangeModels\DataExchangeModelFullContent.cs" />
-    <Compile Include="DataExchangeModels\DataExchangeModelPostManage.cs" />
+    <Compile Include="Controllers\ContentGroup.cs" />
+    <Compile Include="Controllers\Band.cs" />
+    <Compile Include="Controllers\PM.cs" />
+    <Compile Include="DataExchangeModels\DeContentGroup.cs" />
+    <Compile Include="DataExchangeModels\DeGroupBand.cs" />
+    <Compile Include="DataExchangeModels\DeItem.cs" />
+    <Compile Include="DataExchangeModels\DeModelPostManage.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastucture\AppSettings.cs" />
     <Compile Include="Infrastucture\Plugin1Entry.cs" />
-    <Compile Include="Models\GroupKey.cs" />
-    <Compile Include="Models\GroupVmDisplay.cs" />
-    <Compile Include="Models\VmDisplay.cs" />
+    <Compile Include="Models\VmItemGroup.cs" />
+    <Compile Include="Models\VmContentGroup.cs" />
+    <Compile Include="Models\VmItem.cs" />
+    <Compile Include="Models\VmManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,12 +178,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\PluginTextPostTypeBand\Display.cshtml" />
-    <Content Include="Views\PluginTextPostTypePM\Display.cshtml" />
-    <Content Include="Views\PluginTextPostTypePM\Modify.cshtml" />
-    <Content Include="Views\PluginFullContent\Display.cshtml" />
-    <Content Include="Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Group.cshtml" />
-    <Content Include="Views\PluginTextPostTypeBand\DisplayTemplates\VmDisplay_Single.cshtml" />
+    <Content Include="Views\Band\Display.cshtml" />
+    <Content Include="Views\PM\Display.cshtml" />
+    <Content Include="Views\PM\Modify.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\VmDisplay_Group.cshtml" />
+    <Content Include="Views\Band\DisplayTemplates\VmDisplay_Single.cshtml" />
+    <Content Include="Views\ContentGroup\DisplayTemplates\VmDisplay_Group.cshtml" />
+    <Content Include="Views\ContentGroup\DisplayTemplates\VmDisplay_Single.cshtml" />
+    <Content Include="Views\ContentGroup\Display.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -235,7 +239,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y /E $(TargetPath) $(SolutionDir)MyBlog\Modules\PluginTextPostType
-xcopy /Y /E $(ProjectDir)\Views\*.* $(SolutionDir)MyBlog\Modules\PluginTextPostType\Views</PostBuildEvent>
+xcopy /Y /E $(ProjectDir)Views\*.* $(SolutionDir)MyBlog\Modules\PluginTextPostType\Views</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

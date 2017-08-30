@@ -2,6 +2,8 @@
 using MyBlog.Models;
 using MyBlog.ViewModels;
 using MyBlogContract;
+using MyBlogContract.Band;
+using MyBlogContract.FullContent;
 using MyBlogContract.PostManage;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,8 @@ namespace MyBlog
             Mapper.CreateMap<PostContent, IDataStoreRecord>();
 
             Mapper.CreateMap<IDataStoreRecord, PostContent>();
+
+            Mapper.CreateMap<IDeItemBand, IDeFullContent>();
 
 
             Mapper.CreateMap<Post, PostVm>()

@@ -52,8 +52,15 @@ namespace MyBlog.Models
 
         public override int SaveChanges()
         {
-            PostContents.Local.Where(x => x.Post == null).ToList().ForEach(x=>PostContents.Remove(x));
-            return base.SaveChanges();
+            try
+            {
+                PostContents.Local.Where(x => x.Post == null).ToList().ForEach(x => PostContents.Remove(x));
+                return base.SaveChanges();
+            }
+            catch(System.Exception e)
+            {
+                throw;
+            }
         }
         
 

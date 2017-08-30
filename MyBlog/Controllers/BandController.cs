@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
+using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.ViewModels;
 using MyBlogContract.Band;
+using MyBlogContract.FullContent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -47,10 +50,6 @@ namespace MyBlog.Controllers
 
         }
 
-        public ActionResult ShowContent (int PostId, int ContentId)
-        {
-            return View();
-        }
 
         [ChildActionOnly]
         public virtual ActionResult AuthorControlCreate()

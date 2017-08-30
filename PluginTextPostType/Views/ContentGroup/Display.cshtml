@@ -1,0 +1,23 @@
+﻿@using PluginTextPostType.Models
+@model IEnumerable<VmContentGroup>
+@{
+    Layout = null;
+}
+
+@{
+
+        if (Model.Count() > 1 )
+        {
+
+            @Html.DisplayFor(x => Model, "VmDisplay_Group");
+        }
+        else
+        {
+            VmContentGroup model = Model.FirstOrDefault();
+            @Html.DisplayFor(x => model, "VmDisplay_Single");
+        }
+    
+}
+
+
+

@@ -7,7 +7,6 @@
 
     @using MyBlog.Infrastructure.Services
     @using MyBlogContract.Band
-    @using MyBlogContract.PostManage
 
 
 <div class="row">
@@ -22,39 +21,62 @@
     <div class="col-md-8">
         @{
 
-            foreach (GroupVmDisplay group1 in Model.GroupPostContents)
+            if (Model.GroupPostContents.Count == 0)
             {
-                IDeGroupModelDisplay dte = (IDeGroupModelDisplay)PlugInFactory.GetModelByInterface(typeof(IDeGroupModelDisplay), group1.GroupPluginName);
-
-                if (dte != null)
-                {
-
-                    dte.PostId = group1.PostId;
-                    dte.Order = group1.Order;
-                    dte.AreaName = group1.GroupPluginName;
-
-
-                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                              , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                              , dte.GetDictionary())
-
-
-                }
-                else
-                {
-                    string plugin_string = group1.GroupPluginName ?? "(empty)";
-                    @Html.Partial("NotFounPlugin", plugin_string, null)
-                }
+                @Html.Partial("NotFoundContent", "NotFoundContent", null)
+                return;
             }
+            
+            GroupVmDisplay group1 = Model.GroupPostContents[0];
+            IDeGroupBand dte = (IDeGroupBand)PlugInFactory.GetModelByInterface(typeof(IDeGroupBand), group1.GroupPluginName);
+
+            if (dte != null)
+            {
+
+                dte.PostId = group1.PostId;
+                dte.Order = group1.Order;
+                dte.AreaName = group1.GroupPluginName;
+                dte.CallbackControllerName_CmdShowPostView = "PostView";
+                dte.CallbackActionName_CmdShowPostView = "ShowPost";
+                dte.PostId_CmdShowPostView = group1.PostId;
+
+
+                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
+                                                            , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
+                                                            , dte.GetDictionary())
+
+
+            }
+            else
+            {
+                string plugin_string = group1.GroupPluginName ?? "(empty)";
+                @Html.Partial("NotFounPlugin", plugin_string, null)
+            }
+
 
         }
     </div>
 </div>
 <div class="row text-info">
     <div class="col-md-4">
-        @Html.DisplayNameFor(m => m.PostCommentCount) : @Html.DisplayFor(m => m.PostCommentCount)
+        @{ 
+            MvcHtmlString link = @Html.Action(PlugInFactory.GetActionGetPostUrlByInterface(typeof(IBandDisplay), group1.GroupPluginName)
+                                                            , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
+                                                            , dte.GetDictionary());
+
+            string link_disqus_bookmark = link + "#disqus_thread";
+            int disqus_identifier_post_id = Model.PostId;
+            int disqus_identifier_content_id = 0;
+            string disqus_identifier = disqus_identifier_post_id.ToString() + ':' + disqus_identifier_content_id.ToString();
+        }
+        <a href="@link_disqus_bookmark">
+            @Html.DisplayNameFor(m => m.PostCommentCount) :
+        </a>
+        <a href="@link_disqus_bookmark" data-disqus-identifier='@disqus_identifier'>
+        </a>
     </div>
     <div class="col-md-4">
         @Html.DisplayNameFor(m => m.PostViewCount) : @Html.DisplayFor(m => m.PostViewCount)
     </div>
 </div>
+
