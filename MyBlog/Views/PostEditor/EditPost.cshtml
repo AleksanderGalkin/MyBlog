@@ -3,6 +3,7 @@
 
 @using MyBlog.Infrastructure.Services
 @using MyBlogContract.PostManage
+@using MyBlogContract.TagManage
 
 @{
     ViewBag.Title = "EditPostForm";
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
+        
 
     }
 
@@ -38,7 +40,7 @@
             foreach (var item in Model.PostContents)
             {
 
-                IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.ContentPluginName);
+                IDEModelPostManage dte = PlugInFactory.GetModelByInterface<IDEModelPostManage>( item.ContentPluginName);
                 if (dte != null)
                 {
                     dte.PostId = item.PostId;
@@ -48,11 +50,11 @@
                     dte.OnSuccessRemoveCallback = "removeContentId";
                     dte.CallbackActionName = "EditPost";
                     dte.CallbackControllerName = "PostEditor";
-                    dte.AreaName = item.ContentPluginName;
+                   // dte.AreaName = item.ContentPluginName;
 
 
-                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.ContentPluginName)
-                                 , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                    @Html.Action("Display"
+                                 , PlugInFactory.GetControllerNameByInterface<IPostManager>( item.ContentPluginName)
                                  , dte.GetDictionary() );
                 }
                 else
@@ -82,7 +84,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Добавить &nbsp;<span class="caret"></span></button>
                     <ul id="dropdown-menu1" class="dropdown-menu" role="menu">
                         <li>
-                            @Ajax.ActionLink("Текст", "Create", "PluginTextPostTypePM",
+                            @Ajax.ActionLink("Текст", "Create", "PM",
                                         new
                                         {
                                             area = "PluginTextPostType",
@@ -139,6 +141,43 @@
         </div>
     </div>
 
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-11">
+        @{
+
+            IDtoTag dte_tag = PlugInFactory.GetModelByInterface<IDtoTag>();
+            if (dte_tag != null)
+            {
+                dte_tag.PostId = Model.PostId;
+                dte_tag.StoreModelKey = Model.TagSession;
+                dte_tag.CmdShowParentPost_CallbackControllerName = "PostEditor";
+                dte_tag.CmdShowParentPost_CallbackActionName = "EditPost";
+                dte_tag.CmdShowParentPost_PostId = Model.PostId;
+
+
+                @Html.Action("Display"
+                            , PlugInFactory.GetControllerNameByInterface<ITagManager>()
+                            , dte_tag.GetDictionary());
+            }
+            else
+            {
+                string plugin_string = "PluginTag" ?? "(empty)";
+                @Html.Partial("NotFounPlugin", plugin_string, null)
+            }
+
+
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
     <div class="form-group">
         <div class="col-lg-offset-8 col-md-4">
             <button type="button" class="btn btn-primary pull-right" onclick="document.forms['EditPostForm'].submit();">Сохранить</button>
@@ -155,7 +194,6 @@
 
     @section scripts{
         @Scripts.Render("~/bundles/ajax")
-
 
 
         <script type="text/javascript">

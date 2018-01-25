@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Mvc;
 using MyBlogContract;
+using PluginTextPostType.Infrastructure;
 
 namespace PluginTextPostType.DataExchangeModels
 {
@@ -18,7 +19,8 @@ namespace PluginTextPostType.DataExchangeModels
     {
         public override int PostId { get; set; }
         public override int Order { get; set; }
-        public override string AreaName { get; set; }
+        public override string AreaName { get { return AppSettings.PluginName; } }
+
 
         public override RouteValueDictionary GetDictionary(DeDirection direction = DeDirection.ToPlugin)
         {

@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -70,7 +71,7 @@ namespace MyBlog.Infrustructure.Services
                 PostVm.PostContents.Add(newItem);
             }
 
-            PostVm.PostViewCount = _post.PostViews.Count;
+            //PostVm.PostViewCount = _post.PostViews.Count;
 
             var group = from r in PostVm.PostContents
                         group r by new { PostId = r.PostId,
@@ -96,6 +97,9 @@ namespace MyBlog.Infrustructure.Services
 
             return PostGroupVm;
         }
+
+
+ 
     }
 
 

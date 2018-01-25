@@ -15,17 +15,15 @@ using System.Web.Routing;
 
 namespace PluginTextPostType.Controllers
 {
-    [Export("PluginTextPostType", typeof(IController)),
+    [Export("PluginTextPostType", typeof(IController))]
+    [Export("PluginTextPostType", typeof(IPostManager)),
         ExportMetadata("Name", "PluginTextPostType"),
         ExportMetadata("Version", "1.0"),
         ExportMetadata("ControllerName", "PM"),
-        ExportMetadata("ControllerType", typeof(IPostManager)),
-         ExportMetadata("ActionDisplayName", "Display"),
-         ExportMetadata("ActionModifyName", "Modify"),
-        ExportMetadata("ActionCreateName", "Create")]
+     ]
 
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class PMController : Controller, IPostManager
+    public class PMController :  IPostManager
 
     {
  
@@ -33,14 +31,14 @@ namespace PluginTextPostType.Controllers
 
           
         [ImportingConstructor]
-        public PMController(IDataStorePostManage DataStore)
+        public PMController(IDataStorePostManage DataStore):base(DataStore)
         {
             if (DataStore == null)
                 throw new NullReferenceException("DataStore reference must be not null");
             _ds = DataStore;
         }
 
-        public ActionResult Display(IDEModelPostManage Model)
+        public override ActionResult Display(IDEModelPostManage Model)
         {
             IDataStoreRecord result = _ds.GetContent(Model.PostContentId);
 
@@ -71,7 +69,7 @@ namespace PluginTextPostType.Controllers
         }
 
 
-        public ActionResult Create(IDEModelPostManage Model)
+        public override ActionResult Create(IDEModelPostManage Model)
         {
             if (Model.AreaName != AppSettings.PluginName)
             {
@@ -99,9 +97,11 @@ namespace PluginTextPostType.Controllers
             return View("Modify",vmodel);
         }
 
-        public ActionResult Modify(VmManage Model)
+       // public override ActionResult Modify(VmManage Model)
+        public override ActionResult Modify(IDEModelPostManage Model)
         {
-            IDataStoreRecord result = _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
+            //IDataStoreRecord result = _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
+            IDataStoreRecord result = _ds.GetContent(Model.PostContentId, 0);
 
             VmManage vmodel = Mapper.Map<VmManage>(Model);
 

@@ -40,6 +40,11 @@ namespace MyBlog.ViewModels
         public int PostViewCount { get; set; }
 
 
+        public string TagSession { get; set; }
+
+
+
+
     }
 
     public class PostGroupVm : PostVm
@@ -69,6 +74,14 @@ namespace MyBlog.ViewModels
         public string type { get; set; }
         public string url { get; set; }
         public int id { get; set; }
+    }
+
+    public class VmTag
+    {
+        public int TagId { get; set; }
+        public string TagName { get; set; }
+        public bool Select { get; set; }
+
     }
 
 }

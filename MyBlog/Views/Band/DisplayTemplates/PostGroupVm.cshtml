@@ -7,6 +7,7 @@
 
     @using MyBlog.Infrastructure.Services
     @using MyBlogContract.Band
+    @using MyBlogContract.TagManage
 
 
 <div class="row">
@@ -26,24 +27,23 @@
                 @Html.Partial("NotFoundContent", "NotFoundContent", null)
                 return;
             }
-            
+
             GroupVmDisplay group1 = Model.GroupPostContents[0];
-            IDeGroupBand dte = (IDeGroupBand)PlugInFactory.GetModelByInterface(typeof(IDeGroupBand), group1.GroupPluginName);
+            IDeGroupBand dte = PlugInFactory.GetModelByInterface<IDeGroupBand>(group1.GroupPluginName);
 
             if (dte != null)
             {
 
                 dte.PostId = group1.PostId;
                 dte.Order = group1.Order;
-                dte.AreaName = group1.GroupPluginName;
                 dte.CallbackControllerName_CmdShowPostView = "PostView";
                 dte.CallbackActionName_CmdShowPostView = "ShowPost";
                 dte.PostId_CmdShowPostView = group1.PostId;
 
 
-                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                            , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                            , dte.GetDictionary())
+                @Html.Action("Display"
+                     , PlugInFactory.GetControllerNameByInterface<IBandDisplay>(group1.GroupPluginName)
+                     , dte.GetDictionary())
 
 
             }
@@ -57,13 +57,35 @@
         }
     </div>
 </div>
+
 <div class="row text-info">
     <div class="col-md-4">
-        @{ 
-            MvcHtmlString link = @Html.Action(PlugInFactory.GetActionGetPostUrlByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                            , PlugInFactory.GetControllerNameByInterface(typeof(IBandDisplay), group1.GroupPluginName)
-                                                            , dte.GetDictionary());
 
+        @{
+            IDtoTag dto_tag = PlugInFactory.GetModelByInterface<IDtoTag>();
+
+            if (dto_tag != null)
+            {
+
+                dto_tag.PostId = Model.PostId;
+                dto_tag.StoreModelKey = Model.TagSession;
+
+                @Html.Action("Display"
+                            , PlugInFactory.GetControllerNameByInterface<ITagDisplay>()
+                            , dto_tag.GetDictionary())
+
+
+            }
+        }
+    </div>
+</div>
+
+
+<div class="row text-info">
+    <div class="col-md-4">
+
+        @{MvcHtmlString link = Html.Action("GetPostUrl", PlugInFactory.GetControllerNameByInterface<IBandDisplay>(group1.GroupPluginName), dte.GetDictionary()); }
+        @{
             string link_disqus_bookmark = link + "#disqus_thread";
             int disqus_identifier_post_id = Model.PostId;
             int disqus_identifier_content_id = 0;
@@ -75,8 +97,9 @@
         <a href="@link_disqus_bookmark" data-disqus-identifier='@disqus_identifier'>
         </a>
     </div>
+
     <div class="col-md-4">
         @Html.DisplayNameFor(m => m.PostViewCount) : @Html.DisplayFor(m => m.PostViewCount)
     </div>
-</div>
 
+</div>

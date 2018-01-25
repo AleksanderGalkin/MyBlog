@@ -7,8 +7,21 @@ using System.Web.Mvc;
 
 namespace MyBlogContract.PostManage
 {
-    public interface IPostManager : IController
+    /*   Example
+    [InheritedExport("<ContractName>", typeof(<classname>)),
+    ExportMetadata("Name", "<PluginName>"),
+    ExportMetadata("Version", "<PluginVersion>"),
+    ExportMetadata("ControllerName", "<ControllerName>"),
+    ]
+    */
+    public abstract class IPostManager : Controller
     {
+        protected IPostManager(IDataStorePostManage DataStore)
+        { }
+
+        public abstract ActionResult Display(IDEModelPostManage Model);
+        public abstract ActionResult Create(IDEModelPostManage Model);
+        public abstract ActionResult Modify(IDEModelPostManage Model);
 
     }
 

@@ -17,9 +17,10 @@ using System.Web;
 
 namespace MyBlog.Infrastructure.Services
 {
-    [Export("PluginTextPostType",typeof(IDataStoreBand))]
+    [Export("PluginTextPostType", typeof(IDataStoreBand))]
     [Export("PluginTextPostType", typeof(IDataStorePostManage))]
-    [Export("PluginTextPostType", typeof(IDataStoreFullContent))]
+    //[InheritedExport]
+    //[Export("PluginTextPostType", typeof(IDataStoreFullContent))]
     [PartCreationPolicy(CreationPolicy.Shared)]
     public  class DataStore : IDataStoreBand, IDataStorePostManage, IDataStoreFullContent, IDataStoreContentGroup
     {
@@ -56,7 +57,7 @@ namespace MyBlog.Infrastructure.Services
         public IDataStoreRecord GetNew()
         {
 
-            IDataStoreRecord Model = (IDataStoreRecord)PlugInFactory.GetModelByInterface(typeof(IDataStoreRecord), "");
+            IDataStoreRecord Model = PlugInFactory.GetModelByInterface<IDataStoreRecord>( "");
             return Model;
         }
 

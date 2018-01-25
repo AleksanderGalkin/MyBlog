@@ -7,9 +7,20 @@ using System.Web.Mvc;
 
 namespace MyBlogContract.ContentGroup
 {
-    public interface IContentGroupDisplay : IController
+    /*   Example
+    [InheritedExport("<ContractName>", typeof(<classname>)),
+    ExportMetadata("Name", "<PluginName>"),
+    ExportMetadata("Version", "<PluginVersion>"),
+    ExportMetadata("ControllerName", "<ControllerName>"),
+    ]
+    */
+    public abstract class IContentGroupDisplay : Controller
     {
-        ActionResult Display(IDeContentGroup Model);
+        protected IContentGroupDisplay(IDataStoreContentGroup DataStore)
+        {
+        }
+
+        public abstract ActionResult Display(IDeContentGroup Model);
     }
 
 }

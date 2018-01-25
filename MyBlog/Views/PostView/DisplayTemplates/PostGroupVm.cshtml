@@ -8,6 +8,8 @@
     @using MyBlog.Infrastructure.Services
     @using MyBlogContract.ContentGroup
     @using MyBlogContract.Band
+    @using MyBlogContract.TagManage
+    
 
 
 <div class="row">
@@ -23,7 +25,7 @@
 
             foreach (GroupVmDisplay group1 in Model.GroupPostContents)
             {
-                IDeContentGroup dte = (IDeContentGroup)PlugInFactory.GetModelByInterface(typeof(IDeContentGroup), group1.GroupPluginName);
+                IDeContentGroup dte = PlugInFactory.GetModelByInterface<IDeContentGroup>( group1.GroupPluginName);
 
                 if (dte != null)
                 {
@@ -31,11 +33,11 @@
                     dte.PostId = group1.PostId;
 
                     dte.Order = group1.Order;
-                    dte.AreaName = group1.GroupPluginName;
+                  //  dte.AreaName = group1.GroupPluginName;
 
-                    @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IContentGroupDisplay), group1.GroupPluginName)
-                                                    , PlugInFactory.GetControllerNameByInterface(typeof(IContentGroupDisplay), group1.GroupPluginName)
-                                                    , dte.GetDictionary())
+                    @Html.Action("Display"
+                                    , PlugInFactory.GetControllerNameByInterface<IContentGroupDisplay>( group1.GroupPluginName)
+                                    , dte.GetDictionary())
                         
                 }
                 else
@@ -44,6 +46,35 @@
                     @Html.Partial("NotFounPlugin", plugin_string, null)
                 }
             }
+
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-11">
+        @{
+
+            IDtoTag dte_tag = PlugInFactory.GetModelByInterface<IDtoTag>();
+            if (dte_tag != null)
+            {
+                dte_tag.PostId = Model.PostId;
+                dte_tag.StoreModelKey = Model.TagSession;
+                //dte_tag.CmdShowParentPost_CallbackControllerName = "PostEditor";
+                //dte_tag.CmdShowParentPost_CallbackActionName = "EditPost";
+                //dte_tag.CmdShowParentPost_PostId = Model.PostId;
+
+
+                @Html.Action("Display"
+                            , PlugInFactory.GetControllerNameByInterface<ITagDisplay>()
+                            , dte_tag.GetDictionary());
+            }
+            else
+            {
+                string plugin_string = "PluginTag" ?? "(empty)";
+                @Html.Partial("NotFounPlugin", plugin_string, null)
+            }
+
 
         }
     </div>

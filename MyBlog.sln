@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlogContract", "MyBlogContract\MyBlogContract.csproj", "{D1136B08-E511-4FCA-9B67-EF2853E0ECCA}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginImagePostType.Tests", "PluginImagePostType.Tests\PluginImagePostType.Tests.csproj", "{7A914DFF-C4EB-4E40-B4E6-479F57BE7325}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Tests", "MyBlog.Tests\MyBlog.Tests.csproj", "{14BD41E7-F530-4ABE-9255-104E667389C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTag", "PluginTag\PluginTag\PluginTag.csproj", "{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,14 @@ Global
 		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{14BD41E7-F530-4ABE-9255-104E667389C5}.Release|x86.Build.0 = Release|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D9D7F53-69DE-4DB8-9164-2F0DE97E4BDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

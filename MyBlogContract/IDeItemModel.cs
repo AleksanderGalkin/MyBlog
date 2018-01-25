@@ -15,7 +15,7 @@ namespace MyBlogContract
         abstract public int PostId { get; set; }
         abstract public int PostContentId { get; set; }
 
-        abstract public string AreaName { get; set; }
+        abstract public string AreaName { get;  }
 
         abstract public RouteValueDictionary GetDictionary(DeDirection direction = DeDirection.ToPlugin);
 

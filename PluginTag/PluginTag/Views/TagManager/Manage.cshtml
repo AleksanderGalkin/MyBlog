@@ -1,0 +1,201 @@
+﻿@using PluginTag.ViewModels;
+
+@model VmDtoTag
+@{
+    Layout = null;
+}
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Управление тегами поста
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div class="col-md-5">
+
+
+                            <ul id="left_panel" class="list-unstyled">
+
+                                @for (int i = 0; i < Model.post_tags.Count(); i++)
+                                {
+                                    <li id="@Html.DisplayFor(x => Model.post_tags[i].TagId)">
+
+                                        @*@Html.CheckBoxFor(x => Model.Tags[i].Select)*@
+                                        @Html.HiddenFor(x => Model.post_tags[i].TagId)
+                                        @Html.HiddenFor(x => Model.post_tags[i].TagName)
+                                        @Html.DisplayFor(x => Model.post_tags[i].TagName)
+
+                                    </li>
+
+                                }
+
+                            </ul>
+
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" id="to_right" class="btn btn-primary pull-right btn-block">
+                                >>
+                            </button>
+                            <button type="submit" id="to_left" class="btn btn-primary pull-right btn-block">
+                                <<
+                            </button>
+                        </div>
+                        <div class="col-md-5">
+                                    @using (@Html.BeginForm("", "TagManager", new { area = Model.AreaName }, FormMethod.Post, new { id = "SaveAddForm", role = "form" }))
+
+                                    {
+
+                                            @Html.HiddenFor(model => model.AreaName)
+                                            @Html.HiddenFor(model => model.CallbackActionName_CmdShowPostByTag)
+                                            @Html.HiddenFor(model => model.CallbackControllerName_CmdShowPostByTag)
+                                            @Html.HiddenFor(model => model.TagId_CmdShowPostByTag)
+                                            @Html.HiddenFor(model => model.PostId)
+
+                                            @Html.HiddenFor(model => model.CmdShowParentPost_CallbackControllerName)
+                                            @Html.HiddenFor(model => model.CmdShowParentPost_CallbackActionName)
+                                            @Html.HiddenFor(model => model.CmdShowParentPost_PostId)
+
+
+                                                <ul id ="right_panel" class="list-unstyled">
+                                                    @for (int i = 0; i < Model.all_tags.Count(); i++)
+                                                    {
+                                                        <li id="@Html.DisplayFor(x => Model.all_tags[i].TagId)">
+
+                                                            @*@Html.CheckBoxFor(x => Model.Tags[i].Select)*@
+                                                            @Html.HiddenFor(x => Model.all_tags[i].TagId)
+                                                            @Html.HiddenFor(x => Model.all_tags[i].TagName)
+                                                            @Html.DisplayFor(x => Model.all_tags[i].TagName)
+
+                                                        </li>
+
+                                                    }
+
+                                                </ul>
+                                            
+
+                                    }
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <button type="submit" id="Ok_Save" class="btn btn-primary pull-right btn-block"
+                                     data-dismiss="modal">
+                                Ок
+                            </button>
+                            <button type="submit" id="Cance_lSave" class="btn btn-primary pull-right btn-block"
+                                    data-dismiss="modal">
+                                Отмена
+                            </button>
+                            <button type="submit" id="Create_Save" class="btn btn-primary pull-right btn-block">
+                                Создать
+                            </button>
+                            <button type="submit" id="Edit_Save" class="btn btn-primary pull-right btn-block">
+                                Редактировать
+                            </button>
+                            <button type="submit" id="Delete_Save" class="btn btn-primary pull-right btn-block">
+                                Удалить
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+<script type="text/javascript">
+
+    @*document.addEventListener('DOMContentLoaded', function () {
+        alert('!!');
+        $("#Ok_Save").click(function () {
+            alert('!!!');
+
+            var form = $("#SaveAddForm");
+            form.attr("action", "@Url.Action("SaveAddTags", "TagManager")");
+            form.submit();
+
+        });
+
+    });*@
+
+
+    //function Init() {
+
+
+
+   // }
+
+    $("#to_left").click(function () {
+        var right_items = $("#right_panel li");
+        right_items.each(function (idx, li) {
+            var right_item = $(li);
+            var cb = right_item.find(">:first-child")
+            if (cb.is(':checked'))
+            {
+                cb.parent().detach();
+                cb.parent().prependTo("#left_panel");
+                cb.prop('checked', false);
+
+                $("#right_panel").children().each(function (idx, e) {
+                    _li = $(e);
+                    _li.children().each(function (idx_field, field) {
+                        id = $(field).prop("id");
+                        name = $(field).prop("name");
+
+                        $(field).prop("id", id.replace(/_[0-9]+_/, '_' + idx + '_'));
+                        $(field).prop("name", name.replace(/\[[0-9]+\]/, '[' + idx + ']'));
+                    });
+                });
+
+
+            }
+
+
+        });
+
+    });
+
+    $("#to_right").click(function () {
+        var right_items = $("#left_panel li");
+        right_items.each(function (idx, li) {
+            var right_item = $(li);
+            var cb = right_item.find(">:first-child")
+            if (cb.is(':checked')) {
+                cb.parent().detach();
+                $("#right_panel").append(cb.parent());
+                cb.prop('checked', false);
+
+                $("#right_panel").children().each(function (idx, e) {
+                    _li = $(e);
+                    _li.children().each(function (idx_field, field) {
+                        id = $(field).prop("id");
+                        name = $(field).prop("name");
+
+                        $(field).prop("id", id.replace(/_[0-9]+_/, '_' + idx + '_'));
+                        $(field).prop("name", name.replace(/\[[0-9]+\]/, '[' + idx + ']'));
+                    });
+                });
+
+            }
+
+
+        });
+
+    });
+
+    $("#Ok_Save").click(function () {
+        var form = $("#SaveAddForm");
+        form.attr("action", "@Url.Action("SaveAddTags2", "TagManager")");
+        form.submit();
+
+        });
+
+
+
+
+</script>
+
+
+
+

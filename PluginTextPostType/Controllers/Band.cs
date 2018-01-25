@@ -17,22 +17,22 @@ using System.Web.Routing;
 
 namespace PluginTextPostType.Controllers
 {
-    [Export("PluginTextPostType",typeof(IController)),
+    [Export("PluginTextPostType", typeof(IController))]
+
+    [Export("PluginTextPostType",typeof(IBandDisplay)),
         ExportMetadata("Name","PluginTextPostType"),
         ExportMetadata("Version","1.0"),
         ExportMetadata("ControllerName", "Band"),
-        ExportMetadata("ControllerType", typeof(IBandDisplay)),
-        ExportMetadata("ActionDisplayName", "Display"),
-        ExportMetadata("ActionGetPostUrl", "GetPostUrl")]
+    ]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class BandController :Controller, IBandDisplay
+    public class BandController : IBandDisplay
     {
        
         private IDataStoreBand _ds;
 
 
         [ImportingConstructor]
-        public BandController(IDataStoreBand DataStore)
+        public BandController(IDataStoreBand DataStore): base(DataStore)
         {
             if (DataStore == null)
                 throw new NullReferenceException("DataStore reference must be not null");
@@ -40,7 +40,7 @@ namespace PluginTextPostType.Controllers
         }
 
 
-        public ActionResult Display(IDeGroupBand Model)
+        public override ActionResult Display(IDeGroupBand Model)
         {
             IEnumerable<VmItemGroup> result = null;
 
@@ -89,13 +89,13 @@ namespace PluginTextPostType.Controllers
 
         }
 
-        public string GetPostUrl(IDeGroupBand Model)
+        public override string GetPostUrl(IDeGroupBand Model)
         {
             DeItem dte = new DeItem();
             dte.PostId = Model.PostId;
             dte.PostId_CmdShowPostView = Model.PostId;
 
-            dte.AreaName = Model.AreaName;
+           // dte.AreaName = Model.AreaName;
             string actionName = Model.CallbackActionName_CmdShowPostView;
             string controllerName = Model.CallbackControllerName_CmdShowPostView;
             string action_link = Url.Action(actionName, controllerName, dte.GetDictionary(MyBlogContract.DeDirection.ToMain), null);

@@ -4,6 +4,7 @@ using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.ViewModels;
+using MyBlogContract;
 using MyBlogContract.Band;
 using MyBlogContract.FullContent;
 using System.Collections.Generic;
@@ -28,14 +29,16 @@ namespace MyBlog.Controllers
         [ImportingConstructor]
         public BandController
             (IUnitOfWork UnitOfWork,
-            [Import("PluginTextPostType", typeof(IDataStoreBand))]IDataStoreBand DataStore) 
+            [Import( typeof(IDataStoreBand))]IDataStoreBand DataStore)
             : base(UnitOfWork)
         {
             _ds = DataStore;
         }
 
  
-        public ActionResult Index()
+        public ActionResult Index([Import( typeof(IDataStore<IDsTagModel>))]
+                                          IDataStore<IDsTagModel> TagDataStore
+                                  )
         {
 
             IList<PostGroupVm> model = (from a in _unitOfWork.db.Posts
@@ -46,6 +49,34 @@ namespace MyBlog.Controllers
                             .ToList();
 
             ViewBag.isAuthor = this.isAuthor();
+
+            foreach(var item in  model)
+            {
+                IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
+                                           join tp in _unitOfWork.db.PostTags
+                                           on t.TagId equals tp.TagId
+                                           where tp.PostId == item.PostId
+                                           select t
+                                           )
+                                           .ToList()
+                                           .Select(t=>
+                                               {
+                                                   IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
+                                                   tag.TagId = t.TagId;
+                                                   tag.TagName = t.TagName;
+                                                   return tag;
+
+                                               }
+                                           )
+                                            .ToList<IDsTag>();
+
+                IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
+                tag_data.post_tags = post_tags;
+                TagDataStore.SetModelByKey("tags"+item.PostId.ToString(), tag_data);
+
+                item.TagSession = "tags" + item.PostId.ToString();
+            }
+
             return View("Index",  model);
 
         }

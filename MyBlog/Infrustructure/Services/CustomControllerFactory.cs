@@ -20,6 +20,7 @@ namespace MyBlog.Infrastructure.Services
 
         public IController CreateController(RequestContext requestContext, string controllerName)
         {
+            
             string plugin_name = requestContext.RouteData.DataTokens["area"] as string;
             var controller = PlugInFactory
                 .GetController(controllerName, plugin_name);

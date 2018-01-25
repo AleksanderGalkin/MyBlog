@@ -37,7 +37,7 @@ namespace MyBlog.Models
     
 
         public ApplicationDbContext()
-            : base("SiteDBConnection", throwIfV1Schema: false)
+        : base("SiteDBConnection", throwIfV1Schema: false)
         {
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

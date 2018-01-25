@@ -1,5 +1,6 @@
 ﻿
 using MyBlogContract.PostManage;
+using PluginTextPostType.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -16,7 +17,8 @@ namespace PluginTextPostType.DataExchangeModels
 
         public override int PostId { get; set; }
         public override int PostContentId { get; set; }
-        public override string AreaName { get; set; }
+        public override string AreaName { get { return AppSettings.PluginName; } }
+
 
         public override string CallbackControllerName { get; set; }
         public override string CallbackActionName { get; set; }

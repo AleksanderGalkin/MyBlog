@@ -1,15 +1,19 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
+using MyBlog.Infrastructure.Services;
 using MyBlog.Infrustructure;
 using MyBlog.Infrustructure.Services;
 using MyBlog.Models;
 using MyBlog.ViewModels;
 using MyBlogContract;
 using MyBlogContract.PostManage;
+using MyBlogContract.SessionEntity;
+using MyBlogContract.TagManage;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,12 +33,15 @@ namespace MyBlog.Controllers
     {
         IDataStorePostManage _ds;
 
+
         [ImportingConstructor]
         public PostEditorController(IUnitOfWork UnitOfWork,
-             [Import("PluginTextPostType", typeof(IDataStorePostManage))]IDataStorePostManage DataStore)
+             [Import("PluginTextPostType", typeof(IDataStorePostManage))]IDataStorePostManage DataStore
+            )
             : base(UnitOfWork)
         {
             _ds = DataStore;
+
         }
 
 
@@ -56,28 +63,76 @@ namespace MyBlog.Controllers
         
 
 
-        public ActionResult EditPost(int PostId = 0)
+        public ActionResult EditPost(  [Import( typeof(IDataStore<IDsTagModel>))]
+                                          IDataStore<IDsTagModel> TagDataStore
+                                       , 
+                                         int PostId = 0)
         {
             Post Model = new Post();
-            if (PostId != 0) // новый пост
+            if (PostId != 0) // не новый пост
             {
                 Model = (from a in _unitOfWork.db.Posts
                          where a.PostId == PostId
                          select a)
                         .SingleOrDefault();
+
             }
             
                 
             PostService PostService = new PostService(Model);
             PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
-            //_ds.Clear();
-            
+
+
+            IList<IDsTag> all_tags = (from t in _unitOfWork.db.Tags
+                                      select t
+                                    )
+                                    .ToList()
+                                    .Select(t =>
+                                    {
+                                        IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
+                                        tag.TagId = t.TagId;
+                                        tag.TagName = t.TagName;
+                                        return tag;
+
+                                    }
+                                    )
+                                    .ToList<IDsTag>();
+
+            IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
+                                       join tp in _unitOfWork.db.PostTags
+                                       on t.TagId equals tp.TagId
+                                       where tp.PostId == PostId
+                                       select t
+                                        )
+                                        .ToList()
+                                        .Select(t =>
+                                        {
+                                            IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
+                                            tag.TagId = t.TagId;
+                                            tag.TagName = t.TagName;
+                                            return tag;
+
+                                        }
+                                        )
+                                        .ToList<IDsTag>();
+
+
+            IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
+            tag_data.all_tags = all_tags;
+            tag_data.post_tags = post_tags;
+
+            TagDataStore.SetModelByKey("tags", tag_data);
+
+            retModel.TagSession = "tags";
+
             ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
         }
 
         [HttpPost]
-        public ActionResult EditPost(PostVm Model)  //или добавить в PostService логигу обновления из PostVm
+        public ActionResult EditPost([Import( typeof(IDataStore<IDsTagModel>))]
+                                          IDataStore<IDsTagModel> TagDataStore,
+                                    PostVm Model)  //или добавить в PostService логигу обновления из PostVm
         {
             Post post = null;
             if (Model.PostId == 0)
@@ -94,7 +149,6 @@ namespace MyBlog.Controllers
             }
 
 
-            
             var content_of_post = _ds.GetModPost(Model.PostId);
             foreach ( var i in content_of_post)
             {
@@ -126,6 +180,30 @@ namespace MyBlog.Controllers
                     default:
                         break;
                 }
+            }
+
+            var tag_data = TagDataStore.GetModelByKey("tags");
+            var tags_to_delete = (from s in post.PostTags
+                     where !tag_data.post_tags.Any(si => si.TagId == s.TagId)
+                     select s)
+                    .ToList();
+
+            var tags_to_add = (from db_tag in _unitOfWork.db.Tags.ToList()
+                               join web_tag in tag_data.post_tags
+                               on db_tag.TagId equals web_tag.TagId
+                               where !post.PostTags.Any(si => si.TagId == db_tag.TagId)
+                                  select db_tag)
+                            .ToList();
+
+            foreach(var i in tags_to_delete)
+            {
+                post.PostTags.Remove(i);
+            }
+
+            foreach(var i in tags_to_add)
+            {
+                PostTag new_post_tag = new PostTag { Post = post, Tag = i };
+                post.PostTags.Add(new_post_tag);
             }
 
             if (Model.PostId == 0)
@@ -258,5 +336,6 @@ namespace MyBlog.Controllers
             }
         }
     }
+
 
 }

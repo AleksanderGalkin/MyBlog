@@ -10,6 +10,8 @@ namespace MyBlog.Infrastructure
 {
     public class DemBinder : DefaultModelBinder
     {
+
+
         protected override object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType)
         {
             object model = null;
@@ -22,12 +24,12 @@ namespace MyBlog.Infrastructure
 
             var UrlReferrer = controllerContext.HttpContext.Request.UrlReferrer;
             string second_segment_prev_area = "";
-            if (UrlReferrer != null && controllerContext.HttpContext.Request.UrlReferrer.Segments.Count()>1)
+            if (UrlReferrer != null && controllerContext.HttpContext.Request.UrlReferrer.Segments.Count() > 1)
             {
                 second_segment_prev_area = controllerContext.HttpContext.Request.UrlReferrer.Segments[1];
             }
             int length_second_segment_prev_area = second_segment_prev_area.Length;
-            if (length_second_segment_prev_area>0)
+            if (length_second_segment_prev_area > 0)
             {
                 second_segment_prev_area = second_segment_prev_area.Substring(0, length_second_segment_prev_area - 1);
             }
@@ -38,20 +40,26 @@ namespace MyBlog.Infrastructure
             }
             else
             {
-                if ( bindingContext.ValueProvider.GetValue("AreaName") != null)
+                if (bindingContext.ValueProvider.GetValue("AreaName") != null)
                     previous_area = bindingContext.ValueProvider.GetValue("AreaName").AttemptedValue;
             }
-            if ( ! string.IsNullOrWhiteSpace(current_area))
+            if (!string.IsNullOrWhiteSpace(current_area))
             {
                 model = PlugInFactory.GetModelByInterface(modelType, current_area);
-            } else
+            }
+            else
             if (!string.IsNullOrWhiteSpace(previous_area))
             {
                 model = PlugInFactory.GetModelByInterface(modelType, previous_area);
             }
+
+            if (model == null)
+            {
+                model = PlugInFactory.GetModelByInterface(modelType, null);
+            }
             return model ?? base.CreateModel(controllerContext, bindingContext, modelType);
         }
 
-        
+
     }
 }

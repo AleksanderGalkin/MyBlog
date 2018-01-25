@@ -1,0 +1,145 @@
+﻿@using PluginTag.ViewModels;
+
+
+@model VmDtoTag
+
+@{
+
+
+    if (Model.all_tags.Count > 0)
+    {
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading"> 
+                Метки:
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        
+
+                        @{ 
+                            AjaxOptions ajax_options = new AjaxOptions
+                            {
+                                UpdateTargetId = "ManageFormLocation"
+                                
+                            };
+                        }
+                        
+
+                        @using (Ajax.BeginForm("Edit", "TagManager", new { area = Model.AreaName }, ajax_options, new { id = "EditTagManager", role = "form" }))
+
+                        {
+
+                            @Html.HiddenFor(model => model.AreaName)
+                            @Html.HiddenFor(model => model.StoreModelKey)
+
+                            @Html.HiddenFor(model => model.CallbackActionName_CmdShowPostByTag)
+                            @Html.HiddenFor(model => model.CallbackControllerName_CmdShowPostByTag)
+                            @Html.HiddenFor(model => model.TagId_CmdShowPostByTag)
+
+                            @Html.HiddenFor(model => model.CmdShowParentPost_CallbackControllerName)
+                            @Html.HiddenFor(model => model.CmdShowParentPost_CallbackActionName)
+                            @Html.HiddenFor(model => model.CmdShowParentPost_PostId)
+
+
+
+
+
+                            @Html.HiddenFor(model => model.PostId)
+
+                            <div id="id_tags_location">
+                                @Html.Action("ShowTags", "TagManager", new { area = "PluginTag", SessionGuid = Model.StoreModelKey })
+                            </div>
+
+                        }
+
+                    </div>
+                    <div class="col-md-2">
+                        @*<div class="form-group">
+                            <button type="submit" id="Ok_Tags" class="btn btn-primary pull-right btn-block" 
+                                    >
+                                Сохранить
+                            </button>
+                        </div>*@
+
+                        <div class="form-group">
+                            <button type="submit" id="Manage" class="btn btn-primary pull-right btn-block"
+                                    data-toggle="modal" data-target="#manage_modal">
+                                Управлять
+                            </button>
+                        </div>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+<div id="manage_modal" class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div id="ManageFormLocation"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+                            }
+}
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        @*$("#Ok_Tags").click(function () {
+            var form = $("#EditTagManager");
+            form.attr("action", "@Url.Action("Edit", "TagManager")");
+            form.submit();
+
+        });*@
+
+        $("#Manage").click(function () {
+            var form = $("#EditTagManager");
+
+            //var input_CmdGetResult_CallbackViewBagName = $("<input>")
+            //               .attr("type", "hidden")
+            //               .attr("name", "CmdGetResult_CallbackViewBagName").val("SelectListModel");
+
+            //var input_on_change_event = $("<input>")
+            //               .attr("type", "hidden")
+            //               .attr("name", "on_change_event").val("triger_reload_plugin");
+
+            //form.append(input_CmdGetResult_CallbackViewBagName);
+            //form.append(input_on_change_event);
+            form.attr("action", "@Url.Action("Call_SelectListDialog", "TagManager")");
+            @*form.attr("action", "@Url.Action("Display", "SelectListDialog")");*@
+            form.submit();
+
+        });
+
+
+        var triger_reload_plugin = function()
+        {
+            debugger;
+            location.reload();
+        }
+
+    });
+
+
+
+
+
+
+</script>
+
+
+

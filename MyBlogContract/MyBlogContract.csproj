@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +80,10 @@
     <Compile Include="Band\IDataStoreBand.cs" />
     <Compile Include="Band\IDeItemBand.cs" />
     <Compile Include="Band\IDeGroupBand.cs" />
+    <Compile Include="DataStore\IDto.cs" />
+    <Compile Include="DataStore\IDataStore.cs" />
+    <Compile Include="DataStore\IDs.cs" />
+    <Compile Include="TagManage\IDsTag.cs" />
     <Compile Include="DeDirection.cs" />
     <Compile Include="FullContent\IFullContent.cs" />
     <Compile Include="FullContent\IDataStoreFullContent.cs" />
@@ -85,6 +92,14 @@
     <Compile Include="IDeItemModel.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IPlugIn.cs" />
+    <Compile Include="SessionSelect\HostSessionSelect.cs" />
+    <Compile Include="SessionSelect\PluginSessionSelect.cs" />
+    <Compile Include="SessionEntity\HostSessionEntity.cs" />
+    <Compile Include="SessionEntity\PluginSessionEntity.cs" />
+    <Compile Include="TagManage\IDataStorePostManage.cs" />
+    <Compile Include="TagManage\IDtoTag.cs" />
+    <Compile Include="TagManage\ITagDisplay.cs" />
+    <Compile Include="TagManage\ITagManager.cs" />
     <Compile Include="PostManage\IDataStorePostManage.cs" />
     <Compile Include="PostManage\IDEModelPostManage.cs" />
     <Compile Include="PostManage\IPostManager.cs" />

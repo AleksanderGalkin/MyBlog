@@ -81,10 +81,10 @@ namespace MyBlog.Infrastructure.Services
             return controller;
         }
 
-        public static object GetModelByInterface(Type Interface, string Plugin)
+        public static object GetModelByInterface(Type Interface, string Plugin = null)
         {
             object obj = null;
-            var e1 = _container.GetExports(Interface,null,Plugin);
+            var e1 = _container.GetExports(Interface, null, Plugin);
             var export = e1.SingleOrDefault();
             if (export != null)
             {
@@ -94,43 +94,44 @@ namespace MyBlog.Infrastructure.Services
             return obj;
         }
 
-        public static string GetControllerNameByInterface(Type type, string Plugin)
+        public static E GetModelByInterface<E>(string Plugin = null)
         {
-            var meta = _container.GetExports<IController, IMetadata>(Plugin)
-               .Where(m=>m.Metadata.ControllerType == type)
+            object obj = null;
+            var e1 = _container.GetExports<E>(Plugin);
+            var export = e1.SingleOrDefault();
+            if (export != null)
+            {
+                obj = export.Value;
+
+            }
+            return (E)obj;
+        }
+
+        //public static E GetModelByInterface<E>()
+        //{
+        //    object obj = null;
+        //    var e1 = _container.GetExports<E>();
+        //    var export = e1.SingleOrDefault();
+        //    if (export != null)
+        //    {
+        //        obj = export.Value;
+
+        //    }
+        //    return (E)obj;
+        //}
+
+        public static string GetControllerNameByInterface<E>( string Plugin = null)
+        {
+
+            var meta = _container.GetExports<E, IMetadata>(Plugin)
                .SingleOrDefault();
 
             var name = meta.Metadata.ControllerName;
             return name;
         }
 
-        public static string GetActionDisplayNameByInterface(Type type, string Plugin)
-        {
-            var meta = _container.GetExports<IController, IMetadata>(Plugin)
-                .Where(m => m.Metadata.ControllerType == type)
-                .SingleOrDefault();
-            var name = meta.Metadata.ActionDisplayName;
 
-            return name;
-        }
 
-        public static string GetActionModifyNameByInterface(Type type, string Plugin)
-        {
-            var meta = _container.GetExports<IController, IMetadata>(Plugin)
-               .Where(m => m.Metadata.ControllerType == type)
-               .SingleOrDefault();
-            var name = meta.Metadata.ActionModifyName;
 
-            return name;
-        }
-        public static string GetActionGetPostUrlByInterface(Type type, string Plugin)
-        {
-            var meta = _container.GetExports<IController, IMetadata>(Plugin)
-               .Where(m => m.Metadata.ControllerType == type)
-               .SingleOrDefault();
-            var name = meta.Metadata.ActionGetPostUrl;
-
-            return name;
-        }
     }
 }

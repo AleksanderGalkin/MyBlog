@@ -1,0 +1,217 @@
+﻿@using PluginTag.SelectListData;
+
+@model VmDtoDisplayIn
+@{
+    Layout = null;
+}
+
+@{
+    AjaxOptions ajax_options = new AjaxOptions
+    {
+        UpdateTargetId = Model.CmdGetResult_ResultLocationId
+
+
+    };
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Управление тегами поста
+    </div>
+    <div class="panel-body">
+        <div class="col-md-10">
+            <div class="col-md-5">
+                <h5 style="text-align:center">Доступные элементы</h5>
+                <ul id="left_panel" class="list-unstyled">
+
+                    @{
+
+                        List<SelectListStoreModelItem> select_items = Model.all_items.Except(Model.select_items, new SelectListStoreModelItemComparer()).ToList();
+
+
+                        for (int i = 0; i < select_items.Count(); i++)
+                        {
+                            <li id="@Html.DisplayFor(x => select_items[i].Id)">
+
+                                @Html.CheckBoxFor(x => select_items[i].Select)
+                                @Html.HiddenFor(x => select_items[i].Id)
+                                @Html.HiddenFor(x => select_items[i].Name)
+                                @Html.DisplayFor(x => select_items[i].Name)
+
+                            </li>
+
+                        }
+                    }
+
+                </ul>
+
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-12 "><h1></h1></div>
+                <div class="col-md-12">
+                    <button type="submit" id="to_right" class="btn btn-primary pull-right btn-block">
+                        >>
+                    </button>
+                    <button type="submit" id="to_left" class="btn btn-primary pull-right btn-block">
+                        <<
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-5">
+                @using (Ajax.BeginForm("", "SelectListDialog", new { area = "PluginTag" }, ajax_options, new { id = "SelectListModelForm", role = "form" }))
+
+                {
+
+                    for (int i = 0; i < Model.all_items.Count(); i++)
+                    {
+
+                            @Html.HiddenFor(x => Model.all_items[i].Id)
+                            @Html.HiddenFor(x => Model.all_items[i].Name)
+
+
+                    }
+
+                    @Html.HiddenFor(x => x.CmdGetResult_CallbackControllerName)
+                    @Html.HiddenFor(x => x.CmdGetResult_CallbackActionName)
+                    @Html.HiddenFor(x => x.CmdGetResult_ResultLocationId)
+                    @Html.HiddenFor(x => x.CmdGetResult_AreaName)
+                    @Html.HiddenFor(x => x.StoreModelKey)
+
+                    <h5 style="text-align:center">Выбранные элементы</h5>
+                    <ul id="right_panel" class="list-unstyled">
+                       
+                            @for (int i = 0; i < Model.select_items.Count(); i++)
+                            {
+                            <li id="@Html.DisplayFor(x => Model.select_items[i].Id)">
+
+                                @Html.CheckBoxFor(x => Model.select_items[i].Select)
+                                @Html.DisplayFor(x => Model.select_items[i].Name)
+                                @Html.HiddenFor(x => Model.select_items[i].Id)
+                                @Html.HiddenFor(x => Model.select_items[i].Name)
+
+                            </li>
+
+                            }
+                        
+
+                    </ul>
+
+
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <button type="submit" id="Ok_Save" class="btn btn-primary pull-right btn-block"
+                        data-dismiss="modal">
+                    Ок
+                </button>
+                <button type="submit" id="CancelSave" class="btn btn-primary pull-right btn-block"
+                        data-dismiss="modal">
+                    Отмена
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    
+
+
+    var define = function () {
+
+        $("#to_left").click(function () {
+            var right_items = $("#right_panel li");
+            right_items.each(function (idx, li) {
+                var right_item = $(li);
+                var cb = right_item.find(">:first-child")
+                if (cb.is(':checked'))
+                {
+                    cb.parent().detach();
+                    cb.parent().prependTo("#left_panel");
+                    cb.prop('checked', false);
+
+                    $("#right_panel").children().each(function (idx, e) {
+                        _li = $(e);
+                        _li.children().each(function (idx_field, field) {
+                            id = $(field).prop("id");
+                            name = $(field).prop("name");
+
+                            $(field).prop("id", id.replace(/_[0-9]+_/, '_' + idx + '_'));
+                            $(field).prop("name", name.replace(/\[[0-9]+\]/, '[' + idx + ']'));
+                        });
+                    });
+
+
+                }
+
+
+            });
+             
+        });
+
+        $("#to_right").click(function () {
+            var left_items = $("#left_panel li");
+            left_items.each(function (idx, li) {
+                var left_item = $(li);
+                var cb = left_item.find(">:first-child")
+                if (cb.is(':checked')) {
+                    cb.parent().detach();
+                    $("#right_panel").append(cb.parent());
+                    cb.prop('checked', false);
+
+                    $("#right_panel").children().each(function (idx, e) {
+                        _li = $(e);
+                        _li.children().each(function (idx_field, field) {
+                            id = $(field).prop("id");
+                            name = $(field).prop("name");
+
+                            $(field).prop("id", id.replace(/_[0-9]+_/, '_' + idx + '_'));
+                            $(field).prop("name", name.replace(/\[[0-9]+\]/, '[' + idx + ']'));
+                        });
+                    });
+
+                }
+
+
+            });
+
+        });
+
+        $("#Ok_Save").click(function () {
+            var form = $("#SelectListModelForm");
+            form.attr("action", "@Url.Action("Display", "SelectListDialog")");
+
+            form.submit();
+
+        });
+
+
+        
+
+    }
+
+
+
+    // Загрузка скриптов в зависимости от того загружена ли библиотека JQuery на этот момент
+    if ($ == undefined) {
+
+        document.addEventListener('DOMContentLoaded', function () {
+            define();
+
+        });
+    }
+    else {
+
+        define();
+
+
+    }
+
+
+</script>
+

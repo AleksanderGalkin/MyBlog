@@ -7,10 +7,23 @@ using System.Web.Mvc;
 
 namespace MyBlogContract.Band
 {
-    public interface IBandDisplay : IController
+    /*   Example
+    [InheritedExport("<ContractName>", typeof(<classname>)),
+    ExportMetadata("Name", "<PluginName>"),
+    ExportMetadata("Version", "<PluginVersion>"),
+    ExportMetadata("ControllerName", "<ControllerName>"),
+    ]
+    */
+    public abstract class IBandDisplay : Controller
     {
-        ActionResult Display(IDeGroupBand Model);
-        string GetPostUrl(IDeGroupBand Model);
+        protected IBandDisplay(IDataStoreBand DataStore)
+        {
+
+        }
+        public abstract ActionResult Display(IDeGroupBand Model);
+        public abstract string GetPostUrl(IDeGroupBand Model);
+
+
     }
 
 }

@@ -12,7 +12,7 @@ namespace MyBlog.Controllers
     public class AbstractController : Controller
     {
        
-        protected IUnitOfWork _unitOfWork { get; set; }
+        internal protected IUnitOfWork _unitOfWork { get; set; }
         public AbstractController (IUnitOfWork UnitOfWork)
         {
             _unitOfWork = UnitOfWork;

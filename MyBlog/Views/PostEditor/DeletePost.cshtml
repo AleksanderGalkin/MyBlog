@@ -29,7 +29,7 @@
         foreach (var item in Model.PostContents)
         {
 
-            IDEModelPostManage dte = (IDEModelPostManage)PlugInFactory.GetModelByInterface(typeof(IDEModelPostManage), item.ContentPluginName);
+            IDEModelPostManage dte = PlugInFactory.GetModelByInterface<IDEModelPostManage>( item.ContentPluginName);
             if (dte != null)
             {
                 dte.PostId = item.PostId;
@@ -39,10 +39,10 @@
                 dte.OnSuccessRemoveCallback = "removeContentId";
                 dte.CallbackActionName = "EditPost";
                 dte.CallbackControllerName = "PostEditor";
-                dte.AreaName = item.ContentPluginName;
+               // dte.AreaName = item.ContentPluginName;
 
-                @Html.Action(PlugInFactory.GetActionDisplayNameByInterface(typeof(IPostManager), item.ContentPluginName)
-                                                , PlugInFactory.GetControllerNameByInterface(typeof(IPostManager), item.ContentPluginName)
+                @Html.Action("Display"
+                                                , PlugInFactory.GetControllerNameByInterface<IPostManager>( item.ContentPluginName)
                                                 , dte.GetDictionary())
             }
             else

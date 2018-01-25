@@ -33,7 +33,11 @@ namespace MyBlog
 
             Mapper.CreateMap<PostVm, PostGroupVm>()
                 .ReverseMap();
-            
+
+
+            Mapper.CreateMap<IDsTag, Tag>()
+                .ReverseMap();
+
         }
     }
 }

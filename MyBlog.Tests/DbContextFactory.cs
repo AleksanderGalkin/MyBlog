@@ -78,7 +78,8 @@ namespace MyBlog.Tests
                         newPostContent = i;
                         PostContents.Add(newPostContent);
                     }
-                    mockPosts = Substitute.For<DbSet<Post>, IQueryable<Post>>().GetDbSet(Posts.AsQueryable());
+                    mockPosts = Substitute.For<DbSet<Post>, IQueryable<Post>>().GetDbSet(Posts.AsQueryable<Post>());
+                    mockPostContent = Substitute.For<DbSet<PostContent>, IQueryable<PostContent>>().GetDbSet(PostContents.AsQueryable<PostContent>());
 
                 });
             _context.PostContents.WhenForAnyArgs(x => x.Add(Arg.Any<PostContent>()))
@@ -124,6 +125,9 @@ namespace MyBlog.Tests
             ((IQueryable<T>)dbSet).Expression.Returns(data.Expression);
             ((IQueryable<T>)dbSet).ElementType.Returns(data.ElementType);
             ((IQueryable<T>)dbSet).GetEnumerator().Returns(data.GetEnumerator());
+            ((IQueryable<T>)dbSet).GetEnumerator().Reset();
+
+
 
             return dbSet;
         }

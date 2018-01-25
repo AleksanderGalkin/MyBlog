@@ -7,9 +7,15 @@ using System.Web.Mvc;
 
 namespace MyBlogContract.FullContent
 {
-    public interface IFullContent : IController
+    /*   Example
+    [InheritedExport("<ContractName>", typeof(<classname>)),
+    ExportMetadata("Name", "<PluginName>"),
+    ExportMetadata("Version", "<PluginVersion>"),
+    ExportMetadata("ControllerName", "<ControllerName>"),
+    ]
+*/
+    public abstract class IFullContent : Controller
     {
-        ActionResult Display(IDeFullContent Model);
     }
 
 }

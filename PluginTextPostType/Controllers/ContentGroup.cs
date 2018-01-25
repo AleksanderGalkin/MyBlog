@@ -16,28 +16,29 @@ using System.Web.Routing;
 
 namespace PluginTextPostType.Controllers
 {
-    [Export("PluginTextPostType",typeof(IController)),
+    [Export("PluginTextPostType", typeof(IController))]
+
+    [Export("PluginTextPostType",typeof(IContentGroupDisplay)),
         ExportMetadata("Name","PluginTextPostType"),
         ExportMetadata("Version","1.0"),
         ExportMetadata("ControllerName", "ContentGroup"),
-        ExportMetadata("ControllerType", typeof(IContentGroupDisplay)),
-        ExportMetadata("ActionDisplayName", "Display")]
+    ]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class ContentGroupController :Controller, IContentGroupDisplay
+    public class ContentGroupController : IContentGroupDisplay
     {
        
         private IDataStoreContentGroup _ds;
 
 
         [ImportingConstructor]
-        public ContentGroupController(IDataStoreContentGroup DataStore)
+        public ContentGroupController(IDataStoreContentGroup DataStore): base(DataStore)
         {
             if (DataStore == null)
                 throw new NullReferenceException("DataStore reference must be not null");
             _ds = DataStore;
         }
 
-        public ActionResult Display(IDeContentGroup Model)
+        public override ActionResult Display(IDeContentGroup Model)
         {
             IEnumerable<VmContentGroup> result = null;
 
