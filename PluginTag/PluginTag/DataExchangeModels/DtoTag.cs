@@ -38,11 +38,11 @@ namespace PluginTag.DataExchangeModels
             result.Add("TagId", this.TagId.ToString());
             if (direction == DeDirection.ToPlugin)
             {
-                result.Add("area", this.AreaName);
+                result.Add("Area", this.AreaName);
             }
             else
             {
-                result.Add("area", "");
+                result.Add("Area", "");
             }
             result.Add("AreaName", this.AreaName);
             result.Add("StoreModelKey", this.StoreModelKey);

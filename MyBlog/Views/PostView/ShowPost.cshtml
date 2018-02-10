@@ -8,18 +8,26 @@
 
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-8">
 
-    @Html.DisplayFor(model => model)
+            @Html.DisplayFor(model => model)
+        </div>
+    </div>
 </div>
 
 
+<div class="row">
+    <div class="col-md-8">
 
-@{
-    int disqus_identifier_post_id = Model.PostId;
-    int disqus_identifier_content_id = 0;
-    string disqus_identifier = disqus_identifier_post_id.ToString() + ':' + disqus_identifier_content_id.ToString();
-}
-@Html.Partial("Disqus", disqus_identifier)
+        @{
+            int disqus_identifier_post_id = Model.PostId;
+            int disqus_identifier_content_id = 0;
+            string disqus_identifier = disqus_identifier_post_id.ToString() + ':' + disqus_identifier_content_id.ToString();
+        }
+        @Html.Partial("Disqus", disqus_identifier)
 
+    </div>
+</div>
 
 

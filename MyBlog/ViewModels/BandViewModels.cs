@@ -9,19 +9,19 @@ using System.Web.Mvc;
 namespace MyBlog.ViewModels
 {
 
-    public interface IPost 
+    public interface IPostVm 
     {
 
         int PostId { get; set; }
         string Tittle { get; set; }
         DateTime PubDate { get; set; }
 
-        string PostPluginName { get; set; }
+       // string PostPluginName { get; set; }
 
         IList<IDataStoreRecord> PostContents { get; set; }
     }
 
-    public class PostVm:IPost 
+    public class PostVm:IPostVm 
     {
 
         [HiddenInput]
@@ -30,9 +30,10 @@ namespace MyBlog.ViewModels
         [Display(Description = "Заголовок", Name = "Заголовок")]
         public string Tittle { get; set; }
         [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
         [Display(Description = "Дата публикации", Name = "Дата публикации")]
         public DateTime PubDate { get; set; }
-        public string PostPluginName { get; set; }
+       // public string PostPluginName { get; set; }
         public IList<IDataStoreRecord> PostContents { get; set; }
         [Display(Description = "Комментарии", Name = "Комментарии")]
         public int PostCommentCount { get; set; }

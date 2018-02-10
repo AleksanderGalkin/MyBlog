@@ -15,6 +15,7 @@ namespace MyBlogContract.PostManage
         abstract public string List_content_insert_before_Id { get; set; }
         abstract public string Update_area_replace_Id { get; set; }
         abstract public string OnSuccessRemoveCallback { get; set; }
+        abstract public bool data_edit_diff_flag { get; set; }
     }
 
 }

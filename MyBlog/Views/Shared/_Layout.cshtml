@@ -1,13 +1,14 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8" >
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Блог Александра Галкина</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -21,8 +22,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home", new { area=""},null)</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Контакты", "Contact", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("О проекте", "About", "Home", new { area=""},null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -30,15 +31,30 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Galkin Lab</p>
-        </footer>
     </div>
 
+    <footer class="footer">
+        <hr />
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-3">@Html.ActionLink("Контакты", "Contact", "Home", new { area = "" }, new {@class = "navbar-link" })</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-3">@Html.ActionLink("О проекте", "About", "Home", new { area = "" }, new { @class = "navbar-link" })</div>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="text-center">
+            <p>&copy; @DateTime.Now.Year - Galkin Lab</p>
+        </div>
+    </footer>
+
+
     @Scripts.Render("~/bundles/jquery")
-   
 
     @Scripts.Render("~/bundles/bootstrap")
 
@@ -46,7 +62,12 @@
 
     @RenderSection("scripts", required: false)
 
+
+
     <script id="dsq-count-scr" src="//galkin.disqus.com/count.js" async></script>
+
+
+
 </body>
 </html>
 

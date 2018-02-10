@@ -8,23 +8,23 @@ using System.Web.Mvc;
 
 namespace MyBlogContract.TagManage
 {
-    [InheritedExport]
-    public interface ITagData
-    {
-        IEnumerable<IDsTag> GetTags();
-        void AddTag( IDsTag Tag);
-        void RemoveTag( IDsTag Tag);
+    //[InheritedExport]
+    //public interface ITagData
+    //{
+    //    IEnumerable<IDsTag> GetTags();
+    //    void AddTag( IDsTag Tag);
+    //    void RemoveTag( IDsTag Tag);
 
-        IDsTag GetNewObject();
+    //    IDsTag GetNewObject();
 
-    }
-    [InheritedExport]
-    public interface ITagStore
-    {
-        ITagData GetTagDataByGuid(string StoreModelKey);
-        void SetData(string StoreModelKey, ITagData TagData);
-        void RemoveData(string StoreModelKey);
+    //}
+    //[InheritedExport]
+    //public interface ITagStore
+    //{
+    //    ITagData GetTagDataByGuid(string StoreModelKey);
+    //    void SetData(string StoreModelKey, ITagData TagData);
+    //    void RemoveData(string StoreModelKey);
 
-    }
+    //}
 
 }

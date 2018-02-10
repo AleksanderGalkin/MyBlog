@@ -1,5 +1,8 @@
 ﻿@using MyBlog.ViewModels;
 @using MyBlog.Models;
+@using MyBlog.Infrastructure.Services
+@using MyBlogContract.Band
+@using MyBlogContract.TagCloud
 @model IList<PostGroupVm>
 
 @{
@@ -8,9 +11,33 @@
 
 
 <div class="container">
-    @Html.Action("AuthorControlCreate")
+    <div class="row">
+        <div class="col-md-8">
+            @Html.Action("AuthorControlCreate")
 
-    @Html.DisplayFor(model => model)
+            @Html.DisplayFor(model => model)
+        </div>
+        <div class="col-md-offset-1 col-md-3">
+            @{
+                IDtoTagCloud dto_tag_cloud = PlugInFactory.GetModelByInterface<IDtoTagCloud>();
+
+                if (dto_tag_cloud != null)
+                {
+
+                    dto_tag_cloud.StoreModelKey = "tag_cloud";
+                    dto_tag_cloud.CallbackControllerName_CmdShowPostByTag = "SearchHost";
+                    dto_tag_cloud.CallbackActionName_CmdShowPostByTag = "SearchByTags";
+
+                    @Html.Action("Display"
+                            , PlugInFactory.GetControllerNameByInterface<ITagCloudDisplay>()
+                            , dto_tag_cloud.GetDictionary())
+
+
+                }
+                
+            }
+        </div>
+    </div>
 </div>
 
 

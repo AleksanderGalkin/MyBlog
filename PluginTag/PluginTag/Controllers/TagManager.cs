@@ -3,7 +3,6 @@ using AutoMapper;
 using MyBlogContract;
 using MyBlogContract.Band;
 using MyBlogContract.PostManage;
-using MyBlogContract.SessionEntity;
 using MyBlogContract.TagManage;
 using PluginTag.DataExchangeModels;
 using PluginTag.Infrastructure;
@@ -32,7 +31,7 @@ namespace PluginTag.Controllers
     {
 
         [ImportingConstructor]
-        public TagManagerController([Import( typeof(IDataStore<IDsTagModel>))]
+        public TagManagerController([Import( typeof(IDataStore<IDsTagModel>), AllowDefault = true)]
                                           IDataStore<IDsTagModel> DataStore) : base(DataStore)
         {
         }

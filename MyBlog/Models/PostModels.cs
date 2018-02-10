@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBlogContract.Search;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MyBlog.Models
 {
-    public class Post
+    public class Post: IPost
     {
         [HiddenInput]
         public int PostId { get; set; }
@@ -35,10 +36,13 @@ namespace MyBlog.Models
         public  Post()
         {
             PostContents = new List<PostContent>();
+            PostViews = new List<PostView>();
+            PostComments = new List<PostComment>();
+            PostTags = new List<PostTag>();
         }
     }
 
-    public class PostContent
+    public class PostContent: IPostContent
     {
         public int PostContentId { get; set; }
         public int PostId { get; set; }
@@ -64,7 +68,7 @@ namespace MyBlog.Models
     }
 
 
-    public class PostView
+    public class PostView: IPostView
     {
         public int PostViewId { get; set; }
         public int PostId { get; set; }
@@ -78,7 +82,7 @@ namespace MyBlog.Models
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }
-    public class PostComment
+    public class PostComment: IPostComment
     {
         public int PostCommentId { get; set; }
         public int PostId { get; set; }
@@ -94,7 +98,7 @@ namespace MyBlog.Models
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }
-    public class PostTag
+    public class PostTag: IPostTag
     {
         [Key, Column(Order =0)]
         public int PostId { get; set; }
@@ -107,18 +111,15 @@ namespace MyBlog.Models
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }
-    public class Tag
+    public class Tag: ITag
     {
         public int TagId { get; set; }
         [StringLength(15, MinimumLength = 2)]
         public string TagName { get; set; }
 
-        //public virtual ICollection<Post> Posts { get; set; }
-
         [Timestamp]
         public byte[] RowVersion { get; set; }
     }
 
-  //  public enum ContentTypeEnums { Text, Image, Video, Sound};
  
 }

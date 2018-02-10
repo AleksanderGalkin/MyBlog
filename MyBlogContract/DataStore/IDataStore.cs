@@ -12,6 +12,7 @@ namespace MyBlogContract
     {
         
     }
+
     public class IDataStoreSessionObject<T>
         where T: class, IStoreModel
     {

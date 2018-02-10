@@ -57,7 +57,11 @@ namespace MyBlog.Infrastructure
             {
                 model = PlugInFactory.GetModelByInterface(modelType, null);
             }
-            return model ?? base.CreateModel(controllerContext, bindingContext, modelType);
+            if ( ! (modelType.IsAbstract || modelType.IsInterface))
+            {
+                model = base.CreateModel(controllerContext, bindingContext, modelType);
+            }
+            return model; 
         }
 
 

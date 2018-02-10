@@ -100,8 +100,8 @@ namespace PluginTextPostType.Controllers
        // public override ActionResult Modify(VmManage Model)
         public override ActionResult Modify(IDEModelPostManage Model)
         {
-            //IDataStoreRecord result = _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
-            IDataStoreRecord result = _ds.GetContent(Model.PostContentId, 0);
+            IDataStoreRecord result = _ds.GetContent(Model.PostContentId, Model.tempPostContentId);
+            //IDataStoreRecord result = _ds.GetContent(Model.PostContentId, 0);
 
             VmManage vmodel = Mapper.Map<VmManage>(Model);
 
@@ -126,6 +126,8 @@ namespace PluginTextPostType.Controllers
             newRecord.ContentData = bytes;
             _ds.Modify(newRecord);
             Model.data_edit_diff_flag = !Model.data_edit_diff_flag;
+            Model = Mapper.Map<IDataStoreRecord, VmManage > (newRecord, Model);
+            Model.tempPostContentId = newRecord.tempPostContentId;
             return View("Display", Model);
         }
         //[HttpPost]

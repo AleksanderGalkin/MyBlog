@@ -120,7 +120,7 @@ namespace MyBlog.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Галкин Александр Петрович";
+            ViewBag.Message = "О чём это всё...";
 
             return View();
         }

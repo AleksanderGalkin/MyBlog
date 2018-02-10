@@ -13,14 +13,23 @@
 
 
 <div class="row">
-    <div class="col-md-8">
-        <p class="h3">
-            @Html.DisplayFor(m => m.Tittle)
-        </p>
+    <div class="col-md-10">
+        <h3>
+            <strong>
+                @Html.DisplayFor(m => m.Tittle)
+            </strong>
+        </h3>
+    </div>
+    <div class="col-md-1">
+        <h3>
+            <small>
+                @Html.DisplayFor(m => m.PubDate)
+            </small>
+        </h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-11"> 
         @{
 
             foreach (GroupVmDisplay group1 in Model.GroupPostContents)
@@ -64,6 +73,9 @@
                 //dte_tag.CmdShowParentPost_CallbackActionName = "EditPost";
                 //dte_tag.CmdShowParentPost_PostId = Model.PostId;
 
+                dte_tag.CallbackControllerName_CmdShowPostByTag = "SearchHost";
+                dte_tag.CallbackActionName_CmdShowPostByTag = "SearchByTags";
+
 
                 @Html.Action("Display"
                             , PlugInFactory.GetControllerNameByInterface<ITagDisplay>()
@@ -71,12 +83,13 @@
             }
             else
             {
-                string plugin_string = "PluginTag" ?? "(empty)";
-                @Html.Partial("NotFounPlugin", plugin_string, null)
+                string plugin_string = "Теги" ?? "(empty)";
+                @Html.Partial("NotFoundPlugin", plugin_string, null)
             }
 
 
         }
     </div>
 </div>
+
 

@@ -3,17 +3,24 @@
 }
 
 
-    <br />
-    <div class="form-group col-md-offset-6 col-md-2 ">
-        <!-- Single button -->
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">. . . &nbsp;<span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Редактировать", "EditPost", "PostEditor", new { PostId = ViewBag.PostId },null)</li>
-                <li>@Html.ActionLink("Удалить", "DeletePost", "PostEditor", new { PostId = ViewBag.PostId }, null)</li>
-            </ul>
+<br />
+<div class="row">
+    <div class="col-md-offset-11 col-md-1 ">
+        <div class="form-group">
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-default pull-right dropdown-toggle" data-toggle="dropdown">. . . &nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Редактировать", "EditPost", "PostEditor", new { PostId = ViewBag.PostId }, null)</li>
+                    <li>@Html.ActionLink("Удалить", "DeletePost", "PostEditor", new { PostId = ViewBag.PostId }, null)</li>
+                </ul>
+            </div>
         </div>
     </div>
+</div>
+
+
+
 
 
     

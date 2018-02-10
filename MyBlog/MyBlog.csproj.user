@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
     <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
     <WebStackScaffolding_IsPartialViewSelected>True</WebStackScaffolding_IsPartialViewSelected>
@@ -11,9 +11,10 @@
     <WebStackScaffolding_DbContextTypeFullName>MyBlog.DomainModels.SiteDBContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <NameOfLastUsedPublishProfile>1</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>2</NameOfLastUsedPublishProfile>
     <UseIISExpress>true</UseIISExpress>
     <MvcBuildViews>true</MvcBuildViews>
+    <ToolsVersionPromptShown>2.7</ToolsVersionPromptShown>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

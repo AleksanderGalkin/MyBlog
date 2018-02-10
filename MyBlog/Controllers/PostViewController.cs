@@ -6,7 +6,6 @@ using MyBlog.Models;
 using MyBlog.ViewModels;
 using MyBlogContract;
 using MyBlogContract.Band;
-using MyBlogContract.SessionEntity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -47,31 +46,35 @@ namespace MyBlog.Controllers
                                  .SingleOrDefault();
             PostGroupVm model = new PostService(post).GetPostGroupVm();
 
-            IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
-                                       join tp in _unitOfWork.db.PostTags
-                                       on t.TagId equals tp.TagId
-                                       where tp.PostId == Model.PostId
-                                       select t
-                                        )
-                                        .ToList()
-                                        .Select(t =>
-                                        {
-                                            IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
-                                            tag.TagId = t.TagId;
-                                            tag.TagName = t.TagName;
-                                            return tag;
+            if (TagDataStore != null)
+            {
 
-                                        }
-                                        )
-                                        .ToList<IDsTag>();
+                IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
+                                           join tp in _unitOfWork.db.PostTags
+                                           on t.TagId equals tp.TagId
+                                           where tp.PostId == Model.PostId
+                                           select t
+                                            )
+                                            .ToList()
+                                            .Select(t =>
+                                            {
+                                                IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
+                                                tag.TagId = t.TagId;
+                                                tag.TagName = t.TagName;
+                                                return tag;
 
-            IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
-            tag_data.post_tags = post_tags;
+                                            }
+                                            )
+                                            .ToList<IDsTag>();
 
-            TagDataStore.SetModelByKey("tags", tag_data);
+                IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
+                tag_data.post_tags = post_tags;
 
-            model.TagSession = "tags";
+                TagDataStore.SetModelByKey("tags", tag_data);
 
+                model.TagSession = "tags";
+
+            }
 
             return View("ShowPost", model);
         }

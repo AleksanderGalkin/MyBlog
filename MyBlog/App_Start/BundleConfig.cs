@@ -10,7 +10,8 @@ namespace MyBlog
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                       "~/Scripts/jquery-ui-{version}.js"));
+                       "~/Scripts/jquery-ui-{version}.js"
+                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
                        "~/Scripts/jquery.unobtrusive-ajax.min_.js"));
@@ -24,17 +25,23 @@ namespace MyBlog
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/_modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/umd/popper.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/locales/bootstrap-datepicker.ru.min.js",
-                      "~/Scripts/bootstrap-modal.js"));
+                      "~/Scripts/bootstrap-modal.js"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
-                      "~/Scripts/tinymce/tinymce.min.js"));
+                      "~/Scripts/tinymce/tinymce.min.js",
+                      "~/Scripts/tinymce/prism.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/prism").Include(
+                           "~/Scripts/tinymce/prism.js"));
 
             bundles.Add(new StyleBundle("~/Content/woothemes-FlexSlider").Include(
                       "~/woothemes-FlexSlider/flexslider.css"));
@@ -58,9 +65,10 @@ namespace MyBlog
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/bootstrap-datepicker.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                       "~/Content/bootstrap.css"));
@@ -72,6 +80,11 @@ namespace MyBlog
                      "~/Backload/Client/blueimp/fileupload/css/jquery.fileupload.css",
                      "~/Content/bootstrap.min.css"
                      ));
+
+            bundles.Add(new StyleBundle("~/Content/prism").Include(
+                     "~/Scripts/tinymce/prism.css"
+                     ));
+
         }
     }
 }

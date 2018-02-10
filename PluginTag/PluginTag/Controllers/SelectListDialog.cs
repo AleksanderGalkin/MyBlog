@@ -3,7 +3,6 @@ using AutoMapper;
 using MyBlogContract;
 using MyBlogContract.Band;
 using MyBlogContract.PostManage;
-using MyBlogContract.SessionEntity;
 using MyBlogContract.TagManage;
 using PluginTag.DataExchangeModels;
 using PluginTag.Infrastructure;

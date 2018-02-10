@@ -7,7 +7,6 @@ using MyBlog.Models;
 using MyBlog.ViewModels;
 using MyBlogContract;
 using MyBlogContract.PostManage;
-using MyBlogContract.SessionEntity;
 using MyBlogContract.TagManage;
 using Newtonsoft.Json;
 using System;
@@ -50,7 +49,7 @@ namespace MyBlog.Controllers
         {
             PostService PostService = new PostService(User.Identity.GetUserId());
             PostVm model = PostService.GetPostVm();
-            model.PostPluginName = PostPluginName;
+           // model.PostPluginName = PostPluginName;
             IList<IDataStoreRecord> Contents = Session["PostContents"] as IList<IDataStoreRecord>;
             if (Contents != null)
             {
@@ -82,27 +81,10 @@ namespace MyBlog.Controllers
             PostService PostService = new PostService(Model);
             PostVm retModel = PostService.GetPostVm();         // Переделать на AutoMapper ??  
 
-
-            IList<IDsTag> all_tags = (from t in _unitOfWork.db.Tags
-                                      select t
-                                    )
-                                    .ToList()
-                                    .Select(t =>
-                                    {
-                                        IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
-                                        tag.TagId = t.TagId;
-                                        tag.TagName = t.TagName;
-                                        return tag;
-
-                                    }
-                                    )
-                                    .ToList<IDsTag>();
-
-            IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
-                                       join tp in _unitOfWork.db.PostTags
-                                       on t.TagId equals tp.TagId
-                                       where tp.PostId == PostId
-                                       select t
+            if (TagDataStore != null)
+            {
+                IList<IDsTag> all_tags = (from t in _unitOfWork.db.Tags
+                                          select t
                                         )
                                         .ToList()
                                         .Select(t =>
@@ -116,14 +98,33 @@ namespace MyBlog.Controllers
                                         )
                                         .ToList<IDsTag>();
 
+                IList<IDsTag> post_tags = (from t in _unitOfWork.db.Tags
+                                           join tp in _unitOfWork.db.PostTags
+                                           on t.TagId equals tp.TagId
+                                           where tp.PostId == PostId
+                                           select t
+                                            )
+                                            .ToList()
+                                            .Select(t =>
+                                            {
+                                                IDsTag tag = PlugInFactory.GetModelByInterface<IDsTag>();
+                                                tag.TagId = t.TagId;
+                                                tag.TagName = t.TagName;
+                                                return tag;
 
-            IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
-            tag_data.all_tags = all_tags;
-            tag_data.post_tags = post_tags;
+                                            }
+                                            )
+                                            .ToList<IDsTag>();
 
-            TagDataStore.SetModelByKey("tags", tag_data);
 
-            retModel.TagSession = "tags";
+                IDsTagModel tag_data = PlugInFactory.GetModelByInterface<IDsTagModel>();
+                tag_data.all_tags = all_tags;
+                tag_data.post_tags = post_tags;
+
+                TagDataStore.SetModelByKey("tags", tag_data);
+
+                retModel.TagSession = "tags";
+            }
 
             ViewBag.EditPostmode = "Редактирование поста";
             return View("EditPost", retModel);
@@ -182,28 +183,31 @@ namespace MyBlog.Controllers
                 }
             }
 
-            var tag_data = TagDataStore.GetModelByKey("tags");
-            var tags_to_delete = (from s in post.PostTags
-                     where !tag_data.post_tags.Any(si => si.TagId == s.TagId)
-                     select s)
-                    .ToList();
-
-            var tags_to_add = (from db_tag in _unitOfWork.db.Tags.ToList()
-                               join web_tag in tag_data.post_tags
-                               on db_tag.TagId equals web_tag.TagId
-                               where !post.PostTags.Any(si => si.TagId == db_tag.TagId)
-                                  select db_tag)
-                            .ToList();
-
-            foreach(var i in tags_to_delete)
+            if (TagDataStore != null)
             {
-                post.PostTags.Remove(i);
-            }
+                var tag_data = TagDataStore.GetModelByKey("tags");
+                var tags_to_delete = (from s in post.PostTags
+                                      where !tag_data.post_tags.Any(si => si.TagId == s.TagId)
+                                      select s)
+                        .ToList();
 
-            foreach(var i in tags_to_add)
-            {
-                PostTag new_post_tag = new PostTag { Post = post, Tag = i };
-                post.PostTags.Add(new_post_tag);
+                var tags_to_add = (from db_tag in _unitOfWork.db.Tags.ToList()
+                                   join web_tag in tag_data.post_tags
+                                   on db_tag.TagId equals web_tag.TagId
+                                   where !post.PostTags.Any(si => si.TagId == db_tag.TagId)
+                                   select db_tag)
+                                .ToList();
+
+                foreach (var i in tags_to_delete)
+                {
+                    post.PostTags.Remove(i);
+                }
+
+                foreach (var i in tags_to_add)
+                {
+                    PostTag new_post_tag = new PostTag { Post = post, Tag = i };
+                    post.PostTags.Add(new_post_tag);
+                }
             }
 
             if (Model.PostId == 0)

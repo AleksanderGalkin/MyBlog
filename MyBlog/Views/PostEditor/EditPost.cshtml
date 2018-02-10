@@ -12,35 +12,47 @@
 <h2>@ViewBag.EditPostmode</h2>
 
 
-    @using (@Html.BeginForm("EditPost", "PostEditor", FormMethod.Post, new { id = "EditPostForm", role = "form" }))
-    {
-        <div class="form-horizontal">
-            @Html.AntiForgeryToken()
+@using (@Html.BeginForm("EditPost", "PostEditor", FormMethod.Post, new { id = "EditPostForm", role = "form" }))
+{
+    <div class="row">
+        <div class="col-md-11">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Заголовок
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal">
+                        @Html.AntiForgeryToken()
 
-            @Html.HiddenFor(model => Model.PostId)
-            @Html.HiddenFor(model => Model.PostPluginName)
+                        @Html.HiddenFor(model => Model.PostId)
+                        @*@Html.HiddenFor(model => Model.PostPluginName)*@
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-11">
-                    @Html.EditorFor(model => model.Tittle, new { htmlAttributes = new { @class = "form-control " } })
-                    @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Tittle, htmlAttributes: new { @class = "control-label col-md-1" })
+                            <div class="col-md-11">
+                                @Html.EditorFor(model => model.Tittle, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+    </div>
 
-    }
+
+}
 
 <div class="row">
-    <div class="col-md-offset-1 col-md-11">
+    <div class="col-md-11">
+
         @{
 
 
             foreach (var item in Model.PostContents)
             {
 
-                IDEModelPostManage dte = PlugInFactory.GetModelByInterface<IDEModelPostManage>( item.ContentPluginName);
+                IDEModelPostManage dte = PlugInFactory.GetModelByInterface<IDEModelPostManage>(item.ContentPluginName);
                 if (dte != null)
                 {
                     dte.PostId = item.PostId;
@@ -50,12 +62,12 @@
                     dte.OnSuccessRemoveCallback = "removeContentId";
                     dte.CallbackActionName = "EditPost";
                     dte.CallbackControllerName = "PostEditor";
-                   // dte.AreaName = item.ContentPluginName;
+                    // dte.AreaName = item.ContentPluginName;
 
 
                     @Html.Action("Display"
-                                 , PlugInFactory.GetControllerNameByInterface<IPostManager>( item.ContentPluginName)
-                                 , dte.GetDictionary() );
+                                 , PlugInFactory.GetControllerNameByInterface<IPostManager>(item.ContentPluginName)
+                                 , dte.GetDictionary());
                 }
                 else
                 {
@@ -69,15 +81,16 @@
     </div>
 </div>
 
-<div class="col-md-offset-1 col-md-11">
-
-    <div id="list_content_insert_before"></div>
+<div class="row">
+    <div class="col-md-11">
+        <div id="list_content_insert_before"></div>
+    </div>
 </div>
 
-<div id="dropdown-menu" >
+<div id="dropdown-menu">
     <div class="form-horizontal">
         <div class="form-group">
-            <div class="col-md-offset-1 col-md-11">
+            <div class="col-md-11">
 
 
                 <div class="btn-group pull-left ">
@@ -98,31 +111,31 @@
                                         },
                                         new AjaxOptions
                                         {
-                                            HttpMethod = "Get",
-                                            UpdateTargetId = "Update_area_replace",
-                                            OnSuccess = "loadScriptAndInit"
+                                            HttpMethod = "Get"
+                                            ,UpdateTargetId = "Update_area_replace"
+                                            //,OnSuccess = "loadScriptAndInit"
                                         })
                         </li>
                         @*<li>
-                            @Ajax.ActionLink("Изображение", "Create", "PluginImagePostTypePM",
-                                        new
-                                        {
-                                            area = "PluginImagePostType",
-                                            PostId = Model.PostId,
-                                            List_content_insert_before_Id = "list_content_insert_before",
-                                            Update_area_replace_Id = "Update_area_replace",
-                                            CallbackActionName = "EditPost",
-                                            CallbackControllerName = "PostEditor",
-                                            AreaName = "PluginImagePostType",
-                                            OnSuccessRemoveCallback = "removeContentId"
-                                        },
-                                        new AjaxOptions
-                                        {
-                                            HttpMethod = "Get",
-                                            UpdateTargetId = "Update_area_replace",
-                                            OnSuccess = "loadScriptAndInit"
-                                        })
-                        </li>*@
+                                @Ajax.ActionLink("Изображение", "Create", "PluginImagePostTypePM",
+                                            new
+                                            {
+                                                area = "PluginImagePostType",
+                                                PostId = Model.PostId,
+                                                List_content_insert_before_Id = "list_content_insert_before",
+                                                Update_area_replace_Id = "Update_area_replace",
+                                                CallbackActionName = "EditPost",
+                                                CallbackControllerName = "PostEditor",
+                                                AreaName = "PluginImagePostType",
+                                                OnSuccessRemoveCallback = "removeContentId"
+                                            },
+                                            new AjaxOptions
+                                            {
+                                                HttpMethod = "Get",
+                                                UpdateTargetId = "Update_area_replace",
+                                                OnSuccess = "loadScriptAndInit"
+                                            })
+                            </li>*@
                     </ul>
                 </div>
 
@@ -130,21 +143,21 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
-
-
-
-    <div class="row">
-        <div class="form-group">
-            <div id="Update_area_replace"> </div>
-        </div>
-    </div>
 
 
 
 <div class="row">
-    <div class="col-md-offset-1 col-md-11">
+    <div class="col-md-11">
+        <div id="Update_area_replace"> </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-11">
         @{
 
             IDtoTag dte_tag = PlugInFactory.GetModelByInterface<IDtoTag>();
@@ -164,7 +177,7 @@
             else
             {
                 string plugin_string = "PluginTag" ?? "(empty)";
-                @Html.Partial("NotFounPlugin", plugin_string, null)
+                @Html.Partial("NotFoundPlugin", plugin_string, null)
             }
 
 
@@ -176,10 +189,9 @@
 
 
 
-
-
-    <div class="form-group">
-        <div class="col-lg-offset-8 col-md-4">
+<div class="row">
+    <div class="col-lg-offset-7 col-md-4">
+        <div class="btn-toolbar">
             <button type="button" class="btn btn-primary pull-right" onclick="document.forms['EditPostForm'].submit();">Сохранить</button>
             <button type="button" data-dismiss="modal" class="btn pull-right"
                     onclick="document.location = '@Url.Action("CancelPostEdition")'">
@@ -187,31 +199,31 @@
             </button>
         </div>
     </div>
+</div>
 
 
 
 
-
-    @section scripts{
-        @Scripts.Render("~/bundles/ajax")
-
-
-        <script type="text/javascript">
-
-            function loadScriptAndInit() {
-                $.getScript(
-                    '@Url.Action("CreateContentText","PostEditor")');
-            }
-
-            var removeContentId = function (json) {
-                
-                parsedJson = JSON.parse(json);
-                if (parsedJson.result == true)
-                  //  $('#' + parsedJson.PostContentId).remove();
-                    $('[id=' + parsedJson.PostContentId + '][data-_temporary_PostContentId =' + parsedJson.tempPostContentId + ']').remove();
-            }
+@section scripts{
+    @Scripts.Render("~/bundles/ajax")
 
 
+    <script type="text/javascript">
 
-        </script>
-    }
+        function loadScriptAndInit() {
+            $.getScript(
+                '@Url.Action("CreateContentText","PostEditor")');
+        }
+
+        var removeContentId = function (json) {
+
+            parsedJson = JSON.parse(json);
+            if (parsedJson.result == true)
+                //  $('#' + parsedJson.PostContentId).remove();
+                $('[id=' + parsedJson.PostContentId + '][data-_temporary_PostContentId =' + parsedJson.tempPostContentId + ']').remove();
+        }
+
+
+
+    </script>
+}

@@ -13,7 +13,7 @@ namespace PluginTag.ViewModels
         public string TagName { get; set; }
 
     }
-    public class VmDtoTag : DtoTag, IDto
+    public class VmDtoTag : DtoTag
     {
 
         public List<VmDtoTagItem> all_tags { get; set; }

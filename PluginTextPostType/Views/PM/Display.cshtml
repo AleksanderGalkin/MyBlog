@@ -4,13 +4,18 @@
 }
 @using System.Text.RegularExpressions;
 
-<div class="panel panel-info">
-    <div class="panel-body">
 
-        <div class="row col-md-10" id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag"
-             data-_temporary_PostContentId="@Model.tempPostContentId">
+<div id="@Model.PostContentId" data-edit-diff-flag="@Model.data_edit_diff_flag"
+     data-_temporary_PostContentId="@Model.tempPostContentId">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Контент
+        </div>
+        <div class="panel-body">
+
+
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-11">
                     <p class="text-right">
                         <em>
                             @Html.DisplayFor(x => x.Comment)
@@ -19,7 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-11">
 
                     @if (Model.Data != null)
                     {
@@ -28,17 +33,17 @@
                     }
 
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     @Ajax.ActionLink("Edit", "Modify", new
-           {
-               PostContentId = Model.PostContentId,
-               PostContentIdForNewRecords = Model.tempPostContentId,
-               PostId = Model.PostId,
-               data_edit_diff_flag = Model.data_edit_diff_flag,
-               List_content_insert_before_Id = Model.List_content_insert_before_Id,
-               Update_area_replace_Id = Model.Update_area_replace_Id,
-               OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback
-           },
+               {
+                   PostContentId = Model.PostContentId,
+                   tempPostContentId = Model.tempPostContentId,
+                   PostId = Model.PostId,
+                   data_edit_diff_flag = Model.data_edit_diff_flag,
+                   List_content_insert_before_Id = Model.List_content_insert_before_Id,
+                   Update_area_replace_Id = Model.Update_area_replace_Id,
+                   OnSuccessRemoveCallback = Model.OnSuccessRemoveCallback
+               },
             new AjaxOptions
             {
                 HttpMethod = "GET",
@@ -47,11 +52,11 @@
             })
                     <br />
                     @Ajax.ActionLink("Delete", "DeleteContent", new
-           {
-               PostContentId = Model.PostContentId,
-               tempPostContentId = Model.tempPostContentId,
-               PostId = Model.PostId
-           },
+               {
+                   PostContentId = Model.PostContentId,
+                   tempPostContentId = Model.tempPostContentId,
+                   PostId = Model.PostId
+               },
             new AjaxOptions
             {
                 HttpMethod = "POST",
@@ -64,3 +69,7 @@
         </div>
     </div>
 </div>
+
+
+@Styles.Render("~/Content/prism")
+@Scripts.Render("~/bundles/prism")

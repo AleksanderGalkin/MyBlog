@@ -126,13 +126,18 @@ namespace MyBlog.Infrastructure.Services
                 }
 
             }
-                
 
-            int idx = store
+
+            var record = store
                 .Where(x => x.tempPostContentId == Model.tempPostContentId && x.PostContentId == Model.PostContentId)
-                .Select(i => store.IndexOf(i))
                 .SingleOrDefault();
-            if (idx != 0) store.RemoveAt(idx);
+            if (record != null)
+            {
+                int idx = store.IndexOf(record);
+                if (idx != -1)
+                    store.RemoveAt(idx);
+            }
+
             store.Add(Model);
             
         }

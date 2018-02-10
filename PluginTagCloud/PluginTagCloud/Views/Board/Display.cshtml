@@ -1,0 +1,41 @@
+﻿@using PluginTagCloud.ViewModels;
+
+
+@model VmDtoTagCloud
+@if (Model.cloud_tags.Count > 0)
+{
+
+    <br />
+    <p class="text-center">
+
+        <h4>    Теги </h4>
+        <hr />
+
+        @{
+            int smallest_size = 7;
+            int biggest_size = 14;
+            double smallest_frequency = Model.cloud_tags.Min(x => x.Frequency) - 0.5;
+            double biggest_frequency = Model.cloud_tags.Max(x => x.Frequency) + 0.5;
+        }
+
+        @foreach (var item in Model.cloud_tags)
+        {
+
+
+            double font_size = smallest_size + (biggest_size - smallest_size) * ((item.Frequency - smallest_frequency) / (biggest_frequency - smallest_frequency));
+            string font_size_px = font_size.ToString() + "pt";
+
+            Model.TagId_CmdShowPostByTag = item.TagId;
+            RouteValueDictionary rvd = Model.GetDictionary(MyBlogContract.DeDirection.ToMain);
+            IDictionary<string, object> html = new Dictionary<string, object>();
+            html.Add(new KeyValuePair<string, object>("style", String.Format("font-size:{0}", @font_size_px)));
+
+            @Html.ActionLink(linkText: item.TagName, actionName: Model.CallbackActionName_CmdShowPostByTag, controllerName: Model.CallbackControllerName_CmdShowPostByTag, routeValues: rvd, htmlAttributes: html);
+            @:&nbsp;
+
+
+        }
+
+
+    </p>
+ }

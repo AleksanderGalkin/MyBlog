@@ -4,14 +4,19 @@
 @model VmDtoTag
 
 @{
-    if (Model.post_tags.Count > 0)
+    <br />
+    @:Метки:
+
+    if (Model.post_tags.Count == 0)
     {
-        <br />
-        @:Метки: 
+        @:&nbsp;Не найдены
     }
     foreach (var tag in Model.post_tags)
     {
-        @Html.ActionLink(tag.TagName, "", "");
+        Model.TagId_CmdShowPostByTag = tag.TagId;
+        RouteValueDictionary rvd = Model.GetDictionary(MyBlogContract.DeDirection.ToMain);
+
+        @Html.ActionLink(tag.TagName, Model.CallbackActionName_CmdShowPostByTag, Model.CallbackControllerName_CmdShowPostByTag, rvd, null );
         if (tag != Model.post_tags.Last())
         {
                 @:, 

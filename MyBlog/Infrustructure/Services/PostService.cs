@@ -6,6 +6,7 @@ using MyBlog.ViewModels;
 using MyBlogContract;
 using MyBlogContract.Band;
 using MyBlogContract.PostManage;
+using MyBlogContract.Search;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -71,7 +72,7 @@ namespace MyBlog.Infrustructure.Services
                 PostVm.PostContents.Add(newItem);
             }
 
-            //PostVm.PostViewCount = _post.PostViews.Count;
+            PostVm.PostViewCount = _post.PostViews.Count;
 
             var group = from r in PostVm.PostContents
                         group r by new { PostId = r.PostId,

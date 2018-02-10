@@ -33,6 +33,12 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -83,6 +89,11 @@
     <Compile Include="DataStore\IDto.cs" />
     <Compile Include="DataStore\IDataStore.cs" />
     <Compile Include="DataStore\IDs.cs" />
+    <Compile Include="Search\Host\ISearchHost.cs" />
+    <Compile Include="Search\IDataSearch.cs" />
+    <Compile Include="TagCloud\IDsTagCloud.cs" />
+    <Compile Include="TagCloud\IDtoTagCloud.cs" />
+    <Compile Include="TagCloud\ITagCloudDisplay.cs" />
     <Compile Include="TagManage\IDsTag.cs" />
     <Compile Include="DeDirection.cs" />
     <Compile Include="FullContent\IFullContent.cs" />
@@ -92,10 +103,6 @@
     <Compile Include="IDeItemModel.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IPlugIn.cs" />
-    <Compile Include="SessionSelect\HostSessionSelect.cs" />
-    <Compile Include="SessionSelect\PluginSessionSelect.cs" />
-    <Compile Include="SessionEntity\HostSessionEntity.cs" />
-    <Compile Include="SessionEntity\PluginSessionEntity.cs" />
     <Compile Include="TagManage\IDataStorePostManage.cs" />
     <Compile Include="TagManage\IDtoTag.cs" />
     <Compile Include="TagManage\ITagDisplay.cs" />

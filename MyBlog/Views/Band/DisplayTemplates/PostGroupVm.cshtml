@@ -11,15 +11,24 @@
 
 
 <div class="row">
-    <div class="col-md-8">
-        <p class="h3">
-            @Html.DisplayFor(m => m.Tittle)
-        </p>
+    <div class="col-md-11">
+        <h3>
+            <strong>
+                @Html.DisplayFor(m => m.Tittle)
+            </strong>
+        </h3>
+    </div>
+    <div class="col-md-1">
+        <h3>
+            <small>
+                @Html.DisplayFor(m => m.PubDate)
+            </small>
+        </h3>
     </div>
 </div>
 @Html.Action("AuthorControlEdit", new { PostId = Model.PostId })
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         @{
 
             if (Model.GroupPostContents.Count == 0)
@@ -59,7 +68,7 @@
 </div>
 
 <div class="row text-info">
-    <div class="col-md-4">
+    <div class="col-md-12">
 
         @{
             IDtoTag dto_tag = PlugInFactory.GetModelByInterface<IDtoTag>();
@@ -69,6 +78,8 @@
 
                 dto_tag.PostId = Model.PostId;
                 dto_tag.StoreModelKey = Model.TagSession;
+                dto_tag.CallbackControllerName_CmdShowPostByTag = "SearchHost";
+                dto_tag.CallbackActionName_CmdShowPostByTag = "SearchByTags";
 
                 @Html.Action("Display"
                             , PlugInFactory.GetControllerNameByInterface<ITagDisplay>()
@@ -82,7 +93,7 @@
 
 
 <div class="row text-info">
-    <div class="col-md-4">
+    <div class="col-md-6">
 
         @{MvcHtmlString link = Html.Action("GetPostUrl", PlugInFactory.GetControllerNameByInterface<IBandDisplay>(group1.GroupPluginName), dte.GetDictionary()); }
         @{
@@ -98,8 +109,9 @@
         </a>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         @Html.DisplayNameFor(m => m.PostViewCount) : @Html.DisplayFor(m => m.PostViewCount)
     </div>
-
 </div>
+
+<hr />

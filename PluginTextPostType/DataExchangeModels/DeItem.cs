@@ -19,6 +19,8 @@ namespace PluginTextPostType.DataExchangeModels
         public override int PostContentId { get; set; }
         public override string AreaName { get { return AppSettings.PluginName; } }
 
+        public override int tempPostContentId { get; set; }
+
 
         public override string CallbackControllerName_CmdShowFullContent { get; set; }
         public override string CallbackActionName_CmdShowFullContent { get; set; }

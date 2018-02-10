@@ -12,11 +12,9 @@ namespace PluginTextPostType.Models
     public class VmManage: DeModelPostManage
     {
 
-        public int tempPostContentId { get; set; }
         public string Comment { get; set; }
         [AllowHtml]
         public string Data { get; set; }
-        public bool data_edit_diff_flag { get; set; }
 
         public int Order { get; set; }
 
@@ -24,7 +22,6 @@ namespace PluginTextPostType.Models
         {
             RouteValueDictionary result = base.GetDictionary(direction);
 
-            result.Add("data_edit_diff_flag", data_edit_diff_flag);
             return result;
         }
 
